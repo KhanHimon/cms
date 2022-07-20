@@ -14,6 +14,7 @@ var userRouter = require('./routes/users.route');
 // thêm thư viện mongoose để kết nối vớ mongodb
 const mongoose = require('mongoose');
 // kết nối mongodb
+
 mongoose.connect('mongodb+srv://admin:admin@hethongquanly.2ltmkxk.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true});
 const db = mongoose.connection;
 //Bắt sự kiện error
