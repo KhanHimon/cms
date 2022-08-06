@@ -19,7 +19,7 @@ class LoginComtroller {
           res.render('login');
         } else {
           res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
-          return res.redirect('/');
+          return res.redirect('/tong-quan');
         }
       }
     });
@@ -34,7 +34,7 @@ class LoginComtroller {
   };
   logout(req,res,next){
     res.clearCookie('token');
-    return res.redirect('/');
+    return res.redirect('/login');
   }
   
 }

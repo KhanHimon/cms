@@ -677,8 +677,6 @@ pre {
 
 .container-fluid {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto; }
 
@@ -8550,9 +8548,7 @@ a {
 .content-body .container {
   margin-top: 40px; }
 .content-body .container-fluid {
-  padding-top: 40px;
-  padding-right: 40px;
-  padding-left: 40px; }
+  }
   @media only screen and (max-width: 1400px) {
     .content-body .container-fluid {
       padding-top: 30px;
@@ -9014,7 +9010,7 @@ a {
 
 .nav-header {
   height: 7.5rem;
-  width: 21.563rem;
+  width: 30rem;
   display: inline-block;
   text-align: left;
   position: absolute;
@@ -11431,7 +11427,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   top: 0.625rem; }
 
 .content-body {
-  margin-left: 21.563rem;
+  margin-left: 0rem;
   z-index: 0;
   transition: all .2s ease; }
   @media only screen and (max-width: 1400px) {
@@ -29442,4 +29438,8 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 /* custom css */
 .th-infor td{
   padding-right: 5em;
+}
+
+::placeholder { 
+  font-size: 10px;
 }

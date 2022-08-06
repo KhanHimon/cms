@@ -1,209 +1,805 @@
-<%- include layouts/header.ejs %>
+<!DOCTYPE html>
+<html lang="en">
 
-  <body>
-    <%- include layouts/preloader.ejs %>
-      <div id="main-wrapper">
-        <div class="nav-header">
-          <a href="index.html" class="brand-logo">
-            <img class="logo-abbr" src="./images/logo_3.png" alt="">
-            <img class="logo-compact" src="./images/logo-text.png" alt="">
-            <Span style="padding: 10px;">VCU INVESTING</Span>
+
+<!-- Mirrored from quiety.themetags.com/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Aug 2022 08:16:52 GMT -->
+
+<head>
+  <!--required meta tags-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--twitter og-->
+  <meta name="twitter:site" content="@themetags">
+  <meta name="twitter:creator" content="@themetags">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quiety - Creative SAAS Technology & IT Solutions Bootstrap 5 HTML Template">
+  <meta name="twitter:description"
+    content="Quiety creative Saas, software technology, Saas agency & business Bootstrap 5 Html template. It is best and famous software company and Saas website template.">
+  <meta name="twitter:image" content="#">
+
+  <!--facebook og-->
+  <meta property="og:url" content="#">
+  <meta name="twitter:title" content="Quiety - Creative SAAS Technology & IT Solutions Bootstrap 5 HTML Template">
+  <meta property="og:description"
+    content="Quiety creative Saas, software technology, Saas agency & business Bootstrap 5 Html template. It is best and famous software company and Saas website template.">
+  <meta property="og:image" content="#">
+  <meta property="og:image:secure_url" content="#">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+
+  <!--meta-->
+  <meta name="description"
+    content="Quiety creative Saas, software technology, Saas agency & business Bootstrap 5 Html template. It is best and famous software company and Saas website template.">
+  <meta name="author" content="ThemeTags">
+
+  <!--favicon icon-->
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/gmg.png">
+
+  <!--title-->
+  <title>VCU - Đầu tư và tích lũy</title>
+
+  <!--google fonts-->
+  <!--<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">-->
+
+  <!--build:css-->
+  <link rel="stylesheet" href="/home/assets/css/main.css">
+  <!-- endbuild -->
+
+  <!--custom css start-->
+  <link rel="stylesheet" href="/home/assets/css/custom.css">
+  <!--custom css end-->
+
+</head>
+
+<body>
+
+  <!--preloader start-->
+  <div id="preloader">
+    <div class="preloader-wrap">
+      <img src="./images/gmg.png" alt="logo" class="img-fluid preloader-icon" />
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+  <!--preloader end-->
+  <!--main content wrapper start-->
+  <div class="main-wrapper">
+
+    <!--header section start-->
+    <header class="main-header w-100 z-10">
+      <nav class="navbar navbar-expand-xl navbar-light sticky-header">
+        <div class="container d-flex align-items-center justify-content-lg-between position-relative">
+          <a href="index.html" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
+            <img src="/home/assets/img/logo-white.png" alt="logo" class="img-fluid logo-white" />
+            <img src="./images/gmg.png" alt="logo" width="50px" class="img-fluid logo-color" />
           </a>
-          <div class="nav-control">
-            <div class="hamburger">
-              <span class="line"></span><span class="line"></span><span class="line"></span>
-            </div>
+
+          <a class="navbar-toggler position-absolute right-0 border-0" href="#offcanvasWithBackdrop" role="button">
+            <span class="far fa-bars" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+              aria-controls="offcanvasWithBackdrop"></span>
+          </a>
+          <div class="clearfix"></div>
+          <div class="collapse navbar-collapse justify-content-center">
+            <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+              <li><a href="/" class="nav-link">Trang chủ</a></li>
+              <li><a href="" class="nav-link">Giới thiệu</a></li>
+              <li><a href="" class="nav-link">Chính sách</a></li>
+              <li><a href="" class="nav-link">Hướng dẫn</a></li>
+              <li><a href="" class="nav-link">Hỗ trợ</a></li>
+            </ul>
+          </div>
+
+          <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block">
+            <a href="login.html" class="btn btn-link text-decoration-none me-2">Đăng ký</a>
+            <a href="/tong-quan" class="btn btn-primary">Đăng nhập</a>
           </div>
         </div>
-        <div class="header">
-          <%- include layouts/menu.ejs %>
+      </nav>
+      <!--offcanvas menu start-->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
+        <div class="offcanvas-header d-flex align-items-center mt-4">
+          <a href="index.html" class="d-flex align-items-center mb-md-0 text-decoration-none">
+            <img src="./images/gmg.png" width="50px" alt="logo" class="img-fluid ps-2" />
+          </a>
+          <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="far fa-close"></i>
+          </button>
         </div>
-        <%- include layouts/nav.ejs %>
-          <div class="content-body">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-xl-12 col-lg-12 col-sm-12">
-                  <div class="card overflow-hidden">
-                    <div class="card-header media border-0 pb-0">
-                      <div class="media-body" style="height: 130px;">
-                        <div class="row">
-                          <div class="col-1">
-                            <img src="../images/user.png" alt="" srcset="" style="width: 100px;">
-                          </div>
-                          <div class="col-11">
-                            <h4>Lê Tuấn Khang <button style="border: none; padding: 5px; font-size: 10px;">Thông tin cá
-                                nhân <i class="lni lni-pencil"></i></button></h4>
-                            <table>
-                              <thead>
-                                <tr class="th-infor">
-                                  <td>ID người dùng</td>
-                                  <td>Loại người dùng</td>
-                                  <td>Đăng nhập lần cuối</td>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>87457954</td>
-                                  <td>Nhà đầu tư</td>
-                                  <td>2022-08-05 08:54:43(113.190.42.228)</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+        <div class="offcanvas-body">
+          <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+            <li><a href="/" class="nav-link">Trang chủ</a></li>
+            <li><a href="" class="nav-link">Giới thiệu</a></li>
+            <li><a href="" class="nav-link">Chính sách</a></li>
+            <li><a href="" class="nav-link">Hướng dẫn</a></li>
+            <li><a href="" class="nav-link">Hỗ trợ</a></li>
+          </ul>
+          <div class="action-btns mt-4 ps-3">
+            <a href="login.html" class="btn btn-outline-primary me-2">Đăng ký</a>
+            <a href="/tong-quan" class="btn btn-primary">Đăng nhập</a>
+          </div>
+        </div>
+      </div>
+      <!--offcanvas menu end-->
+    </header>
+    <!--header section end-->
+
+    <!--hero section start-->
+    <section class="hero-section ptb-120"
+      style="background: url('/home/assets/img/shape/dot-dot-wave-shape.svg')no-repeat bottom center">
+      <div class="container">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-xl-5 col-lg-5">
+            <div class="hero-content-wrap text-center text-xl-start text-lg-start" data-aos="fade-right">
+              <h1 class="fw-bold display-5">Công ty cổ phần tập đoàn chợ toàn cầu</h1>
+              <p class="lead">Đầu tư chợ truyền thống và các điểm kinh doanh bán hàng của ocopshop một cách dễ dàng hơn
+              </p>
+              <div
+                class="hero-subscribe-form-wrap pt-4 position-relative m-auto m-xl-0 d-none d-md-block d-lg-block d-xl-block">
+                <form id="subscribe-form" name="email-form" class="hero-subscribe-form d-block d-lg-flex d-md-flex">
+                  <input type="email" class="form-control me-2" name="Email" data-name="Email"
+                    placeholder="Nhập email/điện thoại" id="email-address" required="">
+                  <input type="submit" value="Bắt đầu" data-wait="Please wait..."
+                    class="btn btn-primary mt-3 mt-lg-0 mt-md-0">
+                </form>
+                <!-- <ul class="nav subscribe-feature-list mt-3">
+                                    <li class="nav-item">
+                                        <span class="ms-0"><i class="far fa-check-circle text-primary me-2"></i>Free
+                                            14-day trial</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span><i class="far fa-check-circle text-primary me-2"></i>No credit card
+                                            required</span>
+                                    </li>
+                                </ul> -->
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 mt-4 mt-xl-0">
+            <div class="hero-img-wrap position-relative" data-aos="fade-left">
+              <!--animated shape start-->
+              <ul class="position-absolute animate-element parallax-element shape-service hide-medium">
+                <li class="layer" data-depth="0.03">
+                  <img src="/home/assets/img/color-shape/image-1.svg" alt="shape"
+                    class="img-fluid position-absolute color-shape-1">
+                </li>
+                <li class="layer" data-depth="0.02">
+                  <img src="/home/assets/img/color-shape/feature-2.svg" alt="shape"
+                    class="img-fluid position-absolute color-shape-2 z-5">
+                </li>
+                <li class="layer" data-depth="0.03">
+                  <img src="/home/assets/img/color-shape/feature-3.svg" alt="shape"
+                    class="img-fluid position-absolute color-shape-3">
+                </li>
+              </ul>
+              <!--animated shape end-->
+              <div class="hero-img-wrap position-relative">
+                <div class="hero-screen-wrap">
+                  <div class="phone-screen">
+                    <img src="/home/assets/img/screen/phone-screen.png" alt="hero image"
+                      class="position-relative img-fluid">
                   </div>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-sm-12">
-                  <div class="card overflow-hidden">
-                    <div class="card-header media border-0 pb-0">
-                      <div class="media-body" style="">
-                        <div class="row">
-                          <div class="col-8">
-                            <div class="row">
-                              <div class="col-12">
-                                <div class="row">
-                                  <div class="col-9">
-                                    <h2>Số dư ước tính</h2>
-                                  </div>
-                                  <div class="col-3">
-                                    <button
-                                      style="border: none; padding: 5px; border-radius: 5px; width: 70px; background-color: #EBEBEB; float: right; margin-left: 10px;"><a
-                                        href="">Rút</a></button>
-                                    <button
-                                      style="border: none; padding: 5px; border-radius: 5px; width: 70px; background-color: #FCE515; float: right; margin-left: 10px;"><a
-                                        href="">Nạp</a></button>
-                                  </div>
-                                </div>
-                                <h1 style="color: rgb(19, 124, 223);">300.000.000 đ</h1>
-                                <div class="row">
-                                  <div class="col-3">
-                                    <canvas id="myChart" width="200" height="200"></canvas>
-                                  </div>
-                                  <div class="col-9" style="padding-top: 50px; padding-left: 50px;">
-                                    <p><button
-                                        style="width: 15px; height: 15px; background-color: yellow; border: none;"></button>
-                                      Ví thường : 25% = 75.000.000</p>
-                                    <p><button
-                                        style="width: 15px; height: 15px; background-color: #74F671; border: none;"></button>
-                                      Ví ocopshop : 25% = 75.000.000</p>
-                                    <p><button
-                                        style="width: 15px; height: 15px; background-color: #2C7BB5; border: none;"></button>
-                                      Đang đầu tư : 50% = 150.000.000</p>
-                                  </div>
-                                </div>
-                                <div style="padding-top: 50px;">
-                                  <h3>Các dự án đầu tư</h3>
-                                  <div class="card-body">
-                                    <div class="table-responsive">
-                                      <table id="example4" class="display" style="min-width: 845px">
-                                        <thead>
-                                          <tr>
-                                            <th>Tên dự án</th>
-                                            <th>Tổng đầu tư</th>
-                                            <th>Biến động</th>
-                                            <th>Kết thúc </th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td>Dự án chợ Cái Dầu</td>
-                                            <td>50.000.000</td>
-                                            <td style="color: #0FD70B;">0%</td>
-                                            <td>Ngày 24//12/2022</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Dự án chợ Vũng Tàu</td>
-                                            <td>50.000.000</td>
-                                            <td style="color: #0FD70B;">0%</td>
-                                            <td>Ngày 24//12/2022</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Dự án chợ Long Thịnh</td>
-                                            <td>50.000.000</td>
-                                            <td style="color: #0FD70B;">0%</td>
-                                            <td>Ngày 24//12/2022</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div style="padding: 10px; background-color: #F5F5F5; border-radius: 15px;">
-                              <div class="row">
-                                <div class="col-10">
-                                  <p style="padding-top: 15px;">Đầu tư hiệu quả hơn khi nắm rõ thông tin</p>
-                                </div>
-                                <div class="col-2">
-                                  <img src="../images/graph.png" alt="" width="50px">
-                                </div>
-                              </div>
-                            </div>
-                            <div style="padding-top: 30px;">
-                              <h3>Thông báo</h3>
-                              <div>
-                                <p><b>KHUYẾN MÃI:</b> Nạp lần đầu được tặng thêm
-                                  30% trên tổng giá trị. </p>
-                                <p><b>KHUYẾN MÃI:</b> Nạp lần đầu được tặng thêm
-                                  voucher mua hàng tại cửa hàng ocopshop
-                                  trên toàn quốc. </p>
-                              </div>
-                            </div>
-                            <div style="font-size: 16px;">
-                              <h3>Dịch vụ khác</h3>
-                              <br/>
-                              <div style="padding: 10px; background-color: #F5F5F5; border-radius: 15px;">
-                                <div class="row">
-                                  <div class="col-10">
-                                    <p style="padding-top: 15px; padding-left: 50px;"><img src="../images/add-user.png" alt="" width="50px" style="padding-right: 10px;"> Giới thiệu người dùng </p>
-                                  </div>
-                                </div>
-                              </div>
-                              <br/>
-                              <div style="padding: 10px; background-color: #F5F5F5; border-radius: 15px;">
-                                <div class="row">
-                                  <div class="col-10">
-                                    <p style="padding-top: 15px; padding-left: 50px;"><img src="../images/history.png" alt="" width="50px" style="padding-right: 10px;"> Lịch sử đầu tư </p>
-                                  </div>
-                                </div>
-                              </div>
-                              <br/>
-                              <div style="padding: 10px; background-color: #F5F5F5; border-radius: 15px;">
-                                <div class="row">
-                                  <div class="col-10">
-                                    <p style="padding-top: 15px; padding-left: 50px;"><img src="../images/open-book.png" alt="" width="50px" style="padding-right: 10px;"> Tài liệu tham khảo </p>
-                                  </div>
-                                </div>
-                              </div><br/>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="mac-screen">
+                    <img src="/home/assets/img/screen/mac-screen.png" alt="hero image"
+                      class="position-relative img-fluid rounded-custom">
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- <div class="footer">
-            <div class="copyright">
-              <p>Copyright © Lucas Khan &amp; Developed by Lê Tuấn Khang</a>
-                2022</p>
-            </div>
-          </div> -->
+        </div>
       </div>
-      <script src="./vendor/global/global.min.js" type="text/javascript"></script>
-      <script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
-      <script src="./vendor/chart.js/Chart.bundle.min.js" type="text/javascript"></script>
-      <script src="./vendor/apexchart/apexchart.js" type="text/javascript"></script>
-      <script src="./js/dashboard/dashboard-1.js" type="text/javascript"></script>
-      <script src="./js/custom.min.js" type="text/javascript"></script>
-      <script src="./js/deznav-init.js" type="text/javascript"></script>
-      <script src="./js/chart.js" type="text/javascript"></script>
-  </body>
-  <%- include layouts/footer.ejs %>
+    </section>
+    <!--hero section end-->
+
+    <!--promo section start-->
+    <div class="customer-section pb-120">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-12">
+            <ul class="customer-logos-grid text-center list-unstyled mb-0">
+              <li>
+                <img src="./images/ocs.png" width="100" alt="clients logo"
+                  class="img-fluid customer-logo-gray p-1 p-md-2 p-lg-3 m-auto" data-aos="fade-up">
+              </li>
+              <li>
+                <img src="./images/ocs.png" width="150" alt="clients logo"
+                  class="img-fluid customer-logo-gray p-1 p-md-2 p-lg-3 m-auto" data-aos="fade-up" data-aos-delay="50">
+              </li>
+              <li>
+                <img src="./images/ocs.png" width="100" alt="clients logo"
+                  class="img-fluid customer-logo-gray p-1 p-md-2 p-lg-3 m-auto" data-aos="fade-up" data-aos-delay="100">
+              </li>
+              <li>
+                <img src="./images/ocs.png" width="150" alt="clients logo"
+                  class="img-fluid customer-logo-gray p-1 p-md-2 p-lg-3 m-auto" data-aos="fade-up" data-aos-delay="150">
+              </li>
+              <li>
+                <img src="./images/ocs.png" width="150" alt="clients logo"
+                  class="img-fluid customer-logo-gray p-1 p-md-2 p-lg-3 m-auto" data-aos="fade-up" data-aos-delay="200">
+              </li>
+              <li>
+                <img src="./images/ocs.png" width="150" alt="clients logo"
+                  class="img-fluid customer-logo-gray p-1 p-md-2 p-lg-3 m-auto" data-aos="fade-up" data-aos-delay="250">
+              </li>
+              <li>
+                <img src="./images/ocs.png" width="150" alt="clients logo"
+                  class="img-fluid customer-logo-gray p-1 p-md-2 p-lg-3 m-auto" data-aos="fade-up" data-aos-delay="300">
+              </li>
+              <li>
+                <img src="./images/ocs.png" width="150" alt="clients logo"
+                  class="img-fluid customer-logo-gray p-1 p-md-2 p-lg-3 m-auto" data-aos="fade-up" data-aos-delay="350">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--promo section end-->
+
+    <!--customers section start-->
+    <section class="promo-section ptb-120 bg-light ">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-6">
+            <div class="section-heading text-center" data-aos="fade-up">
+              <h2>Tại sao nên lựa chọn chúng tôi</h2>
+              <p>Với kinh nghiệm đầu tư xây dựng nhiều dự án trên cả nước, 
+                Công ty cổ phần tập đoàn chợ toàn cầu xác định chiến lược kinh doanh theo định hướng và phương 
+                châm hoạt động "Tạo giá trị - Gửi niềm tin" góp phần trong việc phát triển kinh tế, đảm bảo an 
+                sinh xã hội và nâng cao chất lượng cuộc sống cho nhân dân. </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mt-3 mt-lg-0 mt-md-0">
+            <div class="bg-dark p-5 text-center d-flex flex-column h-100 rounded-custom" data-aos="fade-up"
+              data-aos-delay="100">
+              <div class="promo-card-info mb-4">
+                <h3 class="display-5 fw-bold mb-4">
+                  9000 +
+                </h3>
+                <p>Chợ truyền thông đã cũ và xuống cấp
+                  cần xây dựng mới và cải tạo </p>
+              </div>
+              <div class="mt-auto">
+                <img src="./images/apartment.png" width="120" alt="clients"
+                  class="img-fluid me-auto customer-logo">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mt-3 mt-lg-0 mt-md-0">
+            <div class="bg-dark p-5 text-center d-flex flex-column h-100 rounded-custom" data-aos="fade-up"
+              data-aos-delay="150">
+              <div class="promo-card-info mb-4">
+                <h3 class="display-5 fw-bold mb-4">
+                  1 Nghìn
+                </h3>
+                <p>Khách hàng đã tin tưởng
+                  và đồng hành cùng chúng tôi </p>
+              </div>
+              <div class="mt-auto">
+                <img src="./images/user.png" width="120" alt="clients"
+                  class="img-fluid me-auto customer-logo">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mt-3 mt-lg-0">
+            <div class="bg-dark p-5 text-center d-flex flex-column h-100 rounded-custom" data-aos="fade-up"
+              data-aos-delay="200">
+              <div class="promo-card-info mb-4">
+                <h3 class="display-5 fw-bold mb-4">
+                  Tài chính</h3>
+                <p>Công khai và minh bạch đến từng
+                  chút một </p>
+              </div>
+              <div class="mt-auto">
+                <img src="./images/money.png" width="120" alt="clients"
+                  class="img-fluid me-auto customer-logo">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 mt-3 mt-lg-0">
+            <div class="bg-dark p-5 text-center d-flex flex-column h-100 rounded-custom" data-aos="fade-up"
+              data-aos-delay="200">
+              <div class="promo-card-info mb-4">
+                <h3 class="display-5 fw-bold mb-4">
+                  Lợi nhuận</h3>
+                <p>Lên tới 30% / năm </p>
+              </div>
+              <div class="mt-auto">
+                <img src="./images/graph.png" width="120" alt="clients"
+                  class="img-fluid me-auto customer-logo">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--customers section end-->
+
+    <!--feature section start-->
+    <section class="feature-section-two ptb-120">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-lg-5 col-md-12">
+            <div class="section-heading" data-aos="fade-up">
+              <h4 class="h5 text-primary">Tương lai</h4>
+              <h2>Khôi phục, phát triển và nâng cao hiệu quả hoạt động chợ truyền thống.</h2>
+              <p>Luôn đổi mới, sáng tạo, kiến tạo hệ sinh thái, làm nền tảng cho sự phát triển của tiểu thương, người tiêu dùng Việt Nam, hướng tới sự thịnh vượng của các địa phương và đất nước.</p>
+              <ul class="list-unstyled mt-5">
+                <li class="d-flex align-items-start mb-4">
+                  <div class="icon-box bg-primary rounded me-4">
+                    <i class="fas fa-bezier-curve text-white"></i>
+                  </div>
+                  <div class="icon-content">
+                    <h3 class="h5">Dự án chợ</h3>
+                    <p>Các dự án xây dựng và quản lý khai thác chợ trên toàn quốc</p>
+                  </div>
+                </li>
+                <li class="d-flex align-items-start mb-4">
+                  <div class="icon-box bg-danger rounded me-4">
+                    <i class="fas fa-fingerprint text-white"></i>
+                  </div>
+                  <div class="icon-content">
+                    <h3 class="h5">Cửa hàng kinh doanh Ocopshop</h3>
+                    <p>Các cửa hàng kinh doanh của công ty cổ phần Ocopshop trên toàn quốc
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-7">
+            <div class="feature-img-wrap position-relative d-flex flex-column align-items-end">
+              <ul class="img-overlay-list list-unstyled position-absolute">
+                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up"
+                  data-aos-delay="50">
+                  <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                  <h6 class="mb-0">Tạo tài khoản miễn phí</h6>
+                </li>
+                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up"
+                  data-aos-delay="100">
+                  <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                  <h6 class="mb-0">Bảo mật tin cậy cao</h6>
+                </li>
+                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up"
+                  data-aos-delay="150">
+                  <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                  <h6 class="mb-0">Đầu tư mọi lúc mọi nơi</h6>
+                </li>
+              </ul>
+              <img src="./images/app.png" alt="feature image" class="img-fluid rounded-custom">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--feature section end-->
+
+    <!--feature section start-->
+    <section class="feature-section two-bg-dark-light ptb-120">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-lg-6 col-md-6">
+            <div class="image-wrap mb-5 mb-md-0 mb-lg-0 mb-xl-0" data-aos="fade-up">
+              <img src="/home/assets/img/dashboard-img.png" alt="feature img" class="img-fluid shadow rounded-custom">
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-6">
+            <div class="feature-content-wrap" data-aos="fade-up" data-aos-delay="50">
+              <h4 class="h5 text-primary">Tiện ích tiên tiến</h4>
+              <h2>Đầu tư ở bất kỳ đâu bất kỳ lúc nào</h2>
+              <p>Với đa nền tảng bạn có thể thoải mái theo dõi lợi nhuận và đầu tư dù ở bất kỳ đâu hay bất kỳ lúc nào. </p>
+              <ul class="list-unstyled mt-5">
+                <li class="d-flex align-items-start mb-4">
+                  <div class="icon-box bg-primary rounded me-4">
+                    <i class="fas fa-bezier-curve text-white"></i>
+                  </div>
+                  <div class="icon-content">
+                    <h3 class="h5">Đầu tư dễ dàng hơn</h3>
+                    <p>Dễ dàng đầu tư trên điện thoại hoặc website. Đầu tư ở khắp mọi nơi
+                    </p>
+                  </div>
+                </li>
+                <li class="d-flex align-items-start mb-4">
+                  <div class="icon-box bg-danger rounded me-4">
+                    <i class="fas fa-fingerprint text-white"></i>
+                  </div>
+                  <div class="icon-content">
+                    <h3 class="h5">Cập nhập lợi nhuận và tin tức nhanh nhất</h3>
+                    <p>Dễ dàng theo dõi và cập nhập các thông tin mới nhất, nhanh nhất về các dự án
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--feature section end-->
+
+    <!--our work process start-->
+    <section class="work-process ptb-120">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-md-10">
+            <div class="section-heading text-center" data-aos="fade-up">
+              <h4 class="h5 text-primary">Công ty cổ phần tập đoàn chợ toàn cầu</h4>
+              <h2>Tầm nhìn và sứ mệnh</h2>
+              <p>Luôn đổi mới, sáng tạo, kiến tạo hệ sinh thái, làm nền tảng cho sự phát triển của tiểu thương, người tiêu dùng Việt Nam, hướng tới sự thịnh vượng của các địa phương và đất nước.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-between">
+          <div class="col-lg-5 col-md-12 order-1 order-lg-0">
+            <div class="img-wrap" data-aos="fade-up" data-aos-delay="50">
+              <img src="./images/app2.png" alt="work process" class="img-fluid rounded-custom">
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 order-0 order-lg-1">
+            <ul class="work-process-list list-unstyled">
+              <li class="d-flex align-items-start mb-4" data-aos="fade-up" data-aos-delay="50">
+                <div class="process-icon-2 border border-2 rounded-custom bg-white me-4 mt-2">
+                  <i class="far fa-folder-tree fa-2x"></i>
+                </div>
+                <div class="icon-content">
+                  <span class="text-primary h6">Step 1</span>
+                  <h3 class="h5 mb-2">Đăng ký tài khoản</h3>
+                  <p>Đăng ký tài khoản nhà đầu tư online hoặc thông qua nhân viên kinh doanh.
+                  </p>
+                </div>
+              </li>
+              <li class="d-flex align-items-start mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-icon-2 border border-2 rounded-custom bg-white me-4 mt-2">
+                  <i class="far fa-bezier-curve fa-2x"></i>
+                </div>
+                <div class="icon-content">
+                  <span class="text-primary h6">Step 2</span>
+                  <h3 class="h5 mb-2">Nhập mã giới thiệu</h3>
+                  <p>Nhập mã giới thiệu của nhân viên kinh doanh để được hưởng nhiều lợi ích
+                  </p>
+                </div>
+              </li>
+              <li class="d-flex align-items-start mb-4" data-aos="fade-up" data-aos-delay="150">
+                <div class="process-icon-2 border border-2 rounded-custom bg-white me-4 mt-2">
+                  <i class="far fa-layer-group fa-2x"></i>
+                </div>
+                <div class="icon-content">
+                  <span class="text-primary h6">Step 3</span>
+                  <h3 class="h5 mb-2">Đầu tư</h3>
+                  <p>Nạp tiền vào tài khoản và đầu tư theo sở thích.
+                  </p>
+                </div>
+              </li>
+              <li class="d-flex align-items-start mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
+                <div class="process-icon-2 border border-2 rounded-custom bg-white me-4 mt-2">
+                  <i class="far fa-truck fa-2x"></i>
+                </div>
+                <div class="icon-content">
+                  <span class="text-primary h6">Step 4</span>
+                  <h3 class="h5 mb-2">Theo dõi</h3>
+                  <p>Theo dõi lợi nhuận của dự án đầu tư và các thông tin quan trọng.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--our work process end-->
+
+    <!--customer review slider section start-->
+    <section class="testimonial-section bg-dark text-white  ptb-120">
+      <div class="container">
+        <div class="row justify-content-center align-content-center">
+          <div class="col-md-10 col-lg-6">
+            <div class="section-heading text-center" data-aos="fade-up">
+              <h4 class="h5 text-warning text-primary">Đánh giá</h4>
+              <h2>Khách hàng nói gì về chúng tôi</h2>
+              <p>Đánh giá của khách hàng về dịch vụ và sản phẩm của chúng tôi</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="position-relative w-100" data-aos="fade-up" data-aos-delay="50">
+              <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="bg-custom-light text-white  p-5 rounded-custom position-relative">
+                      <img src="/home/assets/img/testimonial/quotes-dot.svg" alt="quotes" width="100"
+                        class="img-fluid position-absolute left-0 top-0 z--1 p-3">
+                      <div class="d-flex mb-32 align-items-center">
+                        <img src="/home/assets/img/testimonial/1.jpg" class="img-fluid me-3 rounded" width="60"
+                          alt="user">
+                        <div class="author-info">
+                          <h6 class="mb-0">Ông Lê Trung Dũng</h6>
+                          <small>Phó giám đốc truyền thông Liên Hiệp Hợp tác xã OCOP</small>
+                        </div>
+                      </div>
+                      <blockquote>
+                        <h6>Đây là một ứng dụng đầu tư tuyệt với!</h6>
+                        Tôi đã gắn bó với Công ty cổ phần tập đoàn chợ toàn cầu từ những ngày đầu phát triển,
+                        tuy nhiên lúc đó việc đầu tư còn gặp nhiều khó khăn. Nhờ có ứng dụng GMG Investing đã giúp 
+                        việc đầu tư trở nên dễ dàng hơn.
+                      </blockquote>
+                      <ul class="review-rate mb-0 mt-2 list-unstyled list-inline">
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="bg-custom-light text-white  p-5 rounded-custom position-relative">
+                      <img src="/home/assets/img/testimonial/quotes-dot.svg" alt="quotes" width="100"
+                        class="img-fluid position-absolute left-0 top-0 z--1 p-3">
+                      <div class="d-flex mb-32 align-items-center">
+                        <img src="/home/assets/img/testimonial/3.jpg" class="img-fluid me-3 rounded" width="60"
+                          alt="user">
+                        <div class="author-info">
+                          <h6 class="mb-0">Ông Phạm Lương Huy Minh</h6>
+                          <small>Phó giám đốc truyền thông Liên Hiệp Hợp tác xã Việt Nam</small>
+                        </div>
+                      </div>
+                      <blockquote>
+                        <h6>Mọi việc đầu tư trở nên dễ dàng hơn</h6>
+                        Với một người không thích các thủ tục lằng nhằng như tôi trong việc đầu tư. 
+                        thì đây quả thật là một ứng dụng tuyệt với. Nó giúp tôi không còn phải lo lắng về các thủ tục giấy tờ
+                        lằng nhằng khi đầu tư nữa.
+                      </blockquote>
+                      <ul class="review-rate mb-0 mt-2 list-unstyled list-inline">
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                        <li class="list-inline-item"><i class="fas fa-star text-warning"></i>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="swiper-button-next"></span>
+              <span class="swiper-button-prev"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--customer review slider section end-->
+
+    <!--integration section start-->
+    <section class="integration-section  ptb-120">
+      <div class="container">
+        <div class="row align-items-center justify-content-lg-between">
+          <div class="col-lg-6 col-md-12">
+            <div class="section-heading">
+              <h4 class="h5 text-primary">Đối tác</h4>
+              <h2>Các đơn vị đối tác giúp đỡ hỗ trợ và đồng hành cùng chúng tôi</h2>
+              <p>Chúng tôi tự hào khi có các đối tác nhiệt tình tham gia và đồng hành cùng chúng tôi trong công cuộc phát triển.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="text-lg-end mb-5 mb-lg-0">
+              <a href="integrations.html" class="btn btn-primary">Xem tất cả</a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="integration-wrapper position-relative w-100">
+              <ul class="integration-list list-unstyled mb-0">
+                <li>
+                  <div class="single-integration">
+                    <img src="./images/ocs.png" alt="integration" style="max-width: 100px;" class="img-fluid">
+                    <h6 class="mb-0 mt-4">Công ty cổ phần ocopshop</h6>
+                  </div>
+                </li>
+                <li>
+                  <div class="single-integration">
+                    <img src="./images/gmg.png" style="max-width: 50px; max-height: 50px;" alt="integration" class="img-fluid">
+                    <h6 class="mb-0 mt-4">Liên Hiệp Hợp tác xã Việt Nam</h6>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--integration section end-->
+
+    <!--cat subscribe start-->
+    <section class="cta-subscribe bg-dark text-white ptb-120 position-relative overflow-hidden">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-md-10">
+            <div class="subscribe-info-wrap text-center position-relative z-2">
+              <div class="section-heading" data-aos="fade-up">
+                <h4 class="h5 text-warning">Bắt đầu đầu tư ngay hôm nay</h4>
+                <h2>Đầu tư ngay hôm nay để tối đa lợi nhuận</h2>
+                <p>Chúng tôi có thể tạo thêm cho bạn một nguồn thu ổn định bắt đầu từ ngay hôm nay</p>
+              </div>
+              <div class="form-block-banner mw-60 m-auto mt-5" data-aos="fade-up" data-aos-delay="50">
+                <a href="contact-us.html" class="btn btn-primary">Liên hệ ngay</a>
+                <a href="https://youtu.be/-nGaqmDK9pY"
+                  class="text-decoration-none popup-youtube d-inline-flex align-items-center watch-now-btn ms-lg-3 ms-md-3 mt-3 mt-lg-0">
+                  <i class="fas fa-play"></i> Xem giới thiệu </a>
+              </div>
+              <ul class="nav justify-content-center subscribe-feature-list mt-4" data-aos="fade-up"
+                data-aos-delay="100">
+                <li class="nav-item">
+                  <span><i class="far fa-check-circle text-primary me-2"></i>Đăng ký miễn phí</span>
+                </li>
+                <li class="nav-item">
+                  <span><i class="far fa-check-circle text-primary me-2"></i>Bảo mật tuyệt đối</span>
+                </li>
+                <li class="nav-item">
+                  <span><i class="far fa-check-circle text-primary me-2"></i>Hỗ trợ 24/7</span>
+                </li>
+                <li class="nav-item">
+                  <span><i class="far fa-check-circle text-primary me-2"></i>Đầu tư mọi nơi</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="bg-circle rounded-circle circle-shape-3 position-absolute bg-dark-light left-5"></div>
+        <div class="bg-circle rounded-circle circle-shape-1 position-absolute bg-warning right-5"></div>
+      </div>
+    </section>
+    <!--cat subscribe end-->
+
+    <!--footer section start-->
+    <footer class="footer-section">
+      <!--footer top start-->
+      <!--for light footer add .footer-light class and for dark footer add .bg-dark .text-white class-->
+      <div class="footer-top footer-light ptb-120">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-md-8 col-lg-4 mb-md-4 mb-lg-0">
+              <div class="footer-single-col">
+                <div class="footer-single-col mb-4">
+                  <img src="/home/assets/img/logo-white.png" alt="logo" class="img-fluid logo-white">
+                  <img src="./images/gmg.png" alt="logo" width="100px" class="img-fluid logo-color">
+                </div>
+                <p>Đăng ký nhận thông tin trực tiếp qua mail về các cập nhập và dự án mới nhất</p>
+
+                <form class="newsletter-form position-relative d-block d-lg-flex d-md-flex">
+                  <input type="text" class="input-newsletter form-control me-2" placeholder="Enter your email"
+                    name="email" required="" autocomplete="off">
+                  <input type="submit" value="Bắt đầu ngay" data-wait="Please wait..."
+                    class="btn btn-primary mt-3 mt-lg-0 mt-md-0">
+                </form>
+                <div class="ratting-wrap mt-4">
+                  <h6 class="mb-0">10/10 chất lượng</h6>
+                  <ul class="list-unstyled rating-list list-inline mb-0">
+                    <li class="list-inline-item"><i class="fas fa-star text-warning"></i></li>
+                    <li class="list-inline-item"><i class="fas fa-star text-warning"></i></li>
+                    <li class="list-inline-item"><i class="fas fa-star text-warning"></i></li>
+                    <li class="list-inline-item"><i class="fas fa-star text-warning"></i></li>
+                    <li class="list-inline-item"><i class="fas fa-star text-warning"></i></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-7 mt-4 mt-md-0 mt-lg-0">
+              <div class="row">
+                <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
+                  <div class="footer-single-col">
+                    <h3>Chính sách</h3>
+                    <ul class="list-unstyled footer-nav-list mb-lg-0">
+                      <li><a href="index.html" class="text-decoration-none">Home</a></li>
+                      <li><a href="about-us.html" class="text-decoration-none">About Us</a></li>
+                      <li><a href="services.html" class="text-decoration-none">Services</a></li>
+                      <li><a href="career.html" class="text-decoration-none">Career</a></li>
+                      <li><a href="integrations.html" class="text-decoration-none">Integrations</a>
+                      </li>
+                      <li><a href="integration-single.html" class="text-decoration-none">Integration Single</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
+                  <div class="footer-single-col">
+                    <h3>Quy định</h3>
+                    <ul class="list-unstyled footer-nav-list mb-lg-0">
+                      <li><a href="pricing.html" class="text-decoration-none">Pricing</a></li>
+                      <li><a href="blog.html" class="text-decoration-none">Blog</a></li>
+                      <li><a href="blog-single.html" class="text-decoration-none">Blog Details</a>
+                      </li>
+                      <li><a href="contact-us.html" class="text-decoration-none">Contact</a></li>
+                      <li><a href="career-single.html" class="text-decoration-none">Career
+                          Single</a>
+                      </li>
+                      <li><a href="service-single.html" class="text-decoration-none">Services
+                          Single</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-4 mt-4 mt-md-0 mt-lg-0">
+                  <div class="footer-single-col">
+                    <h3>Hướng dẫn</h3>
+                    <ul class="list-unstyled footer-nav-list mb-lg-0">
+                      <li><a href="contact-us.html" class="text-decoration-none">Contact</a></li>
+                      <li><a href="support.html" class="text-decoration-none">Support</a></li>
+                      <li><a href="support-single.html" class="text-decoration-none">Support
+                          Single</a></li>
+                      <li><a href="team.html" class="text-decoration-none">Our Team</a></li>
+                      <li><a href="client-review.html" class="text-decoration-none">Customer
+                          Review</a></li>
+                      <li><a href="career-single.html" class="text-decoration-none">Career
+                          Single</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--footer top end-->
+
+      <!--footer bottom start-->
+      <div class="footer-bottom footer-light py-4">
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+            <div class="col-md-7 col-lg-7">
+              <div class="copyright-text">
+                <p class="mb-lg-0 mb-md-0">&copy; 2021 Quiety Rights Reserved. Designed By <a
+                    href="https://chotoancau.vn/" class="text-decoration-none">Công ty cổ phần tập đoàn chợ toàn cầu</a></p>
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+              <div class="footer-single-col text-start text-lg-end text-md-end">
+                <ul class="list-unstyled list-inline footer-social-list mb-0">
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-github"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--footer bottom end-->
+    </footer>
+    <!--footer section end-->
+
+  </div>
+
+
+
+  <!--build:js-->
+  <script src="/home/assets/js/vendors/jquery-3.6.0.min.js"></script>
+  <script src="/home/assets/js/vendors/bootstrap.bundle.min.js"></script>
+  <script src="/home/assets/js/vendors/swiper-bundle.min.js"></script>
+  <script src="/home/assets/js/vendors/jquery.magnific-popup.min.js"></script>
+  <script src="/home/assets/js/vendors/parallax.min.js"></script>
+  <script src="/home/assets/js/vendors/aos.js"></script>
+  <script src="/home/assets/js/app.js"></script>
+  <!--endbuild-->
+</body>
+
+
+<!-- Mirrored from quiety.themetags.com/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Aug 2022 08:17:27 GMT -->
+
+</html>
