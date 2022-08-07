@@ -21,6 +21,17 @@ router.get('/bao-mat', login_controller.loginRequired, function (req,res,next) {
 router.get('/cai-dat', login_controller.loginRequired, function (req,res,next) {
   res.render('pages/cai_dat');
 });
+router.get('/wallet', login_controller.loginRequired, function (req,res,next) {
+  res.render('pages/wallet');
+});
+router.get('/thong-tin-ca-nhan', login_controller.loginRequired, function (req,res,next) {
+  res.render('pages/thong_tin_ca_nhan');
+});
+
+router.get('/thong-tin-ca-nhan', login_controller.loginRequired, function (req,res,next) {
+  res.render('pages/dau-tu');
+});
+
 router.post('/logout', login_controller.logout);
 
 module.exports = router;

@@ -11938,8 +11938,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li.mm-active > a {
     background: #f5f5f5;
     font-weight: 600;
-    color: black;
-    box-shadow: 0 10px 10px 0 #181f39; }
+    color: black;}
     [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li.mm-active > a i {
       color: #157EBF;
       font-weight: normal; }
@@ -29442,4 +29441,51 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 
 ::placeholder { 
   font-size: 10px;
+}
+
+.avata_user {
+  width: 100px;
+}
+
+.content-body{
+  margin-left: 25rem;
+}
+.notification_new{
+  padding: 10px;
+}
+
+.notification_new img{
+  width: 50px;
+}
+.services p{
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+@media screen and ( max-width: 1366px ) {
+  .avata_user {
+    width: 50px;
+  }
+  .content-body{
+    margin-left: 18rem;
+  }
+  .notification_new{
+    padding: 5px;
+  }
+  .notification_new img{
+    padding-top: 15px;
+    width: 50px;
+  }
+  .notification_new p{
+    padding-top: 15px;
+    padding-left: 10px;
+  }
+  .services img{
+    width: 30px;
+  }
+  .services p{
+    padding-top: 15px;
+    padding-left: 10px;
+    font-size: 14px;
+  }
 }
