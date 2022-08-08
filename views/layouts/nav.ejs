@@ -2,19 +2,19 @@
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
             <li>
-                <a class="has-arrow ai-icon" href="/tong-quan" aria-expanded="true">
+                <a class="has-arrow ai-icon" href="/tong-quan/<%= user._id %>" aria-expanded="true">
                     <i class="lni lni-user"></i>
                     <span class="nav-text">Tổng quan</span>
                 </a>
             </li>
             <li>
-                <a class="has-arrow ai-icon" href="/bao-mat" aria-expanded="false">
-                    <i class="lni lni-protection"></i>
+                <a class="has-arrow ai-icon" href="/dau-tu/<%= user._id %>" aria-expanded="false">
+                    <i class="lni lni-investment"></i>
                     <span class="nav-text">Đầu tư</span>
                 </a>
             </li>
             <li>
-                <a class="has-arrow ai-icon" href="/bao-mat" aria-expanded="false">
+                <a class="has-arrow ai-icon" href="/bao-mat/<%= user._id %>" aria-expanded="false">
                     <i class="lni lni-protection"></i>
                     <span class="nav-text">Bảo mật</span>
                 </a>
@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li>
-                <a class="has-arrow ai-icon" href="/cai-dat" aria-expanded="false">
+                <a class="has-arrow ai-icon" href="/cai-dat/<%= user._id %>" aria-expanded="false">
                     <i class="lni lni-cog"></i>
                     <span class="nav-text">Cài đặt</span>
                 </a>

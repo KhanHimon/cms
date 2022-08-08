@@ -7,7 +7,7 @@ class LoginComtroller {
   check(req, res) {
     UserSchema.findOne({
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
     }, function (err, user) {
       if (err) throw err;
       if (!user) {
@@ -19,7 +19,7 @@ class LoginComtroller {
           res.render('login');
         } else {
           res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
-          return res.redirect('/tong-quan');
+          return res.render('pages/tong_quan', {user});
         }
       }
     });

@@ -29458,6 +29458,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   width: 50px;
 }
 .services p{
+  padding-top: 20px;
   padding-left: 20px;
   font-size: 16px;
 }

@@ -5,15 +5,16 @@
           <div class="dashboard_bar">
           </div>
         </div>
+        
         <ul class="navbar-nav header-right">
           <li class="nav-item">
-            <a href="/wallet">Ví</a>
+            <a href="/wallet/<%= user._id %>">Ví</a>
           </li>
           <li class="nav-item">
-            <a href="/dau-tu">Đầu tư</a>
+            <a href="/dau-tu/<%= user._id %>">Đầu tư</a>
           </li>
           <li class="nav-item">
-            <a href="/thong-tin-ca-nhan"><i class="lni lni-user"></i></a>
+            <a href="/thong-tin-ca-nhan/<%= user._id %>"><i class="lni lni-user"></i></a>
           </li>
           <li class="nav-item">
             <a href="thong-bao"><i class="lni lni-alarm"></i></a>
