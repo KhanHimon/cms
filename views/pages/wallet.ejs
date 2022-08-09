@@ -82,17 +82,24 @@
                                                                                 <div class="tab-pane fade show active"
                                                                                     id="home" role="tabpanel">
                                                                                     <div class="table-responsive">
-                                                                                        <table
-                                                                                            class="table table-responsive-md">
-                                                                                            <tbody>
-                                                                                                <tr>
-                                                                                                    <td><%= user.lich_su.loai_lich_su %></td>
-                                                                                                    <td><%= user.lich_su.so_tien %></td>
-                                                                                                    <td><%= user.lich_su.trang_thai.trang_thai %></td>
-                                                                                                    <td><%= user.lich_su.ngay_giao_dich %></td>
-                                                                                                </tr>
-                                                                                            </tbody>
-                                                                                        </table>
+                                                                                        
+                                                                                        <% lich_su.forEach(function(lich_su){ %>
+                                                                                                <table
+                                                                                                    class="table table-responsive-md">
+                                                                                                    <tbody>
+                                                                                                        <% if(user.ho_va_ten == lich_su.nguoi_gui.ho_va_ten) {%> 
+                                                                                                        <tr>
+                                                                                                            <td><%= lich_su.nguoi_gui.ho_va_ten %></td>
+                                                                                                            <td><%= lich_su.loai_lich_su %></td>
+                                                                                                            <td><%= lich_su.so_tien %> đ</td>
+                                                                                                            <td><%= lich_su.ngan_hang %></td>
+                                                                                                            <td><%= lich_su.trang_thai.ten_trang_thai %></td>
+                                                                                                            <td><%= new Date().getDate(lich_su.ngay_giao_dich)  %>-<%= new Date().getMonth(lich_su.ngay_giao_dich)  %>-<%= new Date().getFullYear(lich_su.ngay_giao_dich)  %></td>
+                                                                                                        </tr>
+                                                                                                        <%} %>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                        <% }); %>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>

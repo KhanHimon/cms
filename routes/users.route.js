@@ -9,5 +9,6 @@ router.get('/', function(req, res, next) {
   res.render('dang_ky');
 });
 router.post('/them-user',login_controller.loginRequired , user_controller.postUser);
+router.post('/nap-tien' ,login_controller.loginRequired , user_controller.nap_tien);
 
 module.exports = router;

@@ -24,6 +24,7 @@ class LoginComtroller {
       }
     });
   }
+
   loginRequired(req, res, next) {
     var token = req.cookies.token
     if (token) {

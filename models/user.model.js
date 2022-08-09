@@ -26,14 +26,6 @@ const User_Schema = new Schema({
         tien_dau_tu: { type: Number },
         ngay_bat_dau: { type: Date },
         ngay_ket_thuc: { type: Date }
-    },
-    lich_su:{
-        loai_lich_su: {type: String},
-        trang_thai: { 
-            trang_thai: {type: String}
-        },
-        so_tien: { type: Number },
-        ngay_giao_dich: {type: Date}
     }
 });
 

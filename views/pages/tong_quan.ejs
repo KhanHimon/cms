@@ -70,10 +70,66 @@
                                       <button
                                         style="border: none; padding: 5px; border-radius: 5px; width: 70px; background-color: #EBEBEB; float: right; margin-left: 10px;"><a
                                           href="">Rút</a></button>
-                                      <button
-                                        style="border: none; padding: 5px; border-radius: 5px; width: 70px; background-color: #FCE515; float: right; margin-left: 10px;"><a
-                                          href="">Nạp</a></button>
+                                      <button data-toggle="modal" data-target="#exampleModalCenter"
+                                        style="border: none; padding: 5px; border-radius: 5px; width: 70px; background-color: #FCE515; float: right; margin-left: 10px;"><a>Nạp</a></button>
                                     </div>
+                                    <form action="/user/nap-tien" method="post">
+                                      <div class="modal fade" id="exampleModalCenter">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title">Nạp tiền vào tài khoản</h5>
+                                              <button type="button" class="close"
+                                                data-dismiss="modal"><span>&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <div class="form-group">
+                                                <label>Chọn ngân hàng:</label>
+                                                <select class="form-control" id="ngan_hang"
+                                                  name="ngan_hang">
+                                                  <option value="Vietcombank">Vietcombank | STK : 005564699 | LE TUAN
+                                                    KHANG</option>
+                                                  <option value="BIDV">BIDV | STK : 005564699 | LE TUAN KHANG</option>
+                                                  <option value="VIB">VIB | STK : 005564699 | LE TUAN KHANG</option>
+                                                  <option value="Techcombank">Techcombank | STK : 005564699 | LE TUAN
+                                                    KHANG</option>
+                                                </select>
+                                              </div>
+                                              <span style="font-size: 14px;">*Chú ý : ghi đúng nội dung chuyển
+                                                khoản. Sau khi chuyển khoản từ 15-30p sẽ được duyệt (CK 24/7)</span>
+                                              <hr />
+                                              <div class="form-group">
+                                                <label>Lựa chọn:</label>
+                                                <select class="form-control" id="loai_lich_su" name="loai_lich_su">
+                                                  <option selected="selected" value="Nạp">Nạp</option>
+                                                  <option value="Rút">Rút</option>
+                                                </select>
+                                              </div>
+                                              <% if(trang_thai) { %>
+                                                <input type="hidden" class="form-control" id="trang_thai"
+                                                    name="trang_thai" value="<%= trang_thai[2]._id %>" />
+                                              <% } %>
+                                                  <input type="hidden" class="form-control" id="nguoi_gui"
+                                                    name="nguoi_gui" value="<%= user._id %>" />
+                                              <div class="form-group row">
+                                                <label style="padding: 16px;" class="col-lg-3 col-form-label"
+                                                  for="so_tien">Số tiền</label>
+                                                <div class="col-lg-9">
+                                                  <input type="number" class="form-control" id="so_tien"
+                                                    name="so_tien" />
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger light"
+                                                data-dismiss="modal">Hủy</button>
+                                              <button type="submit" class="btn btn-primary">Gửi yêu cầu</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
                                   </div>
                                   <h1 style="color: rgb(19, 124, 223);">
                                     <%= user.wallet.wallet_basic + user.wallet.wallet_ocopshop %> đ

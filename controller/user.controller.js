@@ -1,7 +1,8 @@
 const UserSchema = require('../models/user.model');
+const Lich_su_Schema = require('../models/lich_su.model');
 
 class UserController {
-    postUser(req,res){
+    postUser(req, res) {
         const user = new UserSchema({
             username: req.body.username,
             password: req.body.password,
@@ -19,6 +20,18 @@ class UserController {
         });
         user.save();
         res.render('pages/kiem_tra');
+    }
+    nap_tien(req, res) {
+        const lich_su = new Lich_su_Schema({
+            nguoi_gui: req.body.nguoi_gui,
+            ngan_hang: req.body.ngan_hang,
+            trang_thai:req.body.trang_thai,
+            loai_lich_su: req.body.loai_lich_su,
+            so_tien: req.body.so_tien,
+            ngay_giao_dich: Date.now()
+        });
+        lich_su.save()
+        res.redirect('/tong-quan/'+ lich_su.nguoi_gui)
     }
 }
 
