@@ -1,5 +1,6 @@
 const UserSchema = require('../models/user.model');
 const Lich_su_Schema = require('../models/lich_su.model');
+const ngan_hang_Schema = require('../models/ngan_hang.model');
 
 class UserController {
     postUser(req, res) {
@@ -32,6 +33,15 @@ class UserController {
         });
         lich_su.save()
         res.redirect('/tong-quan/'+ lich_su.nguoi_gui)
+    }
+    them_tai_khoan_ngan_hang(req,res){
+        const ngan_hang = new ngan_hang_Schema({
+            ten_ngan_hang: req.body.ten_ngan_hang,
+            chu_tai_khoan: req.body.chu_tai_khoan,
+            so_tai_khoan: req.body.so_tai_khoan
+        });
+        ngan_hang.save();
+        res.json(ngan_hang)
     }
 }
 

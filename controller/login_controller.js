@@ -19,7 +19,7 @@ class LoginComtroller {
           res.render('login');
         } else {
           res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
-          return res.render('pages/tong_quan', {user});
+          return res.redirect('/tong-quan/' + user._id);
         }
       }
     });
@@ -27,6 +27,7 @@ class LoginComtroller {
 
   loginRequired(req, res, next) {
     var token = req.cookies.token
+    const user = UserSchema.findOne({})
     if (token) {
       next()
     } else {

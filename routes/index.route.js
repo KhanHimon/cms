@@ -37,6 +37,12 @@ router.get('/cai-dat/:_id', login_controller.loginRequired, function (req, res, 
     res.render('pages/cai_dat', { user });
   })
 });
+router.get('/ngan-hang/:_id', login_controller.loginRequired, function (req, res, next) {
+  UserSchema.findById(req.params._id, function (err, user) {
+    if (err) console.log(err);
+    res.render('pages/ngan_hang', { user });
+  })
+});
 router.get('/wallet/:_id', login_controller.loginRequired, function (req, res, next) {
   UserSchema.findById(req.params._id, function (err, user) {
     Lich_su_Schema.find({}, function (err, lich_su) {

@@ -18,7 +18,7 @@ const User_Schema = new Schema({
         wallet_ocopshop: { type: Number },
         ngay_nap: { type: Date }
     },
-    ma_gioi_thieu: { type: String },
+    ma_gioi_thieu: { type: Number },
     dau_tu: {
         du_an: {
             ten_du_an: { type: String }

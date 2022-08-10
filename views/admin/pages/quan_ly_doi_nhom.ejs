@@ -1,0 +1,287 @@
+<%- include ../layouts/header.ejs %>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+    <div class="layout-width">
+        <%- include ../layouts/nav_header.ejs %>
+    </div>
+</header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../layouts/left_menu.ejs %>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Quản lý đội nhóm</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Quản lý</a></li>
+                                        <li class="breadcrumb-item active">Nhân viên kinh doanh</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="h-100">
+                                <div class="row mb-3 pb-1">
+                                    <div class="col-12">
+                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                            <div class="flex-grow-1">
+                                                <h4 class="fs-16 mb-1">Chào mừng, Anna!</h4>
+                                                <p class="text-muted mb-0">Chúc bạn một ngày làm việc hiệu quả</p>
+                                            </div>
+                                            <div class="mt-3 mt-lg-0">
+                                                <form action="javascript:void(0);">
+                                                    <div class="row g-3 mb-0 align-items-center">
+                                                        <div class="col-sm-auto">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control border-0 dash-filter-picker shadow" data-provider="flatpickr" data-range-date="true" data-date-format="d M, Y" data-deafult-date="01 Jan 2022 to 31 Jan 2022">
+                                                                <div class="input-group-text bg-primary border-primary text-white">
+                                                                    <i class="ri-calendar-2-line"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--end col-->
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</button>
+                                                        </div>
+                                                        <!--end col-->
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-soft-info btn-icon waves-effect waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
+                                                        </div>
+                                                        <!--end col-->
+                                                    </div>
+                                                    <!--end row-->
+                                                </form>
+                                            </div>
+                                        </div><!-- end card header -->
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Danh sách đội nhóm</h4>
+                                                <div class="flex-shrink-0">
+                                                    <button type="button" class="btn btn-soft-info btn-sm">
+                                                        <i class="ri-file-list-3-line align-middle"></i> Thêm mới tài khoản
+                                                    </button>
+                                                </div>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">Nhóm kinh doanh</th>
+                                                                <th scope="col">Chức vụ</th>
+                                                                <th scope="col">Họ và tên</th>
+                                                                <th scope="col">Ngày sinh</th>
+                                                                <th scope="col">Số điện thoại</th>
+                                                                <th scope="col">Email</th>
+                                                                <th scope="col">Địa chỉ</th>
+                                                                <th scope="col"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% sales.forEach(function(sales){ %>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                </td>
+                                                                <td><%= sales.nam_sinh %></td>
+                                                                <td>
+                                                                    <span class="text-success">0<%= sales.dien_thoai %></span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class=""><%= sales.email %></span>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= sales.dia_chi %></span></h5>
+                                                                </td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-soft-info btn-sm">
+                                                                        <i class="ri-file-list-3-line align-middle"></i> Quản lý
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <% }); %>
+                                                            <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog modal-xl">
+                                                                    <form action="/admin/them-nhan-vien" method="post">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="myModalLabel">Thêm mới tài khoản</h5>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        
+                                                                        <div class="modal-body">
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="username_sale">Tài khoản
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="form-control" id="username_sale"
+                                                                                            name="username_sale" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="password_sale">Mật khẩu
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="password" class="form-control" id="password_sale"
+                                                                                            name="password_sale" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ho_va_ten">Họ và tên
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="form-control" id="ho_va_ten"
+                                                                                            name="ho_va_ten" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="dien_thoai">Số điện thoại
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="number" class="form-control" id="dien_thoai"
+                                                                                            name="dien_thoai" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="dia_chi">Địa chỉ
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="form-control" id="dia_chi"
+                                                                                            name="dia_chi" >
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="nam_sinh">Ngày sinh
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="date" class="form-control" id="nam_sinh"
+                                                                                            name="nam_sinh" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="email">Email
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="email" class="form-control" id="email"
+                                                                                            name="email" >
+                                                                                    </div>
+                                                                                    <label class="col-lg-12 col-form-label" for="nhom_kinh_doanh">Nhóm kinh doanh
+                                                                                        <span class="text-danger">*</span>
+                                                                                    <select class="form-control" id="nhom_kinh_doanh"
+                                                                                        name="nhom_kinh_doanh">
+                                                                                        <option value="">---- Đội nhóm ----</option>
+                                                                                        <% nhom_sale.forEach(function(nhom_sale){ %>
+                                                                                        <option value="<%= nhom_sale._id %>"><%= nhom_sale.ten_nhom %></option>
+                                                                                        <% }); %>
+                                                                                    </select>
+                                                                                    <label class="col-lg-12 col-form-label" for="chuc_vu">Chức vụ
+                                                                                        <span class="text-danger">*</span>
+                                                                                    <select class="form-control" id="chuc_vu"
+                                                                                        name="chuc_vu">
+                                                                                        <option value="">---- Chức vụ ----</option>
+                                                                                        <% chuc_vu.forEach(function(chuc_vu){ %>
+                                                                                            <option value="<%= chuc_vu._id %>"><%= chuc_vu.ten_chuc_vu %></option>
+                                                                                        <% }); %>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col">
+                                                                                    <lord-icon src="https://cdn.lordicon.com/tqywkdcz.json" trigger="hover" style="width:350px;height:350px">
+                                                                                    </lord-icon>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                            <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                        </div>
+                                                                    </form>
+                
+                                                                    </div><!-- /.modal-content -->
+                                                                </div><!-- /.modal-dialog -->
+                                                            </div>
+                                                        </tbody><!-- end tbody -->
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div>
+                                        </div> <!-- .card-->
+                                    </div> <!-- .col-->
+                                </div> <!-- end row-->
+
+                            </div> <!-- end .h-100-->
+
+                        </div> <!-- end col -->
+                    </div>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Lê Tuấn Khang
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <%- include ../layouts/footer.ejs %>
