@@ -132,7 +132,7 @@
                                     </form>
                                   </div>
                                   <h1 style="color: rgb(19, 124, 223);">
-                                    <%= user.wallet.wallet_basic + user.wallet.wallet_ocopshop %> đ
+                                    <%= (user.wallet.wallet_basic + user.wallet.wallet_ocopshop).toLocaleString() %> đ
                                   </h1>
                                   <div class="row">
                                     <div class="col-3">
@@ -163,15 +163,15 @@
                                     <div class="col-9" style="padding-top: 50px; padding-left: 50px;">
                                       <p><button
                                           style="width: 15px; height: 15px; background-color: yellow; border: none;"></button>
-                                        Ví thường : <%= user.wallet.wallet_basic %>
+                                        Ví thường : <%= user.wallet.wallet_basic.toLocaleString() %> đ
                                       </p>
                                       <p><button
                                           style="width: 15px; height: 15px; background-color: #74F671; border: none;"></button>
-                                        Ví ocopshop : <%= user.wallet.wallet_ocopshop %>
+                                        Ví ocopshop : <%= user.wallet.wallet_ocopshop.toLocaleString() %> đ
                                       </p>
                                       <p><button
                                           style="width: 15px; height: 15px; background-color: #2C7BB5; border: none;"></button>
-                                        Đang đầu tư : <%= user.dau_tu.tien_dau_tu %>
+                                        Đang đầu tư : <%= user.dau_tu.tien_dau_tu.toLocaleString() %> đ
                                       </p>
                                     </div>
                                   </div>
@@ -194,7 +194,7 @@
                                                 <%= user.dau_tu.du_an.ten_du_an %>
                                               </td>
                                               <td>
-                                                <%= user.dau_tu.tien_dau_tu %>
+                                                <%= user.dau_tu.tien_dau_tu.toLocaleString() %> đ
                                               </td>
                                               <td style="color: #0FD70B;">0%</td>
                                               <td>

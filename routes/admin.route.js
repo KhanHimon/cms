@@ -141,6 +141,7 @@ router.get('/quan-ly-tai-khoan/:_id', login_admin_controller.loginRequired, func
 });
 
 router.post('/', login_admin_controller.check);
+router.post('/*', login_admin_controller.check);
 
 router.post('/them-trang-thai', login_admin_controller.loginRequired, trang_thai_controller.them_trang_thai);
 router.post('/them-nhan-vien', login_admin_controller.loginRequired, admin_controller.them_nhan_vien);

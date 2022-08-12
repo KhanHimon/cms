@@ -40,7 +40,7 @@
                                                             </h4>
                                                             <div>
                                                                 <span style="font-size: 16px;"> <b>Tổng số dư :</b> <i
-                                                                        style="color:#2C7BB5;"><%= user.wallet.wallet_basic + user.wallet.wallet_ocopshop + user.dau_tu.tien_dau_tu %></i></span>
+                                                                        style="color:#2C7BB5;"><%= (user.wallet.wallet_basic + user.wallet.wallet_ocopshop + user.dau_tu.tien_dau_tu).toLocaleString() %></i></span>
                                                                 <button
                                                                     style="border: none; padding: 5px; border-radius: 5px; width: 100px; background-color: #EBEBEB; float: right; margin-left: 10px;"><a
                                                                         href="">Chuyển</a></button>
@@ -69,7 +69,7 @@
                                                                         <div class="default-tab">
                                                                             <span style="font-size: 16px;"> <b>Số dư ví
                                                                                     :</b> <i
-                                                                                    style="color:#2C7BB5;"><%= user.wallet.wallet_basic %></i></span>
+                                                                                    style="color:#2C7BB5;"><%= user.wallet.wallet_basic.toLocaleString() %></i></span>
                                                                             <ul style="padding-top: 20px;" class="nav nav-tabs" role="tablist">
                                                                                 <li class="nav-item">
                                                                                     <a class="nav-link active"
@@ -91,7 +91,7 @@
                                                                                                         <tr>
                                                                                                             <td><%= lich_su.nguoi_gui.ho_va_ten %></td>
                                                                                                             <td><%= lich_su.loai_lich_su %></td>
-                                                                                                            <td><%= lich_su.so_tien %> đ</td>
+                                                                                                            <td><%= lich_su.so_tien.toLocaleString() %> đ</td>
                                                                                                             <td><%= lich_su.ngan_hang %></td>
                                                                                                             <td><%= lich_su.trang_thai.ten_trang_thai %></td>
                                                                                                             <td><%= new Date().getDate(lich_su.ngay_giao_dich)  %>-<%= new Date().getMonth(lich_su.ngay_giao_dich)  %>-<%= new Date().getFullYear(lich_su.ngay_giao_dich)  %></td>
@@ -109,7 +109,7 @@
                                                                         <div class="default-tab">
                                                                             <span style="font-size: 16px;"> <b>Số dư ví
                                                                                     :</b> <i
-                                                                                    style="color:#2C7BB5;"><%= user.wallet.wallet_ocopshop%></i></span>
+                                                                                    style="color:#2C7BB5;"><%= user.wallet.wallet_ocopshop.toLocaleString() %></i></span>
                                                                             <ul style="padding-top: 20px;" class="nav nav-tabs" role="tablist">
                                                                                 <li class="nav-item">
                                                                                     <a class="nav-link active"
