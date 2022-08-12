@@ -26,7 +26,8 @@ const User_Schema = new Schema({
         tien_dau_tu: { type: Number },
         ngay_bat_dau: { type: Date },
         ngay_ket_thuc: { type: Date }
-    }
+    },
+    ngay_tham_gia: { type: Date}
 });
 
 

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Du_an_Schema = new Schema({
+    img_du_an: { type: String },
     ten_du_an: { type: String },
     tong_muc_dau_tu: {type: Number},
     dien_tich: {type: String},

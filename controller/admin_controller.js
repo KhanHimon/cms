@@ -2,6 +2,7 @@ const trang_thai_Schema = require('../models/trang_thai.model');
 const Sale_Schema = require('../models/sale.model');
 const Nhom_sale_Schema = require('../models/nhom_sale.model');
 const Chuc_vu_Schema = require('../models/chuc_vu.model');
+const UserSchema = require('../models/user.model');
 
 class admin_Controller {
     them_trang_thai(req,res) {
@@ -29,7 +30,7 @@ class admin_Controller {
             chuc_vu: req.body.chuc_vu
         });
         sale.save();
-        res.redirect('/admin/quan-ly-sale')
+        res.redirect(req.get('referer'));
     }
     them_nhom_kinh_doanh(req,res){
         const nhom_sale = new Nhom_sale_Schema({
@@ -45,6 +46,33 @@ class admin_Controller {
         })
         chuc_vu.save();
         res.json(chuc_vu)
+        
+    }
+    them_moi_khach_hang(req, res) {
+        const user = new UserSchema({
+            username: req.body.username,
+            password: req.body.password,
+            email: req.body.email,
+            nam_sinh: req.body.nam_sinh,
+            dia_chi: req.body.dia_chi,
+            so_dien_thoai: req.body.so_dien_thoai,
+            ho_va_ten: req.body.ho_va_ten,
+            ma_gioi_thieu: req.body.ma_gioi_thieu,
+            cccd_cmnd: req.body.cccd_cmnd,
+            wallet: {
+                wallet_basic: 0,
+                wallet_ocopshop: 0
+            },
+            ngay_tham_gia: Date.now()
+        });
+        user.save();
+        res.redirect(req.get('referer'));
+    }
+    tong_tien(req,res){
+        UserSchema.find(function (err, khach_hang){
+            if (err) throw err;
+            console.log(khach_hang.wallet_basic)
+        });
         
     }
 }

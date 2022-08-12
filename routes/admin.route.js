@@ -21,10 +21,10 @@ router.get('/', login_admin_controller.loginRequired, function (req, res, next) 
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
     Lich_su_Schema.find(function (err, lich_su) {
-      User_Schema.find(function(err, khach_hang){
+      User_Schema.find(function (err, khach_hang) {
         thong_bao_Schema.find(function (err, thong_bao) {
           if (err) throw err;
-        res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao });
+          res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao });
         })
       })
     }).populate('nguoi_gui')
@@ -35,7 +35,7 @@ router.get('/quan-ly-giao-dich/:_id', login_admin_controller.loginRequired, func
     Lich_su_Schema.find(function (err, lich_su) {
       thong_bao_Schema.find(function (err, thong_bao) {
         if (err) throw err;
-      res.render('admin/quan_ly_giao_dich', { lich_su, sale, khach_hang, thong_bao });
+        res.render('admin/pages/quan_ly_giao_dich', { lich_su, sale, thong_bao });
       })
     }).populate('nguoi_gui')
   }).populate('chuc_vu')
@@ -45,7 +45,16 @@ router.get('/quan-ly-thong-bao/:_id', login_admin_controller.loginRequired, func
   Sale_Schema.findById(req.params._id, function (err, sale) {
     thong_bao_Schema.find(function (err, thong_bao) {
       if (err) throw err;
-      res.render('admin/pages/quan_ly_thong_bao', { thong_bao,sale });
+      res.render('admin/pages/quan_ly_thong_bao', { thong_bao, sale });
+    })
+  }).populate('chuc_vu')
+});
+
+router.get('/quan-ly-du-an/:_id', login_admin_controller.loginRequired, function (req, res, next) {
+  Sale_Schema.findById(req.params._id, function (err, sale) {
+    thong_bao_Schema.find(function (err, thong_bao) {
+      if (err) throw err;
+      res.render('admin/pages/quan_ly_du_an', { thong_bao, sale });
     })
   }).populate('chuc_vu')
 });
@@ -59,8 +68,10 @@ router.get('/quan-ly-sale/:_id', login_admin_controller.loginRequired, function 
     Nhom_sale_Schema.find(function (err, nhom_sale) {
       Chuc_vu_Schema.find(function (err, chuc_vu) {
         Sale_Schema.find(function (err, sales) {
-          if (err) throw err;
-          res.render('admin/pages/quan_ly_sale', { sale, chuc_vu, nhom_sale,sales });
+          thong_bao_Schema.find(function (err, thong_bao) {
+            if (err) throw err;
+            res.render('admin/pages/quan_ly_sale', { sale, chuc_vu, nhom_sale, sales, thong_bao });
+          })
         }).populate('nhom_kinh_doanh').populate('chuc_vu')
       })
     })
@@ -72,8 +83,10 @@ router.get('/quan-ly-doi-nhom/:_id', login_admin_controller.loginRequired, funct
     Nhom_sale_Schema.find(function (err, nhom_sale) {
       Chuc_vu_Schema.find(function (err, chuc_vu) {
         Sale_Schema.find(function (err, sales) {
-          if (err) throw err;
-          res.render('admin/pages/quan_ly_doi_nhom', { sale, chuc_vu, nhom_sale,sales });
+          thong_bao_Schema.find(function (err, thong_bao) {
+            if (err) throw err;
+            res.render('admin/pages/quan_ly_doi_nhom', { sale, chuc_vu, nhom_sale, sales, thong_bao });
+          })
         }).populate('nhom_kinh_doanh').populate('chuc_vu')
       })
     })
@@ -85,9 +98,11 @@ router.get('/quan-ly-khach-hang-sale/:_id', login_admin_controller.loginRequired
     Nhom_sale_Schema.find(function (err, nhom_sale) {
       Chuc_vu_Schema.find(function (err, chuc_vu) {
         Sale_Schema.find(function (err, sales) {
-          User_Schema.find(function (err, khach_hang){
-            if (err) throw err;
-            res.render('admin/pages/quan_ly_khach_hang_sale', { sale, chuc_vu, nhom_sale,sales, khach_hang });
+          User_Schema.find(function (err, khach_hang) {
+            thong_bao_Schema.find(function (err, thong_bao) {
+              if (err) throw err;
+              res.render('admin/pages/quan_ly_khach_hang_sale', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang });
+            })
           })
         }).populate('nhom_kinh_doanh').populate('chuc_vu')
       })
@@ -99,8 +114,10 @@ router.get('/cai-dat-chung/:_id', login_admin_controller.loginRequired, function
   Sale_Schema.findById(req.params._id, function (err, sale) {
     Nhom_sale_Schema.find(function (err, nhom_sale) {
       Chuc_vu_Schema.find(function (err, chuc_vu) {
-        if (err) throw err;
-          res.render('admin/pages/cai_dat_chung', { sale, chuc_vu, nhom_sale });
+        thong_bao_Schema.find(function (err, thong_bao) {
+          if (err) throw err;
+          res.render('admin/pages/cai_dat_chung', { sale, chuc_vu, nhom_sale, thong_bao });
+        })
       })
     })
   }).populate('nhom_kinh_doanh').populate('chuc_vu')
@@ -111,9 +128,11 @@ router.get('/quan-ly-tai-khoan/:_id', login_admin_controller.loginRequired, func
     Nhom_sale_Schema.find(function (err, nhom_sale) {
       Chuc_vu_Schema.find(function (err, chuc_vu) {
         Sale_Schema.find(function (err, sales) {
-          User_Schema.find(function(err, khach_hang){
-            if (err) throw err;
-          res.render('admin/pages/quan_ly_tai_khoan', { sale, chuc_vu, nhom_sale, sales, khach_hang });
+          User_Schema.find(function (err, khach_hang) {
+            thong_bao_Schema.find(function (err, thong_bao) {
+              if (err) throw err;
+              res.render('admin/pages/quan_ly_tai_khoan', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang });
+            })
           })
         }).populate('nhom_kinh_doanh').populate('chuc_vu')
       })
@@ -125,6 +144,7 @@ router.post('/', login_admin_controller.check);
 
 router.post('/them-trang-thai', login_admin_controller.loginRequired, trang_thai_controller.them_trang_thai);
 router.post('/them-nhan-vien', login_admin_controller.loginRequired, admin_controller.them_nhan_vien);
+router.post('/them-khach-hang', login_admin_controller.loginRequired, admin_controller.them_moi_khach_hang);
 router.post('/them-nhom-kinh-doanh', login_admin_controller.loginRequired, admin_controller.them_nhom_kinh_doanh);
 router.post('/them-chuc-vu', login_admin_controller.loginRequired, admin_controller.them_chuc_vu);
 router.post('/them-thong-bao', login_admin_controller.loginRequired, thong_bao_controller.them_thong_bao);
