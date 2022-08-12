@@ -8,7 +8,7 @@ const User_Schema = new Schema({
     cccd_cmnd: { type: String },
     nam_sinh: { type: String },
     dia_chi: { type: String },
-    so_dien_thoai: { type: String },
+    so_dien_thoai: { type: Number },
     email: { type: String },
     loai_tai_khoan: {
         role: {type: String}
