@@ -22,8 +22,10 @@ router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (re
   Sale_Schema.findById(req.params._id, function (err, sale) {
     Lich_su_Schema.find(function (err, lich_su) {
       User_Schema.find(function(err, khach_hang){
-        if (err) throw err;
-        res.render('admin/admin.ejs', { lich_su, sale, khach_hang });
+        thong_bao_Schema.find(function (err, thong_bao) {
+          if (err) throw err;
+        res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao });
+        })
       })
     }).populate('nguoi_gui')
   }).populate('chuc_vu')
@@ -31,8 +33,10 @@ router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (re
 router.get('/quan-ly-giao-dich/:_id', login_admin_controller.loginRequired, function (req, res, next) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
     Lich_su_Schema.find(function (err, lich_su) {
-      if (err) throw err;
-      res.render('admin/pages/quan_ly_giao_dich', { lich_su,sale });
+      thong_bao_Schema.find(function (err, thong_bao) {
+        if (err) throw err;
+      res.render('admin/quan_ly_giao_dich', { lich_su, sale, khach_hang, thong_bao });
+      })
     }).populate('nguoi_gui')
   }).populate('chuc_vu')
 });

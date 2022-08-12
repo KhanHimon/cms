@@ -1,4 +1,5 @@
 const thong_bao_Schema = require('../models/thong_bao.model');
+const sale_Schema = require('../models/sale.model');
 
 class thong_bao_Controller {
     them_thong_bao(req,res) {
@@ -9,7 +10,7 @@ class thong_bao_Controller {
             ngay_thong_bao: Date.now()
         });
         thong_bao.save();
-        res.json(thong_bao);
+        res.redirect(req.get('referer'));
     }
     thong_bao(req,res){
         thong_bao_Schema.find({},function(err, thong_bao){
