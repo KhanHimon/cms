@@ -15,9 +15,6 @@ const admin_controller = require('../controller/admin_controller');
 const login_admin_controller = require('../controller/login_admin.controller');
 
 /* GET users listing. */
-router.get('/', login_admin_controller.loginRequired, function (req, res, next) {
-  res.render('admin/admin.ejs');
-});
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
     Lich_su_Schema.find(function (err, lich_su) {
@@ -141,7 +138,7 @@ router.get('/quan-ly-tai-khoan/:_id', login_admin_controller.loginRequired, func
 });
 
 router.post('/', login_admin_controller.check);
-router.post('/*', login_admin_controller.check);
+router.get('/*', login_admin_controller.check);
 
 router.post('/them-trang-thai', login_admin_controller.loginRequired, trang_thai_controller.them_trang_thai);
 router.post('/them-nhan-vien', login_admin_controller.loginRequired, admin_controller.them_nhan_vien);
