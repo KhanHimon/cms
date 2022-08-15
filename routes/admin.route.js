@@ -177,8 +177,8 @@ router.get('/hoa-hong/:_id', login_admin_controller.loginRequired, function (req
   }).populate('chuc_vu')
 });
 // POST
-router.post('/them-hoa-hong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong);
-
+router.post('/them-hoa-hong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_co_dinh);
+router.post('/xoa-hoa-hong/:_id', login_admin_controller.loginRequired, hoa_hong_controller.xoa_hoa_hong_co_dinh);
 
 
 

@@ -113,12 +113,12 @@
                                                                     <td style="font-weight: 500;"><%= hoa_hong.chinh_sach_hoa_hong %></td>
                                                                     <td style="font-weight: 500;"><%= hoa_hong.hoa_hong %> %</td>
                                                                     <td>
-                                                                        <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#xoa-thong-bao-<%= hoa_hong._id %>">
+                                                                        <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#xoa-hoa-hong-<%= hoa_hong._id %>">
                                                                             <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
                                                                         </button>
                                                                     </td>
-                                                                    <div id="xoa-thong-bao-<%= hoa_hong._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                                        <form action="/admin/xoa-thong-bao/<%= hoa_hong._id %>" method="post">
+                                                                    <div id="xoa-hoa-hong-<%= hoa_hong._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                        <form action="/admin/xoa-hoa-hong/<%= hoa_hong._id %>" method="post">
                                                                             <div class="modal-dialog">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">
