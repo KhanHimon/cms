@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const user_controller = require('../controller/user.controller');
-const login_controller = require('../controller/login_controller');
+// IMPORT MODELS
 const Lich_su_Schema = require('../models/lich_su.model');
 const Nhom_sale_Schema = require('../models/nhom_sale.model');
 const Sale_Schema = require('../models/sale.model');
@@ -10,10 +9,15 @@ const Chuc_vu_Schema = require('../models/chuc_vu.model');
 const User_Schema = require('../models/user.model');
 const thong_bao_Schema = require('../models/thong_bao.model');
 const trang_thai_Schema = require('../models/trang_thai.model');
+const hoa_hong_Schema = require('../models/hoa_hong_co_dinh.model');
+// IMPORT CONTROLLER
+const user_controller = require('../controller/user.controller');
+const login_controller = require('../controller/login_controller');
 const trang_thai_controller = require('../controller/trang_thai_controller');
 const thong_bao_controller = require('../controller/thong_bao.controller');
 const admin_controller = require('../controller/admin_controller');
 const login_admin_controller = require('../controller/login_admin.controller');
+const hoa_hong_controller = require('../controller/hoa_hong.controller');
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
@@ -135,8 +139,7 @@ router.get('/quan-ly-tai-khoan/:_id', login_admin_controller.loginRequired, func
   }).populate('chuc_vu')
 });
 
-router.post('/', login_admin_controller.check);
-router.get('/*', login_admin_controller.check);
+
 
 // router nhân viên
 router.post('/them-nhan-vien', login_admin_controller.loginRequired, admin_controller.them_nhan_vien);
@@ -160,5 +163,26 @@ router.get('/quan-ly-thong-bao/:_id', login_admin_controller.loginRequired, func
 // router trạng thái
 router.get('/trang-thai', login_admin_controller.loginRequired, trang_thai_controller.trang_thai);
 router.post('/them-trang-thai', login_admin_controller.loginRequired, trang_thai_controller.them_trang_thai);
+
+// router hoa hồng
+// GET
+router.get('/hoa-hong/:_id', login_admin_controller.loginRequired, function (req, res, next) {
+  Sale_Schema.findById(req.params._id, function (err, sale) {
+    thong_bao_Schema.find(function (err, thong_bao) {
+      hoa_hong_Schema.find(function(err, hoa_hongs){
+        if (err) throw err;
+        res.render('admin/pages/hoa_hong', { thong_bao, sale, hoa_hongs });
+      })
+    })
+  }).populate('chuc_vu')
+});
+// POST
+router.post('/them-hoa-hong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong);
+
+
+
+
+router.post('/', login_admin_controller.check);
+router.get('/*', login_admin_controller.check);
 
 module.exports = router;
