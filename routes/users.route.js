@@ -10,6 +10,8 @@ router.get('/', function(req, res, next) {
 });
 router.post('/them-user',login_controller.loginRequired , user_controller.postUser);
 router.post('/nap-tien' ,login_controller.loginRequired , user_controller.nap_tien);
+router.post('/nap-tien-sua/:_id' ,login_controller.loginRequired , user_controller.xu_ly_nap_tien);
+router.post('/xoa-lich-su/:_id' ,login_controller.loginRequired , user_controller.xoa_lich_xu);
 router.post('/them-ngan-hang',login_controller.loginRequired , user_controller.them_tai_khoan_ngan_hang )
 
 module.exports = router;

@@ -17,6 +17,16 @@ class thong_bao_Controller {
             res.json(thong_bao);
         })
     }
+    xoa_thong_bao(req,res){
+        const options = {
+            new: true,
+            useFindAndModify: false
+        }
+        thong_bao_Schema.findByIdAndRemove(req.params._id, options, function (thong_bao) {
+            console.log(thong_bao);
+            res.redirect(req.get('referer'));
+        });
+    }
 }
 
 module.exports = new thong_bao_Controller

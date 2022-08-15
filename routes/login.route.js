@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 router.get('/*', function(req, res, next) {
   res.render('login',{message:''});
-});
+}); 
 router.post('/', login_controller.check);
 
 module.exports = router;

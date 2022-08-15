@@ -25,12 +25,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Dashboard</h4>
+                                <h4 class="mb-sm-0">Quản lý giao dịch</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                        <li class="breadcrumb-item active">Dashboard</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Quản lý</a></li>
+                                        <li class="breadcrumb-item active">Giao dịch</li>
                                     </ol>
                                 </div>
 
@@ -50,30 +50,6 @@
                                                 <h4 class="fs-16 mb-1">Chào mừng, <%= sale.ho_va_ten %>!</h4>
                                                 <p class="text-muted mb-0">Chúc <%= sale.ho_va_ten %> một ngày làm việc hiệu quả</p>
                                             </div>
-                                            <div class="mt-3 mt-lg-0">
-                                                <form action="javascript:void(0);">
-                                                    <div class="row g-3 mb-0 align-items-center">
-                                                        <div class="col-sm-auto">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control border-0 dash-filter-picker shadow" data-provider="flatpickr" data-range-date="true" data-date-format="d M, Y" data-deafult-date="01 Jan 2022 to 31 Jan 2022">
-                                                                <div class="input-group-text bg-primary border-primary text-white">
-                                                                    <i class="ri-calendar-2-line"></i>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--end col-->
-                                                        <div class="col-auto">
-                                                            <button type="button" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</button>
-                                                        </div>
-                                                        <!--end col-->
-                                                        <div class="col-auto">
-                                                            <button type="button" class="btn btn-soft-info btn-icon waves-effect waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
-                                                        </div>
-                                                        <!--end col-->
-                                                    </div>
-                                                    <!--end row-->
-                                                </form>
-                                            </div>
                                         </div><!-- end card header -->
                                     </div>
                                     <!--end col-->
@@ -81,141 +57,16 @@
                                 <!--end row-->
 
                                 <div class="row">
-                                    <div class="col-xl-3 col-md-6">
-                                        <!-- card -->
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tiền đầu tư trong tháng</p>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-success fs-14 mb-0">
-                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="559.25">0</span>k </h4>
-                                                        <a href="#" class="text-decoration-underline">Xem tất cả</a>
-                                                    </div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-success rounded fs-3">
-                                                            <i class="bx bx-dollar-circle text-success"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-
-                                    <div class="col-xl-3 col-md-6">
-                                        <!-- card -->
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                     <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Số lượng giao dịch</p>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-danger fs-14 mb-0">
-                                                            <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="36894">0</span></h4>
-                                                        <a href="#" class="text-decoration-underline">Xem tất cả</a>
-                                                    </div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-info rounded fs-3">
-                                                            <i class="bx bx-shopping-bag text-info"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-
-                                    <div class="col-xl-3 col-md-6">
-                                        <!-- card -->
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Người dùng</p>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-success fs-14 mb-0">
-                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="183.35">0</span>M </h4>
-                                                        <a href="#" class="text-decoration-underline">Xem tất cả</a>
-                                                    </div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-warning rounded fs-3">
-                                                            <i class="bx bx-user-circle text-warning"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-
-                                    <div class="col-xl-3 col-md-6">
-                                        <!-- card -->
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tổng tiền đầu tư</p>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-muted fs-14 mb-0">
-                                                            +0.00 %
-                                                        </h5>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="165.89">0</span>k </h4>
-                                                        <a href="#" class="text-decoration-underline">Xem tất cả</a>
-                                                    </div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-primary rounded fs-3">
-                                                            <i class="bx bx-wallet text-primary"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                </div> <!-- end row-->
-
-                                <div class="row">
                                     <div class="col-xl-12">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Yêu cầu giao dịch</h4>
-                                                <div class="flex-shrink-0">
-                                                    <button type="button" class="btn btn-soft-info btn-sm">
-                                                        <i class="ri-file-list-3-line align-middle"></i> Generate Report
-                                                    </button>
-                                                </div>
                                             </div><!-- end card header -->
-
                                             <div class="card-body">
                                                 <div class="table-responsive table-card">
                                                     <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                         <thead class="text-muted table-light">
                                                             <tr>
-                                                                <th scope="col">Mã giao dịch</th>
                                                                 <th scope="col">Họ và tên</th>
                                                                 <th scope="col">Loại giao dịch</th>
                                                                 <th scope="col">Số tiền</th>
@@ -224,12 +75,9 @@
                                                                 <th scope="col"></th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
+                                                        <tbody style="font-size: 16px;">
                                                             <% lich_su.forEach(function(lich_su){ %>
                                                             <tr>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">#VZ2112</a>
-                                                                </td>
                                                                 <td>
                                                                     <div class="d-flex align-items-center">
                                                                         <div class="flex-shrink-0 me-2">
@@ -240,45 +88,68 @@
                                                                 </td>
                                                                 <td><%= lich_su.loai_lich_su %></td>
                                                                 <td>
-                                                                    <span class="text-success"><%= lich_su.so_tien %></span>
+                                                                    <span class="text-success"><%= lich_su.so_tien.toLocaleString(); %> đ</span>
                                                                 </td>
                                                                 <td>
-                                                                    <span class="badge badge-soft-success">Chờ xác nhận</span>
+                                                                    <span class=""><%= lich_su.trang_thai.ten_trang_thai %></span>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= lich_su.ngay_giao_dich %></span></h5>
+                                                                    <h4 class="fs-14 fw-medium mb-0"><%=  lich_su.ngay_giao_dich.getDate() %>/<%=  lich_su.ngay_giao_dich.getMonth() +1 %>/<%=  lich_su.ngay_giao_dich.getFullYear() %></h4>
                                                                 </td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#myModal">
-                                                                        <i class="ri-file-list-3-line align-middle"></i> Thay đổi
+                                                                    <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#myModal-<%= lich_su._id %>">
+                                                                        <i class="ri-edit-2-fill align-middle"></i> Thay đổi
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#xoa-<%= lich_su._id %>">
+                                                                        <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
                                                                     </button>
                                                                 </td>
                                                             </tr>
-                                                            <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="myModalLabel">Xác nhận giao dịch</h5>
-                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <select class="form-control" id="ten_trang_thai"
-                                                                                name="ten_trang_thai">
-                                                                                <option value="">---- Trạng thái ----</option>
-                                                                                <option value="">Hoàn thành</option>
-                                                                                <option value="">Chờ xác nhận</option>
-                                                                                <option value="">Lỗi giao dịch</option>
-                                                                                <option value="">Hủy giao dịch</option>
-                                                                                <option value="">Quá hạn</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Bỏ</button>
-                                                                            <button type="button" class="btn btn-primary ">Lưu</button>
-                                                                        </div>
-                
-                                                                    </div><!-- /.modal-content -->
-                                                                </div><!-- /.modal-dialog -->
+                                                            <div id="myModal-<%= lich_su._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                <form action="/user/nap-tien-sua/<%= lich_su._id %>" method="post">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="myModalLabel">Xác nhận giao dịch</h5>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <select class="form-control" id="trang_thai"
+                                                                                    name="trang_thai">
+                                                                                    <option>---- Trạng thái ----</option>
+                                                                                    <% trang_thai.forEach(function(trang_thai_edi){ %>
+                                                                                        <option value="<%= trang_thai_edi._id %>"><%= trang_thai_edi.ten_trang_thai %></option>
+                                                                                    <% }); %>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Bỏ</button>
+                                                                                <button type="submit" class="btn btn-primary ">Lưu</button>
+                                                                            </div>
+                    
+                                                                        </div><!-- /.modal-content -->
+                                                                    </div><!-- /.modal-dialog -->
+                                                                </form>
+                                                            </div>
+                                                            <div id="xoa-<%= lich_su._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                <form action="/user/xoa-lich-su/<%= lich_su._id %>" method="post">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="myModalLabel">Xác nhận</h5>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                               <h4>Bạn có muốn xóa không</h4>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                <button type="submit" class="btn btn-primary ">Xóa</button>
+                                                                            </div>
+                    
+                                                                        </div><!-- /.modal-content -->
+                                                                    </div><!-- /.modal-dialog -->
+                                                                </form>
                                                             </div>
                                                             <% }); %>
                                                         </tbody><!-- end tbody -->

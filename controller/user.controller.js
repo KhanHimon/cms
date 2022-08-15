@@ -34,6 +34,29 @@ class UserController {
         lich_su.save()
         res.redirect('/tong-quan/'+ lich_su.nguoi_gui)
     }
+    xu_ly_nap_tien(req,res){
+        var edit_lich_su = {};
+        if (req.body.trang_thai) {
+            edit_lich_su.trang_thai = req.body.trang_thai;
+        }
+        const options = {
+            new: true,
+        }
+        Lich_su_Schema.findByIdAndUpdate(req.params._id, { $set: edit_lich_su }, options, (err, update_lich_su) => {
+            console.log(update_lich_su);
+            res.redirect(req.get('referer'));
+        });
+    }
+    xoa_lich_xu(req,res){
+        const options = {
+            new: true,
+            useFindAndModify: false
+        }
+        Lich_su_Schema.findByIdAndRemove(req.params._id, options, function (lich_su) {
+            console.log(lich_su);
+            res.redirect(req.get('referer'));
+        });
+    }
     them_tai_khoan_ngan_hang(req,res){
         const ngan_hang = new ngan_hang_Schema({
             ten_ngan_hang: req.body.ten_ngan_hang,

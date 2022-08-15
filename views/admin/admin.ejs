@@ -65,16 +65,15 @@
                                                     <div class="flex-grow-1 overflow-hidden">
                                                         <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tiền đầu tư trong tháng</p>
                                                     </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-success fs-14 mb-0">
-                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
-                                                        </h5>
-                                                    </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="559.25">0</span>k </h4>
-                                                    </div>
+                                                    <h5 class="fs-22 fw-semibold ff-secondary mb-4"><span class="total">
+                                                        <% let total = 0; %>
+                                                        <% khach_hang.forEach(khach_hang => { %>
+                                                        <% total += khach_hang.wallet.wallet_basic %>
+                                                        <% }); %>
+                                                        <%= total.toLocaleString(); %>
+                                                    </span>đ </h5>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-soft-success rounded fs-3">
                                                             <i class="bx bx-dollar-circle text-success"></i>
@@ -92,11 +91,6 @@
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-grow-1 overflow-hidden">
                                                      <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Số lượng giao dịch</p>
-                                                    </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-danger fs-14 mb-0">
-                                                            <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
-                                                        </h5>
                                                     </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
@@ -121,11 +115,6 @@
                                                     <div class="flex-grow-1 overflow-hidden">
                                                         <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Người dùng</p>
                                                     </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-success fs-14 mb-0">
-                                                            <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
-                                                        </h5>
-                                                    </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
@@ -149,19 +138,10 @@
                                                     <div class="flex-grow-1 overflow-hidden">
                                                         <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tổng tiền đầu tư</p>
                                                     </div>
-                                                    <div class="flex-shrink-0">
-                                                        <h5 class="text-muted fs-14 mb-0">
-                                                            +0.00 %
-                                                        </h5>
-                                                    </div>
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
                                                         <h5 class="fs-22 fw-semibold ff-secondary mb-4"><span class="total">
-                                                            <% let total = 0; %>
-                                                            <% khach_hang.forEach(khach_hang => { %>
-                                                            <% total += khach_hang.wallet.wallet_basic %>
-                                                            <% }); %>
                                                             <%= total.toLocaleString(); %>
                                                         </span>đ </h5>
                                                     </div>
@@ -177,22 +157,22 @@
                                 </div> <!-- end row-->
 
                                 <div class="row">
-                                    <div class="col-xl-8">
+                                    <div class="col-xl-12">
                                         <div class="card">
                                             <div class="card-header border-0 align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Thống kê đầu tư</h4>
                                                 <div>
                                                     <button type="button" class="btn btn-soft-secondary btn-sm">
-                                                        ALL
+                                                        Tất cả
                                                     </button>
                                                     <button type="button" class="btn btn-soft-secondary btn-sm">
-                                                        1M
+                                                        1 tháng
                                                     </button>
                                                     <button type="button" class="btn btn-soft-secondary btn-sm">
-                                                        6M
+                                                        6 tháng
                                                     </button>
                                                     <button type="button" class="btn btn-soft-primary btn-sm">
-                                                        1Y
+                                                        1 năm
                                                     </button>
                                                 </div>
                                             </div><!-- end card header -->
@@ -208,7 +188,7 @@
                                                     <!--end col-->
                                                     <div class="col-6 col-sm-3">
                                                         <div class="p-3 border border-dashed border-start-0">
-                                                            <h5 class="mb-1">$<span class="counter-value" data-target="22.89">0</span>k</h5>
+                                                            <h5 class="mb-1"><span><%= total.toLocaleString(); %> </span>đ</h5>
                                                             <p class="text-muted mb-0">Tiền</p>
                                                         </div>
                                                     </div>
@@ -222,7 +202,7 @@
                                                     <!--end col-->
                                                     <div class="col-6 col-sm-3">
                                                         <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                                            <h5 class="mb-1 text-success"><span class="counter-value" data-target="18.92">0</span>%</h5>
+                                                            <h5 class="mb-1 text-success"><span class="counter-value" data-target="0">0</span>%</h5>
                                                             <p class="text-muted mb-0">Biên độ</p>
                                                         </div>
                                                     </div>
@@ -239,10 +219,10 @@
                                                 var options = {
                                                     series: [{
                                                             name: 'Tiền đầu tư',
-                                                            data: [44, 55, 57, 56, 61, 58, 63, 60, 66,52, 53, 41]
+                                                            data: ['<%= total.toLocaleString(); %>']
                                                         }, {
                                                         name: 'Người dùng',
-                                                        data: [35, 41, 36, 26, 45, 48, 52, 53, 41,52, 53, 41]
+                                                        data: ['<%= khach_hang.length %>']
                                                         }],
                                                         chart: {
                                                         type: 'bar',
@@ -268,7 +248,7 @@
                                                         },
                                                         yaxis: {
                                                         title: {
-                                                            text: '$ (thousands)'
+                                                            text: '$ (triệu)'
                                                         }
                                                         },
                                                         fill: {
@@ -277,7 +257,7 @@
                                                         tooltip: {
                                                         y: {
                                                             formatter: function (val) {
-                                                            return "$ " + val + " thousands"
+                                                            return "$ " + val + " triệu"
                                                             }
                                                         }
                                                     }
@@ -289,8 +269,7 @@
                                         </div><!-- end card -->
                                     </div><!-- end col -->
 
-                                    <div class="col-xl-4">
-                                        <!-- card -->
+                                    <!-- <div class="col-xl-4">
                                         <div class="card card-height-100">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Sales by Locations</h4>
@@ -299,9 +278,7 @@
                                                         Export Report
                                                     </button>
                                                 </div>
-                                            </div><!-- end card header -->
-
-                                            <!-- card body -->
+                                            </div>
                                             <div class="card-body">
 
                                                 <div id="sales-by-locations" data-colors='["--vz-light", "--vz-success", "--vz-primary"]' style="height: 269px" dir="ltr"></div>
@@ -324,11 +301,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- end card body -->
                                         </div>
-                                        <!-- end card -->
-                                    </div>
-                                    <!-- end col -->
+                                    </div> -->
                                 </div>
 
                                 <div class="row">
@@ -354,6 +328,7 @@
                                                                 <th scope="col">Số tiền</th>
                                                                 <th scope="col">Trạng thái</th>
                                                                 <th scope="col">Thời gian</th>
+                                                                <th></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -372,15 +347,69 @@
                                                                 </td>
                                                                 <td><%= lich_su.loai_lich_su %></td>
                                                                 <td>
-                                                                    <span class="text-success"><%= lich_su.so_tien %></span>
+                                                                    <span class="text-success"><%= lich_su.so_tien.toLocaleString(); %></span>
                                                                 </td>
                                                                 <td>
-                                                                    <span class="badge badge-soft-success">Chờ xác nhận</span>
+                                                                    <span class=""><%= lich_su.trang_thai.ten_trang_thai %></span>
                                                                 </td>
                                                                 <td>
-                                                                    <h5 class="fs-14 fw-medium mb-0">5.0<span class="text-muted fs-11 ms-1"><%= lich_su.ngay_giao_dich %></span></h5>
+                                                                    <h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%=  lich_su.ngay_giao_dich.getDate() %>/<%=  lich_su.ngay_giao_dich.getMonth() +1 %>/<%=  lich_su.ngay_giao_dich.getFullYear() %></span></h5>
+                                                                </td>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#myModal-<%= lich_su._id %>">
+                                                                        <i class="ri-edit-2-fill align-middle"></i> Thay đổi
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#xoa-<%= lich_su._id %>">
+                                                                        <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
+                                                                    </button>
                                                                 </td>
                                                             </tr>
+                                                            <div id="myModal-<%= lich_su._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                <form action="/user/nap-tien-sua/<%= lich_su._id %>" method="post">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="myModalLabel">Xác nhận giao dịch</h5>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <select class="form-control" id="trang_thai"
+                                                                                    name="trang_thai">
+                                                                                    <option>---- Trạng thái ----</option>
+                                                                                    <% trang_thai.forEach(function(trang_thai_edi){ %>
+                                                                                        <option value="<%= trang_thai_edi._id %>"><%= trang_thai_edi.ten_trang_thai %></option>
+                                                                                    <% }); %>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Bỏ</button>
+                                                                                <button type="submit" class="btn btn-primary ">Lưu</button>
+                                                                            </div>
+                    
+                                                                        </div><!-- /.modal-content -->
+                                                                    </div><!-- /.modal-dialog -->
+                                                                </form>
+                                                            </div>
+                                                            <div id="xoa-<%= lich_su._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                <form action="/user/xoa-lich-su/<%= lich_su._id %>" method="post">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="myModalLabel">Xác nhận</h5>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                               <h4>Bạn có muốn xóa không</h4>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                <button type="submit" class="btn btn-primary ">Xóa</button>
+                                                                            </div>
+                    
+                                                                        </div><!-- /.modal-content -->
+                                                                    </div><!-- /.modal-dialog -->
+                                                                </form>
+                                                            </div>
                                                             <% }); %>
                                                         </tbody><!-- end tbody -->
                                                     </table><!-- end table -->
