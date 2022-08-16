@@ -1,0 +1,39 @@
+[
+    {
+        "sale": {
+            "username_sale": "lethivananh",
+            "password_sale": "123456",
+            "ho_va_ten": "Lê Thị Vân Anh",
+            "cccd_cmnd": "132427600",
+            "nam_sinh": "08/09/1988",
+            "dia_chi": "Khu 5 xã Vĩnh Lại huyện Lâm Thao tỉnh Phú Thọ",
+            "so_dien_thoai": "0919691181",
+            "email": "lethivananh@gmail.com",
+            "chuc_vu": {
+                "ten_chuc_vu": "Cộng tác viên",
+                "chinh_sach_hoa_hong": {
+                    "ten_chinh_sach": "Hoa hồng cộng tác viên",
+                    "hoa_hong": "3%"
+                }
+            },
+            "ma_gioi_thieu": "0944478765",
+            "nhom_kinh_doanh": {
+                "ten_nhom": "GMG-01"
+            }
+        },
+        "so_hop_dong": "HĐ01",
+        "tien_dau_tu": 50000000,
+        "hoa_hong_thuong": {
+            "ten_hoa_hong_thuong": "Thưởng hợp đồng",
+            "hoa_hong_thuong": "2%"
+        },
+        "hoa_hong_gian_tiep": {
+
+        },
+        "hoa_hong_voucher": {
+            "ten_hoa_hong_voucher": "Thưởng ocopshop",
+            "hoa_hong_voucher": "1%"
+        }
+    }
+]
+

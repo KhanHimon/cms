@@ -42,10 +42,11 @@ class admin_Controller {
     }
     them_chuc_vu(req,res){
         const chuc_vu = new Chuc_vu_Schema({
-            ten_chuc_vu: req.body.ten_chuc_vu
+            ten_chuc_vu: req.body.ten_chuc_vu,
+            hoa_hong_chuc_vu: req.body.hoa_hong_chuc_vu
         })
         chuc_vu.save();
-        res.json(chuc_vu)
+        res.redirect(req.get('referer'));
         
     }
     them_moi_khach_hang(req, res) {

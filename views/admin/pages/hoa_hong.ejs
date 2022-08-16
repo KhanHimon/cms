@@ -57,44 +57,308 @@
                                 <!--end row-->
 
                                 <div class="row">
-                                    <div class="col-xl-5">
+                                    <div class="col-xl-12">
                                         <div class="card">
-                                            <div class="card-header align-items-center d-flex">
-                                                <h4 class="card-title mb-0 flex-grow-1">Thêm mới hoa hồng</h4>
-                                            </div><!-- end card header -->
-
                                             <div class="card-body">
-                                                <form action="/admin/them-hoa-hong" method="post">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="col-lg-12">
-                                                                <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="chinh_sach_hoa_hong">Chính sách
-                                                                    <span class="text-danger">*</span>
-                                                                </label>
-                                                                <input type="text" class="form-control" id="chinh_sach_hoa_hong"
-                                                                    name="chinh_sach_hoa_hong" >
-                                                            </div>
-                                                            <div class="col-lg-12">
-                                                                <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong">Số % hoa hồng
-                                                                    <span class="text-danger">*</span>
-                                                                </label>
-                                                                <input type="number" class="form-control" id="hoa_hong"
-                                                                    name="hoa_hong" >
+                                                <div class="row">
+                                                    <div class="col-xl-2">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#hoa_hong_co_dinh">
+                                                                <i class="ri-add-circle-line align-middle me-1"></i> Thêm Hoa hồng cố định
+                                                            </button>
+                                                        </div>
+                                                        <div id="hoa_hong_co_dinh" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                            <div class="modal-dialog modal-md">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="myModalLabel">Thêm mới hoa hồng cố định</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form action="/admin/them-hoa-hong" method="post">
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="chinh_sach_hoa_hong">Chính sách
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="form-control" id="chinh_sach_hoa_hong"
+                                                                                            name="chinh_sach_hoa_hong" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong">Số % hoa hồng
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong"
+                                                                                            name="hoa_hong" >
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#hoa_hong_linh_dong">
+                                                                <i class="ri-add-circle-line align-middle me-1"></i> Thêm Hoa hồng linh động
+                                                            </button>
+                                                            <div id="hoa_hong_linh_dong" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog modal-md">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="myModalLabel">Thêm mới hoa hồng linh động</h5>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form action="/admin/them-hoa-hong-linh-dong" method="post">
+                                                                                <div class="row">
+                                                                                    <div class="col">
+                                                                                        <div class="col-lg-12">
+                                                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ten_hoa_hong">Tên chính sách
+                                                                                                <span class="text-danger">*</span>
+                                                                                            </label>
+                                                                                            <input type="text" class="form-control" id="ten_hoa_hong"
+                                                                                                name="ten_hoa_hong" >
+                                                                                        </div>
+                                                                                        <div class="col-lg-12">
+                                                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong_linh_dong">Số % hoa hồng
+                                                                                                <span class="text-danger">*</span>
+                                                                                            </label>
+                                                                                            <input type="number" class="form-control" id="hoa_hong_linh_dong"
+                                                                                                name="hoa_hong_linh_dong" >
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-6">
+                                                                                                <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ngay_bat_dau">Ngày bắt đầu
+                                                                                                    <span class="text-danger">*</span>
+                                                                                                </label>
+                                                                                                <input type="date" class="form-control" id="ngay_bat_dau"
+                                                                                                    name="ngay_bat_dau" >
+                                                                                            </div>
+                                                                                            <div class="col-6">
+                                                                                                <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ngay_ket_thuc">Ngày kết thúc
+                                                                                                    <span class="text-danger">*</span>
+                                                                                                </label>
+                                                                                                <input type="date" class="form-control" id="ngay_ket_thuc"
+                                                                                                    name="ngay_ket_thuc" >
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><br/>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                    <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div><!-- /.modal-content -->
+                                                                </div><!-- /.modal-dialog -->
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
-                                                        <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                    <div class="col-xl-2">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#hoa_hong_vp">
+                                                                <i class="ri-add-circle-line align-middle me-1"></i> Thêm Hoa hồng văn phòng
+                                                            </button>
+                                                            <div id="hoa_hong_vp" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog modal-md">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="myModalLabel">Thêm mới hoa hồng văn phòng</h5>
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form action="/admin/them-hoa-hong-van-phong" method="post">
+                                                                                <div class="row">
+                                                                                    <div class="col">
+                                                                                        <div class="col-lg-12">
+                                                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ten_hoa_hong_vp">Tên chính sách
+                                                                                                <span class="text-danger">*</span>
+                                                                                            </label>
+                                                                                            <input type="text" class="form-control" id="ten_hoa_hong_vp"
+                                                                                                name="ten_hoa_hong_vp" >
+                                                                                        </div>
+                                                                                        <div class="col-lg-12">
+                                                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong_van_phong">Số % hoa hồng
+                                                                                                <span class="text-danger">*</span>
+                                                                                            </label>
+                                                                                            <input type="number" class="form-control" id="hoa_hong_van_phong"
+                                                                                                name="hoa_hong_van_phong" >
+                                                                                        </div>
+                                                                                        <div class="row">
+                                                                                            <div class="col-6">
+                                                                                                <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ngay_bat_dau">Ngày bắt đầu
+                                                                                                    <span class="text-danger">*</span>
+                                                                                                </label>
+                                                                                                <input type="date" class="form-control" id="ngay_bat_dau"
+                                                                                                    name="ngay_bat_dau" >
+                                                                                            </div>
+                                                                                            <div class="col-6">
+                                                                                                <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ngay_ket_thuc">Ngày kết thúc
+                                                                                                    <span class="text-danger">*</span>
+                                                                                                </label>
+                                                                                                <input type="date" class="form-control" id="ngay_ket_thuc"
+                                                                                                    name="ngay_ket_thuc" >
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><br/>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                    <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div><!-- /.modal-content -->
+                                                                </div><!-- /.modal-dialog -->
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </form>
+                                                    <div class="col-xl-2">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#hoa_hong_gian_tiep">
+                                                                <i class="ri-add-circle-line align-middle me-1"></i> Thêm Hoa hồng gián tiếp
+                                                            </button>
+                                                        </div>
+                                                        <div id="hoa_hong_gian_tiep" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                            <div class="modal-dialog modal-md">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="myModalLabel">Thêm mới hoa hồng gián tiếp</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form action="/admin/them-hoa-hong" method="post">
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="chinh_sach_hoa_hong">Chính sách
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="form-control" id="chinh_sach_hoa_hong"
+                                                                                            name="chinh_sach_hoa_hong" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong">Số % hoa hồng
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong"
+                                                                                            name="hoa_hong" >
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#hoa_hong_thuong">
+                                                                <i class="ri-add-circle-line align-middle me-1"></i> Thêm Hoa hồng thưởng
+                                                            </button>
+                                                        </div>
+                                                        <div id="hoa_hong_thuong" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                            <div class="modal-dialog modal-md">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="myModalLabel">Thêm Hoa hồng thưởng</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form action="/admin/them-hoa-hong-thuong" method="post">
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ten_hoa_hong_thuong">Chính sách
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="form-control" id="ten_hoa_hong_thuong"
+                                                                                            name="ten_hoa_hong_thuong" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong_thuong">Số % hoa hồng
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_thuong"
+                                                                                            name="hoa_hong_thuong" >
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-2">
+                                                        <div class="col-auto">
+                                                            <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#hoa_hong_voucher">
+                                                                <i class="ri-add-circle-line align-middle me-1"></i> Thêm Hoa hồng voucher
+                                                            </button>
+                                                        </div>
+                                                        <div id="hoa_hong_voucher" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                            <div class="modal-dialog modal-md">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="myModalLabel">Thêm Hoa hồng voucher</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form action="/admin/them-hoa-hong-voucher" method="post">
+                                                                            <div class="row">
+                                                                                <div class="col">
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="ten_hoa_hong_voucher">Chính sách
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="text" class="form-control" id="ten_hoa_hong_voucher"
+                                                                                            name="ten_hoa_hong_voucher" >
+                                                                                    </div>
+                                                                                    <div class="col-lg-12">
+                                                                                        <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong_voucher">Số % hoa hồng
+                                                                                            <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_voucher"
+                                                                                            name="hoa_hong_voucher" >
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div> <!-- .card-->
-                                    </div> <!-- .col-->
-                                    <div class="col-xl-7">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
-                                                <h4 class="card-title mb-0 flex-grow-1">Danh sách hoa hồng cố định</h4>
+                                                <h4 class="card-title mb-0 flex-grow-1">Hoa hồng cố định</h4>
                                             </div><!-- end card header -->
 
                                             <div class="card-body">
@@ -119,6 +383,225 @@
                                                                     </td>
                                                                     <div id="xoa-hoa-hong-<%= hoa_hong._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                                         <form action="/admin/xoa-hoa-hong/<%= hoa_hong._id %>" method="post">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="myModalLabel">Xác nhận</h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                       <h4>Bạn có muốn xóa không</h4>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                        <button type="submit" class="btn btn-primary ">Xóa</button>
+                                                                                    </div>
+                                                                                </div><!-- /.modal-content -->
+                                                                            </div><!-- /.modal-dialog -->
+                                                                        </form>
+                                                                    </div>
+                                                                </tr>
+                                                            <% }); %>
+                                                        </tbody><!-- end tbody -->
+                                                        
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div>
+                                        </div> <!-- .card-->
+                                    </div> <!-- .col-->
+                                    <div class="col-xl-6">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Hoa hồng linh động</h4>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">Chính sách</th>
+                                                                <th scope="col">% hoa hồng</th>
+                                                                <!-- <th scope="col">Ngày bắt đầu</th>
+                                                                <th scope="col">Ngày kết thúc</th> -->
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% hoa_hong_linh_dong.forEach(function(hoa_hong_linh_dong){ %>
+                                                                <tr>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_linh_dong.ten_hoa_hong %></td>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_linh_dong.hoa_hong_linh_dong %> %</td>
+                                                                    <!-- <td style="font-weight: 500;"><%= hoa_hong_linh_dong.ngay_bat_dau %> %</td>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_linh_dong.ngay_ket_thuc %> %</td> -->
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#xoa-hoa-hong-<%= hoa_hong_linh_dong._id %>">
+                                                                            <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
+                                                                        </button>
+                                                                    </td>
+                                                                    <div id="xoa-hoa-hong-linh-dong-<%= hoa_hong_linh_dong._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                        <form action="/admin/xoa-hoa-hong/<%= hoa_hong_linh_dong._id %>" method="post">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="myModalLabel">Xác nhận</h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                       <h4>Bạn có muốn xóa không</h4>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                        <button type="submit" class="btn btn-primary ">Xóa</button>
+                                                                                    </div>
+                                                                                </div><!-- /.modal-content -->
+                                                                            </div><!-- /.modal-dialog -->
+                                                                        </form>
+                                                                    </div>
+                                                                </tr>
+                                                            <% }); %>
+                                                        </tbody><!-- end tbody -->
+                                                        
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div>
+                                        </div> <!-- .card-->
+                                    </div> <!-- .col-->
+                                    <div class="col-xl-4">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Hoa hồng văn phòng</h4>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">Chính sách</th>
+                                                                <th scope="col">% hoa hồng</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% hoa_hong_vp.forEach(function(hoa_hong_vp){ %>
+                                                                <tr>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_vp.ten_hoa_hong_vp %></td>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_vp.hoa_hong_van_phong %> %</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#xoa-hoa-hong-<%= hoa_hong_vp._id %>">
+                                                                            <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
+                                                                        </button>
+                                                                    </td>
+                                                                    <div id="xoa-hoa-hong-<%= hoa_hong_vp._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                        <form action="/admin/xoa-hoa-hong/<%= hoa_hong_vp._id %>" method="post">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="myModalLabel">Xác nhận</h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                       <h4>Bạn có muốn xóa không</h4>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                        <button type="submit" class="btn btn-primary ">Xóa</button>
+                                                                                    </div>
+                                                                                </div><!-- /.modal-content -->
+                                                                            </div><!-- /.modal-dialog -->
+                                                                        </form>
+                                                                    </div>
+                                                                </tr>
+                                                            <% }); %>
+                                                        </tbody><!-- end tbody -->
+                                                        
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div>
+                                        </div> <!-- .card-->
+                                    </div> <!-- .col-->
+                                    <div class="col-xl-4">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Hoa hồng thưởng</h4>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">Chính sách</th>
+                                                                <th scope="col">% hoa hồng</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% hoa_hong_thuong.forEach(function(hoa_hong_thuong){ %>
+                                                                <tr>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_thuong.ten_hoa_hong_thuong %></td>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_thuong.hoa_hong_thuong %> %</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#xoa-hoa-hong-<%= hoa_hong_thuong._id %>">
+                                                                            <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
+                                                                        </button>
+                                                                    </td>
+                                                                    <div id="xoa-hoa-hong-<%= hoa_hong_thuong._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                        <form action="/admin/xoa-hoa-hong/<%= hoa_hong_thuong._id %>" method="post">
+                                                                            <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="myModalLabel">Xác nhận</h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                       <h4>Bạn có muốn xóa không</h4>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                                        <button type="submit" class="btn btn-primary ">Xóa</button>
+                                                                                    </div>
+                                                                                </div><!-- /.modal-content -->
+                                                                            </div><!-- /.modal-dialog -->
+                                                                        </form>
+                                                                    </div>
+                                                                </tr>
+                                                            <% }); %>
+                                                        </tbody><!-- end tbody -->
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div>
+                                        </div> <!-- .card-->
+                                    </div> <!-- .col-->
+                                    <div class="col-xl-4">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Hoa hồng voucher</h4>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">Chính sách</th>
+                                                                <th scope="col">% hoa hồng</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <% hoa_hong_voucher.forEach(function(hoa_hong_voucher){ %>
+                                                                <tr>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_voucher.ten_hoa_hong_voucher %></td>
+                                                                    <td style="font-weight: 500;"><%= hoa_hong_voucher.hoa_hong_voucher %> %</td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-soft-info btn-sm"  data-bs-toggle="modal" data-bs-target="#xoa-hoa-hong-<%= hoa_hong_voucher._id %>">
+                                                                            <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
+                                                                        </button>
+                                                                    </td>
+                                                                    <div id="xoa-hoa-hong-<%= hoa_hong_voucher._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                        <form action="/admin/xoa-hoa-hong/<%= hoa_hong_voucher._id %>" method="post">
                                                                             <div class="modal-dialog">
                                                                                 <div class="modal-content">
                                                                                     <div class="modal-header">

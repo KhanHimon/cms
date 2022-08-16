@@ -10,6 +10,11 @@ const User_Schema = require('../models/user.model');
 const thong_bao_Schema = require('../models/thong_bao.model');
 const trang_thai_Schema = require('../models/trang_thai.model');
 const hoa_hong_Schema = require('../models/hoa_hong_co_dinh.model');
+const Hoa_hong_linh_dong_Schema = require('../models/hoa_hong_linh_dong.model');
+const Hoa_hong_van_phong_Schema = require('../models/hoa_hong_van_phong.model');
+const Hoa_hong_thuong_Schema = require('../models/hoa_hong_thuong.model');
+const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
+const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
 // IMPORT CONTROLLER
 const user_controller = require('../controller/user.controller');
 const login_controller = require('../controller/login_controller');
@@ -18,6 +23,7 @@ const thong_bao_controller = require('../controller/thong_bao.controller');
 const admin_controller = require('../controller/admin_controller');
 const login_admin_controller = require('../controller/login_admin.controller');
 const hoa_hong_controller = require('../controller/hoa_hong.controller');
+const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controller');
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
@@ -149,6 +155,18 @@ router.post('/them-khach-hang', login_admin_controller.loginRequired, admin_cont
 router.post('/them-nhom-kinh-doanh', login_admin_controller.loginRequired, admin_controller.them_nhom_kinh_doanh);
 // router Chức vụ
 router.post('/them-chuc-vu', login_admin_controller.loginRequired, admin_controller.them_chuc_vu);
+router.get('/quan-ly-chuc-vu/:_id', login_admin_controller.loginRequired, function (req, res, next) {
+  Sale_Schema.findById(req.params._id, function (err, sale) {
+    thong_bao_Schema.find(function (err, thong_bao) {
+      Chuc_vu_Schema.find(function (err, chuc_vus){
+        hoa_hong_Schema.find(function (err, hoa_hong_co_dinh){
+          if (err) throw err;
+          res.render('admin/pages/quan_ly_chuc_vu', { thong_bao, sale, chuc_vus, hoa_hong_co_dinh });
+        })
+      }).populate('hoa_hong_chuc_vu');
+    }).sort({ ngay_thong_bao: -1 })
+  }).populate('chuc_vu')
+});
 // router thông báo
 router.post('/them-thong-bao', login_admin_controller.loginRequired, thong_bao_controller.them_thong_bao);
 router.post('/xoa-thong-bao/:_id', login_admin_controller.loginRequired, thong_bao_controller.xoa_thong_bao);
@@ -164,21 +182,78 @@ router.get('/quan-ly-thong-bao/:_id', login_admin_controller.loginRequired, func
 router.get('/trang-thai', login_admin_controller.loginRequired, trang_thai_controller.trang_thai);
 router.post('/them-trang-thai', login_admin_controller.loginRequired, trang_thai_controller.them_trang_thai);
 
-// router hoa hồng
-// GET
+
+// router Trả thưởng hoa hồng
+
+router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, function (req, res, next) {
+  Sale_Schema.findById(req.params._id, function (err, sale) {
+    thong_bao_Schema.find(function (err, thong_bao) {
+      Sale_Schema.find(function (err, sales){
+        Hoa_hong_linh_dong_Schema.find(function (err, hoa_hong_linh_dong){
+          Hoa_hong_thuong_Schema.find(function (err, hoa_hong_thuong){
+            Hoa_hong_voucher_Schema.find(function (err, hoa_hong_voucher){
+              User_Schema.find(function (err, khach_hang){
+                hop_dong_tra_thuong_Schema.find(function (err, hop_dongs){
+                  if (err) throw err;
+                  res.render('admin/pages/quan_ly_tra_thuong', { thong_bao, sale, hoa_hong_linh_dong, hoa_hong_thuong, hoa_hong_voucher, sales, khach_hang, hop_dongs });
+                }).populate('khach_hang').populate('sale').populate('hoa_hong_thuong').populate('hoa_hong_gian_tiep').populate('hoa_hong_voucher').populate({
+                  path: 'sale',
+                  populate: { path: 'chuc_vu' }
+              }).populate({
+                  path: 'sale',
+                  populate: { 
+                    path: 'chuc_vu',
+                    populate: { path: 'hoa_hong_chuc_vu'} 
+                  }
+                })
+              })
+            })
+          })
+        })
+      }).populate('chuc_vu')
+    }).sort({ ngay_thong_bao: -1 })
+  }).populate('chuc_vu')
+});
+
+router.post('/them-hop-dong', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_tra_thuong);
+
+
+// router hoa hồng cố định
+  // GET
 router.get('/hoa-hong/:_id', login_admin_controller.loginRequired, function (req, res, next) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
     thong_bao_Schema.find(function (err, thong_bao) {
       hoa_hong_Schema.find(function(err, hoa_hongs){
-        if (err) throw err;
-        res.render('admin/pages/hoa_hong', { thong_bao, sale, hoa_hongs });
+        Hoa_hong_linh_dong_Schema.find(function(err, hoa_hong_linh_dong){
+          Hoa_hong_van_phong_Schema.find(function(err, hoa_hong_vp){
+            Hoa_hong_thuong_Schema.find(function(err, hoa_hong_thuong){
+              Hoa_hong_voucher_Schema.find(function(err, hoa_hong_voucher){
+                if (err) throw err;
+                res.render('admin/pages/hoa_hong', { thong_bao, sale, hoa_hongs, hoa_hong_linh_dong, hoa_hong_vp, hoa_hong_thuong, hoa_hong_voucher });
+              })
+            })
+          })
+        })
       })
     })
   }).populate('chuc_vu')
 });
-// POST
+  // POST
 router.post('/them-hoa-hong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_co_dinh);
+  // DELETE
 router.post('/xoa-hoa-hong/:_id', login_admin_controller.loginRequired, hoa_hong_controller.xoa_hoa_hong_co_dinh);
+
+// router hoa hồng linh động
+router.post('/them-hoa-hong-linh-dong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_linh_dong);
+
+// router hoa hồng văn phòng
+router.post('/them-hoa-hong-van-phong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_van_phong);
+
+// router hoa hồng thưởng
+router.post('/them-hoa-hong-thuong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_thuong);
+
+// router hoa hồng voucher
+router.post('/them-hoa-hong-voucher', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_voucher);
 
 
 
