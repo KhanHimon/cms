@@ -15,6 +15,7 @@ const Hoa_hong_van_phong_Schema = require('../models/hoa_hong_van_phong.model');
 const Hoa_hong_thuong_Schema = require('../models/hoa_hong_thuong.model');
 const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
+const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_khach_hang.model')
 // IMPORT CONTROLLER
 const user_controller = require('../controller/user.controller');
 const login_controller = require('../controller/login_controller');
@@ -24,6 +25,7 @@ const admin_controller = require('../controller/admin_controller');
 const login_admin_controller = require('../controller/login_admin.controller');
 const hoa_hong_controller = require('../controller/hoa_hong.controller');
 const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controller');
+const phieu_thong_tin_controller = require('../controller/phieu_thong_tin.controller');
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
@@ -255,7 +257,19 @@ router.post('/them-hoa-hong-thuong', login_admin_controller.loginRequired, hoa_h
 // router hoa hồng voucher
 router.post('/them-hoa-hong-voucher', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_voucher);
 
+// 
+router.post('/them-phieu-thong-tin', phieu_thong_tin_controller.them_thong_tin);
 
+router.get('/phieu-thong-tin-khach-hang/:_id',login_admin_controller.loginRequired, function(req,res){
+  Sale_Schema.findById(req.params._id, function (err, sale) {
+    thong_bao_Schema.find(function (err, thong_bao) {
+      phieu_thong_tin_khach_hang_Schema.find(function(err, phieu_thong_tin){
+        if (err) throw err; 
+        res.render('admin/pages/phieu_thong_tin', { thong_bao, sale, phieu_thong_tin });
+      }).populate('ma_gioi_thieu')
+    })
+  })
+});
 
 router.post('/', login_admin_controller.check);
 router.get('/*', login_admin_controller.check);

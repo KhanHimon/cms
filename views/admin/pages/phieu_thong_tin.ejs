@@ -1,0 +1,282 @@
+<%- include ../layouts/header.ejs %>
+<% if (sale) { %>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+    <div class="layout-width">
+        <%- include ../layouts/nav_header.ejs %>
+    </div>
+</header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../layouts/left_menu.ejs %>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Phiếu thông tin khách hàng</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Phiếu thông tin khách hàng</a></li>
+                                        <li class="breadcrumb-item active">Thêm mới</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="h-100">
+
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Điền thông tin khách hàng</h4>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+                                                <div class="live-preview">
+                                                    <form action="/admin/them-phieu-thong-tin" method="post">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="ho_va_ten_khach_hang" class="form-label">Họ và tên</label>
+                                                                    <input type="text" class="form-control" placeholder="Nhập họ và tên" id="ho_va_ten_khach_hang" name="ho_va_ten_khach_hang">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="ngay_sinh" class="form-label">Ngày sinh</label>
+                                                                    <input type="date" class="form-control" id="ngay_sinh" name="ngay_sinh">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="dan_toc" class="form-label">Dân tộc</label>
+                                                                    <input type="text" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-7">
+                                                                <div class="mb-3">
+                                                                    <label for="cmnd_cccd" class="form-label">CMND/CCCD</label>
+                                                                    <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cmnd_cccd" name="cmnd_cccd">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <div class="mb-3">
+                                                                    <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                    <input type="date" class="form-control" id="ngay_cap" name="ngay_cap">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3">
+                                                                    <label for="noi_cap" class="form-label">Nơi cấp</label>
+                                                                    <input type="text" class="form-control" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="mb-3">
+                                                                    <label for="dia_chi" class="form-label">Địa chỉ hiện tại</label>
+                                                                    <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="dien_thoai" class="form-label">Số điện thoại</label>
+                                                                    <input type="tel" class="form-control" placeholder="+(84) 444 78765" id="dien_thoai" name="dien_thoai">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="email" class="form-label">Email</label>
+                                                                    <input type="email" class="form-control" placeholder="example@gamil.com" id="email" name="email">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
+                                                                    <input type="number" class="form-control" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="ngan_hang" class="form-label">Ngân hàng</label>
+                                                                    <input type="text" class="form-control" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="chi_nhanh" class="form-label">Chi nhánh</label>
+                                                                    <input type="text" class="form-control" placeholder="Nhập chi nhánh" id="chi_nhanh" name="chi_nhanh">
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="noi_dung_dang_ky" class="form-label">Nội dung đăng ký</label>
+                                                                    <input type="hidden" class="form-control" value="Hợp tác đầu tư" id="noi_dung_dang_ky" name="noi_dung_dang_ky">
+                                                                    <input type="text" class="form-control" value="Hợp tác đầu tư" id="noi_dung_dang_ky" name="noi_dung_dang_ky" disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="so_tien_dau_tu" class="form-label">Số tiền đầu tư</label>
+                                                                    <input type="number" placeholder="Số tiền đầu tư" class="form-control" value="Hợp tác đầu tư" id="so_tien_dau_tu" name="so_tien_dau_tu" >
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="tai_san_doi_ung" class="form-label">Tài sản đối ứng</label>
+                                                                    <input type="text" class="form-control" placeholder="Nhập tài sản đối ứng" value="" id="tai_san_doi_ung" name="tai_san_doi_ung" >
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="ForminputState" class="form-label">Nhân viên tư vấn</label>
+                                                                    <input type="hidden" class="form-control" value="<%= sale._id %>" placeholder="<%= sale.ho_va_ten %>" id="ma_gioi_thieu" name="ma_gioi_thieu">
+                                                                    <input type="text" class="form-control" placeholder="<%= sale.ho_va_ten %>" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label for="ForminputState" class="form-label">Hình thức nhận hợp đồng</label>
+                                                                    <!-- Base Radios -->
+                                                                    <div class="form-check mb-2">
+                                                                        <input class="form-check-input" value="Nhận tại văn phòng của GMG" type="radio" name="hinh_thuc_nhan_hd" id="hinh_thuc_nhan_hd"  name="hinh_thuc_nhan_hd">
+                                                                        <label class="form-check-label" for="hinh_thuc_nhan_hd">
+                                                                            Nhận tại văn phòng của GMG
+                                                                        </label>
+                                                                    </div>
+
+                                                                    <div class="form-check mb-2">
+                                                                        <input class="form-check-input" value="Chuyển phát nhanh trực tiếp" type="radio" name="hinh_thuc_nhan_hd" id="hinh_thuc_nhan_hd"  name="hinh_thuc_nhan_hd">
+                                                                        <label class="form-check-label" for="hinh_thuc_nhan_hd">
+                                                                            Chuyển phát nhanh trực tiếp
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check mb-2">
+                                                                        <input class="form-check-input" value="Ủy quyền cho sale nhận (có tin nhắn xác nhận)" type="radio" name="hinh_thuc_nhan_hd" id="hinh_thuc_nhan_hd"  name="hinh_thuc_nhan_hd">
+                                                                        <label class="form-check-label" for="hinh_thuc_nhan_hd">
+                                                                            Ủy quyền cho sale nhận (có tin nhắn xác nhận)
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                            <div class="col-lg-12">
+                                                                <div class="text-end">
+                                                                    <button type="submit" class="btn btn-primary">Thêm mới</button>
+                                                                </div>
+                                                            </div>
+                                                            <!--end col-->
+                                                        </div>
+                                                        <!--end row-->
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div> <!-- .card-->
+                                    </div> <!-- .col-->
+                                    <div class="col-xl-6">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Phiếu thông tin khách hàng</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">Tư vấn viên</th>
+                                                                <th scope="col">Khách hàng</th>
+                                                                <th scope="col">Số tiền</th>
+                                                                <th scope="col">Trạng thái</th>
+                                                                <th scope="col">Thời gian</th>
+                                                                <th scope="col"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="font-size: 16px;">
+                                                            <% phieu_thong_tin.forEach(function(phieu_thong_tin){ %>
+                                                                <tr>
+                                                                    <td><%= phieu_thong_tin.ma_gioi_thieu.ho_va_ten %></td>
+                                                                    <td><%= phieu_thong_tin.ho_va_ten_khach_hang %></td>
+                                                                    <td><%= phieu_thong_tin.so_tien_dau_tu.toLocaleString(); %> đ</td>
+                                                                    <td>Chờ xác nhận</td>
+                                                                    <td><%= phieu_thong_tin.ngay_tao.getDate() %>-<%= phieu_thong_tin.ngay_tao.getMonth() +1 %>-<%= phieu_thong_tin.ngay_tao.getFullYear() %></td>
+                                                                </tr>
+                                                            <% }); %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end row-->
+
+                            </div> <!-- end .h-100-->
+
+                        </div> <!-- end col -->
+                    </div>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Lê Tuấn Khang
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <% } %>
+<%- include ../layouts/footer.ejs %>
