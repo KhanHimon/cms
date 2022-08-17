@@ -266,7 +266,18 @@ router.get('/phieu-thong-tin-khach-hang/:_id',login_admin_controller.loginRequir
       phieu_thong_tin_khach_hang_Schema.find(function(err, phieu_thong_tin){
         if (err) throw err; 
         res.render('admin/pages/phieu_thong_tin', { thong_bao, sale, phieu_thong_tin });
-      }).populate('ma_gioi_thieu')
+      }).populate('ma_gioi_thieu').populate('trang_thai').sort({ ngay_tao: -1 })
+    })
+  })
+});
+
+router.get('/danh-sach-phieu/:_id',login_admin_controller.loginRequired, function(req,res){
+  Sale_Schema.findById(req.params._id, function (err, sale) {
+    thong_bao_Schema.find(function (err, thong_bao) {
+      phieu_thong_tin_khach_hang_Schema.find(function(err, phieu_thong_tin){
+        if (err) throw err; 
+        res.render('admin/pages/danh_sach_phieu', { thong_bao, sale, phieu_thong_tin });
+      }).populate('ma_gioi_thieu').populate('trang_thai').sort({ ngay_tao: -1 })
     })
   })
 });

@@ -20,6 +20,7 @@ class phieu_thong_tin_controller {
             tai_san_doi_ung: req.body.tai_san_doi_ung,
             hinh_thuc_nhan_hd: req.body.hinh_thuc_nhan_hd,
             ma_gioi_thieu: req.body.ma_gioi_thieu,
+            trang_thai: req.body.trang_thai,
             ngay_tao: Date.now()
         });
         console.log(new_phieu_thong_tin);

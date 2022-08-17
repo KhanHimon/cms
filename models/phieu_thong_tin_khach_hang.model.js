@@ -22,6 +22,10 @@ const phieu_thong_tin_khach_hang_Schema = new Schema({
         type: Schema.Types.ObjectId,
         ref:'Sale'
     },
+    trang_thai: {
+        type: Schema.Types.ObjectId,
+        ref:'Trang_thai'
+    },
     ngay_tao: {type: Date}
 });
 
