@@ -66,6 +66,7 @@
                                                                 <th scope="col">Trạng thái</th>
                                                                 <th scope="col">Thời gian</th>
                                                                 <th scope="col"></th>
+                                                                <th scope="col"></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody style="font-size: 16px;">
@@ -82,7 +83,649 @@
                                                                     <td><%= phieu_thong_tin.so_tien_dau_tu.toLocaleString(); %> đ</td>
                                                                     <td><%= phieu_thong_tin.trang_thai.ten_trang_thai %></td>
                                                                     <td><%= phieu_thong_tin.ngay_tao.getDate() %>/<%= phieu_thong_tin.ngay_tao.getMonth() +1 %>/<%= phieu_thong_tin.ngay_tao.getFullYear() %>(<%= phieu_thong_tin.ngay_tao.getHours() %>h<%= phieu_thong_tin.ngay_tao.getMinutes() %> phút)</td>
-                                                                    <td></td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#phieu_thong_tin_<%= phieu_thong_tin._id %>"><i class="ri-contacts-fill label-icon align-middle rounded-pill fs-16 me-2"></i> Chi tiết</button>
+                                                                        <!-- Default Modals -->
+                                                                        <div id="phieu_thong_tin_<%= phieu_thong_tin._id %>" class="modal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                            <div class="modal-dialog modal-fullscreen">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="myModalLabel">Thông tin của khách hàng  <%= phieu_thong_tin.ho_va_ten_khach_hang %></h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <div class="row">
+                                                                                            <div class="col-6">
+                                                                                                <form action="/admin/them-phieu-thong-tin" method="post">
+                                                                                                    <div class="row">
+                                                                                                        <input type="hidden" class="form-control" value="62f227402387a6f3c2bbb24b" id="trang_thai" name="trang_thai">
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="ho_va_ten_khach_hang" class="form-label">Họ và tên</label>
+                                                                                                                <input type="text" class="form-control" value="<%= phieu_thong_tin.ho_va_ten_khach_hang %>" placeholder="Nhập họ và tên" id="ho_va_ten_khach_hang" name="ho_va_ten_khach_hang">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="ngay_sinh" class="form-label">Ngày sinh</label>
+                                                                                                                <input type="date" value="<%= phieu_thong_tin.ngay_sinh.getFullYear() %>-<%= phieu_thong_tin.ngay_sinh.getMonth() +1 %>-<%= phieu_thong_tin.ngay_sinh.getDate() %>" class="form-control" id="ngay_sinh" name="ngay_sinh">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="dan_toc" class="form-label">Dân tộc</label>
+                                                                                                                <input type="text" value="<%= phieu_thong_tin.dan_toc %>" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                        <div class="col-md-7">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="cmnd_cccd" class="form-label">CMND/CCCD</label>
+                                                                                                                <input type="number" class="form-control" value="<%= phieu_thong_tin.cmnd_cccd %>" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cmnd_cccd" name="cmnd_cccd">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-5">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                                                                <input type="date" value="<%= phieu_thong_tin.ngay_cap.getFullYear() %>-<%= phieu_thong_tin.ngay_cap.getMonth() +1 %>-<%= phieu_thong_tin.ngay_cap.getDate() %>" class="form-control" id="ngay_cap" name="ngay_cap">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-12">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="noi_cap" class="form-label">Nơi cấp</label>
+                                                                                                                <input type="text" value="<%= phieu_thong_tin.noi_cap %>" class="form-control" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-12">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="dia_chi" class="form-label">Địa chỉ hiện tại</label>
+                                                                                                                <input type="text" value="<%= phieu_thong_tin.dia_chi %>" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                        <div class="col-md-6">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="dien_thoai" class="form-label">Số điện thoại</label>
+                                                                                                                <input type="tel" class="form-control" value="<%= phieu_thong_tin.dien_thoai %>" placeholder="+(84) 444 78765" id="dien_thoai" name="dien_thoai">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                        <div class="col-md-6">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="email" class="form-label">Email</label>
+                                                                                                                <input type="email" class="form-control" value="<%= phieu_thong_tin.email %>" placeholder="example@gamil.com" id="email" name="email">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
+                                                                                                                <input type="number" class="form-control" value="<%= phieu_thong_tin.so_tai_khoan %>" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="ngan_hang" class="form-label">Ngân hàng</label>
+                                                                                                                <input type="text" class="form-control" value="<%= phieu_thong_tin.ngan_hang %>" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-4">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="chi_nhanh" class="form-label">Chi nhánh</label>
+                                                                                                                <input type="text" class="form-control" placeholder="Nhập chi nhánh" value="<%= phieu_thong_tin.chi_nhanh %>" id="chi_nhanh" name="chi_nhanh">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                        <div class="col-md-6">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="noi_dung_dang_ky" class="form-label">Nội dung đăng ký</label>
+                                                                                                                <input type="hidden" class="form-control" value="Hợp tác đầu tư" id="noi_dung_dang_ky" name="noi_dung_dang_ky">
+                                                                                                                <input type="text" class="form-control" value="Hợp tác đầu tư" id="noi_dung_dang_ky" name="noi_dung_dang_ky" disabled>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-6">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="so_tien_dau_tu" class="form-label">Số tiền đầu tư</label>
+                                                                                                                <input type="number" placeholder="Số tiền đầu tư" class="form-control" value="<%= phieu_thong_tin.so_tien_dau_tu %>" id="so_tien_dau_tu" name="so_tien_dau_tu" >
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-6">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="tai_san_doi_ung" class="form-label">Tài sản đối ứng</label>
+                                                                                                                <input type="text" class="form-control" placeholder="Nhập tài sản đối ứng" value="<%= phieu_thong_tin.tai_san_doi_ung %>" value="" id="tai_san_doi_ung" name="tai_san_doi_ung" >
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                        <div class="col-md-6">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="ForminputState" class="form-label">Nhân viên tư vấn</label>
+                                                                                                                <input type="hidden" class="form-control" value="<%= sale._id %>" placeholder="<%= sale.ho_va_ten %>" id="ma_gioi_thieu" name="ma_gioi_thieu">
+                                                                                                                <input type="text" class="form-control" placeholder="<%= sale.ho_va_ten %>" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-6">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="ForminputState" class="form-label">Hình thức nhận hợp đồng</label>
+                                                                                                                <!-- Base Radios -->
+                                                                                                                <div class="form-check mb-2">
+                                                                                                                    <input class="form-check-input" value="Nhận tại văn phòng của GMG" type="radio" name="hinh_thuc_nhan_hd" id="hinh_thuc_nhan_hd"  name="hinh_thuc_nhan_hd">
+                                                                                                                    <label class="form-check-label" for="hinh_thuc_nhan_hd">
+                                                                                                                        Nhận tại văn phòng của GMG
+                                                                                                                    </label>
+                                                                                                                </div>
+                                            
+                                                                                                                <div class="form-check mb-2">
+                                                                                                                    <input class="form-check-input" value="Chuyển phát nhanh trực tiếp" type="radio" name="hinh_thuc_nhan_hd" id="hinh_thuc_nhan_hd"  name="hinh_thuc_nhan_hd">
+                                                                                                                    <label class="form-check-label" for="hinh_thuc_nhan_hd">
+                                                                                                                        Chuyển phát nhanh trực tiếp
+                                                                                                                    </label>
+                                                                                                                </div>
+                                                                                                                <div class="form-check mb-2">
+                                                                                                                    <input class="form-check-input" value="Ủy quyền cho sale nhận (có tin nhắn xác nhận)" type="radio" name="hinh_thuc_nhan_hd" id="hinh_thuc_nhan_hd"  name="hinh_thuc_nhan_hd">
+                                                                                                                    <label class="form-check-label" for="hinh_thuc_nhan_hd">
+                                                                                                                        Ủy quyền cho sale nhận (có tin nhắn xác nhận)
+                                                                                                                    </label>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                        <div class="col-lg-12">
+                                                                                                            <div class="text-end">
+                                                                                                                <button type="submit" class="btn btn-primary">Thay đổi</button>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <!--end col-->
+                                                                                                    </div>
+                                                                                                    <!--end row-->
+                                                                                                </form>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                                                                        <button type="button" class="btn btn-primary ">Save Changes</button>
+                                                                                    </div>
+                                                                                </div><!-- /.modal-content -->
+                                                                            </div><!-- /.modal-dialog -->
+                                                                        </div><!-- /.modal -->
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#tao_hop_dong_dau_tu<%= phieu_thong_tin._id %>"><i class="ri-file-user-line label-icon align-middle rounded-pill fs-16 me-2"></i> Tạo hợp đồng đầu tư</button>
+                                                                        <div id="tao_hop_dong_dau_tu<%= phieu_thong_tin._id %>" class="modal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                            <div class="modal-dialog modal-lg">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title" id="myModalLabel">Thông tin của khách hàng  <%= phieu_thong_tin.ho_va_ten_khach_hang %></h5>
+                                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <div id="exportContent">
+                                                                                            <div class="header_docx">
+                                                                                                <h3>CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h3>
+                                                                                                <h4>Độc lập - Tự do - Hạnh phúc</h4>
+                                                                                                <p>------oo0oo------</p>
+                                                                                                <h2>HỢP ĐỒNG HỢP TÁC ĐẦU TƯ</h2>
+                                                                                                <p>Số: …/2022/HĐHTĐT-GMG-…</p>
+                                                                                            </div>
+                                                                                            <p><i>- Căn cứ Bộ luật Dân sự số: 91/2015/QH13, ngày 24 tháng 11 năm 2015</i></p>
+                                                                                            <p><i>- Căn cứ Luật Thương mại số: 36/2005/QH11, ngày 14 tháng 6 năm 2005;</i></p>
+                                                                                            <p><i>- Căn cứ Quyết định số: 13/QĐ-HĐQT, ngày 10 tháng 5 năm 2022 của Hội đồng quản trị Liên hiệp Hợp tác xã
+                                                                                                    Việt
+                                                                                                    Nam về việc kết nạp Công ty Cổ phần Tập đoàn Chợ Toàn Cầu làm thành viên liên kết của Liên hiệp Hợp tác
+                                                                                                    xã
+                                                                                                    Việt Nam;</i></p>
+                                                                                            <p><i>- Căn cứ Hợp đồng phát triển dự án giữa Công ty Cổ phần Tập đoàn Chợ Toàn Cầu và
+                                                                                                    ..............................................</i></p>
+                                                                                            <p>Hôm nay, ngày ..… tháng ….. năm 2022, tại LK 31-32, ngõ 1 phố Lâm Hạ, phường Bồ Đề, quận Long Biên, Thành phố
+                                                                                                Hà
+                                                                                                Nội, chúng tôi gồm các bên dưới đây:</p>
+                                                                                            <table>
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td><b>BÊN A: CÔNG TY CỔ PHẦN TẬP ĐOÀN CHỢ TOÀN CẦU (GMG)</b></td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>ĐKKD/MST: 2802772702</td>
+                                                                                                        <td>Ngày cấp lần đầu: 29/08/2019</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Nơi cấp: Phòng ĐKKD - Sở Kế hoạch và Đầu tư Thành phố Hà Nội</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Đại diện theo pháp luật: Lê Thị Hiền</td>
+                                                                                                        <td>Chức vụ: Chủ tịch HĐQT</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>CMND/CCCD số: 030184012464</td>
+                                                                                                        <td>Ngày cấp: 26/08/2019</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Nơi cấp: Cục cảnh sát quản lý hành chính về trật tự xã hội</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Địa chỉ trụ sở chính: LK 31-32, ngõ 1 phố Lâm Hạ, Phường Bồ Đề, Quận Long Biên, Thành phố Hà Nội
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Số điện thoại liên hệ: 0247.302.6898</td>
+                                                                                                        <td>Email: lienhiep@lhhtx.vn</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Số tài khoản: 16010009896868 tại ngân hàng TMCP Đầu tư và phát triển Việt Nam (BIDV) - Chi nhánh
+                                                                                                            Sở
+                                                                                                            Giao dịch 3</td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                            <center><b><i>(Sau đây gọi tắt là "Bên A")</i></b></center>
+                                                                                            <p>Và:</p>
+                                                                                            <table>
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td><b>BÊN B: ÔNG/BÀ .......................</b></td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Ngày sinh: .......................</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>CMND/CCCD số: .......................</td>
+                                                                                                        <td>Ngày cấp: .......................</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Nơi cấp: .......................</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Địa chỉ thường trú:....................... </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Địa chỉ liên hệ/nhận thông báo:.......................</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Số điện thoại liên hệ:.......................</td>
+                                                                                                        <td>Email:................................</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>Số tài khoản:..............................</td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                            <center><b><i>(Sau đây gọi tắt là "Bên B")</i></b></center>
+                                                                                            <p>Đồng ý ký kết Hợp đồng Hợp tác đầu tư (Sau đây gọi tắt là “Hợp đồng”) với các điều khoản sau đây:</p>
+                                                                                            <h3>XÉT RẰNG:</h3>
+                                                                                            <div>
+                                                                                                <p><span><b>A)</b></span> Bên A là Tổ chức được thành lập và hoạt động hợp pháp theo pháp luật Việt Nam, có
+                                                                                                    chức năng hoạt động trong các lĩnh vực như : Liên kết, hợp tác đầu tư, hợp tác kinh doanh; đầu tư; tư
+                                                                                                    vấn đầu tư, tư vấn thiết kế, tư vấn quản lý dự án; đầu tư các dự án chợ, trung tâm thương mại, dân cư,
+                                                                                                    nghỉ dưỡng và các dự án bất động sản khác trên phạm vi cả nước. Tư vấn sử dụng sản phẩm OCOP, tư vấn
+                                                                                                    phát triển sản phẩm OCOP, sản phẩm Nông nghiệp, phát triển vùng nguyên liệu, phát triển sản xuất, tiêu
+                                                                                                    thụ sản phẩm Nông nghiệp trên địa bàn cả nước và tư vấn xuất khẩu.</p>
+                                                                                                <p><span><b>B)</b></span> Bên B là một cá nhân có đầy đủ năng lực pháp luật dân sự và năng lực hành vi dân
+                                                                                                    sự để ký kết Hợp Đồng này.
+                                                                                                    Các Bên mong muốn hợp tác đầu tư kinh doanh vào các lĩnh vực thuộc hoạt động của Bên A như các điều
+                                                                                                    khoản tại Hợp Đồng này.
+                                                                                                    DO ĐÓ, sau khi bàn bạc, thỏa thuận, trên tinh thần hoàn toàn tự nguyện, hai bên đã đọc, hiểu rõ và đồng
+                                                                                                    ý ký kết Hợp Đồng này với các điều kiện và điều khoản như sau:
+                                                                                                </p>
+                                                                                    
+                                                                                                <p><b>Điều 1. Nội dung hợp tác đầu tư</b></p>
+                                                                                                <p><span>1.1.</span> Nội Dung Hợp Tác: Bên B đồng ý góp vốn và Bên A đồng ý nhận số tiền Vốn Đầu Tư như định
+                                                                                                    nghĩa tại khoản 3.1 Điều 3 Hợp Đồng này để đầu tư vào các dự án mà Bên A hoặc thành viên hoặc thành viên
+                                                                                                    liên kết của bên A đang và sẽ là chủ đầu tư hoặc liên doanh, liên kết đầu tư với đối tác hợp tác khác.
+                                                                                                </p>
+                                                                                                <p><span>1.2.</span> Mục Đích Hợp Tác: Thông qua việc ký kết Hợp Đồng này, Bên A sẽ sử dụng Vốn Đầu Tư của
+                                                                                                    Bên B một cách tích cực để tìm kiếm, lựa chọn, triển khai các hoạt động đầu tư, liên kết đầu tư, hợp tác
+                                                                                                    đầu tư, hợp tác kinh doanh nhằm phát sinh lợi nhuận như đã cam kết cho Bên B, đồng thời nâng cao năng
+                                                                                                    lực cạnh tranh, quảng bá thương hiệu của Bên A trên thị trường, từ đó xây dựng và phát triển Bên A thành
+                                                                                                    một đơn vị kinh doanh thương mại, dịch vụ, đầu tư bất động sản chuyên nghiệp trên phạm vi cả trong và
+                                                                                                    ngoài nước.</p>
+                                                                                                <p><span>1.3.</span> Phạm Vi Và Phương Thức Hợp Tác: Hai Bên thống nhất sẽ không thành lập tổ chức kinh tế
+                                                                                                    mới để thực hiện Hợp Đồng này. Hợp Đồng này không tạo ra bất kỳ liên doanh, liên kết, quan hệ đại lý,
+                                                                                                    hay bất kỳ hình thức tương tự nào khác giữa hai bên. Bên B đồng ý rằng, toàn bộ Vốn Đầu Tư sẽ được Bên A
+                                                                                                    toàn quyền điều phối, sử dụng cho Mục Đích Hợp Tác như đã nêu tại khoản 1.2 Điều này, Bên B không tham
+                                                                                                    gia vào bất kỳ hoạt động quản lý điều hành nào của Bên A.</p>
+                                                                                    
+                                                                                                <p><b>Điều 2. Thời hạn Hợp đồng</b></p>
+                                                                                                <p><span>2.1.</span> Hợp Đồng này có thời hạn 24 (Hai mươi bốn) tháng kể từ ngày Bên A nhận được đầy đủ vốn
+                                                                                                    đầu tư của Bên B như quy định tại khoản 3.1 Điều 3 của Hợp Đồng (“Thời Hạn Hợp Đồng”). </p>
+                                                                                                <p><span>2.2.</span> Sau khi hết Thời Hạn Hợp Đồng, các Bên có thể tiếp tục hợp tác kinh doanh bằng việc đàm
+                                                                                                    phán và ký kết một hợp đồng mới hoặc Phụ lục Hợp đồng với các điều khoản và điều kiện theo thỏa thuận
+                                                                                                    của Các Bên vào thời điểm đó.</p>
+                                                                                    
+                                                                                                <p><b>Điều 3. Vốn đầu tư, hoàn vốn và lợi nhuận cam kết</b></p>
+                                                                                                <p><span>3.1.</span> Giá trị vốn đầu tư theo Hợp Đồng này là: ………………………………………. VNĐ. <br>
+                                                                                                    Bằng chữ: ……………………………………………………………..……….. đồng chẵn ./.<br>
+                                                                                                    Tiến độ góp vốn: Ngay sau khi hai Bên ký kết Hợp đồng này.
+                                                                                                    Hình thức hợp tác đầu tư và phân chia lợi nhuận: Theo Phụ lục 01 kèm theo Hợp đồng này.
+                                                                                                </p>
+                                                                                                <p><span>3.2.</span> Hoàn Vốn và Lợi Nhuận Cam Kết:</p>
+                                                                                                <p><span>3.2.1</span> Vốn Đầu Tư được Bên A hoàn trả cho Bên B một lần sau khi chấm dứt Hợp đồng này. Bên B
+                                                                                                    có thể lựa chọn hình thức nhận lại Vốn Đầu tư bằng tiền mặt hoặc tài sản là Bất động sản hoặc tài sản
+                                                                                                    khác có giá trị tương đương với giá trị Vốn Đầu Tư.</p>
+                                                                                                <p><span>3.2.2</span> Lợi Nhuận đầu tư: </p>
+                                                                                                <p>(a) Lợi Nhuận đầu tư sẽ được Bên A trả cho Bên B vào ngày 10 (mười) -15 (mười lăm) hàng tháng. Tháng đầu
+                                                                                                    tiên nhận Lợi Nhuận được tính theo ngày Bên B góp đủ Vốn Đầu Tư. Mức Lợi Nhuận Bên B được nhận hàng
+                                                                                                    tháng là 2,5%/tháng (Hai phẩy năm phần trăm trên tháng) được tính dựa trên giá trị Vốn Đầu tư.</p>
+                                                                                                <p>(b) Ngoài khoản Lợi Nhuận đầu tư theo điểm (a) khoản này, Bên B còn được hưởng các chính sách ưu đãi khác
+                                                                                                    của Bên A bằng hình thức tặng thẻ mua hàng OCOPSHOP hàng tháng; Chiết khấu trực tiếp trên giá trị hàng
+                                                                                                    hóa khi Bên B mua hàng tại hệ thống Trung tâm giới thiệu và bán sản phẩm OCOP là thành viên liên kết của
+                                                                                                    Bên A theo chính sách tại của Bên A tại từng thời điểm.</p>
+                                                                                                <p>(c) Phương thức nhận Lợi Nhuận đầu tư: Tiền mặt hoặc chuyển khoản. </p>
+                                                                                                <p><span>3.3.</span> Khoản Hoàn Vốn (Trong trường hợp nhận bằng tiền) và Lợi Nhuận được chi trả qua tài
+                                                                                                    khoản của Bên B được nêu tại phần đầu của Hợp Đồng, trường hợp Bên B thay đổi thông tin tài khoản ngân
+                                                                                                    hàng, Bên B phải thông báo bằng văn bản về thông tin tài khoản thụ hưởng mới cho Bên A.</p>
+                                                                                    
+                                                                                                <p><b>Điều 4. Điều hành hoạt động đầu tư kinh doanh của Bên A</b></p>
+                                                                                                <p><span>4.1.</span>Các Bên hiểu, thống nhất và cam kết rằng trong suốt Thời Hạn Hợp Đồng, việc sử dụng Vốn
+                                                                                                    Đầu Tư sẽ do Bên A toàn quyền quyết định và chịu trách nhiệm quản lý. Bên B sẽ không can thiệp và/hoặc
+                                                                                                    tham gia vào bất kỳ hoạt động quản lý, điều hành, giám sát công việc kinh doanh nào của Bên A. </p>
+                                                                                                <p><span>4.2.</span>Bên A sẽ chủ động, nỗ lực và toàn quyền quyết định mọi vấn đề liên quan đến việc sử dụng
+                                                                                                    Vốn Đầu Tư trong suốt Thời Hạn Hợp Đồng. Trong trường hợp Bên A gặp khó khăn trong hoạt động kinh doanh,
+                                                                                                    các Bên sẽ cùng nỗ lực để khắc phục các khó khăn nói trên bằng cách thống nhất tìm giải pháp khắc phục;
+                                                                                                    theo đó Bên A sẽ cân đối, điều chỉnh các vấn đề liên quan, bao gồm nhưng không giới hạn ở Vốn Đầu Tư,
+                                                                                                    Lợi Nhuận, phương thức và hình thức thanh toán Lợi Nhuận, Thời Hạn Hợp Đồng trên tinh thần và nguyên tắc
+                                                                                                    hợp tác thiện chí, các Bên cùng có lợi.</p>
+                                                                                    
+                                                                                                <p><b>Điều 5. Chuyển nhượng Hợp đồng </b></p>
+                                                                                                <p><span>5.1.</span> Trong Thời Hạn Hợp Đồng, Bên B được quyền chuyển nhượng toàn bộ quyền và nghĩa vụ của
+                                                                                                    mình theo Hợp Đồng này cho một bên thứ ba khác là cá nhân có đủ năng lực pháp luật dân sự và năng lực
+                                                                                                    hành vi dân sự theo quy định của pháp luật (“Bên Thứ Ba Nhận Chuyển Nhượng”). Việc chuyển nhượng này chỉ
+                                                                                                    có hiệu lực khi đáp ứng đầy - đủ các điều kiện sau: (a) phải được lập thành văn bản; ( b) phải thông báo
+                                                                                                    trước và nhận được sự đồng ý bằng văn bản của Bên A; và (c) Bên Thứ Ba Nhận Chuyển Nhượng phải chấp
+                                                                                                    thuận và cam kết thực hiện các nghĩa vụ theo các cam kết ban đầu giữa Bên A và Bên B theo Hợp đồng này
+                                                                                                    (Hợp Đồng Chuyển Nhượng”).</p>
+                                                                                                <p><span>5.2.</span> Trước thời điểm Bên B và Bên Thứ Ba Nhận Chuyển Nhượng dự kiến ký kết Hợp Đồng Chuyển
+                                                                                                    Nhượng ít nhất 15 (mười lăm) Ngày Làm Việc, Bên B có trách nhiệm thông báo bằng văn bản cho Bên A về
+                                                                                                    việc chuyển nhượng và cung cấp bản dự thảo của Hợp Đồng Chuyển Nhượng để Bên A rà soát, kiểm tra, xác
+                                                                                                    nhận và phê duyệt.
+                                                                                                    Hợp Đồng Chuyển Nhượng chỉ được ký kết sau khi bản dự thảo hợp đồng này được sự đồng ý bằng văn bản của
+                                                                                                    Bên A. Sau khi Bên B và Bên Thứ Ba Nhận Chuyển Nhượng ký kết Hợp Đồng Chuyển Nhượng, Bên B hoặc Bên Thứ
+                                                                                                    Ba Nhận Chuyển Nhượng có trách nhiệm cung cấp 01 (một) bản gốc Hợp Đồng Chuyển Nhượng cùng các phụ lục,
+                                                                                                    giấy tờ, tài liệu liên quan đến Hợp Đồng Chuyển Nhượng cho Bên A.
+                                                                                                </p>
+                                                                                                <p><span>5.3.</span> Bên B phải thanh toán cho Bên A một khoản tiền tương đương với 01 % (một phần trăm) giá
+                                                                                                    trị vốn Đầu Tư (“Chi Phí Chuyển Nhượng") ngay khi Hợp Đồng Chuyển Nhượng được ký kết và được Bên A đồng
+                                                                                                    ý, phê duyệt và Bên A nhận được bản gốc cùng các tài liệu được quy định tại khoản 6.2 Điều này. Sau khi
+                                                                                                    Bên A nhận được Chi Phí Chuyển Đổi, mọi quyền và nghĩa vụ của Bên B đối với Bên A theo Hợp Đồng này được
+                                                                                                    chuyển nhượng hoàn toàn cho Bên Thứ Ba.</p>
+                                                                                                <p><span>5.4.</span> Bên B và/hoặc Bên Thứ Ba chịu trách nhiệm với: (a) mọi chi phí phát sinh liên quan đến
+                                                                                                    cho việc đàm phán, ký kết và thực hiện Hợp Đồng Chuyển Nhượng; (b) tất cả các khoản thuế, phí, lệ phí,
+                                                                                                    nghĩa vụ tài chính phát sinh đối với Phí Chuyển Đổi và việc chuyển nhượng Hợp Đồng; và (c) bồi thường
+                                                                                                    thiệt hại do việc ký kết và thực hiện Hợp Đồng Chuyển Nhượng gây ra cho Bên A (nếu có).</p>
+                                                                                    
+                                                                                                <p><b>Điều 6. Rút Vốn Đầu Tư trước thời hạn Hợp đồng </b></p>
+                                                                                                <p><span>6.1.</span> Bên B có quyền rút lại toàn bộ Vốn Đầu Tư vào bất kỳ thời điểm nào trong thời gian thực
+                                                                                                    hiện Hợp đồng <b>(“Yêu Cầu Rút Vốn Đầu Tư Trước Thời Hạn”)</b>. Trong trường hợp này, Bên B phải chịu
+                                                                                                    khoản chiết khấu 30% giá trị Vốn Đầu Tư <b>(“Phí Rút Vốn Đầu Tư Trước Thời Hạn")</b>; đồng thời, Bên B
+                                                                                                    phải hoàn trả lại Bên A Lợi Nhuận đầu tư, giá trị ưu đãi và các lợi ích khác đã được hưởng từ thời điểm
+                                                                                                    bắt đầu góp vốn.</p>
+                                                                                                <p><span>6.2.</span> Yêu Cầu Rút Vốn Trước Hạn phải được thể hiện bằng văn bản và gửi trực tiếp hoặc thông
+                                                                                                    qua chuyển phát nhanh có bảo đảm của bưu điện. Trong vòng 30 (ba mươi) Ngày Làm Việc kể từ ngày nhận
+                                                                                                    được Yêu Cầu Rút Vốn Trước Hạn hợp lệ, Bên A sẽ giải quyết Yêu Cầu Rút Vốn Trước Hạn và thông báo đồng ý
+                                                                                                    Yêu Cầu Rút Vốn Trước Hạn bằng văn bản cho Bên B <b>(“Thông Báo Đồng Ý")</b>.</p>
+                                                                                                <p><span>6.3.</span> Trong vòng 15 (mười lăm) Ngày Làm Việc kể từ ngày Bên A ban hành Thông Báo Đồng Ý, Các
+                                                                                                    Bên tiến hành các thủ tục cần thiết để thanh toán các nghĩa vụ tài chính tồn đọng giữa các bên.</p>
+                                                                                    
+                                                                                                <p><b>Điều 7. Quyền Và Nghĩa Vụ Của Bên A </b></p>
+                                                                                                <p><span>7.1.</span> Toàn quyền quản lý, điều hành, quyết định công việc kinh doanh và sử dụng Vốn Đầu Tư
+                                                                                                    theo quyền quyết định riêng của Bên A theo đúng Mục Đích Hợp Tác của Hợp Đồng này trong Thời Hạn Hợp
+                                                                                                    Đồng.</p>
+                                                                                                <p><span>7.2.</span> Được nhận đầy đủ Chi Phí Chuyển Nhượng, Chi Phí Rút Vốn (nếu có) theo quy định tại Hợp
+                                                                                                    Đồng này.</p>
+                                                                                                <p><span>7.3.</span> Chịu trách nhiệm tìm kiếm đối tác, dự án kinh doanh, dự án bất động sản tiềm năng và
+                                                                                                    các cơ hội kinh doanh khác để đầu tư, kinh doanh hiệu quả.</p>
+                                                                                                <p><span>7.4.</span> Thanh toán Lợi Nhuận và hoàn trả Vốn Đầu Tư đúng theo cam kết của Hợp Đồng.</p>
+                                                                                                <p><span>7.5.</span> Trong quá trình thực hiện Hợp đồng Bên A không được thanh toán lợi nhuận chậm quá 03
+                                                                                                    lần, mỗi lần không quá 03 tháng. Nếu Bên A vi phạm thì Bên B có quyền đơn phương chấm dứt Hợp đồng mà
+                                                                                                    không phải chịu Chi Phí Rút Vốn theo quy định tại Điều 6 Hợp đồng này.</p>
+                                                                                                <p><span>7.6.</span> Bên A có nghĩa vụ hoàn trả Vốn Đầu tư cho Bên B theo Hợp đồng này. Hai Bên có thể thỏa
+                                                                                                    thuận để Bên B có thể lựa chọn hình thức nhận Vốn Đầu Tư bằng tiền mặt hoặc bằng các hình thức như: Nhận
+                                                                                                    tài sản/quyền tài sản hình thành trong tương lai của Bên A (Hoặc thành viên liên kết của Bên A), bao gồm
+                                                                                                    nhưng không hạn chế ở quyền sử dụng đất, quyền sở hữu nhà ở hoặc quyền sử dụng đất và quyền sở hữu ki ốt
+                                                                                                    chợ/ki ốt thương mại phù hợp, quyền và hưởng lợi nhuận tương ứng đối với các dự án trồng và tiêu thụ sản
+                                                                                                    phẩm Nông nghiệp, dược liệu đúng với quy định của pháp luật áp dụng. Các Bên theo đây cam kết và đồng ý
+                                                                                                    về hình thức hoàn trả Vốn Đầu tư này nhằm mục đích cân đối giữa mục tiêu kinh doanh của Bên A và khả
+                                                                                                    năng đảm bảo giá trị gốc Vốn Đầu Tư cho Bên B trên tinh thần thiện chí, hợp tác, đảm bảo và cân đối
+                                                                                                    quyền và lợi ích của cả hai Bên. </p>
+                                                                                                <p><span>7.7.</span> Các quyền và nghĩa vụ khác được quy định trong Hợp Đồng này và theo các quy định của
+                                                                                                    pháp luật. </p>
+                                                                                    
+                                                                                                <p><b>Điều 8. Quyền và nghĩa vụ của Bên B </b></p>
+                                                                                                <p><span>8.1.</span> Được nhận Lợi Nhuận và được hoàn trả Vốn Đầu Tư theo đúng nội dung của Hợp Đồng, được
+                                                                                                    Bên A bồi thường thiệt hại do lỗi của Bên A gây ra (nếu có). </p>
+                                                                                                <p><span>8.2.</span> Chuyển Vốn Đầu Tư cho Bên A đầy đủ và đúng hạn.</p>
+                                                                                                <p><span>8.3.</span> Được quyền chuyển nhượng Hợp Đồng, Yêu Cầu Rút Vốn Trước Hạn theo quy định tại Hợp Đồng
+                                                                                                    này.</p>
+                                                                                                <p><span>8.4.</span> Được quyền chuyển nhượng Hợp Đồng sang tài sản bất động sản sau khi kết thúc Hợp Đồng
+                                                                                                    và được nhận ưu đãi 5% theo chính sách của Bên A.</p>
+                                                                                                <p><span>8.5.</span> Được quyền chuyển hình thức hợp tác trong thời hạn Hợp đồng còn hiệu lực từ hình thức
+                                                                                                    hưởng lợi nhuận và hoàn trả gốc hàng tháng sang hình thức hợp đồng góp vốn, cổ phần dự án hoặc vào bất
+                                                                                                    kỳ sản phẩm Bất động sản nào khác mà Bên A hoặc/và thành viên liên kết của Bên A làm Chủ đầu tư. </p>
+                                                                                                <p><span>8.6.</span> Thanh toán đầy đủ Chi Phí Chuyển Nhượng, Chi Phí Rút Vốn và các nghĩa vụ tài chính khác
+                                                                                                    (nếu có) cho Bên A theo Hợp Đồng.</p>
+                                                                                                <p><span>8.7.</span> Cung cấp đầy đủ, chính xác cho Bên A các thông tin, tài liệu để ký kết Hợp Đồng và chịu
+                                                                                                    trách nhiệm về tính trung thực, chính xác của các thông tin, tài liệu này.</p>
+                                                                                                <p><span>8.8.</span> Chịu trách nhiệm về tính hợp pháp của nguồn gốc Vốn Đầu Tư, cam kết Vốn Đầu Tư không
+                                                                                                    thuộc sở hữu, không bị chi phối hay không là đối tượng của bất kỳ biện pháp bảo đảm bởi bất kỳ tổ chức,
+                                                                                                    cá nhân nào. Bên B chịu trách nhiệm giải quyết mọi tranh chấp liên quan đến Vốn Đầu Tư giữa Bên B và Bên
+                                                                                                    thứ ba khác, đảm bảo không làm ảnh hưởng đến quyền lợi, uy tín và danh tiếng của Bên A.</p>
+                                                                                                <p><span>8.9.</span> Bên B chịu trách nhiệm nộp các khoản thuế, phí, lệ phí và nghĩa vụ tài chính khác phát
+                                                                                                    sinh từ Hợp đồng này, bao gồm nhưng không giới hạn ở thuế thu nhập cá nhân (nếu có). Khi Bên A có yêu
+                                                                                                    cầu, Bên B phải cung cấp chứng từ nộp thuế cho Bên A. Bên A không chịu trách nhiệm về những nghĩa vụ nộp
+                                                                                                    thuế, phí, lệ phí và các nghĩa vụ tài chính khác của Bên B trong trường hợp Bên B bị Cơ quan Nhà nước có
+                                                                                                    thẩm quyền truy thu thuế hoặc/và bị xử phạt vi phạm hành chính hoặc/và bị truy cứu các trách nhiệm khác.
+                                                                                                </p>
+                                                                                                <p><span>8.10.</span> Các quyền và nghĩa vụ khác được quy định trong Hợp Đồng này và theo các quy định của
+                                                                                                    pháp luật. </p>
+                                                                                    
+                                                                                                <p><b>Điều 9. Chấm dứt Hợp đồng </b></p>
+                                                                                                <p><span>9.1.</span> Hợp Đồng này sẽ chấm dứt nếu thuộc một trong các trường hợp sau đây:</p>
+                                                                                                <p><span>9.1.1</span> Hết Thời Hạn Hợp Đồng quy định tại khoản 2.1 Điều 2 Hợp đồng này.</p>
+                                                                                                <p><span>9.1.2</span> Bên A và Bên B thỏa thuận về việc chấm dứt Hợp đồng.</p>
+                                                                                                <p><span>9.1.3</span> Bên B chuyển hợp đồng theo hình thức hợp tác tại Khoản 9.4 Điều 9 Hợp Đồng này.</p>
+                                                                                                <p><span>9.1.4</span> Bên B Yêu Cầu Rút Vốn Trước Hạn theo quy định tại Điều 7 Hợp Đồng này.</p>
+                                                                                                <p><span>9.1.5</span> Bên A được quyền đơn phương chấm dứt Hợp Đồng và không phải hoàn trả số Vốn Đầu Tư lại
+                                                                                                    cho Bên B nếu thuộc một trong các trường hợp sau:
+                                                                                                    (a) Bên B có hành vi cản trở, phá hoại, bôi nhọ các hoạt động kinh doanh của Bên A theo bất kỳ hình thức
+                                                                                                    nào.
+                                                                                                </p>
+                                                                                    
+                                                                                                <p><span>9.2.</span> Trong vòng 15 (mười lăm) Ngày Làm Việc kể từ ngày chấm dứt Hợp Đồng, tất cả các khoản
+                                                                                                    thanh toán còn tồn đọng và các nghĩa vụ khác giữa Các Bên phải được hoàn tất theo các quy định của Hợp
+                                                                                                    Đồng này và quy định của pháp luật Việt Nam.</p>
+                                                                                                <p><span>9.3.</span> Nghĩa vụ bảo mật thông tin Hợp Đồng và trách nhiệm bồi thường thiệt hại vẫn có hiệu lực
+                                                                                                    sau khi chấm dứt Hợp Đồng .</p>
+                                                                                                <p><span>9.4.</span> Sau khi chấm dứt Hợp Đồng, nếu Bên B có nhu cầu hợp tác lại, hai bên sẽ thương lượng ký
+                                                                                                    kết hợp đồng hợp tác mới với các điều khoản và điều kiện tương tự Hợp Đồng này, tùy thuộc vào thỏa thuận
+                                                                                                    của Các Bên tại thời điểm đó.</p>
+                                                                                    
+                                                                                                <p><b>Điều 10. Sự kiện bất khả kháng </b></p>
+                                                                                                <p><span>10.1.</span> Các Bên nhất trí thỏa thuận rằng các sự kiện xảy ra một cách khách quan không thể
+                                                                                                    lường trước được và không thể khắc phục được mặc dù đã áp dụng mọi biện pháp cần thiết và khả năng cho
+                                                                                                    phép sẽ được coi là Sự Kiện Bất Khả Kháng ví dụ như: chiến tranh, bạo loạn, bệnh dịch, hỏa hoạn, lũ lụt,
+                                                                                                    động đất, bão tố, các thảm họa tự nhiên khác, tình trạng khẩn cấp quốc gia; thay đổi chính sách pháp
+                                                                                                    luật của Nhà nước hoặc do phải thực hiện quy tắc, quy định, quyết định, lệnh hay chỉ thị của cơ quan
+                                                                                                    chính quyền hay cơ quan chức năng hoặc lệnh của bất kỳ tòa án có thẩm quyền nào không do lỗi của Các Bên
+                                                                                                    hoặc các trường hợp khác do pháp luật quy định.</p>
+                                                                                                <p><span>10.2.</span> Khi xuất hiện Sự Kiện Bất Khả Kháng thì Bên bị tác động bởi Sự Kiện Bất Khả Kháng phải
+                                                                                                    thông báo bằng văn bản cho Bên còn lại biết trong thời gian sớm nhất có thể. Việc thực hiện nghĩa vụ
+                                                                                                    theo Hợp Đồng của Bên bị ảnh hưởng bởi Sự Kiện Bất Khả Kháng sẽ được kéo dài thêm một khoảng thời gian
+                                                                                                    hợp lý để khắc phục hậu quả của Sự Kiện Bất Khả Kháng.</p>
+                                                                                    
+                                                                                                <p><b>Điều 11. Bồi thường thiệt hại </b></p>
+                                                                                                <p>Mỗi Bên (“Bên Bồi Thường Thiệt Hại”) sẽ bồi thường và đảm bảo cho Bên còn lại (“Bên Được Bồi Thường Thiệt
+                                                                                                    Hại”) khỏi và đối với các tổn thất mà Bên Được Bồi Thường Thiệt Hại phải chịu hoặc gánh chịu như là kết
+                                                                                                    quả của phát sinh từ hoặc liên quan đến, bất kỳ hành vi vi phạm nào đối với các nghĩa vụ theo quy định
+                                                                                                    của Hợp Đồng này bởi Bên Bồi Thường Thiệt Hại, hoặc bất kỳ việc không thực hiện hoặc từ chối của Bên Bồi
+                                                                                                    Thường Thiệt Hại trong việc tuân thủ hoặc thực hiện bất kỳ các cam kết hoặc nghĩa vụ nào của Bên Bồi
+                                                                                                    Thường Thiệt Hại theo Hợp Đồng này. </p>
+                                                                                                <p><b>Điều 12. Thông báo </b></p>
+                                                                                                <p><span>12.1.</span> Địa chỉ nhận thông báo của mỗi Bên được hiểu như sau: <br>
+                                                                                                    a) Đối với Bên B: Địa chỉ nhận thông báo như quy định tại phần đầu của Hợp Đồng và hình thức gửi thông
+                                                                                                    báo như quy định tại Điều 12.2. Nếu Bên B có thay đổi về địa chỉ, hình thức và/hoặc tên người nhận thông
+                                                                                                    báo mà không thông báo lại cho Bên A biết thì Bên A không chịu trách nhiệm về việc Bên B không nhận được
+                                                                                                    các văn bản thông báo.
+                                                                                                    <br>b) Đối với Bên A: Địa chỉ nhận thông báo là địa chỉ trụ sở chính của Bên A tại thời điểm Bên B gửi
+                                                                                                    thông báo.
+                                                                                                </p>
+                                                                                                <p><span>12.2.</span> Hình thức thông báo giữa Các Bên: Gửi trực tiếp hoặc hoặc gửi qua đường bưu điện hoặc
+                                                                                                    gửi bằng thư điện tử, trừ trường hợp các Bên có thỏa thuận khác hoặc Bên A có yêu cầu khác. </p>
+                                                                                                <p><span>12.3.</span>Bất kỳ thông báo, yêu cầu, thông tin, khiếu nại phát sinh liên quan đến Hợp Đồng phải
+                                                                                                    được lập thành văn bản và gửi theo địa chỉ nêu tại khoản 12.1, Điều 12 Hợp đồng này và trong thời gian
+                                                                                                    như sau (nếu ngày là ngày nghỉ theo quy định của pháp luật thì được tính là ngày liền kề sau đó):
+                                                                                                    <br> a) Vào ngày gửi trong trường hợp thư giao tận tay; hoặc ngày thư từ giao dịch được nhập thành công
+                                                                                                    vào hệ thống thông tin do Bên A và/hoặc B đăng ký hợp lệ trong Hợp Đồng trong trường hợp gửi bằng thư
+                                                                                                    điện tử;
+                                                                                                    <br> b) Vào ngày thứ ba kể từ ngày đóng dấu bưu điện trong trường hợp gửi thông báo bằng thư chuyển phát
+                                                                                                    nhanh (không phụ thuộc vào thông tin người ký nhận tại phần ký nhận của Bên Mua (người nhận) trên giấy
+                                                                                                    báo phát.
+                                                                                                </p>
+                                                                                    
+                                                                                                <p><b>Điều 13. Luật áp dụng và giải quyết tranh chấp </b></p>
+                                                                                                <p><span>13.1.</span> Biên bản thỏa thuận này được điều chỉnh và giải thích theo pháp luật Việt Nam.</p>
+                                                                                                <p><span>13.2.</span> Mỗi Bên có nghĩa vụ thông báo và đề xuất những biện pháp giải quyết cho Bên kia khi
+                                                                                                    gặp khó khăn trong quá trình thực hiện Hợp đồng này. </p>
+                                                                                                <p><span>13.3.</span> Mọi tranh chấp phát sinh trong quá trình thực hiện Hợp đồng, hai Bên sẽ giải quyết
+                                                                                                    bằng hình thức thương lượng, hòa giải trên cơ sở hợp tác, đảm bảo quyền và lợi ích của cả hai Bên.</p>
+                                                                                                <p><span>13.4.</span> Trong thời hạn 60 ngày kể từ ngày hai Bên xảy ra tranh chấp, nếu hai Bên không thương
+                                                                                                    lượng, hòa giải được theo khoản 2 Điều này; một trong hai Bên có quyền lựa chọn hình thức giải quyết
+                                                                                                    tranh chấp bằng Trọng tài Thương mại (Trung tâm trọng tài Quốc tế Việt Nam tại Hà Nội – gọi tắt là VIAC)
+                                                                                                    hoặc giải quyết tranh chấp tại Tòa án có thẩm quyền theo quy định của Pháp luật.</p>
+                                                                                    
+                                                                                                <p><b>Điều 14. Điều khoản chung </b></p>
+                                                                                                <p><span>14.1.</span> Trường hợp có sai sót trong việc nhập thông tin, số liệu hoặc sai sót do tính toán
+                                                                                                    trong quá trình làm Hợp Đồng, mà Bên A hoặc Bên B chứng minh được thông tin, số liệu đó là sai theo các
+                                                                                                    điều khoản điều kiện của Hợp Đồng, các phụ lục và/hoặc các văn bản, thỏa thuận liên quan mà các bên đã
+                                                                                                    ký kết, thống nhất trên thực tế thì Bên kia phải chấp nhận các số liệu, thông tin điều chỉnh.</p>
+                                                                                                <p><span>14.2.</span> Trong trường hợp xảy ra tranh chấp mà hai Bên không thể thỏa thuận được dẫn đến việc
+                                                                                                    Bên B yêu cầu hoàn lại phần Vốn Góp, nếu việc hoàn lại Vốn Góp có nguy cơ mất an toàn cho hoạt động kinh
+                                                                                                    doanh của Bên A hoặc có nguy cơ thiệt hại gián tiếp cho Bên thứ ba thì Bên A chỉ phải hoàn lại Vốn Góp
+                                                                                                    cho Bên B vào thời điểm không còn tồn tại các nguy cơ này. </p>
+                                                                                                <p><span>14.3.</span> Việc ký kết Hợp Đồng này là hoàn toàn tự nguyện, không bị ép buộc, lừa dối.</p>
+                                                                                                <p><span>14.4.</span> Mọi sửa đổi, bổ sung các điều khoản trong Hợp đồng này đều phải được sự đồng ý và được
+                                                                                                    sửa đổi bằng văn bản, có chữ ký của hai bên và là phần không tách rời của hợp đồng này.</p>
+                                                                                    
+                                                                                                <p><b>Điều 15.Hiệu lực của Hợp đồng </b></p>
+                                                                                                <p><span>15.1.</span>Hợp đồng này gồm 09 (Chín) trang, được lập thành 02 (hai) bản bằng Tiếng Việt, có giá
+                                                                                                    trị pháp lý như nhau, mỗi bên giữ 01 (một) bản để thực hiện.</p>
+                                                                                                <p><span>15.2.</span>Hai bên đã tự đọc lại Hợp đồng và cam kết đã hiểu nội dung của Hợp đồng, đồng ý tất cả
+                                                                                                    các điều khoản được nêu trong Hợp đồng này, cùng thống nhất ký tên dưới đây để làm cơ sở thực hiện. Hợp
+                                                                                                    đồng này có hiệu lực kể từ ngày ký./.</p>
+                                                                                            </div>
+                                                                                            <style>
+                                                                                                .flex-container {
+                                                                                                    display: flex;
+                                                                                                }
+                                                                                    
+                                                                                                .flex-container>div {
+                                                                                                    margin: 10px;
+                                                                                                    padding: 20px;
+                                                                                                }
+                                                                                            </style>
+                                                                                            <div class="flex-container">
+                                                                                                <div style="text-align: center;">
+                                                                                                    <p>Thay mặt và đại diện cho</p>
+                                                                                                    <h3>CÔNG TY CỔ PHẦN TẬP ĐOÀN</h3>
+                                                                                                    <h3>CHỢ TOÀN CẦU</h3>
+                                                                                                    <p><i>(Ký, ghi rõ họ tên, chức vụ và đóng dấu)</i></p>
+                                                                                                </div>
+                                                                                                <div style="text-align: center; padding-left: 20%;">
+                                                                                                    <h3>BÊN B</h3>
+                                                                                                    <p><i>(Ký và ghi rõ họ tên)</i></p>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div style="text-align: center;">
+                                                                                                <h3>PHỤ LỤC 01</h3>
+                                                                                                <h3>HỢP ĐỒNG HỢP TÁC ĐẦU TƯ</h3>
+                                                                                            </div>
+                                                                                            <p><i>(Kèm theo Hợp đồng Hợp tác đầu tư số: …/2022/HĐHTĐT-GMG-…, ký ngày …/…/2022 giữa Công ty Cổ phần Tập đoàn
+                                                                                                    Chợ Toàn Cầu và Ông/Bà …).</i></p>
+                                                                                            <p style="float: right;">ĐVT: Việt Nam Đồng</p><br><br>
+                                                                                            <table class="table table-bordered">
+                                                                                                <tr>
+                                                                                                    <td colspan="5">Chính sách hợp tác đầu tư</td>
+                                                                                                    <td rowspan="2">Chính sách ưu đãi mua hàng BĐS</td>
+                                                                                                    <td rowspan="2">Chính sách ưu đãi mua hàng OCS</td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>Gói đầu tư</td>
+                                                                                                    <td>Tỷ lệ lợi nhuận/Năm</td>
+                                                                                                    <td>Tỷ lệ lợi nhuận/tháng</td>
+                                                                                                    <td>Lợi nhuận hàng tháng quy ra tiền mặt</td>
+                                                                                                    <td>Tổng lợi ích quy đổi thành tiền mặt sau 24 tháng</td>
+                                                                                                </tr>
+                                                                                                <tr style="height: 100px;">
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                    <td></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                            <b>Ghi chú:</b>
+                                                                                            <p>1. GÓI ĐẦU TƯ: Là số tiền mà Nhà đầu tư góp vốn đầu tư cùng Công ty Cổ phần Tập đoàn Chợ Toàn Cầu (GMG) để
+                                                                                                hưởng lợi nhuận theo Hợp đồng hợp tác đầu tư</p>
+                                                                                            <p>2. LỢI NHUẬN/NĂM: Là mức tỷ lệ lợi nhuận được hưởng trong một năm, dựa trên số tiền góp vốn đầu tư.</p>
+                                                                                            <p>3. LỢI NHUẬN/THÁNG: Là mức tỷ lệ lợi nhuận được hưởng trong một tháng, dựa trên số tiền góp vốn đầu tư.</p>
+                                                                                            <p>4. LỢI NHUẬN NHẬN TIỀN MẶT: Là khoản tiền lợi nhuận mà Nhà đầu tư được nhận khi tham gia góp vốn đầu tư theo
+                                                                                                Hợp đồng hợp tác đầu tư, được tính theo công thức:
+                                                                                                <br> Lợi nhuận hàng tháng = [Gói đầu tư] x [Lợi nhuận/tháng]
+                                                                                            </p>
+                                                                                            <p>5. TẶNG VOUCHER MUA HÀNG: Voucher mua hàng là giá trị tiêu dùng quy đổi mà Nhà đầu tư được sử dụng để tiêu
+                                                                                                dùng tại chuỗi Trung tâm giới thiệu và bán sản phẩm OCOP trên toàn quốc (Không có giá trị quy đổi ra tiền
+                                                                                                mặt; chỉ có giá trị tiêu dùng).</p>
+                                                                                            <p>6. CHIẾT KHẤU MUA HÀNG: Là khoản ưu đãi được chiết khấu trực tiếp vào các sản phẩm khi Nhà đầu tư mua hàng
+                                                                                                hóa, dịch vụ, sản phẩm bất kỳ của Công ty Cổ phần Tập đoàn Chợ Toàn Cầu (Hoặc của các đơn vị thành
+                                                                                                viên/thành viên liên kết của Công ty Cổ phần Tập đoàn Chợ Toàn Cầu).</p>
+                                                                                            <p>7. GỐC+LỢI NHUẬN+VOUCHER MUA HÀNG+CHIẾT KHẤU MUA HÀNG: Là Tổng giá trị mà Công ty Cổ phần Tập đoàn Chợ Toàn
+                                                                                                Cầu trả cho Nhà đầu tư trong suốt quá trình thực hiện Hợp đồng.</p>
+                                                                                            <p style="float: right;">CÔNG TY CỔ PHẦN TẬP ĐOÀN CHỢ TOÀN CẦU</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy bỏ</button>
+                                                                                        <button type="button" class="btn btn-primary " onclick="Export2Doc('exportContent', 'HĐHT_ĐT_<%= phieu_thong_tin.ho_va_ten_khach_hang %>');">Tải xuống</button>
+                                                                                        <script>
+                                                                                            function Export2Doc(element, filename = '') {
+                                                                                                var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+                                                                                                var postHtml = "</body></html>";
+                                                                                                var html = preHtml + document.getElementById(element).innerHTML + postHtml;
+
+                                                                                                var blob = new Blob(['\ufeff', html], {
+                                                                                                    type: 'application/msword'
+                                                                                                });
+
+                                                                                                var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html)
+
+                                                                                                filename = filename ? filename + '.doc' : 'document.doc';
+
+                                                                                                var downloadLink = document.createElement("a");
+
+                                                                                                document.body.appendChild(downloadLink);
+
+                                                                                                if (navigator.msSaveOrOpenBlob) {
+                                                                                                    navigator.msSaveOrOpenBlob(blob, filename);
+                                                                                                } else {
+                                                                                                    downloadLink.href = url;
+
+                                                                                                    downloadLink.download = filename;
+
+                                                                                                    downloadLink.click();
+                                                                                                }
+
+                                                                                                document.body.removeChild(downloadLink);
+
+
+                                                                                            }
+
+                                                                                        </script>
+                                                                                    </div>
+                                                                                </div><!-- /.modal-content -->
+                                                                            </div><!-- /.modal-dialog -->
+                                                                        </div><!-- /.modal -->
+                                                                    </td>
                                                                 </tr>
                                                             <% }); %>
                                                         </tbody>
