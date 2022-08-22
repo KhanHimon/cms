@@ -259,6 +259,7 @@ router.post('/them-hoa-hong-voucher', login_admin_controller.loginRequired, hoa_
 
 // 
 router.post('/them-phieu-thong-tin', phieu_thong_tin_controller.them_thong_tin);
+router.post('/sua-phieu-thong-tin/:_id', phieu_thong_tin_controller.sua_thong_tin);
 
 router.get('/phieu-thong-tin-khach-hang/:_id', login_admin_controller.loginRequired, function (req, res) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
@@ -281,6 +282,8 @@ router.get('/danh-sach-phieu/:_id', login_admin_controller.loginRequired, functi
     })
   })
 });
+
+
 
 router.post('/', login_admin_controller.check);
 router.get('/*', login_admin_controller.check);
