@@ -98,6 +98,8 @@
                                                                 <th scope="col">Email</th>
                                                                 <th scope="col">Địa chỉ</th>
                                                                 <th scope="col">Tiền đầu tư</th>
+                                                                <th scope="col">Tiền ocopshop</th>
+                                                                <th scope="col">Thưởng</th>
                                                                 <th scope="col">Mã giới thiệu</th>
                                                                 <th scope="col"></th>
                                                             </tr>
@@ -121,6 +123,12 @@
                                                                         </td>
                                                                         <td>
                                                                             <span class=""><%= khach_hang.wallet.wallet_basic.toLocaleString() %> đ</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class=""><%= khach_hang.wallet.wallet_ocopshop.toLocaleString() %> đ</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class=""><%= khach_hang.thuong_dau_tu.toLocaleString() %> đ</span>
                                                                         </td>
                                                                         <td>
                                                                             <span class=""><%= khach_hang.ma_gioi_thieu %></span>
@@ -354,19 +362,19 @@
                                                                                                         </div>
                                                                                                         <div class="col-md-3">
                                                                                                             <div class="mb-3">
-                                                                                                                <label for="huyen" class="form-label">Huyện</label>
+                                                                                                                <label for="huyen" class="form-label">Quận/Huyện</label>
                                                                                                                 <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="huyen" name="huyen">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-3">
                                                                                                             <div class="mb-3">
-                                                                                                                <label for="xa" class="form-label">Xã</label>
+                                                                                                                <label for="xa" class="form-label">Phường/Xã</label>
                                                                                                                 <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="xa" name="xa">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-12">
                                                                                                             <div class="mb-3">
-                                                                                                                <label for="dia_chi" class="form-label">Địa chỉ hiện tại</label>
+                                                                                                                <label for="dia_chi" class="form-label">Địa chỉ thường trú</label>
                                                                                                                 <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi">
                                                                                                             </div>
                                                                                                         </div>
@@ -406,14 +414,20 @@
                                                                                                         <!--end col-->
                                                                                                         <div class="col-md-6">
                                                                                                             <div class="mb-3">
-                                                                                                                <label for="ForminputState" class="form-label">Mã giới thiệu</label>
+                                                                                                                <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
                                                                                                                 <input type="text" class="form-control" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" >
                                                                                                             </div>
                                                                                                         </div>
-                                                                                                        <div class="col-md-6">
+                                                                                                        <div class="col-md-5">
                                                                                                             <div class="mb-3">
-                                                                                                                <label for="ForminputState" class="form-label">Tiền đầu tư</label>
-                                                                                                                <input type="number" class="form-control" placeholder="Nhập mã giới thiệu" id="wallet.wallet_basic" name="wallet.wallet_basic" >
+                                                                                                                <label for="wallet_basic" class="form-label">Tiền đầu tư</label>
+                                                                                                                <input type="number" class="form-control" placeholder="" id="wallet_basic" name="wallet_basic" >
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-1">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="wallet_basic" class="form-label">Thưởng %</label>
+                                                                                                                <input type="number" class="form-control" placeholder="" id="thuong_dau_tu" name="thuong_dau_tu" >
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <!--end col-->

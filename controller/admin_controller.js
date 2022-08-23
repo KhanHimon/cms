@@ -53,19 +53,32 @@ class admin_Controller {
         const user = new UserSchema({
             username: req.body.username,
             password: req.body.password,
-            email: req.body.email,
+            ho_va_ten: req.body.ho_va_ten,
+            cccd_cmnd: req.body.cccd_cmnd,
+            noi_cap: req.body.noi_cap,
+            ngay_cap: req.body.ngay_cap,
             nam_sinh: req.body.nam_sinh,
             dia_chi: req.body.dia_chi,
+            dan_toc: req.body.dan_toc,
+            vung: req.body.vung,
+            tinh: req.body.tinh,
+            huyen: req.body.huyen,
+            xa: req.body.xa,
+            so_tai_khoan: req.body.so_tai_khoan,
+            ngan_hang: req.body.ngan_hang,
+            chi_nhanh: req.body.chi_nhanh,
             so_dien_thoai: req.body.so_dien_thoai,
-            ho_va_ten: req.body.ho_va_ten,
             ma_gioi_thieu: req.body.ma_gioi_thieu,
-            cccd_cmnd: req.body.cccd_cmnd,
+            email: req.body.email,
             wallet: {
-                wallet_basic: 0,
-                wallet_ocopshop: 0
+                wallet_basic: req.body.wallet_basic,
+                wallet_ocopshop: req.body.wallet_basic * (2.5/100) * 0.1
             },
+            thuong_dau_tu: req.body.wallet_basic * (req.body.thuong_dau_tu/100), 
             ngay_tham_gia: Date.now()
+            
         });
+        console.log(user)
         user.save();
         res.redirect(req.get('referer'));
     }

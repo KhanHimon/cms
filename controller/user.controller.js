@@ -25,8 +25,8 @@ class UserController {
             ma_gioi_thieu: req.body.ma_gioi_thieu,
             email: req.body.email,
             wallet: {
-                wallet_basic: req.body.wallet,
-                wallet_ocopshop: (req.body.wallet * 2,5)
+                wallet_basic: req.body.wallet.wallet_basic,
+                wallet_ocopshop: (req.body.wallet * (2.5 / 100 )) * 0.1
             }
         });
         user.save();

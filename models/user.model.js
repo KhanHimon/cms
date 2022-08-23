@@ -21,10 +21,11 @@ const User_Schema = new Schema({
     ngan_hang: { type: String },
     chi_nhanh: { type: String },
     so_dien_thoai: { type: Number },
+    thuong_dau_tu: { type: Number },
     email: { type: String },
     wallet: {
-        wallet_basic: { type: Number, default: 0 },
-        wallet_ocopshop: { type: Number, default: 0 },
+        wallet_basic: { type: Number },
+        wallet_ocopshop: { type: Number },
         ngay_nap: { type: Date }
     },
     ma_gioi_thieu: { type: String },
