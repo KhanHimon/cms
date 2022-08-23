@@ -38,8 +38,19 @@
                         </div>
                     </div>
                     <!-- end page title -->
-
-                    <div class="row">
+                    <% if (message) { %>
+                        <b id="mess" style="padding: 10px; font-size: 20px; margin-bottom: 20px; color: green;">
+                            <%= message %>
+                        </b> <br>
+                        
+                    <% } %>
+                    <script>
+                        setTimeout(() => {
+                            const box = document.getElementById('mess');
+                            box.style.display = 'none';
+                            }, 2000);
+                    </script>
+                    <div class="row" style="margin-top: 20px;">
                         <div class="col">
 
                             <div class="h-100">
@@ -49,6 +60,7 @@
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Phiếu thông tin khách hàng</h4>
+                                                
                                             </div>
                                             <div class="card-body">
                                                 <div class="table-responsive table-card">
@@ -60,11 +72,11 @@
                                                                 <th scope="col">Khách hàng</th>
                                                                 <th scope="col">Ngày sinh</th>
                                                                 <th scope="col">Điện thoại</th>
-                                                                <th scope="col">Email</th>
-                                                                <th scope="col">CMND/CCCD</th>
                                                                 <th scope="col">Số tiền</th>
                                                                 <th scope="col">Trạng thái</th>
                                                                 <th scope="col">Thời gian</th>
+                                                                <th scope="col"></th>
+                                                                <th scope="col"></th>
                                                                 <th scope="col"></th>
                                                                 <th scope="col"></th>
                                                             </tr>
@@ -78,8 +90,6 @@
                                                                     <td><%= phieu_thong_tin.ho_va_ten_khach_hang %></td>
                                                                     <td><%= phieu_thong_tin.ngay_sinh.getDate() %>/<%= phieu_thong_tin.ngay_sinh.getMonth() +1 %>/<%= phieu_thong_tin.ngay_sinh.getFullYear() %></td>
                                                                     <td>0<%= phieu_thong_tin.dien_thoai %></td>
-                                                                    <td><%= phieu_thong_tin.email %></td>
-                                                                    <td><%= phieu_thong_tin.cmnd_cccd %></td>
                                                                     <td><%= phieu_thong_tin.so_tien_dau_tu.toLocaleString(); %> đ</td>
                                                                     <td><%= phieu_thong_tin.trang_thai.ten_trang_thai %></td>
                                                                     <td><%= phieu_thong_tin.ngay_tao.getDate() %>/<%= phieu_thong_tin.ngay_tao.getMonth() +1 %>/<%= phieu_thong_tin.ngay_tao.getFullYear() %>(<%= phieu_thong_tin.ngay_tao.getHours() %>h<%= phieu_thong_tin.ngay_tao.getMinutes() %> phút)</td>
@@ -826,6 +836,59 @@
                                                                             </div><!-- /.modal-dialog -->
                                                                         </div><!-- /.modal -->
                                                                     </td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#myModal-<%= phieu_thong_tin._id %>"><i class="ri-file-user-line label-icon align-middle rounded-pill fs-16 me-2"></i> Xác nhận giao dịch</button>
+                                                                        <div id="myModal-<%= phieu_thong_tin._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                            <form action="/admin/sua-trang-thai-phieu/<%= phieu_thong_tin._id %>" method="post">
+                                                                                <div class="modal-dialog">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h5 class="modal-title" id="myModalLabel">Xác nhận giao dịch</h5>
+                                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <select class="form-control" id="trang_thai"
+                                                                                                name="trang_thai">
+                                                                                                <option>---- Trạng thái ----</option>
+                                                                                                <% trang_thai.forEach(function(trang_thai_edi){ %>
+                                                                                                    <option value="<%= trang_thai_edi._id %>"><%= trang_thai_edi.ten_trang_thai %></option>
+                                                                                                <% }); %>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Bỏ</button>
+                                                                                            <button type="submit" class="btn btn-primary ">Lưu</button>
+                                                                                        </div>
+                                
+                                                                                    </div><!-- /.modal-content -->
+                                                                                </div><!-- /.modal-dialog -->
+                                                                            </form>
+                                                                        </div>
+                                                                    </td>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#giay_bao_co<%= phieu_thong_tin._id %>">
+                                                                                <i class="ri-file-user-line label-icon align-middle rounded-pill fs-16 me-2"></i> Nhận giấy báo có</button>
+                                                                                <div id="giay_bao_co<%= phieu_thong_tin._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                                    <form action="/admin/sua-trang-thai-phieu/<%= phieu_thong_tin._id %>" method="post">
+                                                                                        <div class="modal-dialog">
+                                                                                            <div class="modal-content">
+                                                                                                <div class="modal-header">
+                                                                                                    <h5 class="modal-title" id="myModalLabel">Giấy báo có</h5>
+                                                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                                </div>
+                                                                                                <div class="modal-body">
+                                                                                                    
+                                                                                                </div>
+                                                                                                <div class="modal-footer">
+                                                                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Bỏ</button>
+                                                                                                    <button type="submit" class="btn btn-primary ">Lưu</button>
+                                                                                                </div>
+                                        
+                                                                                            </div><!-- /.modal-content -->
+                                                                                        </div><!-- /.modal-dialog -->
+                                                                                    </form>
+                                                                                </div>
+                                                                        </td>
                                                                 </tr>
                                                             <% }); %>
                                                         </tbody>

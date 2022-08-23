@@ -6,19 +6,28 @@ const User_Schema = new Schema({
     password: { type: String },
     ho_va_ten: { type: String },
     cccd_cmnd: { type: String },
+    cmnd_cccd_mat_truoc: { type: String },
+    cmnd_cccd_mat_sau: { type: String },
+    noi_cap: { type: String },
+    ngay_cap: { type: Date },
     nam_sinh: { type: String },
     dia_chi: { type: String },
+    dan_toc: { type: String },
+    vung: {type: String},
+    tinh: {type: String},
+    huyen: {type: String},
+    xa: { type: String },
+    so_tai_khoan: { type: String },
+    ngan_hang: { type: String },
+    chi_nhanh: { type: String },
     so_dien_thoai: { type: Number },
     email: { type: String },
-    loai_tai_khoan: {
-        role: {type: String}
-    },
     wallet: {
-        wallet_basic: { type: Number },
-        wallet_ocopshop: { type: Number },
+        wallet_basic: { type: Number, default: 0 },
+        wallet_ocopshop: { type: Number, default: 0 },
         ngay_nap: { type: Date }
     },
-    ma_gioi_thieu: { type: Number },
+    ma_gioi_thieu: { type: String },
     dau_tu: {
         du_an: {
             ten_du_an: { type: String }

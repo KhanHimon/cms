@@ -12,6 +12,7 @@ var loginRouter = require('./routes/login.route');
 var userRouter = require('./routes/users.route');
 const adminRouter = require('./routes/admin.route');
 
+
 // thêm thư viện mongoose để kết nối vớ mongodb
 const mongoose = require('mongoose');
 // kết nối mongodb
@@ -50,13 +51,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(session({
-//   secret: 'secret',
-//   cookie: { maxAge: 60000},
-//   resave: false,
-//   saveUninitialized: false
-// }));
-// app.use(flash());
+app.use(session({
+  secret: 'secret',
+  cookie: { maxAge: 60000},
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);

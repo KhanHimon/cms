@@ -258,8 +258,8 @@ router.post('/them-hoa-hong-thuong', login_admin_controller.loginRequired, hoa_h
 router.post('/them-hoa-hong-voucher', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_voucher);
 
 // 
-router.post('/them-phieu-thong-tin', phieu_thong_tin_controller.them_thong_tin);
-router.post('/sua-phieu-thong-tin/:_id', phieu_thong_tin_controller.sua_thong_tin);
+router.post('/them-phieu-thong-tin',login_admin_controller.loginRequired, phieu_thong_tin_controller.them_thong_tin);
+router.post('/sua-trang-thai-phieu/:_id',login_admin_controller.loginRequired, phieu_thong_tin_controller.xu_ly_nap_tien);
 
 router.get('/phieu-thong-tin-khach-hang/:_id', login_admin_controller.loginRequired, function (req, res) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
@@ -276,15 +276,18 @@ router.get('/danh-sach-phieu/:_id', login_admin_controller.loginRequired, functi
   Sale_Schema.findById(req.params._id, function (err, sale) {
     thong_bao_Schema.find(function (err, thong_bao) {
       phieu_thong_tin_khach_hang_Schema.find(function (err, phieu_thong_tin) {
-        if (err) throw err;
-        res.render('admin/pages/danh_sach_phieu', { thong_bao, sale, phieu_thong_tin });
+        trang_thai_Schema.find(function (err, trang_thai){
+          if (err) throw err;
+          
+          res.render('admin/pages/danh_sach_phieu', { thong_bao, sale, phieu_thong_tin, trang_thai, message: req.flash('message') });
+        })
       }).populate('ma_gioi_thieu').populate('trang_thai').sort({ ngay_tao: -1 })
     })
   })
 });
 
 
-
+router.post('/nap-tien-sua/:_id' ,login_admin_controller.loginRequired , user_controller.xu_ly_nap_tien);
 router.post('/', login_admin_controller.check);
 router.get('/*', login_admin_controller.check);
 
