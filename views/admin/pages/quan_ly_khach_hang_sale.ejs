@@ -97,11 +97,6 @@
                                                                 <th scope="col">Số điện thoại</th>
                                                                 <th scope="col">Email</th>
                                                                 <th scope="col">Địa chỉ</th>
-                                                                <th scope="col">Tiền đầu tư</th>
-                                                                <th scope="col">Tiền ocopshop</th>
-                                                                <th scope="col">Thưởng</th>
-                                                                <th scope="col">Lãi tháng đầu</th>
-                                                                <th scope="col"> Lãi tháng</th>
                                                                 <th scope="col">Mã giới thiệu</th>
                                                                 <th scope="col"></th>
                                                             </tr>
@@ -124,26 +119,12 @@
                                                                             <h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5>
                                                                         </td>
                                                                         <td>
-                                                                            <span class=""><%= khach_hang.wallet.wallet_basic.toLocaleString() %> đ</span>
-                                                                        </td>
-                                                                        <td>
-                                                                            <span class=""><%= khach_hang.wallet.wallet_ocopshop.toLocaleString() %> đ</span>
-                                                                        </td>
-                                                                        <td>
-                                                                            <span class=""><%= khach_hang.thuong_dau_tu.toLocaleString() %> đ</span>
-                                                                        </td>
-                                                                        <td>
-                                                                            <span class=""><%= khach_hang.tien_lai.thang_dau.toLocaleString() %> đ</span>
-                                                                        </td>
-                                                                        <td>
-                                                                            <span class=""><%= khach_hang.tien_lai.thang.toLocaleString()  %> đ</span>
-                                                                        </td>
-                                                                        <td>
                                                                             <span class=""><%= khach_hang.ma_gioi_thieu %></span>
                                                                         </td>
                                                                         <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> Chi tiết khách hàng</a>
                                                                             <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                <i class="ri-file-list-3-line align-middle"></i> Quản lý
+                                                                                <i class="ri-file-list-3-line align-middle"></i>
                                                                             </button>
                                                                             <button type="button" class="btn btn-soft-info btn-sm">
                                                                                 <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
@@ -203,7 +184,7 @@
                                                                                             <div class="live-preview">
                                                                                                     <div class="row">
                                                                                                         <input type="hidden" class="form-control" value="62f227402387a6f3c2bbb24b" id="trang_thai" name="trang_thai">
-                                                                                                        <div class="col-md-6">
+                                                                                                        <!-- <div class="col-md-6">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="username" class="form-label">Tài khoản</label>
                                                                                                                 <input type="text" class="form-control" placeholder="Nhập tài khoản" id="username" name="username">
@@ -214,7 +195,7 @@
                                                                                                                 <label for="password" class="form-label">Mật khẩu</label>
                                                                                                                 <input type="password" class="form-control" placeholder="Nhập mật khẩu" id="password" name="password">
                                                                                                             </div>
-                                                                                                        </div>
+                                                                                                        </div> -->
                                                                                                         <div class="col-md-4">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="ho_va_ten" class="form-label">Họ và tên</label>
@@ -424,24 +405,6 @@
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
                                                                                                                 <input type="text" class="form-control" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" >
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-md-3">
-                                                                                                            <div class="mb-3">
-                                                                                                                <label for="wallet_basic" class="form-label">Tiền đầu tư</label>
-                                                                                                                <input type="number" class="form-control" placeholder="" id="wallet_basic" name="wallet_basic" >
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-md-2">
-                                                                                                            <div class="mb-3">
-                                                                                                                <label for="wallet_basic" class="form-label">Ngày ký hợp đồng </label>
-                                                                                                                <input type="date" class="form-control" value="" placeholder="" id="ngay_tham_gia" name="ngay_tham_gia" >
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-md-1">
-                                                                                                            <div class="mb-3">
-                                                                                                                <label for="wallet_basic" class="form-label">Thưởng %</label>
-                                                                                                                <input type="number" class="form-control" placeholder="" id="thuong_dau_tu" name="thuong_dau_tu" >
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <!--end col-->

@@ -23,16 +23,6 @@ const User_Schema = new Schema({
     so_dien_thoai: { type: Number },
     thuong_dau_tu: { type: Number },
     email: { type: String },
-    tien_lai: {
-        thang_dau: { type: Number },
-        thang: { type: Number },
-        thang_cuoi: { type: Number }
-    },
-    wallet: {
-        wallet_basic: { type: Number },
-        wallet_ocopshop: { type: Number },
-        ngay_nap: { type: Date }
-    },
     ma_gioi_thieu: { type: String },
     ngay_tham_gia: { type: Date }
 });

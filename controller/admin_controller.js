@@ -51,17 +51,17 @@ class admin_Controller {
     }
     them_moi_khach_hang(req, res) {
 
-        const thang = new Date();
-        const month = thang.getMonth() +1;
-        thang.setMonth(month,0);
-        const ngay_trong_thang = thang.getDate();
-        const ngay_ky = new Date().getDate()
+        // const thang = new Date();
+        // const month = thang.getMonth() +1;
+        // thang.setMonth(month,0);
+        // const ngay_trong_thang = thang.getDate();
+        // const ngay_ky = new Date().getDate()
 
         
 
         const user = new UserSchema({
-            username: req.body.username,
-            password: req.body.password,
+            username: "NDT"+ Math.floor(Math.random() * 1000),
+            password: Math.floor(Math.random() * 100000),
             ho_va_ten: req.body.ho_va_ten,
             cccd_cmnd: req.body.cccd_cmnd,
             noi_cap: req.body.noi_cap,
@@ -79,18 +79,18 @@ class admin_Controller {
             so_dien_thoai: req.body.so_dien_thoai,
             ma_gioi_thieu: req.body.ma_gioi_thieu, 
             email: req.body.email,
-            wallet: {
-                wallet_basic: req.body.wallet_basic,
-                wallet_ocopshop: req.body.wallet_basic * (2.5/100) * 0.1
-            },
-            thuong_dau_tu: req.body.wallet_basic * (req.body.thuong_dau_tu/100), 
-            ngay_tham_gia: req.body.ngay_tham_gia,
+            // wallet: {
+            //     wallet_basic: req.body.wallet_basic,
+            //     wallet_ocopshop: req.body.wallet_basic * (2.5/100) * 0.1
+            // },
+            // thuong_dau_tu: req.body.wallet_basic * (req.body.thuong_dau_tu/100), 
+            ngay_tham_gia: Date().now,
             // ((req.body.wallet_basic * 0.025) / ngay_trong_thang ) * (ngay_trong_thang -  req.body.ngay_tham_gia)
-            tien_lai: {
-                thang_dau: ((req.body.wallet_basic * 0.025) / ngay_trong_thang ) * (ngay_trong_thang - ngay_ky ),
-                thang: req.body.wallet_basic * (0.025),
-                thang_cuoi: 0
-            }
+            // tien_lai: {
+            //     thang_dau: ((req.body.wallet_basic * 0.025) / ngay_trong_thang ) * (ngay_trong_thang - ngay_ky ),
+            //     thang: req.body.wallet_basic * (0.025),
+            //     thang_cuoi: 0
+            // }
 
             
         });
