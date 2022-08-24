@@ -55,7 +55,9 @@ class admin_Controller {
         const month = thang.getMonth() +1;
         thang.setMonth(month,0);
         const ngay_trong_thang = thang.getDate();
-        const ngay_ky = Date.now()
+        const ngay_ky = new Date().getDate()
+
+        
 
         const user = new UserSchema({
             username: req.body.username,
@@ -75,7 +77,7 @@ class admin_Controller {
             ngan_hang: req.body.ngan_hang,
             chi_nhanh: req.body.chi_nhanh,
             so_dien_thoai: req.body.so_dien_thoai,
-            ma_gioi_thieu: req.body.ma_gioi_thieu,
+            ma_gioi_thieu: req.body.ma_gioi_thieu, 
             email: req.body.email,
             wallet: {
                 wallet_basic: req.body.wallet_basic,
@@ -83,12 +85,9 @@ class admin_Controller {
             },
             thuong_dau_tu: req.body.wallet_basic * (req.body.thuong_dau_tu/100), 
             ngay_tham_gia: req.body.ngay_tham_gia,
-            setup(){
-                const ngay_ky = this.ngay_tham_gia.getDate()
-                ngay_ky = this.ngay_tham_gia.getDate()
-            },
+            // ((req.body.wallet_basic * 0.025) / ngay_trong_thang ) * (ngay_trong_thang -  req.body.ngay_tham_gia)
             tien_lai: {
-                thang_dau: ((req.body.wallet_basic * 0.025) / ngay_trong_thang ) * (ngay_trong_thang - ngay_ky.getDate()),
+                thang_dau: ((req.body.wallet_basic * 0.025) / ngay_trong_thang ) * (ngay_trong_thang - ngay_ky ),
                 thang: req.body.wallet_basic * (0.025),
                 thang_cuoi: 0
             }

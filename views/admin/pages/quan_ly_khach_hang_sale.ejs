@@ -101,7 +101,7 @@
                                                                 <th scope="col">Tiền ocopshop</th>
                                                                 <th scope="col">Thưởng</th>
                                                                 <th scope="col">Lãi tháng đầu</th>
-                                                                <th> Mẫu</th>
+                                                                <th scope="col"> Lãi tháng</th>
                                                                 <th scope="col">Mã giới thiệu</th>
                                                                 <th scope="col"></th>
                                                             </tr>
@@ -133,8 +133,10 @@
                                                                             <span class=""><%= khach_hang.thuong_dau_tu.toLocaleString() %> đ</span>
                                                                         </td>
                                                                         <td>
-                                                                            <span class=""><%= khach_hang.tien_lai.thang_dau %> đ</span>
-                                                                            <span class=""><%= khach_hang.tien_lai.thang %> đ</span>
+                                                                            <span class=""><%= khach_hang.tien_lai.thang_dau.toLocaleString() %> đ</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class=""><%= khach_hang.tien_lai.thang.toLocaleString()  %> đ</span>
                                                                         </td>
                                                                         <td>
                                                                             <span class=""><%= khach_hang.ma_gioi_thieu %></span>
@@ -433,7 +435,7 @@
                                                                                                         <div class="col-md-2">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="wallet_basic" class="form-label">Ngày ký hợp đồng </label>
-                                                                                                                <input type="date" class="form-control" value="" placeholder="" id="ngay_dau_tu" name="ngay_dau_tu" >
+                                                                                                                <input type="date" class="form-control" value="" placeholder="" id="ngay_tham_gia" name="ngay_tham_gia" >
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-1">

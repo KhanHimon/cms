@@ -34,14 +34,6 @@ const User_Schema = new Schema({
         ngay_nap: { type: Date }
     },
     ma_gioi_thieu: { type: String },
-    dau_tu: {
-        du_an: {
-            ten_du_an: { type: String }
-        },
-        tien_dau_tu: { type: Number },
-        ngay_bat_dau: { type: Date },
-        ngay_ket_thuc: { type: Date }
-    },
     ngay_tham_gia: { type: Date }
 });
 
