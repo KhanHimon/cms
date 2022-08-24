@@ -100,6 +100,8 @@
                                                                 <th scope="col">Tiền đầu tư</th>
                                                                 <th scope="col">Tiền ocopshop</th>
                                                                 <th scope="col">Thưởng</th>
+                                                                <th scope="col">Lãi tháng đầu</th>
+                                                                <th> Mẫu</th>
                                                                 <th scope="col">Mã giới thiệu</th>
                                                                 <th scope="col"></th>
                                                             </tr>
@@ -129,6 +131,10 @@
                                                                         </td>
                                                                         <td>
                                                                             <span class=""><%= khach_hang.thuong_dau_tu.toLocaleString() %> đ</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class=""><%= khach_hang.tien_lai.thang_dau %> đ</span>
+                                                                            <span class=""><%= khach_hang.tien_lai.thang %> đ</span>
                                                                         </td>
                                                                         <td>
                                                                             <span class=""><%= khach_hang.ma_gioi_thieu %></span>
@@ -418,10 +424,16 @@
                                                                                                                 <input type="text" class="form-control" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" >
                                                                                                             </div>
                                                                                                         </div>
-                                                                                                        <div class="col-md-5">
+                                                                                                        <div class="col-md-3">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="wallet_basic" class="form-label">Tiền đầu tư</label>
                                                                                                                 <input type="number" class="form-control" placeholder="" id="wallet_basic" name="wallet_basic" >
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <div class="col-md-2">
+                                                                                                            <div class="mb-3">
+                                                                                                                <label for="wallet_basic" class="form-label">Ngày ký hợp đồng </label>
+                                                                                                                <input type="date" class="form-control" value="" placeholder="" id="ngay_dau_tu" name="ngay_dau_tu" >
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-1">
