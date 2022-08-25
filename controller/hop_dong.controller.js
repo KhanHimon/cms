@@ -1,4 +1,5 @@
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
+const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 
 class hop_dong_tra_thuong_controller {
     them_hop_dong_tra_thuong(req,res) {
@@ -13,6 +14,29 @@ class hop_dong_tra_thuong_controller {
         });
         console.log(new_hop_dong_tra_thuong);
         new_hop_dong_tra_thuong.save();
+        res.redirect(req.get('referer'));
+    }
+    them_hop_dong_dau_tu(req,res){
+        const thang = new Date();
+        const month = thang.getMonth() + 1;
+        thang.setMonth(month, 0);
+        const ngay_trong_thang = thang.getDate();
+        console.log(month)
+        const ngay_ky = Date();
+
+        const new_hop_dong_dau_tu = new Hop_dong_dau_tu_Schema({
+            ma_hop_dong : "HĐ-ĐT"+ Math.floor(Math.random() * 1000),
+            so_tien_dau_tu : req.body.so_tien_dau_tu,
+            khach_hang: req.body.khach_hang,
+            ngay_ky_hop_dong: req.body.ngay_ky_hop_dong,
+            thoi_han_dau_tu: req.body.thoi_han_dau_tu,
+            tien_ocopshop: (req.body.so_tien_dau_tu * 0.025) * (10/100),
+            loi_nhuan : {
+                thang_dau: ((req.body.so_tien_dau_tu*0.025)/ngay_trong_thang) * (ngay_trong_thang - new Date(req.body.ngay_ky_hop_dong).getDate()),
+                thang: req.body.so_tien_dau_tu * 0.025
+            }
+        });
+        new_hop_dong_dau_tu.save();
         res.redirect(req.get('referer'));
     }
 }

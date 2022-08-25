@@ -15,7 +15,8 @@ const Hoa_hong_van_phong_Schema = require('../models/hoa_hong_van_phong.model');
 const Hoa_hong_thuong_Schema = require('../models/hoa_hong_thuong.model');
 const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
-const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_khach_hang.model')
+const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_khach_hang.model');
+const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 // IMPORT CONTROLLER
 const user_controller = require('../controller/user.controller');
 const login_controller = require('../controller/login_controller');
@@ -34,8 +35,10 @@ router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (re
       User_Schema.find(function (err, khach_hang) {
         thong_bao_Schema.find(function (err, thong_bao) {
           trang_thai_Schema.find(function (err, trang_thai) {
-            if (err) throw err;
-            res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai });
+            Hop_dong_dau_tu_Schema.find(function(err, hop_dong){
+              if (err) throw err;
+              res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai,hop_dong });
+            })
           })
         })
       })
@@ -157,9 +160,11 @@ router.get('/thong-tin-khach-hang=:id/:_id', login_admin_controller.loginRequire
   Sale_Schema.findById(req.params._id, function (err, sale) {
     User_Schema.findById(req.params.id, function (err, khach_hang_chi_tiet) {
       thong_bao_Schema.find(function (err, thong_bao) {
-        if (err) throw err;
-        // res.json(khach_hang_chi_tiet)
-        res.render('admin/pages/chi_tiet_khach_hang', { sale, thong_bao, khach_hang_chi_tiet });
+        Hop_dong_dau_tu_Schema.find(function(err, hop_dong){
+          if (err) throw err;
+          // res.json(khach_hang_chi_tiet)
+          res.render('admin/pages/chi_tiet_khach_hang', { sale, thong_bao, khach_hang_chi_tiet, hop_dong });
+        }).populate('khach_hang')
       })
     })
   }).populate('chuc_vu')
@@ -229,7 +234,7 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
 });
 
 router.post('/them-hop-dong', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_tra_thuong);
-
+router.post('/them-hop-dong-dau-tu', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_dau_tu);
 
 // router hoa hồng cố định
 // GET

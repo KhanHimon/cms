@@ -55,7 +55,101 @@
                                                 </div><!-- end card header -->
 
                                                 <div class="card-body">
-
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            <img class="" src="../../admin/assets/images/users/avatar-1.jpg">
+                                                        </div>
+                                                        <div class="col-9">
+                                                            <div class="row">
+                                                                
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                        <input type="text" class="form-control" value="<%= khach_hang_chi_tiet.ho_va_ten %>" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten">
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="nam_sinh" class="form-label">Ngày sinh</label>
+                                                                        <input type="date" value="<%= (khach_hang_chi_tiet.nam_sinh).getFullYear() %>-<%= (khach_hang_chi_tiet.nam_sinh).getMonth() %>-<%= (khach_hang_chi_tiet.nam_sinh).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="dan_toc" class="form-label">Dân tộc</label>
+                                                                        <input type="text" value="<%= (khach_hang_chi_tiet.dan_toc) %>" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc">
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-md-7">
+                                                                    <div class="mb-3">
+                                                                        <label for="cmnd_cccd" class="form-label">Số CMND/CCCD </label>
+                                                                        <input type="text" value="<%= (khach_hang_chi_tiet.cccd_cmnd) %>" class="form-control" placeholder="" id="cmnd_cccd" name="cmnd_cccd">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="mb-3">
+                                                                        <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                        <input type="date" value="<%= (khach_hang_chi_tiet.ngay_cap).getFullYear() %>-0<%= (khach_hang_chi_tiet.ngay_cap).getMonth() %>-<%= (khach_hang_chi_tiet.ngay_cap).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="noi_cap" class="form-label">Nơi cấp</label>
+                                                                        <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.noi_cap) %>" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="dia_chi" class="form-label">Địa chỉ thường trú</label>
+                                                                        <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.dia_chi) %>" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi">
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
+                                                                        <input type="tel" value="0<%= (khach_hang_chi_tiet.so_dien_thoai) %>" class="form-control" placeholder="+(84) 444 78765" id="so_dien_thoai" name="so_dien_thoai">
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="email" class="form-label">Email</label>
+                                                                        <input type="email" class="form-control" value="<%= (khach_hang_chi_tiet.email) %>" placeholder="example@gamil.com" id="email" name="email">
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
+                                                                        <input type="number" class="form-control" value="<%= (khach_hang_chi_tiet.so_tai_khoan) %>" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="ngan_hang" class="form-label">Ngân hàng</label>
+                                                                        <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.ngan_hang) %>" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="chi_nhanh" class="form-label">Chi nhánh</label>
+                                                                        <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.chi_nhanh) %>" placeholder="Nhập chi nhánh" id="chi_nhanh" name="chi_nhanh">
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
+                                                                        <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.ma_gioi_thieu) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div> <!-- .card-->
@@ -74,37 +168,173 @@
                                                     <div id="khach_hang_chi_tiet_<%= khach_hang_chi_tiet._id %>"
                                                         class="modal" tabindex="-1" aria-labelledby="myModalLabel"
                                                         aria-hidden="true" style="display: none;">
-                                                        <div class="modal-dialog modal-fullscreen">
+                                                        <div class="modal-dialog modal-lg">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="myModalLabel">Thêm mới hợp đồng <%= khach_hang_chi_tiet._id %>
+                                                                    <h5 class="modal-title" id="myModalLabel">Thêm mới hợp đồng
                                                                     </h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal" aria-label="Close">
                                                                     </button>
                                                                 </div>
+                                                                <form action="/admin/them-hop-dong-dau-tu" method="post">
                                                                 <div class="modal-body">
                                                                     <div class="row">
-                                                                        <div class="col-6">
-                                                                            <form>
-                                                                                
-
-                                                                            </form>
+                                                                        <input type="hidden" class="form-control" value="<%= khach_hang_chi_tiet._id %>" placeholder="Nhập họ và tên" id="khach_hang" name="khach_hang">
+                                                                        <div class="col-md-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                                <input type="text" class="form-control" value="<%= khach_hang_chi_tiet.ho_va_ten %>" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten" disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end col-->
+                                                                        <div class="col-md-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="nam_sinh" class="form-label">Ngày sinh</label>
+                                                                                <input type="date" value="<%= (khach_hang_chi_tiet.nam_sinh).getFullYear() %>-<%= (khach_hang_chi_tiet.nam_sinh).getMonth() %>-<%= (khach_hang_chi_tiet.nam_sinh).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="dan_toc" class="form-label">Dân tộc</label>
+                                                                                <input type="text" value="<%= (khach_hang_chi_tiet.dan_toc) %>" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end col-->
+                                                                        <div class="col-md-7">
+                                                                            <div class="mb-3">
+                                                                                <label for="cmnd_cccd" class="form-label">Số CMND/CCCD </label>
+                                                                                <input type="text" value="<%= (khach_hang_chi_tiet.cccd_cmnd) %>" class="form-control" placeholder="" id="cmnd_cccd" name="cmnd_cccd"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5">
+                                                                            <div class="mb-3">
+                                                                                <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                                <input type="date" value="<%= (khach_hang_chi_tiet.ngay_cap).getFullYear() %>-0<%= (khach_hang_chi_tiet.ngay_cap).getMonth() %>-<%= (khach_hang_chi_tiet.ngay_cap).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="noi_cap" class="form-label">Nơi cấp</label>
+                                                                                <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.noi_cap) %>" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="dia_chi" class="form-label">Địa chỉ thường trú</label>
+                                                                                <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.dia_chi) %>" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end col-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
+                                                                                <input type="tel" value="0<%= (khach_hang_chi_tiet.so_dien_thoai) %>" class="form-control" placeholder="+(84) 444 78765" id="so_dien_thoai" name="so_dien_thoai"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end col-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="email" class="form-label">Email</label>
+                                                                                <input type="email" class="form-control" value="<%= (khach_hang_chi_tiet.email) %>" placeholder="example@gamil.com" id="email" name="email"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end col-->
+                                                                        <div class="col-md-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
+                                                                                <input type="number" class="form-control" value="<%= (khach_hang_chi_tiet.so_tai_khoan) %>" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="ngan_hang" class="form-label">Ngân hàng</label>
+                                                                                <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.ngan_hang) %>" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="mb-3">
+                                                                                <label for="chi_nhanh" class="form-label">Chi nhánh</label>
+                                                                                <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.chi_nhanh) %>" placeholder="Nhập chi nhánh" id="chi_nhanh" name="chi_nhanh"disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--end col-->
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
+                                                                                <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.ma_gioi_thieu) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="so_tien_dau_tu" class="form-label">Số tiền đầu tư</label>
+                                                                                <input type="number" class="form-control" id="so_tien_dau_tu" name="so_tien_dau_tu">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="thoi_han_dau_tu" class="form-label">Thời hạn đầu tư (tháng)</label>
+                                                                                <input type="text" class="form-control" placeholder="" id="thoi_han_dau_tu" name="thoi_han_dau_tu" >
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <div class="mb-3">
+                                                                                <label for="ngay_ky_hop_dong" class="form-label">Ngày ký hợp đồng</label>
+                                                                                <input type="date" class="form-control" placeholder="" id="ngay_ky_hop_dong" name="ngay_ky_hop_dong" >
+                                                                            </div>
                                                                         </div>
                                                                     </div>
+                                                                </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-light"
-                                                                            data-bs-dismiss="modal">Đóng</button>
-                                                                        <button type="button"
-                                                                            class="btn btn-primary ">Lưu</button>
-                                                                    </div>
-                                                                </div><!-- /.modal-content -->
+                                                                            <button type="button" class="btn btn-light"
+                                                                                data-bs-dismiss="modal">Đóng</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary ">Thêm mới</button>
+                                                                        </div>
+                                                                    </div><!-- /.modal-content -->
+                                                                </form>
                                                             </div><!-- /.modal-dialog -->
                                                         </div>
                                                     </div><!-- end card header -->
-
                                                     <div class="card-body">
-
+                                                        <div class="table-responsive table-card">
+                                                            <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                <thead class="text-muted table-light">
+                                                                    <tr>
+                                                                        <th>STT</th>
+                                                                        <th scope="col">Mã HĐ</th>
+                                                                        <th scope="col">Khách hàng</th>
+                                                                        <th scope="col">Đầu tư</th>
+                                                                        <th scope="col">Thời hạn</th>
+                                                                        <th scope="col">Lãi tháng</th>
+                                                                        <th scope="col">Ngày ký</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody style="font-size: 16px;">
+                                                                        <% var index = 0 %>
+                                                                        <% hop_dong.forEach(function(hop_dong){ index++ %>
+                                                                            <% if ( hop_dong.khach_hang.id === khach_hang_chi_tiet.id) { %>
+                                                                                <tr>
+                                                                                    <td style="text-align: center;"><%= index %></td>
+                                                                                    <td><%= hop_dong.ma_hop_dong %></td>
+                                                                                    <td><%= hop_dong.khach_hang.ho_va_ten %></td>
+                                                                                    <td><%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ</td>
+                                                                                    <td><%= hop_dong.thoi_han_dau_tu %> tháng</td>
+                                                                                    <td id="lai_thang"><%= hop_dong.loi_nhuan.thang_dau.toLocaleString() %></td>
+                                                                                    <td><%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
+                                                                                    <script>
+                                                                                        setTimeout(() => {
+                                                                                            const box = document.getElementById('lai_thang');
+                                                                                            box.innerHTML = "<%= hop_dong.loi_nhuan.thang.toLocaleString() %>"
+                                                                                            }, 2000);
+                                                                                    </script>
+                                                                                </tr>
+                                                                            <% } %>
+                                                                        <% }); %>
+                                                                        
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div> <!-- .card-->

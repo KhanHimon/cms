@@ -108,7 +108,7 @@
                                                                         <td>
                                                                             <a href="" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
                                                                         </td>
-                                                                        <td><%= khach_hang.nam_sinh %></td>
+                                                                        <td><%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></td>
                                                                         <td>
                                                                             <span class="text-success">0<%= khach_hang.so_dien_thoai %></span>
                                                                         </td>
@@ -122,10 +122,11 @@
                                                                             <span class=""><%= khach_hang.ma_gioi_thieu %></span>
                                                                         </td>
                                                                         <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> Chi tiết khách hàng</a>
-                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                <i class="ri-file-list-3-line align-middle"></i>
-                                                                            </button>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
+                                                                                <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                    <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
+                                                                                </button>
+                                                                            </a>
                                                                             <button type="button" class="btn btn-soft-info btn-sm">
                                                                                 <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
                                                                             </button>

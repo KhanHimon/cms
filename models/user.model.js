@@ -10,7 +10,7 @@ const User_Schema = new Schema({
     cmnd_cccd_mat_sau: { type: String },
     noi_cap: { type: String },
     ngay_cap: { type: Date },
-    nam_sinh: { type: String },
+    nam_sinh: { type: Date },
     dia_chi: { type: String },
     dan_toc: { type: String },
     vung: {type: String},
