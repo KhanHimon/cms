@@ -18,6 +18,7 @@ const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model'
 const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_khach_hang.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 // IMPORT CONTROLLER
+const vung_Controller = require('../controller/vung.controller');
 const user_controller = require('../controller/user.controller');
 const login_controller = require('../controller/login_controller');
 const trang_thai_controller = require('../controller/trang_thai_controller');
@@ -27,6 +28,16 @@ const login_admin_controller = require('../controller/login_admin.controller');
 const hoa_hong_controller = require('../controller/hoa_hong.controller');
 const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controller');
 const phieu_thong_tin_controller = require('../controller/phieu_thong_tin.controller');
+
+
+
+/* ROUTER VÙNG */
+router.get('/quan-ly-khu-vuc/:_id',login_admin_controller.loginRequired, vung_Controller.hien_thi);
+router.post('/them-vung/',login_admin_controller.loginRequired, vung_Controller.them_vung);
+
+/* ROUTER TỈNH */
+router.post('/them-tinh/',login_admin_controller.loginRequired, vung_Controller.them_tinh);
+
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
@@ -235,6 +246,17 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
 
 router.post('/them-hop-dong', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_tra_thuong);
 router.post('/them-hop-dong-dau-tu', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_dau_tu);
+router.post('/xoa-hop-dong/:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.xoa_hop_dong_dau_tu);
+router.get('/quan-ly-hop-dong/:_id', login_admin_controller.loginRequired, function(req,res,next){
+  Sale_Schema.findById(req.params._id, function (err, sale) {
+    thong_bao_Schema.find(function (err, thong_bao) {
+      Hop_dong_dau_tu_Schema.find(function(err, hop_dong_dau_tu){
+        if (err) throw err;
+        res.render('admin/pages/quan_ly_hop_dong', { thong_bao, sale, hop_dong_dau_tu, message: req.flash('message')});
+      }).populate('khach_hang')
+    })
+  })
+})
 
 // router hoa hồng cố định
 // GET

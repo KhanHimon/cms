@@ -31,49 +31,50 @@
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Tổng quan</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link menu-link" href="/admin/phieu-thong-tin-khach-hang/<%= sale._id %>">
                         <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Phiếu khách hàng</span>
                     </a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="/admin/quan-ly-hop-dong/<%= sale._id %>">
+                        <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Danh sách hợp đồng</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link menu-link" href="/admin/danh-sach-phieu/<%= sale._id %>">
+                        <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Danh sách phiếu khách hàng</span>
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="/admin/quan-ly-khach-hang-sale/<%= sale._id %>">
+                        <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Danh sách khách hàng</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarKhach_hang" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarKhach_hang">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Khách hàng</span>
+                    <a class="nav-link menu-link" href="/admin/quan-ly-khu-vuc/<%= sale._id %>">
+                        <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Quản lý khu vực</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarKhach_hang">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link menu-link" href="/admin/quan-ly-khach-hang-sale/<%= sale._id %>">
-                                    <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Danh sách khách hàng</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link menu-link" href="/admin/quan-ly-giao-dich/<%= sale._id %>">
-                                    <i class="ri-file-list-line"></i> <span data-key="t-dashboards">Thêm mới khách hàng</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarPhapche" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarPhapche">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Pháp chế</span>
+                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Đội nhóm kinh doanh</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarPhapche">
+                    <div class="collapse menu-dropdown" id="sidebarDashboards">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="/admin/danh-sach-phieu/<%= sale._id %>">
-                                    <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Danh sách phiếu khách hàng</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link menu-link" href="/admin/quan-ly-giao-dich/<%= sale._id %>">
-                                    <i class="ri-file-list-line"></i> <span data-key="t-dashboards">Danh sách hợp đồng</span>
+                                    <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Danh sách đội nhóm</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="/admin/quan-ly-tra-thuong/<%= sale._id %>">
-                                    <i class="ri-file-list-line"></i> <span data-key="t-dashboards">Thêm mới hợp đồng</span>
+                                    <i class="ri-file-list-line"></i> <span data-key="t-dashboards">Danh sách vùng</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="/admin/hoa-hong/<%= sale._id %>">
+                                    <i class="ri-file-list-line"></i> <span data-key="t-dashboards">Danh sách tỉnh</span>
                                 </a>
                             </li>
                         </ul>
@@ -87,7 +88,7 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="/admin/danh-sach-phieu/<%= sale._id %>">
-                                    <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Quản lý phiếu khách hàng</span>
+                                    <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Hợp đồng trả thưởng</span>
                                 </a>
                             </li>
                             <li class="nav-item">

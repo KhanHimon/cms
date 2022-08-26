@@ -1,0 +1,183 @@
+<%- include ../layouts/header.ejs %>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+    <div class="layout-width">
+        <%- include ../layouts/nav_header.ejs %>
+    </div>
+</header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../layouts/left_menu.ejs %>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Quản lý hợp đồng</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Quản lý</a></li>
+                                        <li class="breadcrumb-item active">hợp đồng</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="h-100">
+                                <div class="row mb-3 pb-1">
+                                    <div class="col-12">
+                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                            <% if (message) { %>
+                                                <b id="mess" style="padding: 10px; font-size: 20px; margin-bottom: 20px; color: green;">
+                                                    <%= message %>
+                                                </b> <br>
+                                                
+                                            <% } %>
+                                            <script>
+                                                setTimeout(() => {
+                                                    const box = document.getElementById('mess');
+                                                    box.style.display = 'none';
+                                                    }, 2000);
+                                            </script>
+                                        </div><!-- end card header -->
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Danh sách hợp đồng</h4>
+                                            </div><!-- end card header -->
+
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <% const month = new Date().getMonth() + 1 %>
+                                                            <tr>
+                                                                <th scope="col">Mã hợp đồng</th>
+                                                                <th scope="col">Họ và tên</th>
+                                                                <th scope="col">Số điện thoại</th>
+                                                                <th scope="col">CMND-CCCD</th>
+                                                                <th scope="col">Tiền đầu tư</th>
+                                                                <th scope="col">Lợi nhuận tháng <%= month %></th>
+                                                                <th scope="col">Ngày ký</th>
+                                                                <th scope="col">Số tài khoản</th>
+                                                                <th scope="col">Ngân hàng</th>
+                                                                <th scope="col"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <% hop_dong_dau_tu.forEach(function(hop_dong_dau_tu){ %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.ma_hop_dong %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.ho_va_ten %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary">0<%= hop_dong_dau_tu.khach_hang.so_dien_thoai %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.cccd_cmnd %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.so_tien_dau_tu.toLocaleString() %> đ</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.loi_nhuan.thang_dau.toLocaleString() %> đ</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary">Ngày <%= hop_dong_dau_tu.ngay_ky_hop_dong.getDate() %>-<%= hop_dong_dau_tu.ngay_ky_hop_dong.getMonth() %>-<%= hop_dong_dau_tu.ngay_ky_hop_dong.getFullYear() %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.so_tai_khoan %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.ngan_hang %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <form action="/admin/xoa-hop-dong/<%= hop_dong_dau_tu._id %>" method="post">
+                                                                                <button type="submit" class="btn btn-soft-info btn-sm">
+                                                                                    <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
+                                                                                </button>
+                                                                            </form>
+                                                                        </td>
+                                                                    </tr>
+                                                                <% }); %>
+                                                            </div>
+                                                        </tbody><!-- end tbody -->
+                                                    </table><!-- end table -->
+                                                </div>
+                                            </div>
+                                        </div> <!-- .card-->
+                                    </div> <!-- .col-->
+                                </div> <!-- end row-->
+
+                            </div> <!-- end .h-100-->
+
+                        </div> <!-- end col -->
+                    </div>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Lê Tuấn Khang
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <%- include ../layouts/footer.ejs %>

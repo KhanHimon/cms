@@ -36,8 +36,21 @@ class hop_dong_tra_thuong_controller {
                 thang: req.body.so_tien_dau_tu * 0.025
             }
         });
+        req.flash('message', 'Thêm mới thành công');
         new_hop_dong_dau_tu.save();
         res.redirect(req.get('referer'));
+    }
+
+    xoa_hop_dong_dau_tu(req,res){
+        const options = {
+            new: true,
+            useFindAndModify: false
+        }
+        Hop_dong_dau_tu_Schema.findByIdAndDelete(req.params._id, options, function (hop_dong) {
+            console.log(hop_dong);
+            req.flash('message', 'Xóa thành công');
+            res.redirect(req.get('referer'));
+        });
     }
 }
 
