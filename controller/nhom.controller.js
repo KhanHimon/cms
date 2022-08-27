@@ -7,8 +7,10 @@ class nhom_Controller {
         Sale_Schema.findById(req.params._id, function(err, sale){
             thong_bao_Schema.find(function(err, thong_bao){
                 Nhom_sale_Schema.find(function (err, nhoms) {
-                    if(err) throw err;
-                    res.render('admin/pages/quan_ly_doi_nhom', { sale, thong_bao, nhoms });
+                    Sale_Schema.find(function(err, sales){
+                        if(err) throw err;
+                        res.render('admin/pages/quan_ly_doi_nhom', { sale, thong_bao, nhoms, sales });
+                    }).populate('chuc_vu').populate('nhom_kinh_doanh').populate('vung').populate('tinh').sort({ create_date: -1 })
                 })
             })
         }).populate('chuc_vu')

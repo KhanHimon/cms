@@ -81,10 +81,11 @@
                                 <!--end row-->
 
                                 <div class="row">
-                                    <div class="col-xl-12">
+                                    <% if (nhoms[0] ) { %>
+                                    <div class="col-xl-3">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
-                                                <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh</h4>
+                                                <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[0].ten_nhom %></h4>
                                             </div><!-- end card header -->
 
                                             <div class="card-body">
@@ -92,58 +93,27 @@
                                                     <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                         <thead class="text-muted table-light">
                                                             <tr>
-                                                                <th scope="col">STT</th>
-                                                                <th scope="col">Đội nhóm kinh doanh</th>
-                                                                <th scope="col">Nhóm trưởng</th>
-                                                                <th scope="col">Vùng</th>
-                                                                <th scope="col">Tỉnh</th>
-                                                                <th scope="col">Số lượng thành viên</th>
-                                                                <th scope="col">Số lượng hợp đồng</th>
-                                                                <th scope="col">Doanh thu trong tháng <%= new Date().getMonth() +1 %></th>
-                                                                <th scope="col">Doanh thu trong quý</th>
-                                                                <th scope="col">Doanh thu trong ngày <%= new Date().getDate() %></th>
-                                                                <th scope="col">Doanh số trong năm <%= new Date().getFullYear() %></th>
+                                                                <th scope="col">Nhóm trưởng : 
+                                                                    <% sales.forEach(function(sales){ %>
+                                                                        <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[0].ten_nhom ) { %>
+                                                                                <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                            <% } %>
+                                                                        <% } %>
+                                                                    <% }); %>
+                                                                </th>
                                                                 <th scope="col"></th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <% var index = 0 %>
-                                                            <% nhoms.forEach(function(nhom){ index++ %>
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">#<%= index %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                                <td>
-                                                                    <a href="" class="fw-medium link-primary">Nhóm kinh doanh <%= nhom.ten_nhom %></a>
-                                                                </td>
-                                                            </tr>
+                                                            <% sales.forEach(function(sales){ %>
+                                                                <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[0].ten_nhom ) { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                        <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                        </td>
+                                                                    </tr>
+                                                                <% } %>
                                                             <% }); %>
                                                         </tbody><!-- end tbody -->
                                                     </table><!-- end table -->
@@ -151,6 +121,376 @@
                                             </div>
                                         </div> <!-- .card-->
                                     </div> <!-- .col-->
+                                    <% } %>
+                                    <% if (nhoms[1] ) { %>
+                                        <div class="col-xl-3">
+                                            <div class="card">
+                                                <div class="card-header align-items-center d-flex">
+                                                    <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[1].ten_nhom %></h4>
+                                                </div><!-- end card header -->
+    
+                                                <div class="card-body">
+                                                    <div class="table-responsive table-card">
+                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                            <thead class="text-muted table-light">
+                                                                <tr>
+                                                                    <th scope="col">Nhóm trưởng : 
+                                                                        <% sales.forEach(function(sales){ %>
+                                                                            <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[1].ten_nhom ) { %>
+                                                                                    <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                <% } %>
+                                                                            <% } %>
+                                                                        <% }); %>
+                                                                    </th>
+                                                                    <th scope="col"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% sales.forEach(function(sales){ %>
+                                                                    <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[1].ten_nhom ) { %>
+                                                                        <tr>
+                                                                            <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                            </td>
+                                                                        </tr>
+                                                                    <% } %>
+                                                                <% }); %>
+                                                            </tbody><!-- end tbody -->
+                                                        </table><!-- end table -->
+                                                    </div>
+                                                </div>
+                                            </div> <!-- .card-->
+                                        </div> <!-- .col-->
+                                        <% } %>
+                                        <% if (nhoms[2] ) { %>
+                                            <div class="col-xl-3">
+                                                <div class="card">
+                                                    <div class="card-header align-items-center d-flex">
+                                                        <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[2].ten_nhom %></h4>
+                                                    </div><!-- end card header -->
+        
+                                                    <div class="card-body">
+                                                        <div class="table-responsive table-card">
+                                                            <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                <thead class="text-muted table-light">
+                                                                    <tr>
+                                                                        <th scope="col">Nhóm trưởng : 
+                                                                            <% sales.forEach(function(sales){ %>
+                                                                                <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                    <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[2].ten_nhom ) { %>
+                                                                                        <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                    <% } %>
+                                                                                <% } %>
+                                                                            <% }); %>
+                                                                        </th>
+                                                                        <th scope="col"></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <% sales.forEach(function(sales){ %>
+                                                                        <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[2].ten_nhom ) { %>
+                                                                            <tr>
+                                                                                <td>
+                                                                                <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                                </td>
+                                                                            </tr>
+                                                                        <% } %>
+                                                                    <% }); %>
+                                                                </tbody><!-- end tbody -->
+                                                            </table><!-- end table -->
+                                                        </div>
+                                                    </div>
+                                                </div> <!-- .card-->
+                                            </div> <!-- .col-->
+                                            <% } %>
+                                            <% if (nhoms[3] ) { %>
+                                                <div class="col-xl-3">
+                                                    <div class="card">
+                                                        <div class="card-header align-items-center d-flex">
+                                                            <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[3].ten_nhom %></h4>
+                                                        </div><!-- end card header -->
+            
+                                                        <div class="card-body">
+                                                            <div class="table-responsive table-card">
+                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                    <thead class="text-muted table-light">
+                                                                        <tr>
+                                                                            <th scope="col">Nhóm trưởng : 
+                                                                                <% sales.forEach(function(sales){ %>
+                                                                                    <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                        <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[3].ten_nhom ) { %>
+                                                                                            <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                        <% } %>
+                                                                                    <% } %>
+                                                                                <% }); %>
+                                                                            </th>
+                                                                            <th scope="col"></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <% sales.forEach(function(sales){ %>
+                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[3].ten_nhom ) { %>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                    <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                                    </td>
+                                                                                </tr>
+                                                                            <% } %>
+                                                                        <% }); %>
+                                                                    </tbody><!-- end tbody -->
+                                                                </table><!-- end table -->
+                                                            </div>
+                                                        </div>
+                                                    </div> <!-- .card-->
+                                                </div> <!-- .col-->
+                                                <% } %>
+                                                <% if (nhoms[4] ) { %>
+                                                    <div class="col-xl-3">
+                                                        <div class="card">
+                                                            <div class="card-header align-items-center d-flex">
+                                                                <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[4].ten_nhom %></h4>
+                                                            </div><!-- end card header -->
+                
+                                                            <div class="card-body">
+                                                                <div class="table-responsive table-card">
+                                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                        <thead class="text-muted table-light">
+                                                                            <tr>
+                                                                                <th scope="col">Nhóm trưởng : 
+                                                                                    <% sales.forEach(function(sales){ %>
+                                                                                        <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[4].ten_nhom ) { %>
+                                                                                                <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            <% } %>
+                                                                                        <% } %>
+                                                                                    <% }); %>
+                                                                                </th>
+                                                                                <th scope="col"></th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <% sales.forEach(function(sales){ %>
+                                                                                <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[4].ten_nhom ) { %>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                        <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                <% } %>
+                                                                            <% }); %>
+                                                                        </tbody><!-- end tbody -->
+                                                                    </table><!-- end table -->
+                                                                </div>
+                                                            </div>
+                                                        </div> <!-- .card-->
+                                                    </div> <!-- .col-->
+                                                    <% } %>
+                                                    <% if (nhoms[5] ) { %>
+                                                        <div class="col-xl-3">
+                                                            <div class="card">
+                                                                <div class="card-header align-items-center d-flex">
+                                                                    <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[5].ten_nhom %></h4>
+                                                                </div><!-- end card header -->
+                    
+                                                                <div class="card-body">
+                                                                    <div class="table-responsive table-card">
+                                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                            <thead class="text-muted table-light">
+                                                                                <tr>
+                                                                                    <th scope="col">Nhóm trưởng : 
+                                                                                        <% sales.forEach(function(sales){ %>
+                                                                                            <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                                <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[5].ten_nhom ) { %>
+                                                                                                    <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </th>
+                                                                                    <th scope="col"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <% sales.forEach(function(sales){ %>
+                                                                                    <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[5].ten_nhom ) { %>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                            <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    <% } %>
+                                                                                <% }); %>
+                                                                            </tbody><!-- end tbody -->
+                                                                        </table><!-- end table -->
+                                                                    </div>
+                                                                </div>
+                                                            </div> <!-- .card-->
+                                                        </div> <!-- .col-->
+                                                        <% } %>
+                                                        <% if (nhoms[6] ) { %>
+                                                            <div class="col-xl-3">
+                                                                <div class="card">
+                                                                    <div class="card-header align-items-center d-flex">
+                                                                        <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[6].ten_nhom %></h4>
+                                                                    </div><!-- end card header -->
+                        
+                                                                    <div class="card-body">
+                                                                        <div class="table-responsive table-card">
+                                                                            <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <thead class="text-muted table-light">
+                                                                                    <tr>
+                                                                                        <th scope="col">Nhóm trưởng : 
+                                                                                            <% sales.forEach(function(sales){ %>
+                                                                                                <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                                    <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[6].ten_nhom ) { %>
+                                                                                                        <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    <% } %>
+                                                                                                <% } %>
+                                                                                            <% }); %>
+                                                                                        </th>
+                                                                                        <th scope="col"></th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <% sales.forEach(function(sales){ %>
+                                                                                        <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[6].ten_nhom ) { %>
+                                                                                            <tr>
+                                                                                                <td>
+                                                                                                <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        <% } %>
+                                                                                    <% }); %>
+                                                                                </tbody><!-- end tbody -->
+                                                                            </table><!-- end table -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div> <!-- .card-->
+                                                            </div> <!-- .col-->
+                                                            <% } %>
+                                                            <% if (nhoms[7] ) { %>
+                                                                <div class="col-xl-3">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[7].ten_nhom %></h4>
+                                                                        </div><!-- end card header -->
+                            
+                                                                        <div class="card-body">
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">Nhóm trưởng : 
+                                                                                                <% sales.forEach(function(sales){ %>
+                                                                                                    <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                                        <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[7].ten_nhom ) { %>
+                                                                                                            <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                        <% } %>
+                                                                                                    <% } %>
+                                                                                                <% }); %>
+                                                                                            </th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <% sales.forEach(function(sales){ %>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[7].ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                    <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div> <!-- .col-->
+                                                                <% } %>
+                                                                <% if (nhoms[8] ) { %>
+                                                                    <div class="col-xl-3">
+                                                                        <div class="card">
+                                                                            <div class="card-header align-items-center d-flex">
+                                                                                <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[8].ten_nhom %></h4>
+                                                                            </div><!-- end card header -->
+                                
+                                                                            <div class="card-body">
+                                                                                <div class="table-responsive table-card">
+                                                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                        <thead class="text-muted table-light">
+                                                                                            <tr>
+                                                                                                <th scope="col">Nhóm trưởng : 
+                                                                                                    <% sales.forEach(function(sales){ %>
+                                                                                                        <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[8].ten_nhom ) { %>
+                                                                                                                <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                            <% } %>
+                                                                                                        <% } %>
+                                                                                                    <% }); %>
+                                                                                                </th>
+                                                                                                <th scope="col"></th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            <% sales.forEach(function(sales){ %>
+                                                                                                <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[8].ten_nhom ) { %>
+                                                                                                    <tr>
+                                                                                                        <td>
+                                                                                                        <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                <% } %>
+                                                                                            <% }); %>
+                                                                                        </tbody><!-- end tbody -->
+                                                                                    </table><!-- end table -->
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> <!-- .card-->
+                                                                    </div> <!-- .col-->
+                                                                    <% } %>
+                                                                    <% if (nhoms[9] ) { %>
+                                                                        <div class="col-xl-3">
+                                                                            <div class="card">
+                                                                                <div class="card-header align-items-center d-flex">
+                                                                                    <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[9].ten_nhom %></h4>
+                                                                                </div><!-- end card header -->
+                                    
+                                                                                <div class="card-body">
+                                                                                    <div class="table-responsive table-card">
+                                                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                            <thead class="text-muted table-light">
+                                                                                                <tr>
+                                                                                                    <th scope="col">Nhóm trưởng : 
+                                                                                                        <% sales.forEach(function(sales){ %>
+                                                                                                            <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                                                <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[9].ten_nhom ) { %>
+                                                                                                                    <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                                <% } %>
+                                                                                                            <% } %>
+                                                                                                        <% }); %>
+                                                                                                    </th>
+                                                                                                    <th scope="col"></th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody>
+                                                                                                <% sales.forEach(function(sales){ %>
+                                                                                                    <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[9].ten_nhom ) { %>
+                                                                                                        <tr>
+                                                                                                            <td>
+                                                                                                            <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    <% } %>
+                                                                                                <% }); %>
+                                                                                            </tbody><!-- end tbody -->
+                                                                                        </table><!-- end table -->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div> <!-- .card-->
+                                                                        </div> <!-- .col-->
+                                                                        <% } %>
                                 </div> <!-- end row-->
 
                             </div> <!-- end .h-100-->

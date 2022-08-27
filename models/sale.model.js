@@ -33,7 +33,8 @@ const Sale_Schema = new Schema({
     tinh: {
         type: Schema.Types.ObjectId,
         ref:'Tinh'
-    }
+    },
+    create_date: { type: Date }
 });
 
 
