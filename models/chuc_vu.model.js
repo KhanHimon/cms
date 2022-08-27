@@ -6,6 +6,7 @@ const Chuc_vu_Schema = new Schema({
     hoa_hong_chuc_vu: {
         type: Schema.Types.ObjectId,
         ref:'hoa_hong',
+        default: "Chưa xác định"
     }
 });
 

@@ -19,7 +19,9 @@ const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_kha
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 // IMPORT CONTROLLER
 const vung_Controller = require('../controller/vung.controller');
+const nhom_Controller = require('../controller/nhom.controller');
 const user_controller = require('../controller/user.controller');
+const sale_Controller = require('../controller/sale.controller');
 const login_controller = require('../controller/login_controller');
 const trang_thai_controller = require('../controller/trang_thai_controller');
 const thong_bao_controller = require('../controller/thong_bao.controller');
@@ -38,6 +40,14 @@ router.post('/them-vung/',login_admin_controller.loginRequired, vung_Controller.
 /* ROUTER TỈNH */
 router.post('/them-tinh/',login_admin_controller.loginRequired, vung_Controller.them_tinh);
 
+
+/* ROUTER NHOM */
+router.get('/danh-sach-nhom/:_id',login_admin_controller.loginRequired, nhom_Controller.hien_thi);
+
+/* ROUTER SALE */
+router.get('/danh-sach-sale/:_id',login_admin_controller.loginRequired, sale_Controller.hien_thi);
+router.post('/them-nhan-vien',login_admin_controller.loginRequired, sale_Controller.them_moi_sale);
+router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, sale_Controller.chi_tiet_sale )
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
@@ -163,8 +173,6 @@ router.get('/quan-ly-tai-khoan/:_id', login_admin_controller.loginRequired, func
 
 
 
-// router nhân viên
-router.post('/them-nhan-vien', login_admin_controller.loginRequired, admin_controller.them_nhan_vien);
 // router khách hàng
 router.post('/them-khach-hang', login_admin_controller.loginRequired, admin_controller.them_moi_khach_hang);
 router.get('/thong-tin-khach-hang=:id/:_id', login_admin_controller.loginRequired, function (req, res) {

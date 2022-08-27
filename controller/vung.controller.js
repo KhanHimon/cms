@@ -2,6 +2,8 @@ const Vung_Schema = require('../models/vung.model');
 const Tinh_Schema = require('../models/tinh.model');
 const Sale_Schema = require('../models/sale.model');
 const thong_bao_Schema = require('../models/thong_bao.model');
+const Nhom_sale_Schema = require('../models/nhom_sale.model');
+const Chuc_vu_Schema = require('../models/chuc_vu.model');
 
 class vung_Controller {
     hien_thi(req,res){
