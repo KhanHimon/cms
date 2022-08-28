@@ -108,11 +108,13 @@
                                                         <tbody>
                                                             <% sales.forEach(function(sales){ %>
                                                                 <% if (sales.nhom_kinh_doanh.ten_nhom == nhoms[0].ten_nhom ) { %>
-                                                                    <tr>
-                                                                        <td>
-                                                                        <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
-                                                                        </td>
-                                                                    </tr>
+                                                                    <% if (sales.chuc_vu._id != "63099cfeea61e1dad3c7a959" ) { %>
+                                                                        <tr>
+                                                                            <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %> - <%= sales.ho_va_ten %></a>   
+                                                                            </td>
+                                                                        </tr>
+                                                                    <% } %>
                                                                 <% } %>
                                                             <% }); %>
                                                         </tbody><!-- end tbody -->
