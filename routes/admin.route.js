@@ -43,6 +43,7 @@ router.post('/them-tinh/',login_admin_controller.loginRequired, vung_Controller.
 
 /* ROUTER NHOM */
 router.get('/danh-sach-nhom/:_id',login_admin_controller.loginRequired, nhom_Controller.hien_thi);
+router.get('/chi-tiet-nhom=:id/:_id',login_admin_controller.loginRequired, nhom_Controller.chi_tiet_doi_nhom);
 
 /* ROUTER SALE */
 router.get('/danh-sach-sale/:_id',login_admin_controller.loginRequired, sale_Controller.hien_thi);

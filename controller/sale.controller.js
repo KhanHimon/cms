@@ -45,8 +45,8 @@ class sale_Controller {
 
     them_moi_sale(req,res){
         const new_sale = new Sale_Schema({
-            username: "SALE"+ Math.floor(Math.random() * 10000000),
-            password: Math.floor(Math.random() * 10000000),
+            username_sale: "SALE"+ Math.floor(Math.random() * 10000000),
+            password_sale: Math.floor(Math.random() * 10000000),
             ho_va_ten: req.body.ho_va_ten,
             nam_sinh: req.body.nam_sinh,
             cmnd_cccd: req.body.cmnd_cccd,

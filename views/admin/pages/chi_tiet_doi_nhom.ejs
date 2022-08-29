@@ -1,0 +1,223 @@
+<%- include ../layouts/header.ejs %>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="layout-width">
+                <%- include ../layouts/nav_header.ejs %>
+            </div>
+        </header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../layouts/left_menu.ejs %>
+            <!-- Left Sidebar End -->
+            <!-- Vertical Overlay-->
+            <div class="vertical-overlay"></div>
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0">Thông tin chi tiết</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Quản lý</a></li>
+                                            <li class="breadcrumb-item active">Đội nhóm kinh doanh</li>
+                                        </ol>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col">
+
+                                <div class="h-100">
+                                    <!--end row-->
+
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <% hop_dongs.forEach(function(hop_dongs){ %>
+                                                                <% sales.forEach(function(sales){ %>
+                                                                    <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                        <% if (hop_dongs.khach_hang.ma_gioi_thieu == sales.ma_gioi_thieu ) { %>
+                                                                        <% let total = 0; %>
+                                                                        <% total += hop_dongs.so_tien_dau_tu %>
+                                                                        <% const date = new Date() %>
+                                                                        <h2 style="color: blue;">Tổng doanh số : <%= total.toLocaleString() %> vnđ</h2>
+                                                                        <% } %>
+                                                                        <% } %>
+                                                                    <% }); %>
+                                                                <% }); %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-9">
+                                            <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm nhân sự.." style="width: 300px;"><br>
+                                                                    <script>
+                                                                        $(document).ready(function(){
+                                                                          $("#myInput").on("keyup", function() {
+                                                                            var value = $(this).val().toLowerCase();
+                                                                            $("#myTable tr").filter(function() {
+                                                                              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                            });
+                                                                          });
+                                                                        });
+                                                                        </script>
+                                            <div class="card">
+                                                <div class="card-header align-items-center d-flex">
+                                                    <h4 class="card-title mb-0 flex-grow-1">Thông tin đội nhóm kinh doanh : <%= nhom.ten_nhom %> <b></b> </h4>
+                                                    <b scope="col">Nhóm trưởng : 
+                                                        <% sales.forEach(function(sales){ %>
+                                                        <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
+                                                        <% if (sales.nhom_kinh_doanh.ten_nhom == nhom.ten_nhom ) { %>
+                                                            <a href="" class="fw-medium link-primary"><%= sales.ho_va_ten %> - <%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                        <% } %>
+                                                        <% } %>
+                                                        <% }); %>
+                                                    </b>
+                                                </div><!-- end card header -->
+                                                <div class="card-body">
+                                                    <div class="table-responsive table-card">
+                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                            <thead class="text-muted table-light">
+                                                                <tr>
+                                                                    <th scope="col">CODE</th>
+                                                                    <th scope="col">CHỨC VỤ</th>
+                                                                    <th scope="col">HỌ VÀ TÊN</th>
+                                                                    <th scope="col">NGÀY SINH</th>
+                                                                    <th scope="col">ĐIỆN THOẠI</th>
+                                                                    <th scope="col">CMND/CCCD</th>
+                                                                    <th scope="col">EMAIL</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="myTable">
+                                                                    <% sales.forEach(function(sales){ %>
+                                                                        <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                            <% if (sales.chuc_vu._id != "63099cfeea61e1dad3c7a959" ) { %>
+                                                                                <tr>
+                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                    <td><%= sales.chuc_vu.ten_chuc_vu %></td>
+                                                                                    <td><%= sales.ho_va_ten %></td>
+                                                                                    <td><%= sales.nam_sinh %></td>
+                                                                                    <td>0<%= sales.dien_thoai %></td>
+                                                                                    <td><%= sales.cmnd_cccd %></td>
+                                                                                    <td><%= sales.email %></td>
+                                                                                </tr>
+                                                                                <% } %>
+                                                                        <% } %>
+                                                                    <% }); %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- .card-->
+                                        
+                                        <div class="col-xl-3">
+                                            <input id="hop_dong" class="form-control" type="text" placeholder="Tìm kiếm hợp đồng.." style="width: 300px;"><br>
+                                            <script>
+                                                $(document).ready(function(){
+                                                  $("#hop_dong").on("keyup", function() {
+                                                    var value = $(this).val().toLowerCase();
+                                                    $("#hop_dong tr").filter(function() {
+                                                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                    });
+                                                  });
+                                                });
+                                                </script>
+                                            <div class="card">
+                                                <div class="card-header align-items-center d-flex">
+                                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách hợp đồng của đội nhóm</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive table-card">
+                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                            <thead class="text-muted table-light">
+                                                                <tr>
+                                                                    <th scope="col">SỐ HĐ</th>
+                                                                    <th scope="col">KHÁCH HÀNG</th>
+                                                                    <th scope="col">NGƯỜI PHỤ TRÁCH</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="hop_dong">
+                                                                <% hop_dongs.forEach(function(hop_dongs){ %>
+                                                                    <% sales.forEach(function(sales){ %>
+                                                                        <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                            <% if (hop_dongs.khach_hang.ma_gioi_thieu == sales.ma_gioi_thieu ) { %>
+                                                                                <tr>
+                                                                                    <td><%= hop_dongs.ma_hop_dong %></td>
+                                                                                    <td><%= hop_dongs.khach_hang.ho_va_ten %></td>
+                                                                                    <td><%= sales.ho_va_ten %></td>
+                                                                                </tr>
+                                                                            <% } %>
+                                                                        <% } %>
+                                                                    <% }); %>
+                                                                <% }); %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- end row-->
+                                </div> <!-- end .h-100-->
+                            </div> <!-- end col -->
+                        </div>
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ
+                                phần tập đoàn chợ toàn cầu.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by Lê Tuấn Khang
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"
+            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <%- include ../layouts/footer.ejs %>

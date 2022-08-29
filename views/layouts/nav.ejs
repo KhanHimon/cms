@@ -1,42 +1,93 @@
-<div class="deznav">
-    <div class="deznav-scroll">
-        <ul class="metismenu" id="menu">
-            <li>
-                <a class="has-arrow ai-icon" href="/tong-quan/<%= user._id %>" aria-expanded="true">
-                    <i class="lni lni-user"></i>
-                    <span class="nav-text">Tổng quan</span>
-                </a>
-            </li>
-            <li>
-                <a class="has-arrow ai-icon" href="/ngan-hang/<%= user._id %>" aria-expanded="true">
-                    <i class="lni lni-user"></i>
-                    <span class="nav-text">Ngân hàng</span>
-                </a>
-            </li>
-            <li>
-                <a class="has-arrow ai-icon" href="/dau-tu/<%= user._id %>" aria-expanded="false">
-                    <i class="lni lni-investment"></i>
-                    <span class="nav-text">Đầu tư</span>
-                </a>
-            </li>
-            <li>
-                <a class="has-arrow ai-icon" href="/bao-mat/<%= user._id %>" aria-expanded="false">
-                    <i class="lni lni-protection"></i>
-                    <span class="nav-text">Bảo mật</span>
-                </a>
-            </li>
-            <li>
-                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="lni lni-license"></i>
-                    <span class="nav-text">Xác minh</span>
-                </a>
-            </li>
-            <li>
-                <a class="has-arrow ai-icon" href="/cai-dat/<%= user._id %>" aria-expanded="false">
-                    <i class="lni lni-cog"></i>
-                    <span class="nav-text">Cài đặt</span>
-                </a>
-            </li>
-        </ul>
+<div class="app-menu navbar-menu">
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+        <!-- Dark Logo-->
+        <a href="index.html" class="logo logo-dark">
+            <span class="logo-sm">
+                <img src="assets/images/logo-sm.png" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="assets/images/logo-dark.png" alt="" height="17">
+            </span>
+        </a>
+        <!-- Light Logo-->
+        <a href="index.html" class="logo logo-light">
+            <span class="logo-sm">
+                <img src="assets/images/logo-sm.png" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="assets/images/logo-light.png" alt="" height="17">
+            </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+            <i class="ri-record-circle-line"></i>
+        </button>
     </div>
+
+    <div id="scrollbar">
+        <div class="container-fluid">
+
+            <div id="two-column-menu">
+            </div>
+            <ul class="navbar-nav" id="navbar-nav">
+                <li class="menu-title"><span data-key="t-menu">Tổng quan</span></li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <i class="ri-function-line"></i> <span data-key="t-dashboards">Tổng quan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <i class="ri-user-fill"></i> <span data-key="t-dashboards">Thông tin cá nhân</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <i class="ri-folder-2-line"></i> <span data-key="t-dashboards">Hợp đồng đầu tư</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <i class="ri-file-list-3-line"></i> <span data-key="t-dashboards">Tin tức tổng hợp</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <i class="ri-home-3-line"></i> <span data-key="t-dashboards">Hỗ trợ khách hàng</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Cài đặt</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarDashboards">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics"> Analytics </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="dashboard-crm.html" class="nav-link" data-key="t-crm"> CRM </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="index.html" class="nav-link" data-key="t-ecommerce"> Ecommerce </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Crypto </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="dashboard-projects.html" class="nav-link" data-key="t-projects"> Projects </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="dashboard-nft.html" class="nav-link"> <span data-key="t-nft">NFT</span> <span class="badge badge-pill bg-danger" data-key="t-new">New</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> <!-- end Dashboard Menu -->
+
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+
+    <div class="sidebar-background"></div>
 </div>

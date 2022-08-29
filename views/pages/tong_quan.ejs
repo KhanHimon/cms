@@ -1,280 +1,168 @@
 <%- include ../layouts/header.ejs %>
+<% if (user) { %>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+    <div class="layout-width">
+        <%- include ../layouts/menu.ejs %>
+    </div>
+</header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../layouts/nav.ejs %>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
 
-  <body>
-    <% if (user) { %>
-      <%- include ../layouts/preloader.ejs %>
-        <div id="main-wrapper">
-          <div class="nav-header">
-            <a href="/tong-quan/<%= user._id %>" class="brand-logo">
-              <img class="logo-abbr" src="../images/logo_3.png" alt="">
-              <img class="logo-compact" src="../images/logo-text.png" alt="">
-              <Span style="padding: 10px;">VCU INVESTING</Span>
-            </a>
-          </div>
-          <div class="header">
-            <%- include ../layouts/menu.ejs %>
-          </div>
-          <%- include ../layouts/nav.ejs %>
-            <div class="content-body" style="margin-right: 2rem;">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-xl-12 col-lg-12 col-sm-12">
-                    <div class="card overflow-hidden">
-                      <div class="card-header media border-0 pb-0">
-                        <div class="media-body" style="height: 130px;">
-                          <div class="row">
-                            <div class="col-lg-1 col-md-3 col-sm-3">
-                              <img class="avata_user" src="../images/user.png" alt="" srcset="">
-                            </div>
-                            <div class="col-lg-11 col-md-3 col-sm-9">
-                              <h4>
-                                <%= user.ho_va_ten %> <button style="border: none; padding: 5px; font-size: 10px;">Thông
-                                    tin cá
-                                    nhân <i class="lni lni-pencil"></i></button>
-                              </h4>
-                              <table>
-                                <thead>
-                                  <tr class="th-infor">
-                                    <td>ID người dùng</td>
-                                    <td>Loại người dùng</td>
-                                    <td>Đăng nhập lần cuối</td>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>87457954</td>
-                                    <td>Nhà đầu tư</td>
-                                    <td>2022-08-05 08:54:43(113.190.42.228)</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-12 col-lg-12 col-sm-12">
-                    <div class="card overflow-hidden">
-                      <div class="card-header media border-0 pb-0">
-                        <div class="media-body" style="">
-                          <div class="row">
-                            <div class="col-8 col-xxl-8">
-                              <div class="row">
-                                <div class="col-12">
-                                  <div class="row">
-                                    <div class="col-9 col-xxl-7">
-                                      <h2>Số dư ước tính</h2>
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="h-100">
+                                <div class="row mb-3 pb-1">
+                                    <div class="col-12">
+                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                            <div class="flex-grow-1">
+                                                <h4 class="fs-16 mb-1">Chào mừng, <%= user.ho_va_ten %>!</h4>
+                                                <p class="text-muted mb-0">Chúc bạn một ngày làm việc hiệu quả</p>
+                                            </div>
+                                        </div><!-- end card header -->
                                     </div>
-                                    <div class="col-3 col-xxl-5">
-                                      <button
-                                        style="border: none; padding: 5px; border-radius: 5px; width: 70px; background-color: #EBEBEB; float: right; margin-left: 10px;"><a
-                                          href="">Rút</a></button>
-                                      <button data-toggle="modal" data-target="#exampleModalCenter"
-                                        style="border: none; padding: 5px; border-radius: 5px; width: 70px; background-color: #FCE515; float: right; margin-left: 10px;"><a>Nạp</a></button>
-                                    </div>
-                                    <form action="/user/nap-tien" method="post">
-                                      <div class="modal fade" id="exampleModalCenter">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h5 class="modal-title">Nạp tiền vào tài khoản</h5>
-                                              <button type="button" class="close"
-                                                data-dismiss="modal"><span>&times;</span>
-                                              </button>
-                                            </div>
-                                            <div class="modal-body">
-                                              <div class="form-group">
-                                                <label>Chọn ngân hàng:</label>
-                                                <select class="form-control" id="ngan_hang"
-                                                  name="ngan_hang">
-                                                  <option value="Vietcombank">Vietcombank | STK : 005564699 | LE TUAN
-                                                    KHANG</option>
-                                                  <option value="BIDV">BIDV | STK : 005564699 | LE TUAN KHANG</option>
-                                                  <option value="VIB">VIB | STK : 005564699 | LE TUAN KHANG</option>
-                                                  <option value="Techcombank">Techcombank | STK : 005564699 | LE TUAN
-                                                    KHANG</option>
-                                                </select>
-                                              </div>
-                                              <span style="font-size: 14px;">*Chú ý : ghi đúng nội dung chuyển
-                                                khoản. Sau khi chuyển khoản từ 15-30p sẽ được duyệt (CK 24/7)</span>
-                                              <hr />
-                                              <div class="form-group">
-                                                <label>Lựa chọn:</label>
-                                                <select class="form-control" id="loai_lich_su" name="loai_lich_su">
-                                                  <option selected="selected" value="Nạp">Nạp</option>
-                                                  <option value="Rút">Rút</option>
-                                                </select>
-                                              </div>
-                                              <% if(trang_thai) { %>
-                                                <input type="hidden" class="form-control" id="trang_thai"
-                                                    name="trang_thai" value="<%= trang_thai[2]._id %>" />
-                                              <% } %>
-                                                  <input type="hidden" class="form-control" id="nguoi_gui"
-                                                    name="nguoi_gui" value="<%= user._id %>" />
-                                              <div class="form-group row">
-                                                <label style="padding: 16px;" class="col-lg-3 col-form-label"
-                                                  for="so_tien">Số tiền</label>
-                                                <div class="col-lg-9">
-                                                  <input type="number" class="form-control" id="so_tien"
-                                                    name="so_tien" />
-                                                </div>
-                                              </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-danger light"
-                                                data-dismiss="modal">Hủy</button>
-                                              <button type="submit" class="btn btn-primary">Gửi yêu cầu</button>
-                                            </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div> <!-- end .h-100-->
+                        </div> <!-- end col -->
+                        <div class="row">
+                          <div class="col-xl-3 col-md-6">
+                              <!-- card -->
+                              <div class="card card-animate">
+                                  <div class="card-body">
+                                      <div class="d-flex align-items-center">
+                                          <div class="flex-grow-1 overflow-hidden">
+                                              <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tổng số tiền đầu tư</p>
                                           </div>
-                                        </div>
+                                          <div class="flex-shrink-0">
+                                              <h5 class="text-success fs-14 mb-0">
+                                                  <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +16.24 %
+                                              </h5>
+                                          </div>
                                       </div>
-                                    </form>
-                                  </div>
-                                  <h1 style="color: rgb(19, 124, 223);">
-                                    <%= (user.wallet.wallet_basic + user.wallet.wallet_ocopshop).toLocaleString() %> đ
-                                  </h1>
-                                  <div class="row">
-                                    <div class="col-3">
-                                      <canvas id="myChart" width="200" height="200"></canvas>
-                                      <script>
-                                        const ctx = document.getElementById('myChart').getContext('2d');
-                                        const myChart = new Chart(ctx, {
-                                          type: 'doughnut',
-                                          data: {
-                                            labels: [
-                                              'Ví thường',
-                                              'Ví ocopshop',
-                                              'Đầu tư'
-                                            ],
-                                            datasets: [{
-                                              label: '# of Votes',
-                                              data: ["<%= user.wallet.wallet_basic %>", "<%= user.wallet.wallet_ocopshop %>"],
-                                              backgroundColor: [
-                                                'yellow',
-                                                '#74F671'
-                                              ]
-                                            }]
-                                          }
-                                        });
-                                      </script>
-                                    </div>
-                                    <div class="col-9" style="padding-top: 50px; padding-left: 50px;">
-                                      <p><button
-                                          style="width: 15px; height: 15px; background-color: yellow; border: none;"></button>
-                                        Ví thường : <%= user.wallet.wallet_basic.toLocaleString(); %> đ
-                                      </p>
-                                      <p><button
-                                          style="width: 15px; height: 15px; background-color: #74F671; border: none;"></button>
-                                        Ví ocopshop : <%= user.wallet.wallet_ocopshop.toLocaleString(); %> đ
-                                      </p>
-                                      <p><button
-                                          style="width: 15px; height: 15px; background-color: #2C7BB5; border: none;"></button>
-                                        Đang đầu tư : 0 đ
-                                      </p>
-                                    </div>
-                                  </div>
-                                  <div style="padding-top: 50px;">
-                                    <h3>Các dự án đầu tư</h3>
-                                    <div class="card-body">
-                                      <div class="table-responsive">
-                                        <table id="example4" class="display" style="min-width: 845px">
-                                          <thead>
-                                            <tr>
-                                              <th>Tên dự án</th>
-                                              <th>Tổng đầu tư</th>
-                                              <th>Biến động</th>
-                                              <th>Kết thúc </th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                            </tr>
-                                          </tbody>
-                                        </table>
+                                      <div class="d-flex align-items-end justify-content-between mt-4">
+                                          <div>
+                                              <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="559.25">0</span> vnđ </h4>
+                                              <a href="#" class="text-decoration-underline">Xem chi tiết</a>
+                                          </div>
+                                          <div class="avatar-sm flex-shrink-0">
+                                              <span class="avatar-title bg-soft-success rounded fs-3">
+                                                  <i class="bx bx-dollar-circle text-success"></i>
+                                              </span>
+                                          </div>
                                       </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-4 col-xxl-4">
-                              <div class="notification_new" style="background-color: #F5F5F5; border-radius: 15px;">
-                                <div class="row">
-                                  <div class="col-10 col-xxl-8">
-                                    <p style="padding-top: 15px;">Đầu tư hiệu quả hơn khi nắm rõ thông tin</p>
-                                  </div>
-                                  <div class="col-2 col-xxl-4">
-                                    <img src="../images/graph.png" alt="">
-                                  </div>
-                                </div>
-                              </div>
-                              <div style="padding-top: 30px;">
-                                <h3>Thông báo</h3>
-                                <div>
-                                  <p><b>KHUYẾN MÃI:</b> Nạp lần đầu được tặng thêm
-                                    30% trên tổng giá trị. </p>
-                                  <p><b>KHUYẾN MÃI:</b> Nạp lần đầu được tặng thêm
-                                    voucher mua hàng tại cửa hàng ocopshop
-                                    trên toàn quốc. </p>
-                                </div>
-                              </div>
-                              <div style="font-size: 16px;">
-                                <h3>Dịch vụ khác</h3>
-                                <br />
-                                <div class="services"
-                                  style="padding: 10px; background-color: #F5F5F5; border-radius: 15px;">
-                                  <div class="row">
-                                    <div class="col-10">
-                                      <p><img src="../images/add-user.png" alt="" width="50px"
-                                          style="padding-right: 10px;"> Giới thiệu người dùng </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <br />
-                                <div class="services"
-                                  style="padding: 10px; background-color: #F5F5F5; border-radius: 15px;">
-                                  <div class="row">
-                                    <div class="col-10">
-                                      <p><img src="../images/history.png" alt="" width="50px"
-                                          style="padding-right: 10px;"> Lịch sử đầu tư </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <br />
-                                <div class="services"
-                                  style="padding: 10px; background-color: #F5F5F5; border-radius: 15px;">
-                                  <div class="row">
-                                    <div class="col-10">
-                                      <p><img src="../images/open-book.png" alt="" width="50px"
-                                          style="padding-right: 10px;"> Tài liệu tham khảo </p>
-                                    </div>
-                                  </div>
-                                </div><br />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                                  </div><!-- end card body -->
+                              </div><!-- end card -->
+                          </div><!-- end col -->
+
+                          <div class="col-xl-3 col-md-6">
+                              <!-- card -->
+                              <div class="card card-animate">
+                                  <div class="card-body">
+                                      <div class="d-flex align-items-center">
+                                          <div class="flex-grow-1 overflow-hidden">
+                                           <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Số lượng hợp đồng</p>
+                                          </div>
+                                          <div class="flex-shrink-0">
+                                              <h5 class="text-danger fs-14 mb-0">
+                                                  <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -3.57 %
+                                              </h5>
+                                          </div>
+                                      </div>
+                                      <div class="d-flex align-items-end justify-content-between mt-4">
+                                          <div>
+                                              <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="36894">0</span></h4>
+                                              <a href="#" class="text-decoration-underline">View all orders</a>
+                                          </div>
+                                          <div class="avatar-sm flex-shrink-0">
+                                              <span class="avatar-title bg-soft-info rounded fs-3">
+                                                  <i class="bx bx-shopping-bag text-info"></i>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div><!-- end card body -->
+                              </div><!-- end card -->
+                          </div><!-- end col -->
+
+                          <div class="col-xl-3 col-md-6">
+                              <!-- card -->
+                              <div class="card card-animate">
+                                  <div class="card-body">
+                                      <div class="d-flex align-items-center">
+                                          <div class="flex-grow-1 overflow-hidden">
+                                              <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Số tiền OCS</p>
+                                          </div>
+                                          <div class="flex-shrink-0">
+                                              <h5 class="text-success fs-14 mb-0">
+                                                  <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
+                                              </h5>
+                                          </div>
+                                      </div>
+                                      <div class="d-flex align-items-end justify-content-between mt-4">
+                                          <div>
+                                              <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="183.35">0</span>M </h4>
+                                              <a href="#" class="text-decoration-underline">See details</a>
+                                          </div>
+                                          <div class="avatar-sm flex-shrink-0">
+                                              <span class="avatar-title bg-soft-warning rounded fs-3">
+                                                  <i class="bx bx-user-circle text-warning"></i>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div><!-- end card body -->
+                              </div><!-- end card -->
+                          </div><!-- end col -->
                       </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+                <!-- container-fluid -->
             </div>
-            <!-- <div class="footer">
-            <div class="copyright">
-              <p>Copyright © Lucas Khan &amp; Developed by Lê Tuấn Khang</a>
-                2022</p>
-            </div>
-          </div> -->
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Lê Tuấn Khang
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-        <script src="../vendor/global/global.min.js" type="text/javascript"></script>
-        <script src="../vendor/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
-        <script src="../vendor/chart.js/Chart.bundle.min.js" type="text/javascript"></script>
-        <script src="../js/dashboard/dashboard-1.js" type="text/javascript"></script>
-        <script src="../js/custom.min.js" type="text/javascript"></script>
-        <script src="../js/deznav-init.js" type="text/javascript"></script>
-        <!-- <script src="../js/chart.js" type="text/javascript"></script> -->
-        <% } %>
-  </body>
-  <%- include ../layouts/footer.ejs %>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <% } %>
+<%- include ../layouts/footer.ejs %>

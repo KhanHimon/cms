@@ -86,6 +86,11 @@
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Nhóm kinh doanh <%= nhoms[0].ten_nhom %></h4>
+                                                <div class="col-auto">
+                                                    <form action="/admin/chi-tiet-nhom=<%= nhoms[0]._id %>/<%= sale._id %>" method="get">
+                                                        <button type="submit" class="btn btn-soft-success" ><i class="ri-add-circle-line align-middle me-1"></i> Thông tin chi tiết</button>
+                                                    </form>
+                                                </div>
                                             </div><!-- end card header -->
 
                                             <div class="card-body">
