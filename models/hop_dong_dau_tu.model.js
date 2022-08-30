@@ -18,7 +18,12 @@ const Hop_dong_dau_tu_Schema = new Schema({
     tien_ocopshop: { type: Number },
     loi_nhuan: {
         thang_dau: { type: Number} ,
-        thang: { type : Number}
+        thang: { type : Number},
+        thang_cuoi: { type : Number}
+    },
+    ngay_het_hop_dong: { 
+        type: Date ,
+        default: Date.now
     }
 });
 

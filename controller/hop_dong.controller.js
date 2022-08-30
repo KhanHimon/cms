@@ -32,8 +32,9 @@ class hop_dong_tra_thuong_controller {
             thoi_han_dau_tu: req.body.thoi_han_dau_tu,
             tien_ocopshop: (req.body.so_tien_dau_tu * 0.025) * (10/100),
             loi_nhuan : {
-                thang_dau: ((req.body.so_tien_dau_tu*0.025)/ngay_trong_thang) * (ngay_trong_thang - new Date(req.body.ngay_ky_hop_dong).getDate()),
-                thang: req.body.so_tien_dau_tu * 0.025
+                thang_dau: ((req.body.so_tien_dau_tu*0.025)/ngay_trong_thang) * ((ngay_trong_thang - new Date(req.body.ngay_ky_hop_dong).getDate()) + 1),
+                thang: req.body.so_tien_dau_tu * 0.025,
+                thang_cuoi: ((req.body.so_tien_dau_tu*0.025)/ngay_trong_thang) * (ngay_trong_thang - (new Date(req.body.ngay_ky_hop_dong).getDate() -2 ))
             }
         });
         req.flash('message', 'Thêm mới thành công');
