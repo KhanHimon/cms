@@ -204,7 +204,7 @@
                                                                         <div class="col-md-7">
                                                                             <div class="mb-3">
                                                                                 <label for="cmnd_cccd" class="form-label">Số CMND/CCCD </label>
-                                                                                <input type="text" value="<%= (khach_hang_chi_tiet.cccd_cmnd) %>" class="form-control" placeholder="" id="cmnd_cccd" name="cmnd_cccd"disabled>
+                                                                                <input type="text" value="<%= (khach_hang_chi_tiet.cmnd_cccd) %>" class="form-control" placeholder="" id="cmnd_cccd" name="cmnd_cccd"disabled>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-5">
@@ -283,6 +283,7 @@
                                                                                 <input type="date" class="form-control" placeholder="" id="ngay_ky_hop_dong" name="ngay_ky_hop_dong" >
                                                                             </div>
                                                                         </div>
+                                                                        <input type="hidden" class="form-control" value="630ec0270fc3559888a69f39" id="trang_thai" name="trang_thai" >
                                                                     </div>
                                                                 </div>
                                                                     <div class="modal-footer">
@@ -308,30 +309,42 @@
                                                                         <th scope="col">Thời hạn</th>
                                                                         <th scope="col">Lãi tháng</th>
                                                                         <th scope="col">Ngày ký</th>
+                                                                        <th scope="col">Trạng thái</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody style="font-size: 16px;">
-                                                                        <% var index = 0 %>
-                                                                        <% hop_dong.forEach(function(hop_dong){ index++ %>
-                                                                            <% if ( hop_dong.khach_hang.id === khach_hang_chi_tiet.id) { %>
-                                                                                <tr>
-                                                                                    <td style="text-align: center;"><%= index %></td>
-                                                                                    <td><%= hop_dong.ma_hop_dong %></td>
-                                                                                    <td><%= hop_dong.khach_hang.ho_va_ten %></td>
-                                                                                    <td><%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ</td>
-                                                                                    <td><%= hop_dong.thoi_han_dau_tu %> tháng</td>
-                                                                                    <td id="lai_thang"><%= hop_dong.loi_nhuan.thang_dau.toLocaleString() %></td>
-                                                                                    <td><%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
-                                                                                    <script>
-                                                                                        setTimeout(() => {
-                                                                                            const box = document.getElementById('lai_thang');
-                                                                                            box.innerHTML = "<%= hop_dong.loi_nhuan.thang.toLocaleString() %>"
-                                                                                            }, 2000);
-                                                                                    </script>
-                                                                                </tr>
-                                                                            <% } %>
-                                                                        <% }); %>
-                                                                        
+                                                                    <% var index=0 %>
+                                                                    <% hop_dong.forEach(function(hop_dong){ index++ %>
+                                                                        <% if ( hop_dong.khach_hang.id === khach_hang_chi_tiet.id) { %>
+                                                                            <tr>
+                                                                                <td style="text-align: center;">
+                                                                                    <%= index %>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <%= hop_dong.ma_hop_dong %>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <%= hop_dong.khach_hang.ho_va_ten %>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ
+                                                                                </td>
+                                                                                <td>
+                                                                                    <%= hop_dong.thoi_han_dau_tu %> tháng
+                                                                                </td>
+                                                                                <td id="lai_thang">
+                                                                                    <%= hop_dong.loi_nhuan.thang_dau.toLocaleString() %>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%=
+                                                                                                hop_dong.ngay_ky_hop_dong.getFullYear() %>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <%= hop_dong.trang_thai.ten_trang_thai %>
+                                                                                </td>
+                                                                            </tr>
+                                                                        <% } %>
+                                                                     <% }); %>
                                                                 </tbody>
                                                             </table>
                                                         </div>

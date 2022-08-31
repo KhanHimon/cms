@@ -109,6 +109,33 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody id="myTable">
+                                                            <% khach_hang.forEach(function(khach_hang){ %>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
+                                                                    </td>
+                                                                    <td><%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></td>
+                                                                    <td>
+                                                                        <span class="text-success">0<%= khach_hang.so_dien_thoai %></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class=""><%= khach_hang.email %></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span class=""><%= khach_hang.ma_gioi_thieu %></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
+                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
+                                                                            </button>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            <% }); %>
                                                             <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" ) { %>
                                                                 <% khach_hang.forEach(function(khach_hang){ %>
                                                                     <tr>
@@ -134,16 +161,13 @@
                                                                                     <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
                                                                                 </button>
                                                                             </a>
-                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
-                                                                            </button>
                                                                         </td>
                                                                     </tr>
                                                                 <% }); %>
                                                             <% } %>
                                                             <% if (sale.chuc_vu._id != "62f60037939e9682e0c6973c" ) { %>
                                                                 <% khach_hang.forEach(function(khach_hang){ %>
-                                                                    <% if (khach_hang.ma_gioi_thieu == sale.dien_thoai) { %>
+                                                                    <% if (khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
                                                                         <tr>
                                                                             <td>
                                                                                 <a href="" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
@@ -226,8 +250,8 @@
                                                                                                         <!--end col-->
                                                                                                         <div class="col-md-7">
                                                                                                             <div class="mb-3">
-                                                                                                                <label for="cccd_cmnd" class="form-label">Số CMND/CCCD</label>
-                                                                                                                <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cccd_cmnd" name="cccd_cmnd">
+                                                                                                                <label for="cmnd_cccd" class="form-label">Số CMND/CCCD</label>
+                                                                                                                <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cmnd_cccd" name="cmnd_cccd">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-5">

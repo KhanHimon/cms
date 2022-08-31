@@ -24,6 +24,10 @@ const Hop_dong_dau_tu_Schema = new Schema({
     ngay_het_hop_dong: { 
         type: Date ,
         default: Date.now
+    },
+    trang_thai: {
+        type: Schema.Types.ObjectId,
+        ref: 'Trang_thai'
     }
 });
 

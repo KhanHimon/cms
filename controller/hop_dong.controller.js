@@ -26,6 +26,7 @@ class hop_dong_tra_thuong_controller {
 
         const new_hop_dong_dau_tu = new Hop_dong_dau_tu_Schema({
             ma_hop_dong : "HĐ-ĐT"+ Math.floor(Math.random() * 1000),
+            trang_thai: req.body.trang_thai,
             so_tien_dau_tu : req.body.so_tien_dau_tu,
             khach_hang: req.body.khach_hang,
             ngay_ky_hop_dong: req.body.ngay_ky_hop_dong,
@@ -36,6 +37,7 @@ class hop_dong_tra_thuong_controller {
                 thang: req.body.so_tien_dau_tu * 0.025,
                 thang_cuoi: ((req.body.so_tien_dau_tu*0.025)/ngay_trong_thang) * (ngay_trong_thang - (new Date(req.body.ngay_ky_hop_dong).getDate() -2 ))
             }
+            
         });
         req.flash('message', 'Thêm mới thành công');
         new_hop_dong_dau_tu.save();

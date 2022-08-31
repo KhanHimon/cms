@@ -119,6 +119,7 @@
                                                                         <td>
                                                                             <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.ngan_hang %></a>
                                                                         </td>
+                                                                        <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                                                                         <td>
                                                                             <form action="/admin/xoa-hop-dong/<%= hop_dong_dau_tu._id %>" method="post">
                                                                                 <button type="submit" class="btn btn-soft-info btn-sm">
@@ -126,6 +127,16 @@
                                                                                 </button>
                                                                             </form>
                                                                         </td>
+                                                                        <% } %>
+                                                                        <% if (sale.chuc_vu._id == '630ed69b7b0c8dd5727f3b50') { %>
+                                                                            <td>
+                                                                                <form action="/admin/xoa-hop-dong/<%= hop_dong_dau_tu._id %>" method="post">
+                                                                                    <button type="submit" class="btn btn-soft-info btn-sm">
+                                                                                        <i class="ri-delete-bin-2-fill align-middle"></i> Phê duyệt
+                                                                                    </button>
+                                                                                </form>
+                                                                            </td>
+                                                                            <% } %>
                                                                     </tr>
                                                                 <% }); %>
                                                             </div>

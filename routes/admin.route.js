@@ -30,6 +30,7 @@ const login_admin_controller = require('../controller/login_admin.controller');
 const hoa_hong_controller = require('../controller/hoa_hong.controller');
 const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controller');
 const phieu_thong_tin_controller = require('../controller/phieu_thong_tin.controller');
+const khach_hang_Controller = require('../controller/khach_hang.controller');
 
 
 
@@ -125,22 +126,7 @@ router.get('/quan-ly-doi-nhom/:_id', login_admin_controller.loginRequired, funct
   }).populate('chuc_vu')
 });
 
-router.get('/quan-ly-khach-hang-sale/:_id', login_admin_controller.loginRequired, function (req, res, next) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    Nhom_sale_Schema.find(function (err, nhom_sale) {
-      Chuc_vu_Schema.find(function (err, chuc_vu) {
-        Sale_Schema.find(function (err, sales) {
-          User_Schema.find(function (err, khach_hang) {
-            thong_bao_Schema.find(function (err, thong_bao) {
-              if (err) throw err;
-              res.render('admin/pages/quan_ly_khach_hang_sale', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang });
-            })
-          })
-        }).populate('nhom_kinh_doanh').populate('chuc_vu')
-      })
-    })
-  }).populate('chuc_vu')
-});
+
 
 router.get('/cai-dat-chung/:_id', login_admin_controller.loginRequired, function (req, res, next) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
@@ -174,21 +160,10 @@ router.get('/quan-ly-tai-khoan/:_id', login_admin_controller.loginRequired, func
 
 
 
-// router khách hàng
-router.post('/them-khach-hang', login_admin_controller.loginRequired, admin_controller.them_moi_khach_hang);
-router.get('/thong-tin-khach-hang=:id/:_id', login_admin_controller.loginRequired, function (req, res) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    User_Schema.findById(req.params.id, function (err, khach_hang_chi_tiet) {
-      thong_bao_Schema.find(function (err, thong_bao) {
-        Hop_dong_dau_tu_Schema.find(function(err, hop_dong){
-          if (err) throw err;
-          // res.json(khach_hang_chi_tiet)
-          res.render('admin/pages/chi_tiet_khach_hang', { sale, thong_bao, khach_hang_chi_tiet, hop_dong });
-        }).populate('khach_hang')
-      })
-    })
-  }).populate('chuc_vu')
-});
+/** ROUTER KHÁCH HÀNG */
+router.get('/quan-ly-khach-hang-sale/:_id', login_admin_controller.loginRequired, khach_hang_Controller.hien_thi);
+router.post('/them-khach-hang', login_admin_controller.loginRequired, khach_hang_Controller.them_moi_khach_hang);
+router.get('/thong-tin-khach-hang=:id/:_id', login_admin_controller.loginRequired, khach_hang_Controller.hien_thi_chi_tiet);
 // router nhóm
 router.post('/them-nhom-kinh-doanh', login_admin_controller.loginRequired, admin_controller.them_nhom_kinh_doanh);
 // router Chức vụ
