@@ -49,16 +49,13 @@
                                         <div class="col-xl-6">
                                             <div class="card">
                                                 <div class="card-header align-items-center d-flex">
-                                                    <h4 class="card-title mb-0 flex-grow-1">Thông tin khách hàng : <b>
+                                                    <h4 class="card-title mb-0 flex-grow-1">Thông tin Sale : <b>
                                                             <%= chi_tiet_sale.ho_va_ten %>
                                                         </b> </h4>
                                                 </div><!-- end card header -->
                                                 <div class="card-body">
                                                     <div class="row">
-                                                        <div class="col-3">
-                                                            <img class="" src="../../admin/assets/images/users/avatar-1.jpg">
-                                                        </div>
-                                                        <div class="col-9">
+                                                        <div class="col-12">
                                                             <div class="row">
                                                                 <div class="col-md-4">
                                                                     <div class="mb-3">
@@ -73,7 +70,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <!--end col-->
-                                                                <div class="col-md-7">
+                                                                <div class="col-md-4">
                                                                     <div class="mb-3">
                                                                         <label for="cmnd_cccd" class="form-label">Số CMND/CCCD </label>
                                                                         <input type="text" value="<%= (chi_tiet_sale.cmnd_cccd) %>" class="form-control" placeholder="" id="cmnd_cccd" name="cmnd_cccd">
@@ -150,16 +147,18 @@
                                                                 <tr>
                                                                     <th scope="col">CODE GIỚI THIỆU</th>
                                                                     <th scope="col">HỌ VÀ TÊN</th>
+                                                                    <th scope="col">ĐIỆN THOẠI</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <% var index_khach_hang = 0 %>
                                                                 <% khach_hangs.forEach(function(khach_hang){ index_khach_hang++ %>
                                                                     <% if (chi_tiet_sale.ma_gioi_thieu == khach_hang.ma_gioi_thieu ) { %>
-                                                                        <tr>
-                                                                            <td><%= khach_hang.ma_gioi_thieu %></td>
-                                                                            <td><%= khach_hang.ho_va_ten %></td>
-                                                                        </tr>
+                                                                            <tr>
+                                                                                <td><a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> <%= khach_hang.ma_gioi_thieu %></a></td>
+                                                                                <td><a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"><%= khach_hang.ho_va_ten %></a></td>
+                                                                                <td><a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>">0<%= khach_hang.so_dien_thoai %></a></td>
+                                                                            </tr>
                                                                     <% } %>
                                                                 <% }); %>
                                                             </tbody>

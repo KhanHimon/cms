@@ -164,6 +164,12 @@ router.get('/quan-ly-tai-khoan/:_id', login_admin_controller.loginRequired, func
 router.get('/quan-ly-khach-hang-sale/:_id', login_admin_controller.loginRequired, khach_hang_Controller.hien_thi);
 router.post('/them-khach-hang', login_admin_controller.loginRequired, khach_hang_Controller.them_moi_khach_hang);
 router.get('/thong-tin-khach-hang=:id/:_id', login_admin_controller.loginRequired, khach_hang_Controller.hien_thi_chi_tiet);
+router.post('/thay-doi-thong-tin/:_id', login_admin_controller.loginRequired, khach_hang_Controller.thay_doi_thong_tin);
+
+
+
+
+
 // router nhóm
 router.post('/them-nhom-kinh-doanh', login_admin_controller.loginRequired, admin_controller.them_nhom_kinh_doanh);
 // router Chức vụ
@@ -231,16 +237,9 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
 router.post('/them-hop-dong', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_tra_thuong);
 router.post('/them-hop-dong-dau-tu', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_dau_tu);
 router.post('/xoa-hop-dong/:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.xoa_hop_dong_dau_tu);
-router.get('/quan-ly-hop-dong/:_id', login_admin_controller.loginRequired, function(req,res,next){
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    thong_bao_Schema.find(function (err, thong_bao) {
-      Hop_dong_dau_tu_Schema.find(function(err, hop_dong_dau_tu){
-        if (err) throw err;
-        res.render('admin/pages/quan_ly_hop_dong', { thong_bao, sale, hop_dong_dau_tu, message: req.flash('message')});
-      }).populate('khach_hang')
-    })
-  })
-})
+router.get('/quan-ly-hop-dong/:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.hien_thi_hop_dong)
+router.post('/sua-trang-thai=:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.phe_duyet_tra_lai);
+router.get('/tra-lai-hop-dong/:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.hien_thi_tra_lai)
 
 // router hoa hồng cố định
 // GET
@@ -308,9 +307,10 @@ router.get('/danh-sach-phieu/:_id', login_admin_controller.loginRequired, functi
   })
 });
 
-
+router.get('/thong-tin-ca-nhan=:_id', login_admin_controller.loginRequired, admin_controller.thong_tin_ca_nhan)
 router.post('/nap-tien-sua/:_id', login_admin_controller.loginRequired, user_controller.xu_ly_nap_tien);
 router.post('/', login_admin_controller.check);
+router.post('/logout', login_admin_controller.logout);
 router.get('/*', login_admin_controller.check);
 
 module.exports = router;

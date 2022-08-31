@@ -377,9 +377,11 @@
                         class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
                         class="align-middle">Hỗ trợ</span></a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="auth-logout-basic.html"><i
+                <form action="/admin/logout" method="post">
+                <button type="submit" class="dropdown-item" href="auth-logout-basic.html"><i
                         class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                        class="align-middle" data-key="t-logout">Đăng xuất</span></a>
+                        class="align-middle" data-key="t-logout">Đăng xuất</span></button>
+                </form>
             </div>
         </div>
     </div>

@@ -2,9 +2,27 @@ const trang_thai_Schema = require('../models/trang_thai.model');
 const Sale_Schema = require('../models/sale.model');
 const Nhom_sale_Schema = require('../models/nhom_sale.model');
 const Chuc_vu_Schema = require('../models/chuc_vu.model');
-const UserSchema = require('../models/user.model');
+const User_Schema = require('../models/user.model');
+const thong_bao_Schema = require('../models/thong_bao.model');
 
 class admin_Controller {
+    thong_tin_ca_nhan(req,res){
+        Sale_Schema.findById(req.params._id, function (err, sale) {
+            Nhom_sale_Schema.find(function (err, nhom_sale) {
+              Chuc_vu_Schema.find(function (err, chuc_vu) {
+                Sale_Schema.find(function (err, sales) {
+                  User_Schema.find(function (err, khach_hang) {
+                    thong_bao_Schema.find(function (err, thong_bao) {
+                      if (err) throw err;
+                      res.render('admin/pages/thong_tin_ca_nhan', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang });
+                    })
+                  })
+                }).populate('nhom_kinh_doanh').populate('chuc_vu')
+              })
+            })
+          }).populate('chuc_vu')
+    }
+
     them_trang_thai(req,res) {
         const trang_thai = new trang_thai_Schema({
             ten_trang_thai: req.body.ten_trang_thai,

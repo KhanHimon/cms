@@ -63,22 +63,12 @@
                                     <!--end col-->
                                 </div>
                                 <!--end row-->
-                                <script>
-                                    $(document).ready(function(){
-                                        $("#myInput").on("keyup", function() {
-                                            var value = $(this).val().toLowerCase();
-                                            $("#myTable tr").filter(function() {
-                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                                            });
-                                        });
-                                    });
-                                </script>
+
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Danh sách hợp đồng</h4>
-                                                <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
                                             </div><!-- end card header -->
 
                                             <div class="card-body">
@@ -96,11 +86,12 @@
                                                                 <th scope="col">Ngày ký</th>
                                                                 <th scope="col">Số tài khoản</th>
                                                                 <th scope="col">Ngân hàng</th>
+                                                                <th scope="col">Trạng thái</th>
                                                                 <th scope="col"></th>
                                                                 <th scope="col"></th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody id="myTable">
+                                                        <tbody>
                                                                 <% hop_dong_dau_tu.forEach(function(hop_dong_dau_tu){ %>
                                                                     <tr>
                                                                         <td>
@@ -130,6 +121,49 @@
                                                                         <td>
                                                                             <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.ngan_hang %></a>
                                                                         </td>
+                                                                        <td>
+                                                                            <a href="" class="fw-medium link-primary"><%= hop_dong_dau_tu.trang_thai.ten_trang_thai %></a>
+                                                                        </td>
+                                                                        <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
+                                                                        <td>
+                                                                            <form action="/admin/xoa-hop-dong/<%= hop_dong_dau_tu._id %>" method="post">
+                                                                                <button type="submit" class="btn btn-soft-info btn-sm">
+                                                                                    <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
+                                                                                </button>
+                                                                            </form>
+                                                                        </td>
+                                                                        <% } %>
+                                                                        <% if (sale.chuc_vu._id == '630ed69b7b0c8dd5727f3b50') { %>
+                                                                        <td>
+                                                                            <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#myModal-<%= hop_dong_dau_tu._id %>"><i class="ri-file-user-line label-icon align-middle rounded-pill fs-16 me-2"></i> Phê duyệt</button>
+                                                                            <div id="myModal-<%= hop_dong_dau_tu._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                                <form action="/admin/sua-trang-thai=<%= hop_dong_dau_tu._id %>" method="post">
+                                                                                    <div class="modal-dialog">
+                                                                                        <div class="modal-content">
+                                                                                            <div class="modal-header">
+                                                                                                <h5 class="modal-title" id="myModalLabel">Xác nhận giao dịch</h5>
+                                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                                            </div>
+                                                                                            <div class="modal-body">
+                                                                                                <select class="form-control" id="trang_thai"
+                                                                                                    name="trang_thai">
+                                                                                                    <option>---- Trạng thái ----</option>
+                                                                                                    <% trang_thai.forEach(function(edit_hop_dong){ %>
+                                                                                                        <option value="<%= edit_hop_dong._id %>"><%= edit_hop_dong.ten_trang_thai %></option>
+                                                                                                    <% }); %>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                            <div class="modal-footer">
+                                                                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Bỏ</button>
+                                                                                                <button type="submit" class="btn btn-primary ">Lưu</button>
+                                                                                            </div>
+                                    
+                                                                                        </div><!-- /.modal-content -->
+                                                                                    </div><!-- /.modal-dialog -->
+                                                                                </form>
+                                                                            </div>
+                                                                        </td>
+                                                                        <% } %>
                                                                         <td>
                                                                             <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#tao_hop_dong_dau_tu<%= hop_dong_dau_tu._id %>"><i class="ri-file-user-line label-icon align-middle rounded-pill fs-16 me-2"></i> Xem</button>
                                                                             <div id="tao_hop_dong_dau_tu<%= hop_dong_dau_tu._id %>" class="modal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -707,15 +741,6 @@
                                                                                 </div><!-- /.modal-dialog -->
                                                                             </div><!-- /.modal -->
                                                                         </td>
-                                                                        <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
-                                                                            <td>
-                                                                                <form action="/admin/xoa-hop-dong/<%= hop_dong_dau_tu._id %>" method="post">
-                                                                                    <button type="submit" class="btn btn-soft-info btn-sm">
-                                                                                        <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
-                                                                                    </button>
-                                                                                </form>
-                                                                            </td>
-                                                                            <% } %>
                                                                     </tr>
                                                                 <% }); %>
                                                             </div>
