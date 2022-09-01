@@ -109,24 +109,53 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody id="myTable">
+                                                            <% if (sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" ) { %>
+                                                                <% khach_hang.forEach(function(khach_hang){ %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
+                                                                        </td>
+                                                                        <td><%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= khach_hang.so_dien_thoai %></span></a> 
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.email %></span></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
+                                                                                <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                    <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
+                                                                                </button>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                <% }); %>
+                                                            <% } %>
                                                             <% if (sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
                                                                 <% khach_hang.forEach(function(khach_hang){ %>
                                                                     <tr>
                                                                         <td>
-                                                                            <a href="" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
                                                                         </td>
                                                                         <td><%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></td>
                                                                         <td>
-                                                                            <span class="text-success">0<%= khach_hang.so_dien_thoai %></span>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= khach_hang.so_dien_thoai %></span></a> 
                                                                         </td>
                                                                         <td>
-                                                                            <span class=""><%= khach_hang.email %></span>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.email %></span></a>
                                                                         </td>
                                                                         <td>
-                                                                            <h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5></a>
                                                                         </td>
                                                                         <td>
-                                                                            <span class=""><%= khach_hang.ma_gioi_thieu %></span>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
                                                                         </td>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
@@ -142,20 +171,20 @@
                                                                 <% khach_hang.forEach(function(khach_hang){ %>
                                                                     <tr>
                                                                         <td>
-                                                                            <a href="" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
                                                                         </td>
                                                                         <td><%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></td>
                                                                         <td>
-                                                                            <span class="text-success">0<%= khach_hang.so_dien_thoai %></span>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= khach_hang.so_dien_thoai %></span></a> 
                                                                         </td>
                                                                         <td>
-                                                                            <span class=""><%= khach_hang.email %></span>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.email %></span></a>
                                                                         </td>
                                                                         <td>
-                                                                            <h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5></a>
                                                                         </td>
                                                                         <td>
-                                                                            <span class=""><%= khach_hang.ma_gioi_thieu %></span>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
                                                                         </td>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
@@ -171,25 +200,27 @@
                                                                     <% if (khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
                                                                         <tr>
                                                                             <td>
-                                                                                <a href="" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
+                                                                                <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
                                                                             </td>
-                                                                            <td><%= khach_hang.nam_sinh %></td>
+                                                                            <td><%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></td>
                                                                             <td>
-                                                                                <span class="text-success">0<%= khach_hang.so_dien_thoai %></span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <span class=""><%= khach_hang.email %></span>
+                                                                                <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= khach_hang.so_dien_thoai %></span></a> 
                                                                             </td>
                                                                             <td>
-                                                                                <h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5>
+                                                                                <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.email %></span></a>
                                                                             </td>
                                                                             <td>
-                                                                                <span class=""><%= khach_hang.ma_gioi_thieu %></span>
+                                                                                <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5></a>
                                                                             </td>
                                                                             <td>
-                                                                                <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                    <i class="ri-file-list-3-line align-middle"></i> Theo dõi
-                                                                                </button>
+                                                                                <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
+                                                                            </td>
+                                                                            <td>
+                                                                                <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
+                                                                                    <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                        <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
+                                                                                    </button>
+                                                                                </a>
                                                                             </td>
                                                                         </tr>
                                                                     <% } %>

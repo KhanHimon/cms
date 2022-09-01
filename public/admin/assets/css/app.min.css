@@ -639,7 +639,7 @@
 
 .footer {
     bottom: 0;
-    padding: 20px calc(1.5rem / 2);
+    padding: 10px calc(1.5rem / 2);
     position: absolute;
     right: 0;
     color: var(--vz-footer-color);

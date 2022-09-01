@@ -34,10 +34,20 @@
       <form class="app-search d-none d-md-block">
           <div class="position-relative">
               <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
-                  id="search-options" value="">
+                  id="myInput" value="">
               <span class="mdi mdi-magnify search-widget-icon"></span>
               <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
                   id="search-close-options"></span>
+                  <script>
+                    $(document).ready(function(){
+                      $("#myInput").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#myTable tr").filter(function() {
+                          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                      });
+                    });
+                    </script>
           </div>
           <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
               <div data-simplebar style="max-height: 320px;">
@@ -167,6 +177,8 @@
           <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               <span class="d-flex align-items-center">
+                    <img class="rounded-circle header-profile-user" src="../../admin/assets/images/users/user-dummy-img.jpg"
+                        alt="Header Avatar">
                   <span class="text-start ms-xl-2">
                       <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"><%= user.ho_va_ten %></span>
                       <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Nhà đầu tư</span>

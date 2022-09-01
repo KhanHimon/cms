@@ -308,7 +308,6 @@ router.get('/danh-sach-phieu/:_id', login_admin_controller.loginRequired, functi
 });
 
 router.get('/thong-tin-ca-nhan=:_id', login_admin_controller.loginRequired, admin_controller.thong_tin_ca_nhan)
-router.post('/nap-tien-sua/:_id', login_admin_controller.loginRequired, user_controller.xu_ly_nap_tien);
 router.post('/', login_admin_controller.check);
 router.post('/logout', login_admin_controller.logout);
 router.get('/*', login_admin_controller.check);

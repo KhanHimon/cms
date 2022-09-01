@@ -2,21 +2,21 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="index.html" class="logo logo-dark">
+        <a href="" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="../admin/assets/images/logo-sm.png" alt="" height="22">
+                <img src="../admin/assets/images/gmg.png" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="../admin/assets/images/logo-dark.png" alt="" height="17">
+                <img src="../admin/assets/images/gmg_1.png" alt="" height="30">
             </span>
         </a>
         <!-- Light Logo-->
-        <a href="index.html" class="logo logo-light">
+        <a href="" class="logo logo-light">
             <span class="logo-sm">
-                <img src="../admin/assets/images/logo-sm.png" alt="" height="22">
+                <img src="../admin/assets/images/gmg.png" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="../admin/assets/images/logo-light.png" alt="" height="17">
+                <img src="../admin/assets/images/gmg_1.png" alt="" height="30">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -32,17 +32,17 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Tổng quan</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                    <a href="/tong-quan/<%= user.id %>" class="nav-link menu-link">
                         <i class="ri-function-line"></i> <span data-key="t-dashboards">Tổng quan</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                    <a href="/thong-tin-ca-nhan/<%= user.id %>" class="nav-link menu-link">
                         <i class="ri-user-fill"></i> <span data-key="t-dashboards">Thông tin cá nhân</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                    <a href="/hop-dong-dau-tu/<%= user.id %>" class="nav-link menu-link" >
                         <i class="ri-folder-2-line"></i> <span data-key="t-dashboards">Hợp đồng đầu tư</span>
                     </a>
                 </li>
