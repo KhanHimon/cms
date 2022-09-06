@@ -293,13 +293,13 @@
                                                                         <div class="col-md-6">
                                                                             <div class="mb-3">
                                                                                 <label for="thoi_han_dau_tu" class="form-label">Thời hạn đầu tư (tháng)</label>
-                                                                                <input type="text" class="form-control" placeholder="" id="thoi_han_dau_tu" name="thoi_han_dau_tu" >
+                                                                                <input type="text" class="form-control" placeholder="" id="thoi_han_dau_tu" name="thoi_han_dau_tu"  oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Thời hạn đầu tư')" required="">
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="mb-3">
                                                                                 <label for="ngay_ky_hop_dong" class="form-label">Ngày ký hợp đồng</label>
-                                                                                <input type="date" class="form-control" placeholder="" id="ngay_ky_hop_dong" name="ngay_ky_hop_dong" >
+                                                                                <input type="date" class="form-control" placeholder="" id="ngay_ky_hop_dong" name="ngay_ky_hop_dong"  oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Ngày ký hợp đồng')" required="">
                                                                             </div>
                                                                         </div>
                                                                         <input type="hidden" class="form-control" value="630ec0a80fc3559888a69f3b" id="trang_thai" name="trang_thai" >
