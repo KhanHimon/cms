@@ -72,6 +72,22 @@
                                                         <div class="col-auto">
                                                             <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</button>
                                                         </div>
+                                                        <div class="col-auto">
+                                                            <button name="button_a" id="button_a" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
+                                                            <script>
+                                                                const wb = XLSX.utils.table_to_book(document.getElementById('myTable'),{sheet: "Sheet Js"});
+                                                                const wbout = XLSX.write(wb, {bookType:'xlsx', bookSST: true, type: 'binary'});
+                                                                function s2ab(s) {
+                                                                    var buf = new ArrayBuffer(s.length);
+                                                                    var view = new Uint8Array(buf);
+                                                                    for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                    return buf
+                                                                }
+                                                                $("#button_a").click(function(){
+                                                                    saveAs( new Blob([s2ab(wbout)],{type: 'application/octet-stream'}), 'test.xlsx')
+                                                                });
+                                                            </script>
+                                                        </div>
                                                         <!--end col-->
                                                         <div class="col-auto">
                                                             <button type="button" class="btn btn-soft-info btn-icon waves-effect waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
