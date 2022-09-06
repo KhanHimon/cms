@@ -63,7 +63,13 @@
                                                                         <input type="text" class="form-control" value="<%= chi_tiet_sale.ho_va_ten %>" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-4">
+                                                                <div class="col-md-2">
+                                                                    <div class="mb-3">
+                                                                        <label for="ho_va_ten" class="form-label">Nhóm</label>
+                                                                        <input type="text" disabled class="form-control" value="<%= chi_tiet_sale.nhom_kinh_doanh.ten_nhom %>" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
                                                                     <div class="mb-3">
                                                                         <label for="dan_toc" class="form-label">Dân tộc</label>
                                                                         <input type="text" value="<%= (chi_tiet_sale.dan_toc) %>" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc">
@@ -126,6 +132,16 @@
                                                                     <div class="mb-3">
                                                                         <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
                                                                         <input type="text" class="form-control" value="<%= (chi_tiet_sale.ma_gioi_thieu) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="ma_gioi_thieu" class="form-label">Cấp trên</label>
+                                                                        <% sales.forEach(function(sales){  %>
+                                                                            <% if (chi_tiet_sale.ma_code == sales.ma_gioi_thieu ) { %>
+                                                                                <input type="text" class="form-control" value="<%= (sales.ho_va_ten) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
+                                                                            <% } %>
+                                                                        <% }); %>
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -34,11 +34,13 @@ class sale_Controller {
                 Sale_Schema.findById(req.params.id, function(err, chi_tiet_sale){
                     Hop_dong_dau_tu_Schema.find( function(err, hop_dongs){
                         UserSchema.find(function(err, khach_hangs){
-                            if (err) throw err;
-                            res.render('admin/pages/chi_tiet_sale', { sale, thong_bao, chi_tiet_sale, hop_dongs, khach_hangs });
+                            Sale_Schema.find(function(err, sales){
+                                if (err) throw err;
+                                res.render('admin/pages/chi_tiet_sale', { sale, thong_bao, chi_tiet_sale, hop_dongs, khach_hangs, sales });
+                            })
                         })
                     }).populate('khach_hang')
-                })
+                }).populate('nhom_kinh_doanh')
             })
         })
     }
