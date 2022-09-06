@@ -72,22 +72,7 @@
                                                         <div class="col-auto">
                                                             <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</button>
                                                         </div>
-                                                        <div class="col-auto">
-                                                            <button name="button_a" id="button_a" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
-                                                            <script>
-                                                                const wb = XLSX.utils.table_to_book(document.getElementById('myTable'),{sheet: "Sheet Js"});
-                                                                const wbout = XLSX.write(wb, {bookType:'xlsx', bookSST: true, type: 'binary'});
-                                                                function s2ab(s) {
-                                                                    var buf = new ArrayBuffer(s.length);
-                                                                    var view = new Uint8Array(buf);
-                                                                    for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
-                                                                    return buf
-                                                                }
-                                                                $("#button_a").click(function(){
-                                                                    saveAs( new Blob([s2ab(wbout)],{type: 'application/octet-stream'}), 'test.xlsx')
-                                                                });
-                                                            </script>
-                                                        </div>
+                                                       
                                                         <!--end col-->
                                                         <div class="col-auto">
                                                             <button type="button" class="btn btn-soft-info btn-icon waves-effect waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
@@ -108,17 +93,26 @@
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Danh sách khách hàng</h4>
+                                                <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" ) { %>
+                                                <div class="col-auto">
+                                                    <button name="button-a" id="button-a" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
+                                                </div>
+                                                <% }; %>
                                             </div><!-- end card header -->
 
                                             <div class="card-body">
                                                 <div class="table-responsive table-card">
-                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                    <table  id="danh_sach_khach_hang" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                         <thead class="text-muted table-light">
                                                             <tr>
                                                                 <th scope="col">Họ và tên</th>
                                                                 <th scope="col">Ngày sinh</th>
                                                                 <th scope="col">Số điện thoại</th>
                                                                 <th scope="col">Email</th>
+                                                                <th scope="col">CMND/CCCD</th>
+                                                                <th scope="col">Số tài khoản</th>
+                                                                <th scope="col">Ngân hàng</th>
+                                                                <th scope="col">Chi nhánh</th>
                                                                 <th scope="col">Địa chỉ</th>
                                                                 <th scope="col">Mã giới thiệu</th>
                                                                 <th scope="col"></th>
@@ -187,14 +181,29 @@
                                                                 <% khach_hang.forEach(function(khach_hang){ %>
                                                                     <tr>
                                                                         <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= khach_hang.ho_va_ten %></a>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ho_va_ten %></span></a>
                                                                         </td>
-                                                                        <td><%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></td>
                                                                         <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= khach_hang.so_dien_thoai %></span></a> 
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">
+                                                                                <%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></span></a>
+                                                                            </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">0<%= khach_hang.so_dien_thoai %></span></a> 
                                                                         </td>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.email %></span></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.cccd_cmnd %></span></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.so_tai_khoan %></span></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ngan_hang %></span></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.chi_nhanh %></span></a>
                                                                         </td>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5></a>
@@ -202,13 +211,13 @@
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
                                                                         </td>
-                                                                        <td>
+                                                                        <!-- <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
                                                                                 <button type="button" class="btn btn-soft-info btn-sm">
                                                                                     <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
                                                                                 </button>
                                                                             </a>
-                                                                        </td>
+                                                                        </td> -->
                                                                     </tr>
                                                                 <% }); %>
                                                             <% } %>
@@ -278,14 +287,14 @@
                                                                                                         <div class="col-md-4">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="ho_va_ten" class="form-label">Họ và tên</label>
-                                                                                                                <input type="text" class="form-control" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten">
+                                                                                                                <input type="text" class="form-control" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten"  oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập họ và tên')" required="">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <!--end col-->
                                                                                                         <div class="col-md-4">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="nam_sinh" class="form-label">Ngày sinh</label>
-                                                                                                                <input type="date" class="form-control" id="nam_sinh" name="nam_sinh">
+                                                                                                                <input type="date" class="form-control" id="nam_sinh" name="nam_sinh" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập ngày sinh')" required="">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-4">
@@ -298,19 +307,19 @@
                                                                                                         <div class="col-md-7">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="cmnd_cccd" class="form-label">Số CMND/CCCD</label>
-                                                                                                                <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cmnd_cccd" name="cmnd_cccd">
+                                                                                                                <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cmnd_cccd" name="cmnd_cccd" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập CMND/CCCD')" required="">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-5">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="ngay_cap" class="form-label">Ngày cấp</label>
-                                                                                                                <input type="date" class="form-control" id="ngay_cap" name="ngay_cap">
+                                                                                                                <input type="date" class="form-control" id="ngay_cap" name="ngay_cap" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Nhập ngày cấp')" required="">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-6">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="noi_cap" class="form-label">Nơi cấp</label>
-                                                                                                                <input type="text" class="form-control" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap">
+                                                                                                                <input type="text" class="form-control" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Nhập nơi cấp')" required="">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <div class="col-md-3">
@@ -431,7 +440,7 @@
                                                                                                         <div class="col-md-12">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="dia_chi" class="form-label">Địa chỉ thường trú</label>
-                                                                                                                <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi">
+                                                                                                                <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập địa chỉ')" required="">
                                                                                                             </div>
                                                                                                         </div>
                                                                                                         <!--end col-->
@@ -494,6 +503,21 @@
                                                         </tbody><!-- end tbody -->
                                                     </table><!-- end table -->
                                                 </div>
+                                                <script>
+                                                    var wb = XLSX.utils.table_to_book(document.getElementById('danh_sach_khach_hang'), {sheet:"Sheet JS"});
+                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+
+                                                    function s2ab(s) {
+
+                                                                    var buf = new ArrayBuffer(s.length);
+                                                                    var view = new Uint8Array(buf);
+                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                    return buf;
+                                                    }
+                                                    $("#button-a").click(function(){
+                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_KH.xlsx');
+                                                    });
+                                                </script>
                                             </div>
                                         </div> <!-- .card-->
                                     </div> <!-- .col-->
