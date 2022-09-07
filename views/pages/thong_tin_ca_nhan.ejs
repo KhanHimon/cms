@@ -243,7 +243,7 @@
                                                                               <% if ((hop_dong.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
                                                                                 <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= hop_dong.loi_nhuan.thang.toLocaleString() %> đ</td>
                                                                               <% } %>
-                                                                            <td style="color: green; font-weight: 600;">Đã trả lãi</td>
+                                                                            <td style="color: green; font-weight: 600;"><%= hop_dong.trang_thai.ten_trang_thai %></td>
                                                                           </tr>
                                                                     <% } %>
                                                                 <% }); %>

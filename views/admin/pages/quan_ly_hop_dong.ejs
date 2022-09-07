@@ -118,9 +118,12 @@
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.so_tien_dau_tu.toLocaleString() %> đ</a>
                                                                         </td>
-                                                                        <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.loi_nhuan.thang_dau.toLocaleString() %> đ</a>
-                                                                        </td>
+                                                                        <% if ((hop_dong_dau_tu.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
+                                                                            <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= hop_dong_dau_tu.loi_nhuan.thang_dau.toFixed(0) %>">0</span> đ</td>
+                                                                            <% } %>
+                                                                            <% if ((hop_dong_dau_tu.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
+                                                                              <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= hop_dong_dau_tu.loi_nhuan.thang.toLocaleString() %> đ</td>
+                                                                            <% } %>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary">Ngày <%= hop_dong_dau_tu.ngay_ky_hop_dong.getDate() %>-<%= hop_dong_dau_tu.ngay_ky_hop_dong.getMonth() +1 %>-<%= hop_dong_dau_tu.ngay_ky_hop_dong.getFullYear() %></a>
                                                                         </td>
