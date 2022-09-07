@@ -38,6 +38,9 @@ class UserController {
         if (req.body.email) {
           edit_khach_hang.email = req.body.email;
         }
+        if (req.body.password) {
+            edit_khach_hang.password = req.body.password;
+          }
         const options = {
           new: true,
         }

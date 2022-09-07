@@ -166,7 +166,7 @@
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
-                                                                                                <div class="col-md-3">
+                                                                                                <div class="col-md-4">
                                                                                                     <div class="mb-3">
                                                                                                         <label for="ma_gioi_thieu" class="form-label">Mã cấp trên</label>
                                                                                                         <input type="text" class="form-control" placeholder="Nhập mã giới thiệu" id="ma_code" name="ma_code" >
@@ -184,7 +184,7 @@
                                                                                                         </select>
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div class="col-md-3">
+                                                                                                <div class="col-md-4">
                                                                                                     <div class="mb-3">
                                                                                                         <label for="chuc_vu" class="form-label">Chức vụ</label>
                                                                                                         <select class="form-select mb-3" aria-label=".form-select-lg example"  id="chuc_vu" name="chuc_vu">
@@ -194,6 +194,12 @@
                                                                                                                 <option value="<%= chuc_vu._id %>"><%= chuc_vu_index %>. <%= chuc_vu.ten_chuc_vu %></option>
                                                                                                             <% }); %>
                                                                                                         </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-12">
+                                                                                                    <div class="mb-3">
+                                                                                                        <label for="ghi_chu" class="form-label">Ghi chú</label>
+                                                                                                        <textarea type="text" class="form-control" placeholder="ghi chú thông tin" id="ghi_chu" name="ghi_chu"></textarea>
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->

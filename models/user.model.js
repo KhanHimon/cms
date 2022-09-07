@@ -24,6 +24,7 @@ const User_Schema = new Schema({
     thuong_dau_tu: { type: Number },
     email: { type: String },
     ma_gioi_thieu: { type: String },
+    ghi_chu: {type: String},
     ngay_tham_gia: { type: Date }
 });
 

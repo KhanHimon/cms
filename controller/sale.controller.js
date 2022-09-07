@@ -66,7 +66,8 @@ class sale_Controller {
             nhom_kinh_doanh: req.body.nhom_kinh_doanh,
             chuc_vu: req.body.chuc_vu,
             vung: req.body.vung,
-            tinh: req.body.tinh
+            tinh: req.body.tinh,
+            ghi_chu: req.body.ghi_chu
         });
         new_sale.save();
         res.redirect(req.get('referer'));
