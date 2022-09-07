@@ -333,6 +333,9 @@
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody style="font-size: 16px;">
+                                                                    <% const thang = new Date(); %>
+                                                                    <% const month = thang.getMonth() + 1; %>
+                                                                    <% thang.setMonth(month, 0); %>
                                                                     <% var index=0 %>
                                                                     <% hop_dong.forEach(function(hop_dong){ index++ %>
                                                                         <% if ( hop_dong.khach_hang.id === khach_hang_chi_tiet.id) { %>
@@ -352,9 +355,12 @@
                                                                                 <td>
                                                                                     <%= hop_dong.thoi_han_dau_tu %> tháng
                                                                                 </td>
-                                                                                <td id="lai_thang">
-                                                                                    <%= hop_dong.loi_nhuan.thang_dau.toLocaleString() %>
-                                                                                </td>
+                                                                                <% if ((hop_dong.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
+                                                                                    <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= hop_dong.loi_nhuan.thang_dau.toFixed(0) %>">0</span> đ</td>
+                                                                                    <% } %>
+                                                                                    <% if ((hop_dong.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
+                                                                                      <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= hop_dong.loi_nhuan.thang.toLocaleString() %> đ</td>
+                                                                                    <% } %>
                                                                                 <td>
                                                                                     <%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%=
                                                                                                 hop_dong.ngay_ky_hop_dong.getFullYear() %>

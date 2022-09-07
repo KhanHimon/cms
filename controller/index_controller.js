@@ -16,7 +16,7 @@ class index_controller {
             Hop_dong_dau_tu_Schema.find(function(err, hop_dongs){
               if (err) console.log(err);
               res.render('pages/tong_quan', { user, hop_dongs });
-            }).populate('khach_hang')
+            }).populate('khach_hang').populate('trang_thai')
         })
     }
 
@@ -25,7 +25,7 @@ class index_controller {
             Hop_dong_dau_tu_Schema.find(function(err, hop_dongs){
               if (err) console.log(err);
               res.render('pages/hop_dong_dau_tu', { user, hop_dongs });
-            }).populate('khach_hang')
+            }).populate('khach_hang').populate('trang_thai')
         })
     }
 
