@@ -38,161 +38,233 @@
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
-                        <div class="col">
-
-                            <div class="h-100">
-                                <div class="row mb-3 pb-1">
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                            <div class="flex-grow-1">
-                                                <h4 class="fs-16 mb-1">Chào mừng, <%= sale.ho_va_ten %>!</h4>
-                                                <p class="text-muted mb-0">Chúc bạn một ngày làm việc hiệu quả</p>
-                                            </div>
-                                        </div><!-- end card header -->
+                        <div class="row mb-3 pb-1">
+                            <div class="col-12">
+                                <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                    <div class="flex-grow-1">
+                                        <h4 class="fs-16 mb-1">Chào mừng, <%= sale.ho_va_ten %>!</h4>
+                                        <p class="text-muted mb-0">Chúc bạn một ngày làm việc hiệu quả</p>
                                     </div>
-                                    <!--end col-->
-                                </div>
-                                <!--end row-->
- 
-                                <div class="row">
-                                    <div class="col-xl-3 col-md-6">
-                                        <!-- card -->
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tiền đầu tư trong tháng</p>
+                                </div><!-- end card header -->
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <div class="col-xxl-5">
+                            <div class="d-flex flex-column h-100">
+                                <div class="row h-100">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body p-0">
+                                                <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
+                                                    <i data-feather="alert-triangle" class="text-warning me-2 icon-sm"></i>
+                                                    <div class="flex-grow-1 text-truncate">
+                                                        CẢNH BÁO GIẢ MẠO
                                                     </div>
                                                 </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <h5 class="fs-22 fw-semibold ff-secondary mb-4"><span class="total">
-                                                        <% let total = 0; %>
+
+                                                <div class="row align-items-end">
+                                                    <div class="col-sm-12">
+                                                        <div class="p-3">
+                                                            <p class="fs-16 lh-base">Công ty cổ phần Tập đoàn Chợ Toàn Cầu Thông báo: Cảnh giác với những website và các trang mạng xã hội như FB, Tiktok, youtube... giả mạo thương hiệu </p>
+                                                            <div class="flex-shrink-0">
+                                                                <a href="https://chotoancau.vn/tin-hoat-dong/thong-bao-canh-giac-gia-mao-thuong-hieu-43.html" class="text-reset text-decoration-underline"><b>Xem thêm</b></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end card-body-->
+                                        </div>
+                                    </div> <!-- end col-->
+                                </div> <!-- end row-->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card card-animate">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <div>
+                                                        <p class="fw-medium text-muted mb-0">Khách hàng</p>
+                                                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="<%= khach_hang.length %>">0</span> Khách hàng</h2>
+                                                        <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> Số lượng khách hàng</p>
+                                                    </div>
+                                                    <div>
+                                                        <div class="avatar-sm flex-shrink-0">
+                                                            <span class="avatar-title bg-soft-info rounded-circle fs-2">
+                                                                <i data-feather="users" class="text-info"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+
+                                    <div class="col-md-6">
+                                        <div class="card card-animate">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <div>
+                                                        <p class="fw-medium text-muted mb-0">Doanh số</p><% let total = 0; %>
                                                         <% hop_dong.forEach(hop_dong => { %>
                                                         <% total += hop_dong.so_tien_dau_tu %>
                                                         <% }); %>
-                                                        <%= total.toLocaleString(); %>
-                                                    </span>đ </h5>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-success rounded fs-3">
-                                                            <i class="bx bx-dollar-circle text-success"></i>
-                                                        </span>
+                                                        
+                                                        <h2 class="mt-4 ff-secondary fw-semibold"><%= total.toLocaleString(); %> đ</h2>
+                                                        <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> Tổng doanh số</p>
                                                     </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-
-                                    <div class="col-xl-3 col-md-6">
-                                        <!-- card -->
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                     <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Số lượng hợp đồng đầu tư</p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<%= hop_dong.length %>">0</span></h4>
-                                                    </div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-info rounded fs-3">
-                                                            <i class="bx bx-shopping-bag text-info"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-
-                                    <div class="col-xl-3 col-md-6">
-                                        <!-- card -->
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0">Khách hàng</p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="<%= khach_hang.length %>">0 </span> người </h4>
-                                                    </div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-warning rounded fs-3">
-                                                            <i class="bx bx-user-circle text-warning"></i>
-                                                        </span>
+                                                        <div class="avatar-sm flex-shrink-0">
+                                                            <span class="avatar-title bg-soft-info rounded-circle fs-2">
+                                                                <i class="bx bx-dollar-circle text-success"></i>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-
-                                    <div class="col-xl-3 col-md-6">
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tổng tiền đầu tư</p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <div>
-                                                        <h5 class="fs-22 fw-semibold ff-secondary mb-4"><span class="total">
-                                                            <%= total.toLocaleString(); %>
-                                                        </span>đ </h5>
-                                                    </div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-soft-primary rounded fs-3">
-                                                            <i class="bx bx-wallet text-primary"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                    <div class="col-xl-4 col-md-4">
-                                        <div class="card card-animate">
-                                            <div class="card-body">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-grow-1 overflow-hidden">
-                                                        <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Thông báo</p>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex align-items-end justify-content-between mt-4">
-                                                    <div class="table-responsive table-card">
-                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                                            <thead class="text-muted table-light">
-                                                                <tr>
-                                                                    <th scope="col">Ngày</th>
-                                                                    <th scope="col">Nội dung thông báo</th>
-                                                                    <th scope="col"></th>
-                                                                    
-                                                                </tr> 
-                                                            </thead>
-                                                            <tbody id="myTable">
-                                                                <% thong_bao.forEach(function(thong_bao){ %>
-                                                                        <tr>
-                                                                            <td><%= thong_bao.ngay_thong_bao.getDate() %>-<%= thong_bao.ngay_thong_bao.getMonth() %>-<%= thong_bao.ngay_thong_bao.getFullYear() %></td>
-                                                                            <td><%= thong_bao.tieu_de_thong_bao %></td>
-                                                                            <td>Xem chi tiết</td>
-                                                                        </tr>
-                                                                <% }); %>
-                                                            </tbody><!-- end tbody -->
-                                                        </table><!-- end table -->
-                                                    </div>
-                                                </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div>
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
                                 </div> <!-- end row-->
-                            </div> <!-- end .h-100-->
 
-                        </div> <!-- end col -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card card-animate">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <div>
+                                                        <p class="fw-medium text-muted mb-0">Hợp đồng đầu tư</p>
+                                                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="<%= hop_dong.length %>">0</span> Hợp đồng </h2>
+                                                        <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> Số lượng hợp đồng</p>
+                                                    </div>
+                                                    <div>
+                                                        <div class="avatar-sm flex-shrink-0">
+                                                            <span class="avatar-title bg-soft-info rounded-circle fs-2">
+                                                                <i class="ri-file-list-3-line text-info"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+
+                                    <div class="col-md-6">
+                                        <div class="card card-animate">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <div>
+                                                        <p class="fw-medium text-muted mb-0">Nhân viên kinh doanh</p>
+                                                        <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="<%= sales.length %>">0</span> sale</h2>
+                                                        <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> Tổng số nhân viên kinh doanh</p>
+                                                    </div>
+                                                    <div>
+                                                        <div class="avatar-sm flex-shrink-0">
+                                                            <span class="avatar-title bg-soft-info rounded-circle fs-2">
+                                                                <i class="ri-shield-user-fill text-info"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+                                </div> <!-- end row-->
+                            </div>
+                        </div> <!-- end col-->
+
+                        <div class="col-xxl-7">
+                            <div class="row h-100">
+                                <div class="col-xl-6">
+                                    <div class="card card-height-100">
+                                        <div class="card-header align-items-center d-flex">
+                                            <h4 class="card-title mb-0 flex-grow-1">Live Users By Country</h4>
+                                            <div class="flex-shrink-0">
+                                                <button type="button" class="btn btn-soft-primary btn-sm">
+                                                    Export Report
+                                                </button>
+                                            </div>
+                                        </div><!-- end card header -->
+
+                                        <!-- card body -->
+                                        <div class="card-body">
+
+                                            <div id="users-by-country" data-colors='["--vz-light"]' class="text-center" style="height: 252px"></div>
+
+                                            <div class="table-responsive table-card mt-3">
+                                                <table class="table table-borderless table-sm table-centered align-middle table-nowrap mb-1">
+                                                    <thead class="text-muted border-dashed border border-start-0 border-end-0 bg-soft-light">
+                                                        <tr>
+                                                            <th>Duration (Secs)</th>
+                                                            <th style="width: 30%;">Sessions</th>
+                                                            <th style="width: 30%;">Views</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="border-0">
+                                                        <tr>
+                                                            <td>0-30</td>
+                                                            <td>2,250</td>
+                                                            <td>4,250</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>31-60</td>
+                                                            <td>1,501</td>
+                                                            <td>2,050</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>61-120</td>
+                                                            <td>750</td>
+                                                            <td>1,600</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>121-240</td>
+                                                            <td>540</td>
+                                                            <td>1,040</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!-- end card body -->
+                                    </div><!-- end card -->
+                                </div><!-- end col -->
+
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card card-height-100">
+                                        <div class="card-header align-items-center d-flex">
+                                            <h4 class="card-title mb-0 flex-grow-1">Top nhà đầu tư</h4>
+                                        </div><!-- end card header -->
+                                        <div class="card-body">
+                                            <div class="table-responsive table-card">
+                                                <table class="table align-middle table-borderless table-centered table-nowrap mb-0">
+                                                    <thead class="text-muted table-light">
+                                                        <tr>
+                                                            <th scope="col" style="width: 62;">Họ và tên</th>
+                                                            <th scope="col">Ngày sinh</th>
+                                                            <th scope="col">Số điện thoại</th>
+                                                            <th scope="col">Tiền đầu tư</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <% hop_dong.forEach(function(hop_dong){ %>
+                                                            <% if (hop_dong.so_tien_dau_tu == "5000000000") { %>
+                                                            <tr>
+                                                                <td><a href="/admin/thong-tin-khach-hang=<%= hop_dong.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong.khach_hang.ho_va_ten %></a></td>
+                                                                <td><a href="/admin/thong-tin-khach-hang=<%= hop_dong.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong.khach_hang.nam_sinh.getDate() %>-<%= hop_dong.khach_hang.nam_sinh.getMonth() %>-<%= hop_dong.khach_hang.nam_sinh.getFullYear() %></a></td>
+                                                                <td><a href="/admin/thong-tin-khach-hang=<%= hop_dong.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary">0<%= hop_dong.khach_hang.so_dien_thoai %></a></td>
+                                                                <td><a href="/admin/thong-tin-khach-hang=<%= hop_dong.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong.so_tien_dau_tu.toLocaleString() %> đ</a></td>
+                                                            </tr>
+                                                            <% } %>
+                                                        <% }); %>
+                                                    </tbody><!-- end tbody -->
+                                                </table><!-- end table -->
+                                            </div><!-- end -->
+                                        </div><!-- end cardbody -->
+                                    </div><!-- end card -->
+                                </div><!-- end col-->
+
+                            </div> <!-- end row-->
+                        </div><!-- end col -->
                     </div>
-
                 </div>
                 <!-- container-fluid -->
             </div>

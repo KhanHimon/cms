@@ -63,7 +63,7 @@ router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (re
                 if (err) throw err;
                 res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai,hop_dong, sales });
               }).populate('nhom_kinh_doanh').populate('chuc_vu')
-            })
+            }).populate('khach_hang')
           })
         })
       })
