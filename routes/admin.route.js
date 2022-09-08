@@ -59,8 +59,10 @@ router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (re
         thong_bao_Schema.find(function (err, thong_bao) {
           trang_thai_Schema.find(function (err, trang_thai) {
             Hop_dong_dau_tu_Schema.find(function(err, hop_dong){
-              if (err) throw err;
-              res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai,hop_dong });
+              Sale_Schema.find(function (err, sales) {
+                if (err) throw err;
+                res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai,hop_dong, sales });
+              }).populate('nhom_kinh_doanh').populate('chuc_vu')
             })
           })
         })

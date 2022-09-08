@@ -33,7 +33,6 @@
                                             <li class="breadcrumb-item active">Đội nhóm kinh doanh</li>
                                         </ol>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -41,10 +40,8 @@
 
                         <div class="row">
                             <div class="col">
-
                                 <div class="h-100">
                                     <!--end row-->
-
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="card">
@@ -69,17 +66,184 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-9">
-                                            <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm nhân sự.." style="width: 300px;"><br>
-                                                                    <script>
-                                                                        $(document).ready(function(){
-                                                                          $("#myInput").on("keyup", function() {
-                                                                            var value = $(this).val().toLowerCase();
-                                                                            $("#myTable tr").filter(function() {
-                                                                              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                                                                            });
-                                                                          });
-                                                                        });
-                                                                        </script>
+                                            <div class="row">
+                                                <!-- <div class="col">
+                                                    <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm nhân sự.." style="width: 300px;"><br>
+                                                    <script>
+                                                        $(document).ready(function(){
+                                                            $("#myInput").on("keyup", function() {
+                                                                var value = $(this).val().toLowerCase();
+                                                                $("#myTable tr").filter(function() {
+                                                                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                });
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div> -->
+                                                <div class="col">
+                                                    <button style="margin-bottom: 15px; float: left;" type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#add_sale"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</button> <br>
+                                                    <div id="add_sale" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="myModalLabel">Thêm thành viên</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <form action="/admin/them-nhan-vien" method="post">
+                                                                        <div class="card-body">
+                                                                            <div class="live-preview">
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                                                <input type="text" class="form-control" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập họ và tên')" required="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end col-->
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="nam_sinh" class="form-label">Ngày sinh</label>
+                                                                                                <input type="date" class="form-control" id="nam_sinh" name="nam_sinh" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập ngày sinh')" required="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="dan_toc" class="form-label">Dân tộc</label>
+                                                                                                <input type="text" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end col-->
+                                                                                        <div class="col-md-7">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="cmnd_cccd" class="form-label">Số CMND/CCCD</label>
+                                                                                                <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cmnd_cccd" name="cmnd_cccd" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập cmnd/cccd')" required="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-5">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                                                <input type="date" class="form-control" id="ngay_cap" name="ngay_cap" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập ngày cấp')" required="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="noi_cap" class="form-label">Nơi cấp</label>
+                                                                                                <input type="text" class="form-control" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập nơi cấp')" required="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="vung" class="form-label">Vùng</label>
+                                                                                                <select class="form-select mb-3" aria-label=".form-select-lg example"  id="vung" name="vung">
+                                                                                                    <option value="6309a05c6d6575d010cc2ee8" selected>Chọn vùng</option>
+                                                                                                    <% var vung_index = 0 %>
+                                                                                                    <% vungs.forEach(function(vung){ vung_index++ %>
+                                                                                                        <option value="<%= vung._id %>"><%= vung_index %>. <%= vung.ten_vung %></option>
+                                                                                                    <% }); %>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-3">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="tinh" class="form-label">Tỉnh</label>
+                                                                                                <select class="form-control" id="tinh" data-choices data-choices-groups data-placeholder="Chọn Tỉnh" name="tinh">
+                                                                                                    <option value="6309a0cc6d6575d010cc2eea">Chọn tỉnh</option>
+                                                                                                    <% var tinh_index = 0 %>
+                                                                                                    <% tinhs.forEach(function(tinh){ tinh_index++ %>
+                                                                                                        <option value="<%= tinh._id %>"><%= tinh_index %>. <%= tinh.ten_tinh %></option>
+                                                                                                    </optgroup>
+                                                                                                    <% }); %>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="dia_chi" class="form-label">Địa chỉ thường trú</label>
+                                                                                                <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập địa chỉ')" required="">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end col-->
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
+                                                                                                <input type="tel" class="form-control" placeholder="+(84) 444 78765" id="dien_thoai" name="dien_thoai">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end col-->
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="email" class="form-label">Email</label>
+                                                                                                <input type="email" class="form-control" placeholder="example@gamil.com" id="email" name="email">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end col-->
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
+                                                                                                <input type="number" class="form-control" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="ngan_hang" class="form-label">Ngân hàng</label>
+                                                                                                <input type="text" class="form-control" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="chi_nhanh" class="form-label">Chi nhánh</label>
+                                                                                                <input type="text" class="form-control" placeholder="Nhập chi nhánh" id="chi_nhanh" name="chi_nhanh">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end col-->
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="ma_gioi_thieu" class="form-label">Mã cấp trên</label>
+                                                                                                <input type="text" class="form-control" placeholder="Nhập mã giới thiệu" id="ma_code" name="ma_code" >
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="nhom_kinh_doanh" class="form-label">Đội nhóm kinh doanh</label>
+                                                                                                <select class="form-select mb-3" aria-label=".form-select-lg example"  id="nhom_kinh_doanh" name="nhom_kinh_doanh" disabled>
+                                                                                                        <option value="<%= nhom._id %>">Nhóm kinh doanh <%= nhom.ten_nhom %></option>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-4">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                                                                <select class="form-select mb-3" aria-label=".form-select-lg example"  id="chuc_vu" name="chuc_vu">
+                                                                                                    <option selected>Chọn chức vụ</option>
+                                                                                                    <% var chuc_vu_index = 0 %>
+                                                                                                    <% chuc_vus.forEach(function(chuc_vu){ chuc_vu_index++ %>
+                                                                                                        <option value="<%= chuc_vu._id %>"><%= chuc_vu_index %>. <%= chuc_vu.ten_chuc_vu %></option>
+                                                                                                    <% }); %>
+                                                                                                </select>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-12">
+                                                                                            <div class="mb-3">
+                                                                                                <label for="ghi_chu" class="form-label">Ghi chú</label>
+                                                                                                <textarea type="text" class="form-control" placeholder="ghi chú thông tin" id="ghi_chu" name="ghi_chu"></textarea>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end col-->
+                                                                                    </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                            <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            
                                             <div class="card">
                                                 <div class="card-header align-items-center d-flex">
                                                     <h4 class="card-title mb-0 flex-grow-1">Thông tin đội nhóm kinh doanh : <%= nhom.ten_nhom %> <b></b> </h4>
@@ -94,7 +258,700 @@
                                                     </b>
                                                 </div><!-- end card header -->
                                                 <div class="card-body">
-                                                    <div class="table-responsive table-card">
+                                                    <ul class="nav nav-pills nav-justified nav-danger mb-3" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" data-bs-toggle="tab" href="#cong-tac-vien" role="tab">Cộng tác viên</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link " data-bs-toggle="tab" href="#nhan-vien-kinh-doanh" role="tab">Nhân viên</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="tab" href="#truong-nhom" role="tab">Trưởng nhóm</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="tab" href="#truong-phong" role="tab">Trưởng phòng</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="tab" href="#pho-giam-doc" role="tab">Phó giám đốc</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="tab" href="#giam-doc-kinh-doanh" role="tab">Giám đốc</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="tab" href="#giam-doc-tinh" role="tab">Giám đốc tỉnh</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="tab" href="#giam-doc-vung" role="tab">Giám đốc vùng</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link " data-bs-toggle="tab" href="#giam-doc-chien-luoc" role="tab">Giám đốc chiến lược</a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="tab-content text-muted">
+                                                        <div class="tab-pane " id="nhan-vien-kinh-doanh" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#myInput").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#myTable tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr> 
+                                                                                    </thead>
+                                                                                    <tbody id="myTable">
+                                                                                        <% var index_1 = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5b8ef1b55b0b9c8745a6") { %>
+                                                                                                
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="giam-doc-kinh-doanh" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="GD_KD" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#GD_KD").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#GD_KD tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody id="GD_KD">
+                                                                                        <% var index = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c65f1b55b0b9c8745db") { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="giam-doc-tinh" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="GD_T" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#GD_T").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#GD_T tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody id="GD_T">
+                                                                                        <% var index = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c79f1b55b0b9c8745e6") { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="giam-doc-vung" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="GD_V" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#GD_V").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#GD_V tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody id="GD_V">
+                                                                                        <% var index = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c8af1b55b0b9c8745f1") { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="pho-giam-doc" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="P_GD" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#P_GD").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#P_GD tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody id="P_GD">
+                                                                                        <% var index = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c59f1b55b0b9c8745d0") { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane active" id="cong-tac-vien" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="CTV" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#CTV").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#CTV tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr> 
+                                                                                    </thead>
+                                                                                    <tbody id="CTV">
+                                                                                        <% var index_1 = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5b5e7f511110aaee0ce5") { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane " id="giam-doc-chien-luoc" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="GD_CL" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#GD_CL").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#GD_CL tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr> 
+                                                                                    </thead>
+                                                                                    <tbody id="GD_CL">
+                                                                                        <% var index_1 = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959") { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="truong-nhom" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="TN" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#TN").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#TN tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr> 
+                                                                                    </thead>
+                                                                                    <tbody id="TN">
+                                                                                        <% var index_1 = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c1df1b55b0b9c8745ba") { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="truong-phong" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="TP" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#TP").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#TP tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr> 
+                                                                                    </thead>
+                                                                                    <tbody id="TP">
+                                                                                        <% var index_1 = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c2cf1b55b0b9c8745c5") { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="table-responsive table-card">
                                                         <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                             <thead class="text-muted table-light">
                                                                 <tr>
@@ -125,7 +982,7 @@
                                                                     <% }); %>
                                                             </tbody>
                                                         </table>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div> <!-- .card-->
