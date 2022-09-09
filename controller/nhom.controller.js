@@ -15,7 +15,7 @@ class nhom_Controller {
                     Sale_Schema.find(function (err, sales) {
                         if (err) throw err;
                         res.render('admin/pages/quan_ly_doi_nhom', { sale, thong_bao, nhoms, sales });
-                    }).populate('chuc_vu').populate('nhom_kinh_doanh').populate('vung').populate('tinh').limit(13)  
+                    }).populate('chuc_vu').populate('nhom_kinh_doanh').populate('vung').populate('tinh').sort({ create_date: -1 }).limit(13)
                 })
             })
         }).populate('chuc_vu')
