@@ -23,7 +23,7 @@ class sale_Controller {
                             })
                         })
                     })
-                }).populate('chuc_vu').populate('nhom_kinh_doanh')
+                }).populate('chuc_vu').populate('nhom_kinh_doanh').sort({'create_date': -1})
             })
         }).populate('chuc_vu')
     }
@@ -71,7 +71,8 @@ class sale_Controller {
             chuc_vu: req.body.chuc_vu,
             vung: req.body.vung,
             tinh: req.body.tinh,
-            ghi_chu: req.body.ghi_chu
+            ghi_chu: req.body.ghi_chu,
+            create_date: Date.now()
         });
         new_sale.save();
         res.redirect(req.get('referer'));

@@ -38,4 +38,5 @@ const Sale_Schema = new Schema({
 });
 
 
+
 module.exports = mongoose.model('Sale', Sale_Schema);
