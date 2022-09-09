@@ -81,7 +81,7 @@ class khach_hang_Controller {
       edit_khach_hang.ho_va_ten = req.body.ho_va_ten;
     }
     if (req.body.cccd_cmnd) {
-      edit_khach_hang.cccd_cmnd = req.body.cccd_cmnd;
+      edit_khach_hang.cccd_cmnd = req.body.cccd_cmnd; 
     }
     if (req.body.noi_cap) {
       edit_khach_hang.noi_cap = req.body.noi_cap;

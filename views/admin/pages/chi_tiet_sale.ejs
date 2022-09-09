@@ -53,9 +53,10 @@
                                                             <%= chi_tiet_sale.ho_va_ten %>
                                                         </b> </h4>
                                                 </div><!-- end card header -->
-                                                <div class="card-body">
+                                                <div class="card-body"> 
                                                     <div class="row">
                                                         <div class="col-12">
+                                                            <form action="/admin/sua-nhan-vien/<%= chi_tiet_sale._id %>" method="POST">
                                                             <div class="row">
                                                                 <div class="col-md-4">
                                                                     <div class="mb-3">
@@ -95,10 +96,16 @@
                                                                     </div>
                                                                 </div>
                                                                 <!--end col-->
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                        <input type="date" value="<%= (chi_tiet_sale.ngay_cap).getFullYear() %>-<%= (chi_tiet_sale.ngay_cap).getMonth() + 1 %>-<%= (chi_tiet_sale.ngay_cap).getDate() %>" class="form-control" id="ngay_cap" name="so_ngay_cap">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
                                                                     <div class="mb-3">
                                                                         <label for="dien_thoai" class="form-label">Số điện thoại</label>
-                                                                        <input type="tel" value="0<%= (chi_tiet_sale.dien_thoai) %>" class="form-control" placeholder="+(84) 444 78765" id="dien_thoai" name="so_dien_thoai">
+                                                                        <input type="tel" value="0<%= (chi_tiet_sale.dien_thoai) %>" class="form-control" placeholder="+(84) 444 78765" id="dien_thoai" name="dien_thoai">
                                                                     </div>
                                                                 </div>
                                                                 <!--end col-->
@@ -128,10 +135,16 @@
                                                                     </div>
                                                                 </div>
                                                                 <!--end col-->
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-3">
                                                                     <div class="mb-3">
                                                                         <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
                                                                         <input type="text" class="form-control" value="<%= (chi_tiet_sale.ma_gioi_thieu) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="ma_code" class="form-label">Mã cấp trên</label>
+                                                                        <input type="text" class="form-control" value="<%= (chi_tiet_sale.ma_code) %>" placeholder="Nhập mã giới thiệu" id="ma_code" name="ma_code">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
@@ -145,6 +158,11 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <button type="submit"
+                                                                    class="btn btn-soft-info btn-sm card-title mb-0 flex-grow-9">
+                                                                     Chỉnh sửa
+                                                            </button>
+                                                            </form>
                                                         </div>
                                                         
                                                     </div>

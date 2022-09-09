@@ -49,7 +49,8 @@ router.get('/chi-tiet-nhom=:id/:_id',login_admin_controller.loginRequired, nhom_
 /* ROUTER SALE */
 router.get('/danh-sach-sale/:_id',login_admin_controller.loginRequired, sale_Controller.hien_thi);
 router.post('/them-nhan-vien',login_admin_controller.loginRequired, sale_Controller.them_moi_sale);
-router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, sale_Controller.chi_tiet_sale )
+router.post('/sua-nhan-vien/:_id',login_admin_controller.loginRequired, sale_Controller.thay_doi_thong_tin_sale);
+router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, sale_Controller.chi_tiet_sale);
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
