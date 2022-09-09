@@ -49,9 +49,9 @@
                                                     <div class="row">
                                                         <div class="col-6">
                                                             <% hop_dongs.forEach(function(hop_dongs){ %>
-                                                                <% sales.forEach(function(sales){ %>
-                                                                    <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
-                                                                        <% if (hop_dongs.khach_hang.ma_gioi_thieu == sales.ma_gioi_thieu ) { %>
+                                                                <% sales.forEach(function(sale){ %>
+                                                                    <% if ( sale.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                        <% if (hop_dongs.khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu ) { %>
                                                                         <% let total = 0; %>
                                                                         <% total += hop_dongs.so_tien_dau_tu %>
                                                                         <% const date = new Date() %>
@@ -205,8 +205,8 @@
                                                                                         <div class="col-md-4">
                                                                                             <div class="mb-3">
                                                                                                 <label for="nhom_kinh_doanh" class="form-label">Đội nhóm kinh doanh</label>
-                                                                                                <select class="form-select mb-3" aria-label=".form-select-lg example"  id="nhom_kinh_doanh" name="nhom_kinh_doanh" disabled>
-                                                                                                        <option value="<%= nhom._id %>">Nhóm kinh doanh <%= nhom.ten_nhom %></option>
+                                                                                                <select class="form-select mb-3" aria-label=".form-select-lg example"  id="nhom_kinh_doanh" name="nhom_kinh_doanh">
+                                                                                                        <option value="<%= nhom._id %>" ><%= nhom.ten_nhom %></option>
                                                                                                 </select>
                                                                                             </div>
                                                                                         </div>
@@ -260,7 +260,10 @@
                                                 <div class="card-body">
                                                     <ul class="nav nav-pills nav-justified nav-danger mb-3" role="tablist">
                                                         <li class="nav-item">
-                                                            <a class="nav-link active" data-bs-toggle="tab" href="#cong-tac-vien" role="tab">Cộng tác viên</a>
+                                                            <a class="nav-link active" data-bs-toggle="tab" href="#tat-ca" role="tab">Tất cả</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="tab" href="#cong-tac-vien" role="tab">Cộng tác viên</a>
                                                         </li>
                                                         <li class="nav-item">
                                                             <a class="nav-link " data-bs-toggle="tab" href="#nhan-vien-kinh-doanh" role="tab">Nhân viên</a>
@@ -288,6 +291,77 @@
                                                         </li>
                                                     </ul>
                                                     <div class="tab-content text-muted">
+                                                        <div class="tab-pane active" id="tat-ca" role="tabpanel">
+                                                            <div class="d-flex">
+                                                                <div class="col-xl-12">
+                                                                    <div class="card">
+                                                                        <div class="card-header align-items-center d-flex">
+                                                                            <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                                            <script>
+                                                                                $(document).ready(function(){
+                                                                                    $("#myInput").on("keyup", function() {
+                                                                                        var value = $(this).val().toLowerCase();
+                                                                                        $("#myTable tr").filter(function() {
+                                                                                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                                        });
+                                                                                    });
+                                                                                });
+                                                                            </script>
+                                                                        </div>
+                            
+                                                                        <div class="card-body">
+                                                                            <div class="table-responsive table-card">
+                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                    <thead class="text-muted table-light">
+                                                                                        <tr>
+                                                                                            <th scope="col">STT</th>
+                                                                                            <th scope="col">CODE</th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col"></th>
+                                                                                        </tr> 
+                                                                                    </thead>
+                                                                                    <tbody id="myTable">
+                                                                                        <% var index_1 = 0 %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
+                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
+                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
+                                                                                                            </button>
+                                                                                                        </a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
+                                                                                        <% }); %>
+                                                                                    </tbody><!-- end tbody -->
+                                                                                </table><!-- end table -->
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div> <!-- .card-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="tab-pane " id="nhan-vien-kinh-doanh" role="tabpanel">
                                                             <div class="d-flex">
                                                                 <div class="col-xl-12">
@@ -658,7 +732,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane active" id="cong-tac-vien" role="tabpanel">
+                                                        <div class="tab-pane " id="cong-tac-vien" role="tabpanel">
                                                             <div class="d-flex">
                                                                 <div class="col-xl-12">
                                                                     <div class="card">
