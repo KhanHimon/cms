@@ -75,7 +75,9 @@ class sale_Controller {
             create_date: Date.now()
         });
         new_sale.save();
-        res.redirect(req.get('referer'));
+        console.log(new_sale.ho_va_ten)
+        req.flash('message', 'Thêm mới' + new_sale.ho_va_ten + " thành công");
+        res.redirect(req.get('referer')); 
     }
 }
 

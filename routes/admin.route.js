@@ -32,7 +32,7 @@ const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controlle
 const phieu_thong_tin_controller = require('../controller/phieu_thong_tin.controller');
 const khach_hang_Controller = require('../controller/khach_hang.controller');
 
-
+ 
 
 /* ROUTER VÙNG */
 router.get('/quan-ly-khu-vuc/:_id',login_admin_controller.loginRequired, vung_Controller.hien_thi);

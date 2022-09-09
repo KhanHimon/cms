@@ -32,7 +32,7 @@ class nhom_Controller {
                                     Tinh_Schema.find(function (err, tinhs) {
                                         Chuc_vu_Schema.find(function (err, chuc_vus) {
                                             if (err) throw err;
-                                            res.render('admin/pages/chi_tiet_doi_nhom', {chuc_vus, vungs, tinhs, sale, thong_bao, nhom, sales, hop_dongs, khach_hangs });
+                                            res.render('admin/pages/chi_tiet_doi_nhom', { chuc_vus, vungs, tinhs, sale, thong_bao, nhom, sales, hop_dongs, khach_hangs, message: req.flash('message') });
                                         })
                                     })
                                 })

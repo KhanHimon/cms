@@ -82,6 +82,19 @@
                                                 </div> -->
                                                 <div class="col">
                                                     <button style="margin-bottom: 15px; float: left;" type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#add_sale"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</button> <br>
+                                                    <br>
+                                                    <% if (message) { %>
+                                                        <b id="mess" style="font-size: 16px; color: green;">
+                                                            <%= message %>
+                                                        </b> 
+                                                    <% } %>
+                                                    <br>
+                                                    <script>
+                                                        setTimeout(() => {
+                                                            const box = document.getElementById('mess');
+                                                            box.style.display = 'none';
+                                                        }, 10000);
+                                                    </script>
                                                     <div id="add_sale" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                         <div class="modal-dialog modal-lg">
                                                                 <div class="modal-content">
