@@ -166,7 +166,7 @@
                                                                                         <div class="col-md-6">
                                                                                             <div class="mb-3">
                                                                                                 <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
-                                                                                                <input type="tel" class="form-control" placeholder="+(84) 444 78765" id="dien_thoai" name="dien_thoai">
+                                                                                                <input type="tel" class="form-control" placeholder="+(84) 444 78765" id="dien_thoai" name="dien_thoai" oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập số điện thoại')" required="">
                                                                                             </div>
                                                                                         </div>
                                                                                         <!--end col-->
