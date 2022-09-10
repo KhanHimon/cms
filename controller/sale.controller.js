@@ -18,7 +18,7 @@ class sale_Controller {
                             Nhom_sale_Schema.find(function (err, nhoms) {
                                 Chuc_vu_Schema.find(function (err, chuc_vus) {
                                     if (err) throw err;
-                                    res.render('admin/pages/quan_ly_sale', { sale, thong_bao, sales, vungs, tinhs, nhoms, chuc_vus });
+                                    res.render('admin/pages/quan_ly_sale', { sale, thong_bao, sales, vungs, tinhs, nhoms, chuc_vus,  message: req.flash('message') });
                                 })
                             })
                         })
@@ -76,7 +76,7 @@ class sale_Controller {
         });
         new_sale.save();
         console.log(new_sale.ho_va_ten)
-        req.flash('message', 'Thêm mới' + new_sale.ho_va_ten + " thành công");
+        req.flash('message', 'Thêm mới nhân sự mới : ' + new_sale.ho_va_ten + " thành công");
         res.redirect(req.get('referer')); 
     }
 

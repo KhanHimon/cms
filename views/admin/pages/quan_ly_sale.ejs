@@ -50,7 +50,17 @@
                                                     <div class="row g-3 mb-0 align-items-center">
                                                         <!--end col-->
                                                             <div class="position-relative">
-                                                                
+                                                                <% if (message) { %>
+                                                                    <p id="mess" style="font-size: 16px; color: green;">
+                                                                        <%= message %>
+                                                                    </p> 
+                                                                <% } %>
+                                                                <script>
+                                                                    setTimeout(() => {
+                                                                        const box = document.getElementById('mess');
+                                                                        box.style.display = 'none';
+                                                                    }, 10000);
+                                                                </script>   
                                                             <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#add_sale"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</button>
                                                             <div id="add_sale" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog modal-lg">
