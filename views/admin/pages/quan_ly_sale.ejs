@@ -298,9 +298,10 @@
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
                                                                                         <th scope="col">Họ và tên</th>
+                                                                                        <th scope="col">Số điện thoại</th>
+                                                                                        <th scope="col">email</th>
                                                                                         <th scope="col">Nhóm kinh doanh</th>
                                                                                         <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
                                                                                         <th scope="col"></th>
                                                                                     </tr> 
                                                                                 </thead>
@@ -314,13 +315,16 @@
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
                                                                                                 </td>
                                                                                                 <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">0<%= sales.dien_thoai %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">0<%= sales.email %></a>
+                                                                                                </td>
+                                                                                                <td>
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
                                                                                                 </td>
                                                                                                 <td>
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                 </td>
                                                                                                 
                                                                                                 <td>
