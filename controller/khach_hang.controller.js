@@ -38,9 +38,11 @@ class khach_hang_Controller {
       User_Schema.findById(req.params.id, function (err, khach_hang_chi_tiet) {
         thong_bao_Schema.find(function (err, thong_bao) {
           Hop_dong_dau_tu_Schema.find(function (err, hop_dong) {
+            Sale_Schema.find(function (err, sales) {
             if (err) throw err;
             // res.json(khach_hang_chi_tiet)
-            res.render('admin/pages/chi_tiet_khach_hang', { message: req.flash('message'), sale, thong_bao, khach_hang_chi_tiet, hop_dong });
+            res.render('admin/pages/chi_tiet_khach_hang', { message: req.flash('message'), sale, thong_bao, khach_hang_chi_tiet, hop_dong, sales });
+            })
           }).populate('khach_hang').populate('trang_thai')
         })
       })

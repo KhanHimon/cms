@@ -70,6 +70,19 @@
                                                                         <input type="text" disabled class="form-control" value="<%= chi_tiet_sale.nhom_kinh_doanh.ten_nhom %>" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten">
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                                        <select class="form-select mb-3" aria-label=".form-select-lg example"  id="chuc_vu" name="chuc_vu">
+                                                                            <option selected>Chức vụ hiện tại : <%= chi_tiet_sale.chuc_vu.ten_chuc_vu %> </option>
+                                                                            <option>Chọn chức vụ</option>
+                                                                            <% var chuc_vu_index = 0 %>
+                                                                            <% chuc_vus.forEach(function(chuc_vu){ chuc_vu_index++ %>
+                                                                                <option value="<%= chuc_vu._id %>"><%= chuc_vu_index %>. <%= chuc_vu.ten_chuc_vu %></option>
+                                                                            <% }); %>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="col-md-2">
                                                                     <div class="mb-3">
                                                                         <label for="dan_toc" class="form-label">Dân tộc</label>
@@ -83,10 +96,16 @@
                                                                         <input type="text" value="<%= (chi_tiet_sale.cmnd_cccd) %>" class="form-control" placeholder="" id="cmnd_cccd" name="cmnd_cccd">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-5">
                                                                     <div class="mb-3">
                                                                         <label for="noi_cap" class="form-label">Nơi cấp</label>
                                                                         <input type="text" class="form-control" value="<%= (chi_tiet_sale.noi_cap) %>" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                        <input type="date" value="<%= (chi_tiet_sale.ngay_cap).getFullYear() %>-<%= (chi_tiet_sale.ngay_cap).getMonth() + 1 %>-<%= (chi_tiet_sale.ngay_cap).getDate() %>" class="form-control" id="ngay_cap" name="so_ngay_cap">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
@@ -96,12 +115,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <!--end col-->
-                                                                <div class="col-md-3">
-                                                                    <div class="mb-3">
-                                                                        <label for="ngay_cap" class="form-label">Ngày cấp</label>
-                                                                        <input type="date" value="<%= (chi_tiet_sale.ngay_cap).getFullYear() %>-<%= (chi_tiet_sale.ngay_cap).getMonth() + 1 %>-<%= (chi_tiet_sale.ngay_cap).getDate() %>" class="form-control" id="ngay_cap" name="so_ngay_cap">
-                                                                    </div>
-                                                                </div>
+                                                               
                                                                 <div class="col-md-3">
                                                                     <div class="mb-3">
                                                                         <label for="dien_thoai" class="form-label">Số điện thoại</label>
@@ -109,7 +123,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <!--end col-->
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-3">
                                                                     <div class="mb-3">
                                                                         <label for="email" class="form-label">Email</label>
                                                                         <input type="email" class="form-control" value="<%= (chi_tiet_sale.email) %>" placeholder="example@gamil.com" id="email" name="email">

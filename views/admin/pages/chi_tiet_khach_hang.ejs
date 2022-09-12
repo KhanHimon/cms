@@ -80,7 +80,7 @@
                                                                     <div class="col-md-4">
                                                                         <div class="mb-3">
                                                                             <label for="nam_sinh" class="form-label">Ngày sinh</label>
-                                                                            <input type="date" disabled value="<%= (khach_hang_chi_tiet.nam_sinh).getFullYear() %>-<%= (khach_hang_chi_tiet.nam_sinh).getMonth() %>-<%= (khach_hang_chi_tiet.nam_sinh).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh">
+                                                                            <input type="text" disabled value="<%= (khach_hang_chi_tiet.nam_sinh).getFullYear() %>-<%= (khach_hang_chi_tiet.nam_sinh).getMonth() + 1 %>-<%= (khach_hang_chi_tiet.nam_sinh).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
@@ -99,7 +99,7 @@
                                                                     <div class="col-md-5">
                                                                         <div class="mb-3">
                                                                             <label for="ngay_cap" class="form-label">Ngày cấp</label>
-                                                                            <input type="date" value="<%= (khach_hang_chi_tiet.ngay_cap).getFullYear() %>-0<%= (khach_hang_chi_tiet.ngay_cap).getMonth() %>-<%= (khach_hang_chi_tiet.ngay_cap).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh" disabled>
+                                                                            <input type="text" value="<%= (khach_hang_chi_tiet.ngay_cap).getFullYear() %>-<%= (khach_hang_chi_tiet.ngay_cap).getMonth() + 1 %>-<%= (khach_hang_chi_tiet.ngay_cap).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
@@ -152,6 +152,16 @@
                                                                         <div class="mb-3">
                                                                             <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
                                                                             <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.ma_gioi_thieu) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" >
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="mb-3">
+                                                                            <label for="ma_gioi_thieu" class="form-label">Người tư vấn</label>
+                                                                            <% sales.forEach(function(sales){  %>
+                                                                                <% if (khach_hang_chi_tiet.ma_gioi_thieu == sales.ma_gioi_thieu ) { %>
+                                                                                    <input type="text" class="form-control" value="<%= (sales.ho_va_ten) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
+                                                                                <% } %>
+                                                                            <% }); %>
                                                                         </div>
                                                                     </div>
                                                                 </div>
