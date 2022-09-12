@@ -787,6 +787,12 @@
                                                                                 </form>
                                                                             </td>
                                                                         <% } %>
+                                                                        <td>
+                                                                            <form action="/admin/check-trang-thai/<%= hop_dong_dau_tu._id %>" method="post">
+                                                                                <input id="trang_thai" name="trang_thai" value="630ec0a80fc3559888a69f3b" type="hidden">
+                                                                                <button type="submit" class="btn btn-success">Reset</button>
+                                                                            </form>
+                                                                        </td>
                                                                     </tr>
                                                                 <% }); %>
                                                             </div>

@@ -56,7 +56,7 @@ router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, 
 /* ROUTER LỊCH SỬ */
 
 router.get('/lich-su-tra-lai/:_id',login_admin_controller.loginRequired, lich_su_tra_thuong_controller.hien_thi_lich_su);
-router.get('/check-trang-thai', hop_dong_tra_thuong_controller.check_date);
+router.post('/check-trang-thai/:_id', hop_dong_tra_thuong_controller.check_date);
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {

@@ -14,6 +14,7 @@ const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
 const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_khach_hang.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
+const { db } = require('../models/user.model');
 
 class hop_dong_tra_thuong_controller {
 
@@ -60,6 +61,7 @@ class hop_dong_tra_thuong_controller {
                 nguoi_duyet: req.body.nguoi_duyet,
                 so_tien: req.body.so_tien,
                 hop_dong: req.body.hop_dong,
+                trang_thai: req.body.trang_thai,
                 ngay_tra_lai: Date.now()
             });
             new_lich_su.save();
@@ -73,12 +75,12 @@ class hop_dong_tra_thuong_controller {
     check_date(req, res) {
         var edit_hop_dong = {};
         if (req.body.trang_thai) {
-            edit_hop_dong.trang_thai = '630ec0a80fc3559888a69f3b';
+            edit_hop_dong.trang_thai = req.body.trang_thai;
         }
         const options = {
             new: true,
         }
-        Hop_dong_dau_tu_Schema.updateMany({ $set: edit_hop_dong }, options, (err, update_hop_dong) => {
+        Hop_dong_dau_tu_Schema.findByIdAndUpdate(req.params._id, { $set: edit_hop_dong }, options, (err, update_hop_dong) => {
             console.log(update_hop_dong);
             res.redirect(req.get('referer'));
         });

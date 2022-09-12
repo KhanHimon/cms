@@ -13,6 +13,10 @@ const Lich_su_Schema = new Schema({
         ref:'hop_dong_dau_tu',
         required: true
     },
+    trang_thai: {
+        type: Schema.Types.ObjectId,
+        ref: 'Trang_thai'
+    },
     so_tien: { type: Number },
     ngay_tra_lai: { type: Date }
 });

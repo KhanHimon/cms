@@ -28,12 +28,7 @@ class lich_su_tra_thuong_controller {
                 populate: {
                     path: 'khach_hang'
                 }
-            }).populate({
-                path: 'hop_dong',
-                populate: {
-                    path: 'trang_thai'
-                }
-            })
+            }).populate('trang_thai')
         })
     }
 }
