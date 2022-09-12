@@ -1,0 +1,157 @@
+<%- include ../layouts/header.ejs %>
+<% if (sale) { %>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+    <div class="layout-width">
+        <%- include ../layouts/nav_header.ejs %>
+    </div>
+</header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../layouts/left_menu.ejs %>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Lịch sử trả lãi</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Lịch sử trả lãi</a></li>
+                                        <li class="breadcrumb-item active">Lịch sử</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col">
+
+                            <div class="h-100">
+
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;"><br>
+                                        <script>
+                                            $(document).ready(function(){
+                                                $("#myInput").on("keyup", function() {
+                                                    var value = $(this).val().toLowerCase();
+                                                    $("#myTable tr").filter(function() {
+                                                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                    });
+                                                });
+                                            });
+                                        </script>
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Lịch sử trả lãi</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th>STT</th>
+                                                                <th scope="col">Mã HĐ</th>
+                                                                <th scope="col">Khách hàng</th>
+                                                                <th scope="col">Đầu tư</th>
+                                                                <th scope="col">Thời hạn</th>
+                                                                <th scope="col">Lãi tháng</th>
+                                                                <th scope="col">Ngày ký</th>
+                                                                <th scope="col">Trạng thái</th>
+                                                                <th scope="col">Ngày trả lãi</th>
+                                                                <th scope="col">Người duyệt lãi</th>
+                                                                <th scope="col"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="myTable">
+                                                            <% var index = 0 %>
+                                                            <% const thang = new Date(); %>
+                                                            <% const month = thang.getMonth() + 1; %>
+                                                            <% thang.setMonth(month, 0); %>
+                                                            <% lich_sus.forEach(function(lich_su){ index++ %>
+                                                                <tr>
+                                                                    <td><%= index %></td>
+                                                                    <td><%= lich_su.hop_dong.ma_hop_dong %></td>
+                                                                    <td><%= lich_su.hop_dong.khach_hang.ho_va_ten %></td>
+                                                                    <td><%= lich_su.hop_dong.so_tien_dau_tu.toLocaleString() %> đ</td>
+                                                                    <td><%= lich_su.hop_dong.thoi_han_dau_tu %> tháng</td>
+                                                                    <% if ((lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
+                                                                        <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= lich_su.hop_dong.loi_nhuan.thang_dau.toFixed(0) %>">0</span> đ</td>
+                                                                    <% } %>
+                                                                    <% if ((lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
+                                                                        <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= lich_su.hop_dong.loi_nhuan.thang.toLocaleString() %> đ</td>
+                                                                    <% } %>
+                                                                    <td><%= lich_su.hop_dong.ngay_ky_hop_dong.getDate() %>/<%= lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= lich_su.hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
+                                                                    <td><%= lich_su.hop_dong.trang_thai.ten_trang_thai %></td>
+                                                                    <td><%= lich_su.ngay_tra_lai.getDate() %>/<%= lich_su.ngay_tra_lai.getMonth() + 1 %>/<%= lich_su.ngay_tra_lai.getFullYear() %></td>
+                                                                    <td><%= lich_su.nguoi_duyet.ho_va_ten %></td>
+                                                                </tr>
+                                                            <% }); %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end row-->
+
+                            </div> <!-- end .h-100-->
+
+                        </div> <!-- end col -->
+                    </div>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Lê Tuấn Khang
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <% } %>
+<%- include ../layouts/footer.ejs %>

@@ -140,6 +140,11 @@
                                                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                             </div>
                                                                                             <div class="modal-body">
+                                                                                                <% if (hop_dong_dau_tu.trang_thai._id == '630ec0a80fc3559888a69f3b') { %>
+                                                                                                    <input type="hidden" id="nguoi_duyet" name="nguoi_duyet" value="<%= sale._id %>">
+                                                                                                    <input type="hidden" id="so_tien" name="so_tien" value="<%= hop_dong_dau_tu.so_tien_dau_tu %>">
+                                                                                                    <input type="hidden" id="hop_dong" name="hop_dong" value="<%= hop_dong_dau_tu._id %>">
+                                                                                                <% } %>
                                                                                                 <select class="form-control" id="trang_thai"
                                                                                                     name="trang_thai">
                                                                                                     <option>---- Trạng thái ----</option>
@@ -161,7 +166,9 @@
                                                                         <% } %>
                                                                         <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                                                                             <td>
+                                                                                <% if (hop_dong_dau_tu.trang_thai._id == '630ec0a80fc3559888a69f3b') { %>
                                                                                 <button type="button" class="btn btn-success waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#myModal-<%= hop_dong_dau_tu._id %>"> Phê duyệt</button>
+                                                                                <% } %>
                                                                                 <div id="myModal-<%= hop_dong_dau_tu._id %>" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                                                     <form action="/admin/sua-trang-thai=<%= hop_dong_dau_tu._id %>" method="post">
                                                                                         <div class="modal-dialog">
@@ -171,12 +178,17 @@
                                                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                                 </div>
                                                                                                 <div class="modal-body">
+                                                                                                    <% if (hop_dong_dau_tu.trang_thai._id == '630ec0a80fc3559888a69f3b') { %>
+                                                                                                    <input type="hidden" id="nguoi_duyet" name="nguoi_duyet" value="<%= sale._id %>">
+                                                                                                    <input type="hidden" id="so_tien" name="so_tien" value="<%= hop_dong_dau_tu.so_tien_dau_tu %>">
+                                                                                                    <input type="hidden" id="hop_dong" name="hop_dong" value="<%= hop_dong_dau_tu._id %>">
+                                                                                                    <% } %>
                                                                                                     <select class="form-control" id="trang_thai"
                                                                                                         name="trang_thai">
                                                                                                         <option>---- Trạng thái ----</option>
                                                                                                         <% trang_thai.forEach(function(edit_hop_dong){ %>
                                                                                                             <option value="<%= edit_hop_dong._id %>"><%= edit_hop_dong.ten_trang_thai %></option>
-                                                                                                        <% }); %>
+                                                                                                    <% }); %>
                                                                                                     </select>
                                                                                                 </div>
                                                                                                 <div class="modal-footer">

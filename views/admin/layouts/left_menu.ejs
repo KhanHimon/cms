@@ -164,6 +164,11 @@
                                     <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Trả lãi hợp đồng</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link menu-link" href="/admin/lich-su-tra-lai/<%= sale._id %>">
+                                    <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Lịch sử trả lãi</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -239,11 +244,11 @@
                             <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Trả lãi hợp đồng</span>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link menu-link" href="/admin/danh-sach-phieu/<%= sale._id %>">
-                            <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Hợp đồng trả thưởng</span>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="/admin/lich-su-tra-lai/<%= sale._id %>">
+                            <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Lịch sử trả lãi</span>
                         </a>
-                    </li> -->
+                    </li>
                 </ul>
             <% } %>
             <% if (sale.chuc_vu._id == '6316e5768871a27fb5b0ae8f') { %>

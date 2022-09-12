@@ -3,20 +3,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Lich_su_Schema = new Schema({
-    nguoi_gui: {
+    nguoi_duyet: {
         type: Schema.Types.ObjectId,
-        ref:'User',
-        required: true
-     },
-    trang_thai: {
-        type: Schema.Types.ObjectId,
-        ref:'Trang_thai',
+        ref:'Sale',
         required: true
     },
-    ngan_hang: { type: String },
-    loai_lich_su: { type: String },
+    hop_dong: {
+        type: Schema.Types.ObjectId,
+        ref:'hop_dong_dau_tu',
+        required: true
+    },
     so_tien: { type: Number },
-    ngay_giao_dich: { type: Date }
+    ngay_tra_lai: { type: Date }
 });
 
 module.exports = mongoose.model('Lich_su', Lich_su_Schema);

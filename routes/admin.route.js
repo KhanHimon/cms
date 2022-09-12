@@ -31,6 +31,7 @@ const hoa_hong_controller = require('../controller/hoa_hong.controller');
 const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controller');
 const phieu_thong_tin_controller = require('../controller/phieu_thong_tin.controller');
 const khach_hang_Controller = require('../controller/khach_hang.controller');
+const lich_su_tra_thuong_controller = require('../controller/lich_su.controller');
 
  
 
@@ -51,6 +52,10 @@ router.get('/danh-sach-sale/:_id',login_admin_controller.loginRequired, sale_Con
 router.post('/them-nhan-vien',login_admin_controller.loginRequired, sale_Controller.them_moi_sale);
 router.post('/sua-nhan-vien/:_id',login_admin_controller.loginRequired, sale_Controller.thay_doi_thong_tin_sale);
 router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, sale_Controller.chi_tiet_sale);
+
+/* ROUTER LỊCH SỬ */
+
+router.get('/lich-su-tra-lai/:_id',login_admin_controller.loginRequired, lich_su_tra_thuong_controller.hien_thi_lich_su);
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {

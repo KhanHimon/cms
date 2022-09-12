@@ -52,6 +52,13 @@ class hop_dong_tra_thuong_controller {
             new: true,
         }
         Hop_dong_dau_tu_Schema.findByIdAndUpdate(req.params._id, { $set: edit_hop_dong }, options, (err, update_hop_dong) => {
+            const new_lich_su = new Lich_su_Schema({
+                nguoi_duyet : req.body.nguoi_duyet,
+                so_tien : req.body.so_tien,
+                hop_dong: req.body.hop_dong,
+                ngay_tra_lai: Date.now()
+            });
+            new_lich_su.save();
             console.log(update_hop_dong);
             res.redirect(req.get('referer'));
         });
