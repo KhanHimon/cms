@@ -28,7 +28,8 @@ const Hop_dong_dau_tu_Schema = new Schema({
     trang_thai: {
         type: Schema.Types.ObjectId,
         ref: 'Trang_thai'
-    }
+    },
+    create_date: { type: Date }
 });
 
 module.exports = mongoose.model('hop_dong_dau_tu', Hop_dong_dau_tu_Schema);

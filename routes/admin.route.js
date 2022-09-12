@@ -56,6 +56,7 @@ router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, 
 /* ROUTER LỊCH SỬ */
 
 router.get('/lich-su-tra-lai/:_id',login_admin_controller.loginRequired, lich_su_tra_thuong_controller.hien_thi_lich_su);
+router.get('/check-trang-thai', hop_dong_tra_thuong_controller.check_date);
 
 /* GET users listing. */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
@@ -242,7 +243,6 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
   }).populate('chuc_vu')
 });
 
-router.post('/them-hop-dong', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_tra_thuong);
 router.post('/them-hop-dong-dau-tu', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_dau_tu);
 router.post('/xoa-hop-dong/:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.xoa_hop_dong_dau_tu);
 router.get('/quan-ly-hop-dong/:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.hien_thi_hop_dong)

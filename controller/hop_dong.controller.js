@@ -17,33 +17,37 @@ const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 
 class hop_dong_tra_thuong_controller {
 
-    hien_thi_hop_dong(req,res){
+    hien_thi_hop_dong(req, res) {
         Sale_Schema.findById(req.params._id, function (err, sale) {
             thong_bao_Schema.find(function (err, thong_bao) {
-              Hop_dong_dau_tu_Schema.find(function(err, hop_dong_dau_tu){
-                trang_thai_Schema.find(function(err, trang_thai){
-                  if (err) throw err;
-                  res.render('admin/pages/quan_ly_hop_dong', { thong_bao, sale, hop_dong_dau_tu, trang_thai, message: req.flash('message')});
-                })
-              }).populate('khach_hang').populate('trang_thai')
+                Hop_dong_dau_tu_Schema.find(function (err, hop_dong_dau_tu) {
+                    trang_thai_Schema.find(function (err, trang_thai) {
+                        Lich_su_Schema.find(function (err, lich_sus) {
+                            if (err) throw err;
+                            res.render('admin/pages/quan_ly_hop_dong', { lich_sus, thong_bao, sale, hop_dong_dau_tu, trang_thai, message: req.flash('message') });
+                        })
+                    })
+                }).populate('khach_hang').populate('trang_thai')
             })
         })
     }
 
-    hien_thi_tra_lai(req,res){
+    hien_thi_tra_lai(req, res) {
         Sale_Schema.findById(req.params._id, function (err, sale) {
             thong_bao_Schema.find(function (err, thong_bao) {
-              Hop_dong_dau_tu_Schema.find(function(err, hop_dong_dau_tu){
-                trang_thai_Schema.find(function(err, trang_thai){
-                  if (err) throw err;
-                  res.render('admin/pages/tra_lai_hop_dong', { thong_bao, sale, hop_dong_dau_tu, trang_thai, message: req.flash('message')});
-                })
-              }).populate('khach_hang').populate('trang_thai')
+                Hop_dong_dau_tu_Schema.find(function (err, hop_dong_dau_tu) {
+                    trang_thai_Schema.find(function (err, trang_thai) {
+                        Lich_su_Schema.find(function (err, lich_sus) {
+                            if (err) throw err;
+                            res.render('admin/pages/tra_lai_hop_dong', {lich_sus, thong_bao, sale, hop_dong_dau_tu, trang_thai, message: req.flash('message') });
+                        })
+                    })
+                }).populate('khach_hang').populate('trang_thai').sort({})
             })
         })
     }
 
-    phe_duyet_tra_lai(req,res){
+    phe_duyet_tra_lai(req, res) {
         var edit_hop_dong = {};
         if (req.body.trang_thai) {
             edit_hop_dong.trang_thai = req.body.trang_thai;
@@ -53,8 +57,8 @@ class hop_dong_tra_thuong_controller {
         }
         Hop_dong_dau_tu_Schema.findByIdAndUpdate(req.params._id, { $set: edit_hop_dong }, options, (err, update_hop_dong) => {
             const new_lich_su = new Lich_su_Schema({
-                nguoi_duyet : req.body.nguoi_duyet,
-                so_tien : req.body.so_tien,
+                nguoi_duyet: req.body.nguoi_duyet,
+                so_tien: req.body.so_tien,
                 hop_dong: req.body.hop_dong,
                 ngay_tra_lai: Date.now()
             });
@@ -64,21 +68,24 @@ class hop_dong_tra_thuong_controller {
         });
     }
 
-    them_hop_dong_tra_thuong(req,res) {
-        const new_hop_dong_tra_thuong = new hop_dong_tra_thuong_Schema({
-            sale : req.body.sale,
-            so_hop_dong : req.body.so_hop_dong,
-            khach_hang: req.body.khach_hang,
-            hoa_hong_thuong: req.body.hoa_hong_thuong,
-            hoa_hong_gian_tiep: req.body.hoa_hong_gian_tiep,
-            hoa_hong_voucher: req.body.hoa_hong_voucher,
-            gia_tri_hop_dong: req.body.gia_tri_hop_dong
+
+
+    check_date(req, res) {
+        var edit_hop_dong = {};
+        if (req.body.trang_thai) {
+            edit_hop_dong.trang_thai = '630ec0a80fc3559888a69f3b';
+        }
+        const options = {
+            new: true,
+        }
+        Hop_dong_dau_tu_Schema.updateMany({ $set: edit_hop_dong }, options, (err, update_hop_dong) => {
+            console.log(update_hop_dong);
+            res.redirect(req.get('referer'));
         });
-        console.log(new_hop_dong_tra_thuong);
-        new_hop_dong_tra_thuong.save();
-        res.redirect(req.get('referer'));
     }
-    them_hop_dong_dau_tu(req,res){
+
+
+    them_hop_dong_dau_tu(req, res) {
         const thang = new Date();
         const month = thang.getMonth() + 1;
         thang.setMonth(month, 0);
@@ -87,26 +94,26 @@ class hop_dong_tra_thuong_controller {
         const ngay_ky = Date();
 
         const new_hop_dong_dau_tu = new Hop_dong_dau_tu_Schema({
-            ma_hop_dong : req.body.ma_hop_dong,
+            ma_hop_dong: req.body.ma_hop_dong,
             trang_thai: req.body.trang_thai,
-            so_tien_dau_tu : req.body.so_tien_dau_tu,
+            so_tien_dau_tu: req.body.so_tien_dau_tu,
             khach_hang: req.body.khach_hang,
             ngay_ky_hop_dong: req.body.ngay_ky_hop_dong,
             thoi_han_dau_tu: req.body.thoi_han_dau_tu,
-            tien_ocopshop: (req.body.so_tien_dau_tu * 0.025) * (10/100),
-            loi_nhuan : {
-                thang_dau: ((req.body.so_tien_dau_tu*0.025)/ngay_trong_thang) * ((ngay_trong_thang - new Date(req.body.ngay_ky_hop_dong).getDate()) + 1),
+            tien_ocopshop: (req.body.so_tien_dau_tu * 0.025) * (10 / 100),
+            loi_nhuan: {
+                thang_dau: ((req.body.so_tien_dau_tu * 0.025) / ngay_trong_thang) * ((ngay_trong_thang - new Date(req.body.ngay_ky_hop_dong).getDate()) + 1),
                 thang: req.body.so_tien_dau_tu * 0.025,
-                thang_cuoi: ((req.body.so_tien_dau_tu*0.025)/ngay_trong_thang) * (ngay_trong_thang - (new Date(req.body.ngay_ky_hop_dong).getDate() -2 ))
+                thang_cuoi: ((req.body.so_tien_dau_tu * 0.025) / ngay_trong_thang) * (ngay_trong_thang - (new Date(req.body.ngay_ky_hop_dong).getDate() - 2))
             }
-            
+
         });
         req.flash('message', 'Thêm mới thành công');
         new_hop_dong_dau_tu.save();
         res.redirect(req.get('referer'));
     }
 
-    xoa_hop_dong_dau_tu(req,res){
+    xoa_hop_dong_dau_tu(req, res) {
         const options = {
             new: true,
             useFindAndModify: false
