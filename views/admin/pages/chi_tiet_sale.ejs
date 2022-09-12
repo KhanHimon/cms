@@ -56,7 +56,7 @@
                                                 <div class="card-body"> 
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            <form action="/admin/sua-nhan-vien/<%= chi_tiet_sale._id %>" method="POST">
+                                                            <form action="/admin/sua-nhan-vien/<%= chi_tiet_sale._id %>" method="POST"  onsubmit='disableButton()'>
                                                             <div class="row">
                                                                 <div class="col-md-4">
                                                                     <div class="mb-3">
@@ -172,10 +172,17 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <button type="submit"
+                                                            <button id="check" type="submit"
                                                                     class="btn btn-soft-info btn-sm card-title mb-0 flex-grow-9">
                                                                      Chỉnh sửa
                                                             </button>
+                                                            <script>
+                                                                function disableButton() {
+                                                                    var btn = document.getElementById('check');
+                                                                    btn.disabled = true;
+                                                                    btn.innerText = 'Đang sửa...';
+                                                                }
+                                                            </script>
                                                             </form>
                                                         </div>
                                                         

@@ -99,7 +99,7 @@
                                                                     <div class="col-md-5">
                                                                         <div class="mb-3">
                                                                             <label for="ngay_cap" class="form-label">Ngày cấp</label>
-                                                                            <input type="text" value="<%= (khach_hang_chi_tiet.ngay_cap).getFullYear() %>-<%= (khach_hang_chi_tiet.ngay_cap).getMonth() + 1 %>-<%= (khach_hang_chi_tiet.ngay_cap).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh" disabled>
+                                                                            <input type="text" value="<%= (khach_hang_chi_tiet.ngay_cap).getFullYear() %>-<%= (khach_hang_chi_tiet.ngay_cap).getMonth(0,10) + 1 %>-<%= (khach_hang_chi_tiet.ngay_cap).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
@@ -200,7 +200,7 @@
                                                                         data-bs-dismiss="modal" aria-label="Close">
                                                                     </button>
                                                                 </div>
-                                                                <form action="/admin/them-hop-dong-dau-tu" method="post">
+                                                                <form action="/admin/them-hop-dong-dau-tu" method="post"  onsubmit='disableButton()'>
                                                                 <div class="modal-body">
                                                                     <div class="row">
                                                                         <input type="hidden" class="form-control" value="<%= khach_hang_chi_tiet._id %>" placeholder="Nhập họ và tên" id="khach_hang" name="khach_hang">
@@ -319,9 +319,16 @@
                                                                             <button type="button" class="btn btn-light"
                                                                                 data-bs-dismiss="modal">Đóng</button>
                                                                             <button type="submit"
-                                                                                class="btn btn-primary ">Thêm mới</button>
+                                                                                class="btn btn-primary" id="check">Thêm mới</button>
                                                                         </div>
                                                                     </div><!-- /.modal-content -->
+                                                                        <script>
+                                                                            function disableButton() {
+                                                                                var btn = document.getElementById('check');
+                                                                                btn.disabled = true;
+                                                                                btn.innerText = 'Đang thêm mới...';
+                                                                            }
+                                                                        </script>
                                                                 </form>
                                                             </div><!-- /.modal-dialog -->
                                                         </div>

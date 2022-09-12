@@ -87,7 +87,7 @@
                                                                         <h5 class="modal-title" id="myModalLabel">Thêm thành viên</h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
-                                                                    <form action="/admin/them-nhan-vien" method="post">
+                                                                    <form action="/admin/them-nhan-vien" method="post" onsubmit='disableButton()'>
                                                                         <div class="card-body">
                                                                             <div class="live-preview">
                                                                                     <div class="row">
@@ -232,7 +232,14 @@
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
-                                                                            <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                            <button type="submit" id="check" class="btn btn-primary ">Thêm mới</button>
+                                                                            <script>
+                                                                                function disableButton() {
+                                                                                    var btn = document.getElementById('check');
+                                                                                    btn.disabled = true;
+                                                                                    btn.innerText = 'Đang thêm mới...';
+                                                                                }
+                                                                            </script>
                                                                         </div>
                                                                     </form>
                                                                 </div>

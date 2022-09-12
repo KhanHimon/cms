@@ -298,7 +298,7 @@
                                                             
                                                             <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog modal-xl">
-                                                                    <form action="/admin/them-khach-hang" method="post">
+                                                                    <form action="/admin/them-khach-hang" method="post"  onsubmit='disableButton()'>
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <h5 class="modal-title" id="myModalLabel">Thêm mới tài khoản</h5>
@@ -538,7 +538,14 @@
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
-                                                                            <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                            <button id="check" type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                            <script>
+                                                                                function disableButton() {
+                                                                                    var btn = document.getElementById('check');
+                                                                                    btn.disabled = true;
+                                                                                    btn.innerText = 'Đang xóa...';
+                                                                                }
+                                                                            </script>
                                                                         </div>
                                                                     </form>
                 
