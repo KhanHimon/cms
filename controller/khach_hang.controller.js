@@ -25,7 +25,7 @@ class khach_hang_Controller {
             User_Schema.find(function (err, khach_hang) {
               thong_bao_Schema.find(function (err, thong_bao) {
                 if (err) throw err;
-                res.render('admin/pages/quan_ly_khach_hang_sale', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang });
+                res.render('admin/pages/quan_ly_khach_hang_sale', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang, message: req.flash('message') });
               })
             })
           }).populate('nhom_kinh_doanh').populate('chuc_vu')
@@ -72,9 +72,17 @@ class khach_hang_Controller {
       email: req.body.email,
       ngay_tham_gia: Date().now
     });
-    console.log(user)
-    user.save();
-    res.redirect(req.get('referer'));
+    User_Schema.find({cccd_cmnd: req.body.cccd_cmnd}).then( resp => {
+      if(resp.length != 0){
+        req.flash('message', 'Khách hàng : ' + user.ho_va_ten + " đã tồn tại");
+        res.redirect(req.get('referer'));
+      } else {
+        console.log(user)
+        user.save();
+        req.flash('message', 'Thêm mới khách hàng : ' + user.ho_va_ten + " thành công");
+        res.redirect(req.get('referer'));
+      }
+    })
   }
 
   thay_doi_thong_tin(req, res) {

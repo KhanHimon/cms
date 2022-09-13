@@ -76,10 +76,18 @@ class sale_Controller {
       ghi_chu: req.body.ghi_chu,
       create_date: Date.now()
     });
-    new_sale.save();
-    console.log(new_sale.ho_va_ten)
-    req.flash('message', 'Thêm mới nhân sự mới : ' + new_sale.ho_va_ten + " thành công");
-    res.redirect(req.get('referer'));
+    Sale_Schema.find({cmnd_cccd: req.body.cmnd_cccd}).then( resp => {
+      if(resp.length != 0){
+        req.flash('message', 'Nhân sự : ' + new_sale.ho_va_ten + " đã tồn tại");
+        res.redirect(req.get('referer'));
+      } else {
+        new_sale.save();
+        console.log(new_sale.ho_va_ten)
+        req.flash('message', 'Thêm mới nhân sự mới : ' + new_sale.ho_va_ten + " thành công");
+        res.redirect(req.get('referer'));
+      }
+    })
+    
   }
 
   thay_doi_thong_tin_sale(req, res) {

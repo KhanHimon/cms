@@ -89,6 +89,17 @@
                                 <!--end row-->
 
                                 <div class="row">
+                                    <% if (message) { %>
+                                        <p id="mess" style="font-size: 16px; color: green;">
+                                            <%= message %>
+                                        </p> 
+                                    <% } %>
+                                    <script>
+                                        setTimeout(() => {
+                                            const box = document.getElementById('mess');
+                                            box.style.display = 'none';
+                                        }, 10000);
+                                    </script>  
                                     <div class="col-xl-12">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
