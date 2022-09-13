@@ -336,7 +336,6 @@
                                                                                             <th scope="col">Số tài khoản</th>
                                                                                             <th scope="col">Ngân hàng</th>
                                                                                             <th scope="col">Chi nhánh</th>
-                                                                                            <th scope="col"></th>
                                                                                         </tr> 
                                                                                     </thead>
                                                                                     <tbody id="myTable">
@@ -385,14 +384,6 @@
                                                                                                     <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
-                                                                                                    
-                                                                                                    <!-- <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
-                                                                                                    </td> -->
                                                                                                 </tr>
                                                                                             <% } %>
                                                                                         <% }); %>
@@ -436,30 +427,36 @@
                                                                                     });
                                                                                 });
                                                                             </script>
+                                                                            <button style="margin-left: 20px;" name="button-b" id="button-b" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                         </div>
                             
                                                                         <div class="card-body">
                                                                             <div class="table-responsive table-card">
-                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <table id="nhan_vien_kinh_doanh" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                     <thead class="text-muted table-light">
                                                                                         <tr>
-                                                                                            <th scope="col">STT</th>
                                                                                             <th scope="col">CODE</th>
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr> 
                                                                                     </thead>
                                                                                     <tbody id="myTable">
-                                                                                        <% var index_1 = 0 %>
-                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                        <% sales.forEach(function(sales){ %>
                                                                                             <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
                                                                                             <% if (sales.chuc_vu._id == "62fb5b8ef1b55b0b9c8745a6") { %>
                                                                                                 
                                                                                                 <tr>
-                                                                                                    <td><%= index_1 %></td>
                                                                                                     <td><%= sales.ma_gioi_thieu %></td>
                                                                                                     <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
@@ -471,15 +468,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -487,6 +503,20 @@
                                                                                         <% }); %>
                                                                                     </tbody><!-- end tbody -->
                                                                                 </table><!-- end table -->
+                                                                                <script>
+                                                                                    var wb = XLSX.utils.table_to_book(document.getElementById('nhan_vien_kinh_doanh'), {sheet:"Sheet JS"});
+                                                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                                    function s2ab(s) {
+                                
+                                                                                                    var buf = new ArrayBuffer(s.length);
+                                                                                                    var view = new Uint8Array(buf);
+                                                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                                    return buf;
+                                                                                    }
+                                                                                    $("#button-b").click(function(){
+                                                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_NVKD.xlsx');
+                                                                                    });
+                                                                                </script>
                                                                             </div>
                                                                             
                                                                         </div>
@@ -510,12 +540,13 @@
                                                                                     });
                                                                                 });
                                                                             </script>
+                                                                            <button style="margin-left: 20px;" name="button-c" id="button-c" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                         </div>
                             
                                                                         <div class="card-body">
                                                                             
                                                                             <div class="table-responsive table-card">
-                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <table id="giam_doc_kinh_doanh" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                     <thead class="text-muted table-light">
                                                                                         <tr>
                                                                                             <th scope="col">STT</th>
@@ -523,8 +554,16 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr>
                                                                                     </thead>
                                                                                     <tbody id="GD_KD">
@@ -545,15 +584,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -561,6 +619,20 @@
                                                                                         <% }); %>
                                                                                     </tbody><!-- end tbody -->
                                                                                 </table><!-- end table -->
+                                                                                <script>
+                                                                                    var wb = XLSX.utils.table_to_book(document.getElementById('giam_doc_kinh_doanh'), {sheet:"Sheet JS"});
+                                                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                                    function s2ab(s) {
+                                
+                                                                                                    var buf = new ArrayBuffer(s.length);
+                                                                                                    var view = new Uint8Array(buf);
+                                                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                                    return buf;
+                                                                                    }
+                                                                                    $("#button-c").click(function(){
+                                                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_GDKD.xlsx');
+                                                                                    });
+                                                                                </script>
                                                                             </div>
                                                                             
                                                                         </div>
@@ -584,12 +656,13 @@
                                                                                     });
                                                                                 });
                                                                             </script>
+                                                                            <button style="margin-left: 20px;" name="button-d" id="button-d" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                         </div>
                             
                                                                         <div class="card-body">
                                                                             
                                                                             <div class="table-responsive table-card">
-                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <table id="giam_doc_tinh" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                     <thead class="text-muted table-light">
                                                                                         <tr>
                                                                                             <th scope="col">STT</th>
@@ -597,8 +670,16 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr>
                                                                                     </thead>
                                                                                     <tbody id="GD_T">
@@ -619,15 +700,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -635,6 +735,20 @@
                                                                                         <% }); %>
                                                                                     </tbody><!-- end tbody -->
                                                                                 </table><!-- end table -->
+                                                                                <script>
+                                                                                    var wb = XLSX.utils.table_to_book(document.getElementById('giam_doc_tinh'), {sheet:"Sheet JS"});
+                                                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                                    function s2ab(s) {
+                                
+                                                                                                    var buf = new ArrayBuffer(s.length);
+                                                                                                    var view = new Uint8Array(buf);
+                                                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                                    return buf;
+                                                                                    }
+                                                                                    $("#button-d").click(function(){
+                                                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_GDT.xlsx');
+                                                                                    });
+                                                                                </script>
                                                                             </div>
                                                                             
                                                                         </div>
@@ -658,12 +772,13 @@
                                                                                     });
                                                                                 });
                                                                             </script>
+                                                                            <button style="margin-left: 20px;" name="button-e" id="button-e" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                         </div>
                             
                                                                         <div class="card-body">
                                                                             
                                                                             <div class="table-responsive table-card">
-                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <table id="giam_doc_vung" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                     <thead class="text-muted table-light">
                                                                                         <tr>
                                                                                             <th scope="col">STT</th>
@@ -671,8 +786,16 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr>
                                                                                     </thead>
                                                                                     <tbody id="GD_V">
@@ -693,15 +816,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -709,6 +851,20 @@
                                                                                         <% }); %>
                                                                                     </tbody><!-- end tbody -->
                                                                                 </table><!-- end table -->
+                                                                                <script>
+                                                                                    var wb = XLSX.utils.table_to_book(document.getElementById('giam_doc_vung'), {sheet:"Sheet JS"});
+                                                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                                    function s2ab(s) {
+                                
+                                                                                                    var buf = new ArrayBuffer(s.length);
+                                                                                                    var view = new Uint8Array(buf);
+                                                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                                    return buf;
+                                                                                    }
+                                                                                    $("#button-e").click(function(){
+                                                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_GDV.xlsx');
+                                                                                    });
+                                                                                </script>
                                                                             </div>
                                                                             
                                                                         </div>
@@ -732,12 +888,13 @@
                                                                                     });
                                                                                 });
                                                                             </script>
+                                                                            <button style="margin-left: 20px;" name="button-f" id="button-f" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                         </div>
                             
                                                                         <div class="card-body">
                                                                             
                                                                             <div class="table-responsive table-card">
-                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <table id="pho_giam_doc" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                     <thead class="text-muted table-light">
                                                                                         <tr>
                                                                                             <th scope="col">STT</th>
@@ -745,8 +902,16 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr>
                                                                                     </thead>
                                                                                     <tbody id="P_GD">
@@ -767,15 +932,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -783,6 +967,20 @@
                                                                                         <% }); %>
                                                                                     </tbody><!-- end tbody -->
                                                                                 </table><!-- end table -->
+                                                                                <script>
+                                                                                    var wb = XLSX.utils.table_to_book(document.getElementById('pho_giam_doc'), {sheet:"Sheet JS"});
+                                                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                                    function s2ab(s) {
+                                
+                                                                                                    var buf = new ArrayBuffer(s.length);
+                                                                                                    var view = new Uint8Array(buf);
+                                                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                                    return buf;
+                                                                                    }
+                                                                                    $("#button-f").click(function(){
+                                                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_PGD.xlsx');
+                                                                                    });
+                                                                                </script>
                                                                             </div>
                                                                             
                                                                         </div>
@@ -806,11 +1004,12 @@
                                                                                     });
                                                                                 });
                                                                             </script>
+                                                                            <button style="margin-left: 20px;" name="button-g" id="button-g" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                         </div>
                             
                                                                         <div class="card-body">
                                                                             <div class="table-responsive table-card">
-                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <table id="cong_tac_vien" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                     <thead class="text-muted table-light">
                                                                                         <tr>
                                                                                             <th scope="col">STT</th>
@@ -818,8 +1017,16 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr> 
                                                                                     </thead>
                                                                                     <tbody id="CTV">
@@ -840,15 +1047,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -856,6 +1082,20 @@
                                                                                         <% }); %>
                                                                                     </tbody><!-- end tbody -->
                                                                                 </table><!-- end table -->
+                                                                                <script>
+                                                                                    var wb = XLSX.utils.table_to_book(document.getElementById('cong_tac_vien'), {sheet:"Sheet JS"});
+                                                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                                    function s2ab(s) {
+                                
+                                                                                                    var buf = new ArrayBuffer(s.length);
+                                                                                                    var view = new Uint8Array(buf);
+                                                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                                    return buf;
+                                                                                    }
+                                                                                    $("#button-g").click(function(){
+                                                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_CTV.xlsx');
+                                                                                    });
+                                                                                </script>
                                                                             </div>
                                                                             
                                                                         </div>
@@ -891,8 +1131,16 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr> 
                                                                                     </thead>
                                                                                     <tbody id="GD_CL">
@@ -913,15 +1161,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -952,11 +1219,12 @@
                                                                                     });
                                                                                 });
                                                                             </script>
+                                                                            <button style="margin-left: 20px;" name="button-k" id="button-k" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                         </div>
                             
                                                                         <div class="card-body">
                                                                             <div class="table-responsive table-card">
-                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <table id="truong_nhom" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                     <thead class="text-muted table-light">
                                                                                         <tr>
                                                                                             <th scope="col">STT</th>
@@ -964,8 +1232,16 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr> 
                                                                                     </thead>
                                                                                     <tbody id="TN">
@@ -986,15 +1262,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -1002,6 +1297,20 @@
                                                                                         <% }); %>
                                                                                     </tbody><!-- end tbody -->
                                                                                 </table><!-- end table -->
+                                                                                <script>
+                                                                                    var wb = XLSX.utils.table_to_book(document.getElementById('truong_nhom'), {sheet:"Sheet JS"});
+                                                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                                    function s2ab(s) {
+                                
+                                                                                                    var buf = new ArrayBuffer(s.length);
+                                                                                                    var view = new Uint8Array(buf);
+                                                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                                    return buf;
+                                                                                    }
+                                                                                    $("#button-k").click(function(){
+                                                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_TN.xlsx');
+                                                                                    });
+                                                                                </script>
                                                                             </div>
                                                                             
                                                                         </div>
@@ -1025,11 +1334,12 @@
                                                                                     });
                                                                                 });
                                                                             </script>
+                                                                            <button style="margin-left: 20px;" name="button-l" id="button-l" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                         </div>
                             
                                                                         <div class="card-body">
                                                                             <div class="table-responsive table-card">
-                                                                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                                <table id="truong_phong" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                     <thead class="text-muted table-light">
                                                                                         <tr>
                                                                                             <th scope="col">STT</th>
@@ -1037,8 +1347,16 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">Dân tộc</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
                                                                                             <th scope="col">Số điện thoại</th>
-                                                                                            <th scope="col"></th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
+                                                                                            <th scope="col">Chi nhánh</th>
                                                                                         </tr> 
                                                                                     </thead>
                                                                                     <tbody id="TP">
@@ -1059,15 +1377,34 @@
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
                                                                                                     </td>
                                                                                                     <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
                                                                                                     </td>
-                                                                                                    
                                                                                                     <td>
-                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                            <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                                <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                            </button>
-                                                                                                        </a>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chi_nhanh %></a>
                                                                                                     </td>
                                                                                                 </tr>
                                                                                             <% } %>
@@ -1075,46 +1412,27 @@
                                                                                         <% }); %>
                                                                                     </tbody><!-- end tbody -->
                                                                                 </table><!-- end table -->
+                                                                                <script>
+                                                                                    var wb = XLSX.utils.table_to_book(document.getElementById('truong_phong'), {sheet:"Sheet JS"});
+                                                                                    var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                                    function s2ab(s) {
+                                
+                                                                                                    var buf = new ArrayBuffer(s.length);
+                                                                                                    var view = new Uint8Array(buf);
+                                                                                                    for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                                    return buf;
+                                                                                    }
+                                                                                    $("#button-l").click(function(){
+                                                                                    saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_TP.xlsx');
+                                                                                    });
+                                                                                </script>
                                                                             </div>
-                                                                            
                                                                         </div>
                                                                     </div> <!-- .card-->
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="table-responsive table-card">
-                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                                            <thead class="text-muted table-light">
-                                                                <tr>
-                                                                    <th scope="col">CODE</th>
-                                                                    <th scope="col">CHỨC VỤ</th>
-                                                                    <th scope="col">HỌ VÀ TÊN</th>
-                                                                    <th scope="col">NGÀY SINH</th>
-                                                                    <th scope="col">ĐIỆN THOẠI</th>
-                                                                    <th scope="col">CMND/CCCD</th>
-                                                                    <th scope="col">EMAIL</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody id="myTable">
-                                                                    <% sales.forEach(function(sales){ %>
-                                                                        <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
-                                                                            <% if (sales.chuc_vu._id != "63099cfeea61e1dad3c7a959" ) { %>
-                                                                                <tr>
-                                                                                    <td><%= sales.ma_gioi_thieu %></td>
-                                                                                    <td><%= sales.chuc_vu.ten_chuc_vu %></td>
-                                                                                    <td><%= sales.ho_va_ten %></td>
-                                                                                    <td><%= sales.nam_sinh %></td>
-                                                                                    <td>0<%= sales.dien_thoai %></td>
-                                                                                    <td><%= sales.cmnd_cccd %></td>
-                                                                                    <td><%= sales.email %></td>
-                                                                                </tr>
-                                                                                <% } %>
-                                                                        <% } %>
-                                                                    <% }); %>
-                                                            </tbody>
-                                                        </table>
-                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div> <!-- .card-->
