@@ -114,6 +114,12 @@
                                                                             <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.dia_chi) %>" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi">
                                                                         </div>
                                                                     </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="mb-3">
+                                                                            <label for="dia_chi_hien_tai" class="form-label">Địa chỉ hiện tại</label>
+                                                                            <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.dia_chi_hien_tai) %>" placeholder="Nhập địa chỉ thường trú" id="dia_chi_hien_tai" name="dia_chi_hien_tai">
+                                                                        </div>
+                                                                    </div>
                                                                     <!--end col-->
                                                                     <div class="col-md-6">
                                                                         <div class="mb-3">
@@ -129,13 +135,13 @@
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-3">
                                                                         <div class="mb-3">
                                                                             <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
                                                                             <input type="number" class="form-control" value="<%= (khach_hang_chi_tiet.so_tai_khoan) %>" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-3">
                                                                         <div class="mb-3">
                                                                             <label for="ngan_hang" class="form-label">Ngân hàng</label>
                                                                             <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.ngan_hang) %>" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang">
@@ -148,13 +154,13 @@
                                                                         </div>
                                                                     </div>
                                                                     <!--end col-->
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-3">
                                                                         <div class="mb-3">
                                                                             <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
                                                                             <input type="text" class="form-control" value="<%= (khach_hang_chi_tiet.ma_gioi_thieu) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" >
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-5">
                                                                         <div class="mb-3">
                                                                             <label for="ma_gioi_thieu" class="form-label">Người tư vấn</label>
                                                                             <% sales.forEach(function(sales){  %>

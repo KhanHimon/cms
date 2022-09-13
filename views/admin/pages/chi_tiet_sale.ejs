@@ -262,19 +262,20 @@
                                                         <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                             <thead class="text-muted table-light">
                                                                 <tr>
-                                                                    <th scope="col">STT</th>
+                                                                    <th scope="col">Chức vụ</th>
                                                                     <th scope="col">Họ và tên</th>
                                                                     <th scope="col">Số điện thoại</th>
-                                                                    <th scope="col">Emai</th>
+                                                                    <th scope="col">Địa chỉ</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <% var index_khach_hang = 0 %>
-                                                                <% sales.forEach(function(hop_dong){ index_khach_hang++ %>
-                                                                    <% if (chi_tiet_sale.ma_code == sales.ma_gioi_thieu ) { %>
+                                                                <% sales.forEach(function(sales){%>
+                                                                    <% if (chi_tiet_sale.ma_gioi_thieu == sales.ma_code ) { %>
                                                                         <tr>
+                                                                            <td><%= sales.chuc_vu.ten_chuc_vu %></td>
                                                                             <td><%= sales.ho_va_ten %></td>
-                                                                            <td><%= hop_dong.khach_hang.ho_va_ten %></td>
+                                                                            <td>0<%= sales.dien_thoai %></td>
+                                                                            <td><%= sales.dia_chi %></td>
                                                                         </tr>
                                                                     <% } %>
                                                                 <% }); %>

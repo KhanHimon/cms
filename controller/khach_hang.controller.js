@@ -59,6 +59,7 @@ class khach_hang_Controller {
       ngay_cap: req.body.ngay_cap,
       nam_sinh: req.body.nam_sinh,
       dia_chi: req.body.dia_chi,
+      dia_chi_hien_tai: req.body.dia_chi_hien_tai,
       dan_toc: req.body.dan_toc,
       vung: req.body.vung,
       tinh: req.body.tinh,
@@ -98,6 +99,9 @@ class khach_hang_Controller {
     }
     if (req.body.dia_chi) {
       edit_khach_hang.dia_chi = req.body.dia_chi;
+    }
+    if (req.body.dia_chi_hien_tai) {
+      edit_khach_hang.dia_chi_hien_tai = req.body.dia_chi_hien_tai;
     }
     if (req.body.dan_toc) {
       edit_khach_hang.dan_toc = req.body.dan_toc;

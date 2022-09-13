@@ -43,7 +43,7 @@ class sale_Controller {
                     })
                   })
                 })
-              })
+              }).populate('chuc_vu')
             })
           }).populate('khach_hang')
         }).populate('nhom_kinh_doanh').populate('chuc_vu')

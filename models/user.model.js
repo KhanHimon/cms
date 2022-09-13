@@ -12,6 +12,7 @@ const User_Schema = new Schema({
     ngay_cap: { type: Date },
     nam_sinh: { type: Date },
     dia_chi: { type: String },
+    dia_chi_hien_tai: { type: String },
     dan_toc: { type: String },
     vung: {type: String},
     tinh: {type: String},
