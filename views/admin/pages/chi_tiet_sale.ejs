@@ -74,7 +74,7 @@
                                                                     <div class="mb-3">
                                                                         <label for="chuc_vu" class="form-label">Chức vụ</label>
                                                                         <select class="form-select mb-3" aria-label=".form-select-lg example"  id="chuc_vu" name="chuc_vu">
-                                                                            <option selected>Chức vụ hiện tại : <%= chi_tiet_sale.chuc_vu.ten_chuc_vu %> </option>
+                                                                            <option value="<%= chi_tiet_sale.chuc_vu._id %>" selected>Chức vụ hiện tại : <%= chi_tiet_sale.chuc_vu.ten_chuc_vu %> </option>
                                                                             <option>Chọn chức vụ</option>
                                                                             <% var chuc_vu_index = 0 %>
                                                                             <% chuc_vus.forEach(function(chuc_vu){ chuc_vu_index++ %>
@@ -193,7 +193,7 @@
                                         <div class="col-xl-3">
                                             <div class="card">
                                                 <div class="card-header align-items-center d-flex">
-                                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách khách hàng của sale</h4>
+                                                    <h4 class="card-title mb-0 flex-grow-1">Khách hàng</h4>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="table-responsive table-card">
@@ -242,6 +242,38 @@
                                                                     <% if (chi_tiet_sale.ma_gioi_thieu == hop_dong.khach_hang.ma_gioi_thieu ) { %>
                                                                         <tr>
                                                                             <td><%= hop_dong.ma_hop_dong %></td>
+                                                                            <td><%= hop_dong.khach_hang.ho_va_ten %></td>
+                                                                        </tr>
+                                                                    <% } %>
+                                                                <% }); %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <div class="card">
+                                                <div class="card-header align-items-center d-flex">
+                                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách nhân viên cấp dưới</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive table-card">
+                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                            <thead class="text-muted table-light">
+                                                                <tr>
+                                                                    <th scope="col">STT</th>
+                                                                    <th scope="col">Họ và tên</th>
+                                                                    <th scope="col">Số điện thoại</th>
+                                                                    <th scope="col">Emai</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% var index_khach_hang = 0 %>
+                                                                <% sales.forEach(function(hop_dong){ index_khach_hang++ %>
+                                                                    <% if (chi_tiet_sale.ma_code == sales.ma_gioi_thieu ) { %>
+                                                                        <tr>
+                                                                            <td><%= sales.ho_va_ten %></td>
                                                                             <td><%= hop_dong.khach_hang.ho_va_ten %></td>
                                                                         </tr>
                                                                     <% } %>
