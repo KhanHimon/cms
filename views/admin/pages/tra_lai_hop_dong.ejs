@@ -69,6 +69,10 @@
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Danh sách hợp đồng</h4>
+                                                <form name="myForm" id="myForm" action="/admin/check-trang-thai" method="post">
+                                                    <input id="trang_thai" name="trang_thai" value="630ec0a80fc3559888a69f3b" type="hidden">
+                                                    <button type="submit" class="btn btn-success">Reset tháng mới</button>
+                                                </form>
                                             </div><!-- end card header -->
 
                                             <div class="card-body">
@@ -778,7 +782,7 @@
                                                                                 </div><!-- /.modal-dialog -->
                                                                             </div><!-- /.modal -->
                                                                         </td>
-                                                                        <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
+                                                                        <!-- <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                                                                             <td>
                                                                                 <form action="/admin/xoa-hop-dong/<%= hop_dong_dau_tu._id %>" method="post">
                                                                                     <button type="submit" class="btn btn-success">
@@ -786,13 +790,7 @@
                                                                                     </button>
                                                                                 </form>
                                                                             </td>
-                                                                        <% } %>
-                                                                        <td>
-                                                                            <form action="/admin/check-trang-thai/<%= hop_dong_dau_tu._id %>" method="post">
-                                                                                <input id="trang_thai" name="trang_thai" value="630ec0a80fc3559888a69f3b" type="hidden">
-                                                                                <button type="submit" class="btn btn-success">Reset</button>
-                                                                            </form>
-                                                                        </td>
+                                                                        <% } %> -->
                                                                     </tr>
                                                                 <% }); %>
                                                             </div>

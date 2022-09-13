@@ -28,9 +28,11 @@ class lich_su_tra_thuong_controller {
                 populate: {
                     path: 'khach_hang'
                 }
-            }).populate('trang_thai')
+            }).populate('trang_thai').sort({ngay_tra_lai: -1})
         })
     }
+
+   
 }
 
 module.exports = new lich_su_tra_thuong_controller

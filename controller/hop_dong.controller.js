@@ -86,6 +86,18 @@ class hop_dong_tra_thuong_controller {
         });
     }
 
+    reset_lich_su(req,res){
+        Hop_dong_dau_tu_Schema.updateMany({trang_thai:{$gte:"630ec05c0fc3559888a69f3a"}}, 
+            {trang_thai:"630ec0a80fc3559888a69f3b"}, function (err, hop_dongs) {
+            if (err){
+                console.log(err)
+            }
+            else{
+                res.redirect(req.get('referer'));
+            }
+        });
+    }
+
 
     them_hop_dong_dau_tu(req, res) {
         const thang = new Date();
