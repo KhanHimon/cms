@@ -80,7 +80,7 @@
                                                                     <div class="col-md-4">
                                                                         <div class="mb-3">
                                                                             <label for="nam_sinh" class="form-label">Ngày sinh</label>
-                                                                            <input type="text" disabled value="<%= (khach_hang_chi_tiet.nam_sinh).getFullYear() %>-<%= (khach_hang_chi_tiet.nam_sinh).getMonth() + 1 %>-<%= (khach_hang_chi_tiet.nam_sinh).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh">
+                                                                            <input type="date" value="<%= (khach_hang_chi_tiet.nam_sinh).getFullYear() %>-<%= String(khach_hang_chi_tiet.nam_sinh.getMonth() + 1).padStart(2, '0') %>-<%= String(khach_hang_chi_tiet.nam_sinh.getDate()).padStart(2, '0') %>" class="form-control" id="nam_sinh" name="nam_sinh">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
@@ -99,7 +99,7 @@
                                                                     <div class="col-md-5">
                                                                         <div class="mb-3">
                                                                             <label for="ngay_cap" class="form-label">Ngày cấp</label>
-                                                                            <input type="text" value="<%= (khach_hang_chi_tiet.ngay_cap).getFullYear() %>-<%= (khach_hang_chi_tiet.ngay_cap).getMonth(0,10) + 1 %>-<%= (khach_hang_chi_tiet.ngay_cap).getDate() %>" class="form-control" id="nam_sinh" name="nam_sinh" disabled>
+                                                                            <input type="date" value="<%= (khach_hang_chi_tiet.ngay_cap).getFullYear() %>-<%= String(khach_hang_chi_tiet.ngay_cap.getMonth() + 1).padStart(2, '0') %>-<%= String(khach_hang_chi_tiet.ngay_cap.getDate()).padStart(2, '0') %>" class="form-control" id="nam_sinh" name="nam_sinh">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-6">
