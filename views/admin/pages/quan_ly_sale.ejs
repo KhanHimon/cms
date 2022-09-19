@@ -160,7 +160,7 @@
                                                                                                 <div class="col-md-4">
                                                                                                     <div class="mb-3">
                                                                                                         <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
-                                                                                                        <input type="number" class="form-control" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
+                                                                                                        <input type="text" class="form-control" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <div class="col-md-4">
@@ -308,7 +308,6 @@
                                                                                             <th scope="col">Họ và tên</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
-                                                                                            <th scope="col">Dân tộc</th>
                                                                                             <th scope="col">CCCD/CMND</th>
                                                                                             <th scope="col">Ngày cấp</th>
                                                                                             <th scope="col">Nơi cấp</th>
@@ -333,9 +332,6 @@
                                                                                                 </td>
                                                                                                 <td>
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dan_toc %></a>
                                                                                                 </td>
                                                                                                 <td>
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
