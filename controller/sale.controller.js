@@ -67,7 +67,7 @@ class sale_Controller {
       dien_thoai: req.body.dien_thoai,
       email: req.body.email,
       dia_chi: req.body.dia_chi,
-      ma_gioi_thieu: "GMG" + Math.floor(Math.random() * 1000),
+      ma_gioi_thieu: "GMG" + Math.floor(Math.random() * 100) + Math.floor(Math.random() * 100),
       ma_code: req.body.ma_code,
       nhom_kinh_doanh: req.body.nhom_kinh_doanh,
       chuc_vu: req.body.chuc_vu,
@@ -86,8 +86,7 @@ class sale_Controller {
         req.flash('message', 'Thêm mới nhân sự mới : ' + new_sale.ho_va_ten + " thành công");
         res.redirect(req.get('referer'));
       }
-    })
-    
+    });
   }
 
   thay_doi_thong_tin_sale(req, res) {
