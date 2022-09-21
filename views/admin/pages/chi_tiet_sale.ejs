@@ -74,7 +74,7 @@
                                                                     <div class="mb-3">
                                                                         <label for="chuc_vu" class="form-label">Chức vụ</label>
                                                                         <select class="form-select mb-3" aria-label=".form-select-lg example"  id="chuc_vu" name="chuc_vu">
-                                                                            <option value="<%= chi_tiet_sale.chuc_vu._id %>" selected>Chức vụ hiện tại : <%= chi_tiet_sale.chuc_vu.ten_chuc_vu %> </option>
+                                                                            <option value="<%= chi_tiet_sale.chuc_vu._id %>" selected>Chức vụ : <%= chi_tiet_sale.chuc_vu.ten_chuc_vu %> </option>
                                                                             <option>Chọn chức vụ</option>
                                                                             <% var chuc_vu_index = 0 %>
                                                                             <% chuc_vus.forEach(function(chuc_vu){ chuc_vu_index++ %>
@@ -169,6 +169,256 @@
                                                                                 <input type="text" class="form-control" value="<%= (sales.ho_va_ten) %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
                                                                             <% } %>
                                                                         <% }); %>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="ma_code" class="form-label">Trạng thái quyết định</label>
+                                                                        <input type="text" disabled class="form-control" value="<%= chi_tiet_sale.trang_thai_quyet_dinh %>" placeholder="Nhập mã giới thiệu" id="ma_code" name="ma_code">
+                                                                    </div>
+                                                                </div>
+                                                                <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" ) { %>
+                                                                    <div class="col-md-3">
+                                                                        <label for="ma_code" class="form-label">Người tạo</label>
+                                                                        <input type="text" disabled class="form-control" value="<%= chi_tiet_sale.nguoi_them %>" placeholder="Người tạo" id="" name="">
+                                                                    </div>
+                                                                    <% if (chi_tiet_sale.create_date ) { %>
+                                                                    <div class="col-md-3">
+                                                                        <label for="ma_code" class="form-label">Ngày tạo</label>
+                                                                        <input type="text" disabled class="form-control" value="<%= chi_tiet_sale.create_date.getDate() %>-<%= chi_tiet_sale.create_date.getMonth() + 1 %>-<%= chi_tiet_sale.create_date.getFullYear() %> (<%= chi_tiet_sale.create_date.getHours() %>:<%= chi_tiet_sale.create_date.getMinutes() %>)" placeholder="Người tạo" id="" name="">
+                                                                    </div>
+                                                                    <% } %>
+                                                                <% } %>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="trang_thai_quyet_dinh" class="form-label">Trạng thái quyết định</label>
+                                                                        <div class="input-group">
+                                                                            <label class="input-group-text" for="trang_thai_quyet_dinh">QĐ-Bổ nhiệm</label>
+                                                                            <select class="form-select" id="trang_thai_quyet_dinh" name="trang_thai_quyet_dinh">
+                                                                                <option value="<%= chi_tiet_sale.trang_thai_quyet_dinh %>"><%= chi_tiet_sale.trang_thai_quyet_dinh %></option>
+                                                                                <option selected>Chọn...</option>
+                                                                                <option value="Chưa duyệt">Chưa duyệt</option>
+                                                                                <option value="Đã duyệt">Đã duyệt</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="ma_code" class="form-label">Quyết định bổ nhiệm</label>
+                                                                        <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#tao_hop_dong_dau_tu<%= chi_tiet_sale._id %>"><i class="ri-file-user-line label-icon align-middle rounded-pill fs-16 me-2"></i> Xem</button>
+                                                                            <div id="tao_hop_dong_dau_tu<%= chi_tiet_sale._id %>" class="modal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                                                <div class="modal-dialog modal-xl">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h5 class="modal-title" id="myModalLabel">Quyết định bổ nhiệm : <%= chi_tiet_sale.ho_va_ten %>  </h5>
+                                                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+                                                                                        </div>
+                                                                                        <div class="modal-body" style="width: 1000px; font-size: 14px;  margin-left: 6%;">
+                                                                                            <div id="exportContent">
+                                                                                                <table style="border: none;width:6.3in;margin-left:5.4pt;border-collapse:collapse;">
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <td style="width: 184.3pt;padding: 0in 5.4pt;height: 42.05pt;vertical-align: top;">
+                                                                                                                <p style='margin:0in;margin-bottom:1.0pt;font-size:16px;font-family:"Times New Roman",serif;margin-top:.05in;margin-right:0in;margin-left:0in;text-align:center;'><strong>C&Ocirc;NG TY CỔ PHẦN&nbsp;</strong></p>
+                                                                                                                <p style='margin:0in;margin-bottom:1.0pt;font-size:16px;font-family:"Times New Roman",serif;margin-top:.05in;margin-right:0in;margin-left:0in;text-align:center;'><strong>TẬP ĐO&Agrave;N CHỢ TO&Agrave;N CẦU</strong></p>
+                                                                                                            </td>
+                                                                                                            <td style="width: 269.3pt;padding: 0in 5.4pt;height: 42.05pt;vertical-align: top;">
+                                                                                                                <p style='margin:0in;margin-bottom:1.0pt;font-size:16px;font-family:"Times New Roman",serif;margin-top:.05in;margin-right:0in;margin-left:0in;text-align:center;'><strong>CỘNG H&Ograve;A X&Atilde; HỘI CHỦ NGHĨA VIỆT NAM</strong></p>
+                                                                                                                <p style='margin:0in;margin-bottom:1.0pt;font-size:16px;font-family:"Times New Roman",serif;margin-top:.05in;margin-right:0in;margin-left:0in;text-align:center;'><strong><span style="font-size:17px;">Độc lập - Tự do - Hạnh ph&uacute;c</span></strong></p>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td style="width: 184.3pt;padding: 0in 5.4pt;height: 18.1pt;vertical-align: top;">
+                                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><em><span style="font-size:17px;">Số: &hellip;&hellip;. /QĐ-GMG</span></em></p>
+                                                                                                            </td>
+                                                                                                            <td style="width: 269.3pt;padding: 0in 5.4pt;height: 18.1pt;vertical-align: bottom;">
+                                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:right;'><em><span style="font-size:17px;">&nbsp;H&agrave; Nội, ng&agrave;y &hellip;&hellip; th&aacute;ng &hellip;&hellip; năm 2022</span></em></p>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td style="width: 184.3pt;padding: 0in 5.4pt;height: 17.75pt;vertical-align: bottom;">
+                                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'>&nbsp;</p>
+                                                                                                            </td>
+                                                                                                            <td style="width: 269.3pt;padding: 0in 5.4pt;height: 17.75pt;vertical-align: bottom;">
+                                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;'><em><span style="font-size:17px;">&nbsp;</span></em></p>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><strong><span style="font-size:19px;">QUYẾT ĐỊNH</span></strong></p>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><span style="font-size:17px;">V/v: Bổ nhiệm <%= chi_tiet_sale.chuc_vu.ten_chuc_vu %></span></p>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><u><span style="font-size:19px;">__________________</span></u></p>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><u><span style="font-size:19px;"><span style="text-decoration:none;">&nbsp;</span></span></u></p>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><strong><span style="font-size:17px;">TỔNG GI&Aacute;M ĐỐC</span></strong></p>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><strong><span style="font-size:17px;">C&Ocirc;NG TY CỔ PHẦN TẬP ĐO&Agrave;N CHỢ TO&Agrave;N CẦU</span></strong></p>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:justify;text-indent:27.0pt;'><span style="font-size:17px;">&nbsp;</span></p>
+                                                                                                <ul style="list-style-type: undefined;margin-left:25.450000000000003px;">
+                                                                                                    <li><em><span style="font-size:13.0pt;">Căn cứ Luật doanh nghiệp 2020;</span></em></li>
+                                                                                                    <li><em><span style="font-size:13.0pt;">Căn cứ Đăng k&yacute; Doanh nghiệp số 2802772702 do Sở KHĐT Th&agrave;nh phố H&agrave; Nội cấp lần đầu ng&agrave;y 29 th&aacute;ng 08 năm 2019;</span></em></li>
+                                                                                                    <li><em><span style="font-size:13.0pt;">Căn cứ Điều lệ C&ocirc;ng ty cổ phần Tập đo&agrave;n Chợ To&agrave;n Cầu;</span></em></li>
+                                                                                                    <li><em><span style="font-size:17px;">Căn cứ Quyết định số 07/QĐ-GMG ng&agrave;y 15/6/2022 của Tổng Gi&aacute;m đốc C&ocirc;ng ty Cổ phần Tập đo&agrave;n Chợ To&agrave;n Cầu V/v ph&acirc;n v&ugrave;ng quản l&yacute; v&agrave; ph&aacute;t triển thị trường;</span></em></li>
+                                                                                                    <li><em><span style="font-size:13.0pt;">Căn cứ t&igrave;nh h&igrave;nh hoạt động thực tế của C&ocirc;ng ty.</span></em></li>
+                                                                                                </ul>
+                                                                                                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:21.3pt;font-size:16px;font-family:"Times New Roman",serif;text-align:justify;'><em><span style="font-size:17px;">&nbsp;</span></em></p>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><strong><span style="font-size:19px;">QUYẾT ĐỊNH:</span></strong></p>
+                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;text-align:center;'><span style="font-size:17px;">&nbsp;</span></p>
+                                                                                                <ol style="list-style-type: undefined;margin-left:-0.5in;">
+                                                                                                    <li><span style="line-height:120%;font-size:17px;"><strong>&nbsp;Điều 1.</strong></span><span style="line-height:120%;font-size:17px;">Bổ nhiệm: <%= chi_tiet_sale.ho_va_ten %> &nbsp;- CCCD số</span> <%= chi_tiet_sale.cmnd_cccd %> <span style="line-height:120%;font-size:17px;">cấp ng&agrave;y 23/07/2021 tại Cục cảnh s&aacute;t QLHC v&agrave; TTXH l&agrave;m <%= chi_tiet_sale.chuc_vu.ten_chuc_vu %> C&ocirc;ng ty Cổ phần Tập đo&agrave;n Chợ To&agrave;n Cầu.</span></li>
+                                                                                                    <li><span style="line-height:120%;font-size:17px;"><strong>&nbsp;Điều 2.</strong><%= chi_tiet_sale.ho_va_ten %> chịu tr&aacute;ch nhiệm thực hiện nhiệm vụ ph&aacute;t triển kinh doanh theo quy chế v&agrave; c&aacute;c quy định của C&ocirc;ng ty Cổ phần Tập đo&agrave;n Chợ To&agrave;n Cầu.</span></li>
+                                                                                                    <li><span style="line-height:120%;font-size:17px;"><strong>&nbsp;Điều 3.</strong>Quyết định n&agrave;y c&oacute; hiệu lực kể từ ng&agrave;y k&yacute; ban h&agrave;nh. Văn ph&ograve;ng Đại diện, c&aacute;c Ph&ograve;ng, Ban li&ecirc;n quan C&ocirc;ng ty Cổ phần Tập đo&agrave;n Chợ To&agrave;n Cầu v&agrave; B&agrave; <%= chi_tiet_sale.ho_va_ten %> chịu tr&aacute;ch nhiệm thi h&agrave;nh Quyết định n&agrave;y./.</span></li>
+                                                                                                </ol>
+                                                                                                <p style='margin:0in;margin-bottom:6.0pt;font-size:16px;font-family:"Times New Roman",serif;margin-top:3.0pt;margin-right:0in;margin-left:0in;text-align:justify;line-height:120%;'><span style="font-size:17px;line-height:120%;">&nbsp;</span></p>
+                                                                                                <table style="border: none;width:6.3in;margin-left:5.4pt;border-collapse:collapse;">
+                                                                                                    <tbody>
+                                                                                                        <tr>
+                                                                                                            <td style="width: 99.25pt;padding: 0in 5.4pt;height: 70.65pt;vertical-align: top;">
+                                                                                                                <p style='margin:0in;margin-bottom:  6.0pt;font-size:16px;font-family:"Times New Roman",serif;margin-top:2.0pt;margin-right:0in;margin-left:.25in;text-indent:-.25in;'><strong>Nơi nhận:</strong></p>
+                                                                                                                <div style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;'>
+                                                                                                                    <ul style="margin-bottom:0in;list-style-type: undefined;margin-left:-0.25in;">
+                                                                                                                        <li style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;'><em><span style="font-size:15px;">Như điều 3;</span></em></li>
+                                                                                                                        <li style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;'><em><span style="font-size:15px;">HĐQT (để b/c);</span></em></li>
+                                                                                                                        <li style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;'><em><span style="font-size:15px;">Lưu: VT.</span></em><span style="font-size:15px;">&nbsp;</span></li>
+                                                                                                                    </ul>
+                                                                                                                </div>
+                                                                                                            </td>
+                                                                                                            <td style="width: 354.35pt;padding: 0in 5.4pt;height: 70.65pt;vertical-align: top;">
+                                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;margin-top:2.0pt;margin-right:0in;margin-left:.25in;text-align:center;'><strong><span style="font-size:17px;">TM.C&Ocirc;NG TY CỔ PHẦN TẬP ĐO&Agrave;N CHỢ TO&Agrave;N CẦU</span></strong></p>
+                                                                                                                <p style='margin:0in;margin-bottom:.0001pt;font-size:16px;font-family:"Times New Roman",serif;margin-top:2.0pt;margin-right:0in;margin-left:.25in;text-align:center;'><strong><span style="font-size:17px;"><%= chi_tiet_sale.trang_thai_quyet_dinh %></span></strong></p>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    </tbody>
+                                                                                                </table>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy bỏ</button>
+                                                                                            <button type="button" class="btn btn-primary " onclick="Export2Doc('exportContent', 'HĐHT_ĐT_');">Tải xuống</button>
+                                                                                            <script>
+                                                                                                function Export2Doc(element, filename = '') {
+                                                                                                    var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+                                                                                                    var postHtml = "</body></html>";
+                                                                                                    var html = preHtml + document.getElementById(element).innerHTML + postHtml;
+    
+                                                                                                    var blob = new Blob(['\ufeff', html], {
+                                                                                                        type: 'application/msword'
+                                                                                                    });
+    
+                                                                                                    var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html)
+    
+                                                                                                    filename = filename ? filename + '.doc' : 'document.doc';
+    
+                                                                                                    var downloadLink = document.createElement("a");
+    
+                                                                                                    document.body.appendChild(downloadLink);
+    
+                                                                                                    if (navigator.msSaveOrOpenBlob) {
+                                                                                                        navigator.msSaveOrOpenBlob(blob, filename);
+                                                                                                    } else {
+                                                                                                        downloadLink.href = url;
+    
+                                                                                                        downloadLink.download = filename;
+    
+                                                                                                        downloadLink.click();
+                                                                                                    }
+    
+                                                                                                    document.body.removeChild(downloadLink);
+    
+    
+                                                                                                };
+                                                                                                const defaultNumbers =' hai ba bốn năm sáu bảy tám chín';
+    
+                                                                                                const chuHangDonVi = ('1 một' + defaultNumbers).split(' ');
+                                                                                                const chuHangChuc = ('lẻ mười' + defaultNumbers).split(' ');
+                                                                                                const chuHangTram = ('không một' + defaultNumbers).split(' ');
+    
+                                                                                                function convert_block_three(number) {
+                                                                                                if(number == '000') return '';
+                                                                                                var _a = number + ''; //Convert biến 'number' thành kiểu string
+    
+                                                                                                //Kiểm tra độ dài của khối
+                                                                                                switch (_a.length) {
+                                                                                                    case 0: return '';
+                                                                                                    case 1: return chuHangDonVi[_a];
+                                                                                                    case 2: return convert_block_two(_a);
+                                                                                                    case 3: 
+                                                                                                    var chuc_dv = '';
+                                                                                                    if (_a.slice(1,3) != '00') {
+                                                                                                        chuc_dv = convert_block_two(_a.slice(1,3));
+                                                                                                    }
+                                                                                                    var tram = chuHangTram[_a[0]] + ' trăm';
+                                                                                                    return tram + ' ' + chuc_dv;
+                                                                                                }
+                                                                                                }
+    
+                                                                                                function convert_block_two(number) {
+                                                                                                var dv = chuHangDonVi[number[1]];
+                                                                                                var chuc = chuHangChuc[number[0]];
+                                                                                                var append = '';
+    
+                                                                                                // Nếu chữ số hàng đơn vị là 5
+                                                                                                if (number[0] > 0 && number[1] == 5) {
+                                                                                                    dv = 'lăm'
+                                                                                                }
+    
+                                                                                                // Nếu số hàng chục lớn hơn 1
+                                                                                                if (number[0] > 1) {
+                                                                                                    append = ' mươi';
+                                                                                                    
+                                                                                                    if (number[1] == 1) {
+                                                                                                    dv = ' mốt';
+                                                                                                    }
+                                                                                                }
+    
+                                                                                                return chuc + '' + append + ' ' + dv; 
+                                                                                                }
+                                                                                                const dvBlock = '1 nghìn triệu tỷ'.split(' ');
+    
+                                                                                                function to_vietnamese(number) {
+                                                                                                var str = parseInt(number) + '';
+                                                                                                var i = 0;
+                                                                                                var arr = [];
+                                                                                                var index = str.length;
+                                                                                                var result = [];
+                                                                                                var rsString = '';
+    
+                                                                                                if (index == 0 || str == 'NaN') {
+                                                                                                    return '';
+                                                                                                }
+    
+                                                                                                // Chia chuỗi số thành một mảng từng khối có 3 chữ số
+                                                                                                while (index >= 0) {
+                                                                                                    arr.push(str.substring(index, Math.max(index - 3, 0)));
+                                                                                                    index -= 3;
+                                                                                                }
+    
+                                                                                                // Lặp từng khối trong mảng trên và convert từng khối đấy ra chữ Việt Nam
+                                                                                                for (i = arr.length - 1; i >= 0; i--) {
+                                                                                                    if (arr[i] != '' && arr[i] != '000') {
+                                                                                                    result.push(convert_block_three(arr[i]));
+    
+                                                                                                    // Thêm đuôi của mỗi khối
+                                                                                                    if (dvBlock[i]) {
+                                                                                                        result.push(dvBlock[i]);
+                                                                                                    }
+                                                                                                    }
+                                                                                                }
+    
+                                                                                                // Join mảng kết quả lại thành chuỗi string
+                                                                                                rsString = result.join(' ');
+    
+                                                                                                // Trả về kết quả kèm xóa những ký tự thừa
+                                                                                                return rsString.replace(/[0-9]/g, '').replace(/ /g,' ').replace(/ $/,'');
+                                                                                                }
+                                                                                                var sdt =  parseInt('');
+                                                                                                // var tien_dau_du = to_vietnamese(sdt);
+                                                                                                    document.getElementById('tien_dau_tu').innerHTML = to_vietnamese(sdt)
+                                                                                            </script>
+                                                                                        </div>
+                                                                                    </div><!-- /.modal-content -->
+                                                                                </div><!-- /.modal-dialog -->
+                                                                            </div><!-- /.modal -->
                                                                     </div>
                                                                 </div>
                                                             </div>

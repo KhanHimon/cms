@@ -102,6 +102,7 @@
                                                         </thead>
                                                         <tbody id="myTable">
                                                                 <% hop_dong_dau_tu.forEach(function(hop_dong_dau_tu){ %>
+                                                                    <% if (hop_dong_dau_tu.khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
                                                                     <tr>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.ma_hop_dong %></a>
@@ -727,7 +728,60 @@
                                                                             </td>
                                                                             <% } %>
                                                                     </tr>
+                                                                    <% } %>
                                                                 <% }); %>
+                                                                <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
+                                                                <% hop_dong_dau_tu.forEach(function(hop_dong_dau_tu){ %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.ma_hop_dong %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.ho_va_ten %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary">0<%= hop_dong_dau_tu.khach_hang.so_dien_thoai %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.cccd_cmnd %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.so_tien_dau_tu.toLocaleString() %> đ</a>
+                                                                        </td>
+                                                                        <% if ((hop_dong_dau_tu.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
+                                                                            <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= hop_dong_dau_tu.loi_nhuan.thang_dau.toFixed(0) %>">0</span> đ</td>
+                                                                            <% } %>
+                                                                            <% if ((hop_dong_dau_tu.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
+                                                                              <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= hop_dong_dau_tu.loi_nhuan.thang.toLocaleString() %> đ</td>
+                                                                            <% } %>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary">Ngày <%= hop_dong_dau_tu.ngay_ky_hop_dong.getDate() %>-<%= hop_dong_dau_tu.ngay_ky_hop_dong.getMonth() +1 %>-<%= hop_dong_dau_tu.ngay_ky_hop_dong.getFullYear() %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.so_tai_khoan %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.ngan_hang %></a>
+                                                                        </td>
+                                                                        <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
+                                                                            <td>
+                                                                                <form action="/admin/xoa-hop-dong/<%= hop_dong_dau_tu._id %>" method="post" onsubmit='disableButton()'>
+                                                                                    <button type="submit" class="btn btn-soft-info btn-sm" id="check">
+                                                                                        <i class="ri-delete-bin-2-fill align-middle"></i> Xóa
+                                                                                    </button>
+                                                                                    <script>
+                                                                                        function disableButton() {
+                                                                                            var btn = document.getElementById('check');
+                                                                                            btn.disabled = true;
+                                                                                            btn.innerText = 'Đang xóa...';
+                                                                                        }
+                                                                                    </script>
+                                                                                </form>
+                                                                            </td>
+                                                                            <% } %>
+                                                                    </tr>
+                                                                <% }); %>
+                                                                <% } %>
                                                             </div>
                                                         </tbody><!-- end tbody -->
                                                     </table><!-- end table -->

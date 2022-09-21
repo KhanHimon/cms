@@ -18,10 +18,12 @@ const Sale_Schema = new Schema({
     chi_nhanh: { type: String, default: "Chưa có" },
     ma_gioi_thieu: { type: String },
     ma_code: {type: String},
+    trang_thai_quyet_dinh: {type: String},
     nhom_kinh_doanh: {
         type: Schema.Types.ObjectId,
         ref:'Nhom_sale'
     },
+    nguoi_them: {type: String},
     chuc_vu:{
         type: Schema.Types.ObjectId,
         ref:'Chuc_vu'

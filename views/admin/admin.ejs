@@ -174,49 +174,31 @@
 
                         <div class="col-xxl-7">
                             <div class="row h-100">
-                                <div class="col-xl-6">
+                                <div class="col-xl-12">
                                     <div class="card card-height-100">
                                         <div class="card-header align-items-center d-flex">
-                                            <h4 class="card-title mb-0 flex-grow-1">Nhân viên xuất sắc</h4>
-                                            <div class="flex-shrink-0">
-                                                <button type="button" class="btn btn-soft-primary btn-sm">
-                                                    Export Report
-                                                </button>
-                                            </div>
+                                            <h4 class="card-title mb-0 flex-grow-1">Thông báo và sự kiện</h4>
                                         </div><!-- end card header -->
                                         <!-- card body -->
                                         <div class="card-body">
-                                            <div id="users-by-country" data-colors='["--vz-light"]' class="text-center" style="height: 252px"></div>
-                                            <div class="table-responsive table-card mt-3">
+                                            <div class="table-responsive table-card">
                                                 <table class="table table-borderless table-sm table-centered align-middle table-nowrap mb-1">
                                                     <thead class="text-muted border-dashed border border-start-0 border-end-0 bg-soft-light">
                                                         <tr>
-                                                            <th>Duration (Secs)</th>
-                                                            <th style="width: 30%;">Sessions</th>
-                                                            <th style="width: 30%;">Views</th>
+                                                            <th>Thông báo</th>
+                                                            <th style="width: 70%">Mô tả</th>
+                                                            <th>Ngày</th>
+                                                            <th></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody class="border-0">
+                                                        <% thong_bao.forEach(function(thong_bao){ %>
                                                         <tr>
-                                                            <td>0-30</td>
-                                                            <td>2,250</td>
-                                                            <td>4,250</td>
+                                                            <td> <b>[<%= thong_bao.tieu_de_thong_bao %>]</b> </td>
+                                                            <td><a href="<%= thong_bao.noi_dung_thong_bao %>"  target="_blank" rel="noopener noreferrer"> <%= thong_bao.mo_ta_thong_bao %></a></td>
+                                                            <td><a href="<%= thong_bao.noi_dung_thong_bao %>"  target="_blank" rel="noopener noreferrer"><%= thong_bao.ngay_thong_bao.getDate() %>/<%= thong_bao.ngay_thong_bao.getMonth() + 1 %>/<%= thong_bao.ngay_thong_bao.getFullYear() %></a></td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>31-60</td>
-                                                            <td>1,501</td>
-                                                            <td>2,050</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>61-120</td>
-                                                            <td>750</td>
-                                                            <td>1,600</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>121-240</td>
-                                                            <td>540</td>
-                                                            <td>1,040</td>
-                                                        </tr>
+                                                        <% }); %>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -224,40 +206,6 @@
                                         <!-- end card body -->
                                     </div><!-- end card -->
                                 </div><!-- end col -->
-
-                                <div class="col-xl-6 col-md-6">
-                                    <div class="card card-height-100">
-                                        <div class="card-header align-items-center d-flex">
-                                            <h4 class="card-title mb-0 flex-grow-1">Top nhà đầu tư</h4>
-                                        </div><!-- end card header -->
-                                        <div class="card-body">
-                                            <div class="table-responsive table-card">
-                                                <table class="table align-middle table-borderless table-centered table-nowrap mb-0">
-                                                    <thead class="text-muted table-light">
-                                                        <tr>
-                                                            <th scope="col" style="width: 62;">Họ và tên</th>
-                                                            <th scope="col">Ngày sinh</th>
-                                                            <th scope="col">Số điện thoại</th>
-                                                            <th scope="col">Tiền đầu tư</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <% hop_dong.forEach(function(hop_dong){ %>
-                                                            <% if (hop_dong.so_tien_dau_tu == "5000000000") { %>
-                                                            <tr>
-                                                                <td><a href="/admin/thong-tin-khach-hang=<%= hop_dong.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong.khach_hang.ho_va_ten %></a></td>
-                                                                <td><a href="/admin/thong-tin-khach-hang=<%= hop_dong.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong.khach_hang.nam_sinh.getDate() %>-<%= hop_dong.khach_hang.nam_sinh.getMonth() %>-<%= hop_dong.khach_hang.nam_sinh.getFullYear() %></a></td>
-                                                                <td><a href="/admin/thong-tin-khach-hang=<%= hop_dong.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary">0<%= hop_dong.khach_hang.so_dien_thoai %></a></td>
-                                                                <td><a href="/admin/thong-tin-khach-hang=<%= hop_dong.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong.so_tien_dau_tu.toLocaleString() %> đ</a></td>
-                                                            </tr>
-                                                            <% } %>
-                                                        <% }); %>
-                                                    </tbody><!-- end tbody -->
-                                                </table><!-- end table -->
-                                            </div><!-- end -->
-                                        </div><!-- end cardbody -->
-                                    </div><!-- end card -->
-                                </div><!-- end col-->
 
                             </div> <!-- end row-->
                         </div><!-- end col -->

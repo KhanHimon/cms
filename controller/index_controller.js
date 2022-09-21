@@ -2,6 +2,7 @@ const UserSchema = require('../models/user.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 const tin_tuc_Schema = require('../models/tin_tuc.model');
 const Lich_su_Schema = require('../models/lich_su.model');
+const thong_bao_Schema = require('../models/thong_bao.model');
 
 class index_controller {
     hien_thi_thong_tin_ca_nhan(req,res){
@@ -9,6 +10,7 @@ class index_controller {
             Hop_dong_dau_tu_Schema.find(function(err, hop_dongs){
               if (err) console.log(err);
               res.render('pages/thong_tin_ca_nhan', { user, hop_dongs });
+              
             }).populate('khach_hang').populate('trang_thai')
         })
     }
@@ -16,8 +18,12 @@ class index_controller {
     hien_thi_tong_quan(req,res){
         UserSchema.findById(req.params._id, function (err, user) {
             Hop_dong_dau_tu_Schema.find(function(err, hop_dongs){
-              if (err) console.log(err);
-              res.render('pages/tong_quan', { user, hop_dongs });
+              Lich_su_Schema.find(function(err, lich_sus){
+                thong_bao_Schema.find(function(err, thong_baos){
+                    if (err) console.log(err);
+                    res.render('pages/tong_quan', { user, lich_sus, hop_dongs, thong_baos });
+                })
+              }).populate('nguoi_duyet').populate({ path: 'hop_dong', populate: { path: 'khach_hang' }}).populate('trang_thai')
             }).populate('khach_hang').populate('trang_thai')
         })
     }

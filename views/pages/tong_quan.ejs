@@ -17,7 +17,7 @@
                 <!-- Start right Content here -->
                 <!-- ============================================================== -->
                 <div class="main-content">
-
+                   
                     <div class="page-content">
                         <div class="container-fluid">
                             <div class="row">
@@ -165,84 +165,127 @@
 
                                 <div class="col-xxl-7">
                                     <div class="row h-100">
-                                        <div class="col-xl-6">
-                                            <div class="card card-height-100">
+                                        <div class="col-xxl-6">
+                                            <div class="card">
                                                 <div class="card-header align-items-center d-flex">
-                                                    <h4 class="card-title mb-0 flex-grow-1">CHAT ROOM</h4>
-                                                </div><!-- end card header -->
-
-                                                <!-- card body -->
-                                                <div class="card-body">
-                                                    <ul id="messages" style="height: 400px; border: solid 1px #cecece;">
-                                                    </ul>
-                                                    <div class="chat-input-section">
-
-                                                        <form id="chatinput-form" action="">
-                                                            <div class="row g-0 align-items-center">
-                                                                <div class="col-auto">
-                                                                    <div class="chat-input-links me-2">
-                                                                        <div class="links-list-item">
-                                                                            <button type="button" class="btn btn-link text-decoration-none emoji-btn" id="emoji-btn">
-                                                                                <i class="bx bx-smile align-middle" style="color: rgb(36, 140, 232);"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-            
-                                                                <div class="col">
-                                                                    <div class="chat-input-feedback">
-                                                                        Please Enter a Message
-                                                                    </div>
-                                                                    <input type="text" class="form-control chat-input bg-light border-light" id="chat-input" placeholder="Type your message..." autocomplete="off">
-                                                                </div>
-                                                                <div class="col-auto">
-                                                                    <div class="chat-input-links ms-2">
-                                                                        <div class="links-list-item">
-                                                                            <button type="submit" class="btn btn-success chat-send waves-effect waves-light">
-                                                                                <i class="ri-send-plane-2-fill align-bottom"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-            
-                                                            </div>
-                                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.6/socket.io.min.js"></script>
-                                                            <script>
-                                                            var socket = io();
-
-                                                            var messages = document.getElementById('messages');
-                                                            var form = document.getElementById('chatinput-form');
-                                                            var input = document.getElementById('chat-input');
-
-                                                            form.addEventListener('submit', function(e) {
-                                                                e.preventDefault();
-                                                                if (input.value) {
-                                                                socket.emit('chat message', input.value);
-                                                                input.value = '';
-                                                                }
-                                                            });
-
-                                                            socket.on('chat message', function(msg) {
-                                                                var item = document.createElement('li');
-                                                                item.textContent = msg;
-                                                                messages.appendChild(item);
-                                                                window.scrollTo(0, document.body.scrollHeight);
-                                                            });
-                                                            </script>
-                                                        </form>
+                                                    <h4 class="card-title mb-0 flex-grow-1">Tin tức mới</h4>
+                                                    <div>
+                                                        <button type="button" class="btn btn-soft-primary btn-sm">
+                                                            Xem thêm
+                                                        </button>
                                                     </div>
-                                                </div>
-                                                <!-- end card body -->
+                                                </div><!-- end card-header -->
+
+                                                <div class="card-body">
+                                                    <div class="d-flex align-middle">
+                                                        <div class="flex-shrink-0">
+                                                            <img src="https://chotoancau.vn/uploads/news/2022_09/z3728460266456_d751def7c60fa16ac2011b014171e903.jpg"
+                                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                                        </div>
+                                                        <div class="flex-grow-1 ms-3">
+                                                            <h6 class="mb-1 lh-base"><a
+                                                                    href="https://chotoancau.vn/tin-hoat-dong/le-dong-tho-du-an-khu-tmdv-tong-hop-phuong-tan-thanh-48.html"
+                                                                    class="text-reset">Lễ động thổ dự án Khu TMDV Tổng
+                                                                    hợp Phường Tân Thành</a></h6>
+                                                            <p class="text-muted fs-12 mb-0">Ngày 17/09/2022 <i
+                                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>10:51
+                                                            </p>
+                                                        </div>
+                                                    </div><!-- end -->
+                                                    <div class="d-flex mt-4">
+                                                        <div class="flex-shrink-0">
+                                                            <img src="https://chotoancau.vn/uploads/news/2022_09/img_7018.jpg"
+                                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                                        </div>
+                                                        <div class="flex-grow-1 ms-3">
+                                                            <h6 class="mb-1 lh-base"><a
+                                                                    href="https://chotoancau.vn/tin-hoat-dong/hoi-nghi-xuc-tien-dau-tu-bds-thuong-mai-cho-ngay-hoi-trang-ram-tung-bung-qua-tang-46.html"
+                                                                    class="text-reset">Hội nghị xúc tiến đầu tư BĐS
+                                                                    Thương mại - Chợ. Ngày hội trăng rằm từng bừng quà
+                                                                    tặng</a></h6>
+                                                            <p class="text-muted fs-12 mb-0">Ngày 11/09/2022 <i
+                                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>11:34
+                                                            </p>
+                                                        </div>
+                                                    </div><!-- end -->
+                                                    <div class="d-flex mt-4">
+                                                        <div class="flex-shrink-0">
+                                                            <img src="https://storage.ovp.vnews.gov.vn/Mam/VNEWS/attach/upload/13092022144304/144305_chay_2.jpg"
+                                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                                        </div>
+                                                        <div class="flex-grow-1 ms-3">
+                                                            <h6 class="mb-1 lh-base"><a href="#" class="text-reset">Hưng
+                                                                    Yên: Cháy chợ dân sinh, nhiều ki ốt bị thiêu rụi
+                                                                </a></h6>
+                                                            <p class="text-muted fs-12 mb-0">Ngày 13/09/2022 <i
+                                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>16:49
+                                                            </p>
+                                                        </div>
+                                                    </div><!-- end -->
+                                                    <div class="d-flex mt-4">
+                                                        <div class="flex-shrink-0">
+                                                            <img src="https://chotoancau.vn/uploads/news/2022_08/img_5516.jpg"
+                                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                                        </div>
+                                                        <div class="flex-grow-1 ms-3">
+                                                            <h6 class="mb-1 lh-base"><a
+                                                                    href="https://chotoancau.vn/tin-hoat-dong/hoi-nghi-khach-hang-khu-vuc-mien-bac-giai-phap-hop-tac-dau-tu-kinh-doanh-bat-dong-san-hieu-qua-41.html"
+                                                                    class="text-reset">Hội nghị khách hàng khu vực miền
+                                                                    Bắc: Giải pháp hợp tác đầu tư kinh doanh Bất động
+                                                                    sản hiệu quả.</a></h6>
+                                                            <p class="text-muted fs-12 mb-0">Ngày 14/08/2022 <i
+                                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>23:19
+                                                            </p>
+                                                        </div>
+                                                    </div><!-- end -->
+                                                    <div class="d-flex mt-4">
+                                                        <div class="flex-shrink-0">
+                                                            <img src="https://chotoancau.vn/uploads/news/2022_08/sequence-01.00_00_20_07.still001.jpg"
+                                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                                        </div>
+                                                        <div class="flex-grow-1 ms-3">
+                                                            <h6 class="mb-1 lh-base"><a
+                                                                    href="https://chotoancau.vn/tin-hoat-dong/chuong-trinh-huan-luyen-dac-biet-danh-cho-giam-doc-kinh-doanh-toan-nang-37.html"
+                                                                    class="text-reset">Chương trình Huấn luyện đặc biệt
+                                                                    dành cho Giám đốc kinh doanh toàn năng</a></h6>
+                                                            <p class="text-muted fs-12 mb-0">Ngày 06/08/2022 <i
+                                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>18:19
+                                                            </p>
+                                                        </div>
+                                                    </div><!-- end -->
+
+                                                </div><!-- end card body -->
                                             </div><!-- end card -->
-                                        </div><!-- end col -->
+                                        </div>
 
                                         <div class="col-xl-6">
                                             <div class="card card-height-100">
                                                 <div class="card-header align-items-center d-flex">
-                                                    <h4 class="card-title mb-0 flex-grow-1">DANH SÁCH DỰ ÁN </h4>
+                                                    <h4 class="card-title mb-0 flex-grow-1">Lịch sử trả lãi </h4>
                                                 </div>
                                                 <div class="card-body p-0">
-
+                                                    <div class="table-responsive table-card" style="margin: 0;">
+                                                        <table
+                                                            class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                            <thead class="text-muted table-light"
+                                                                style="padding-left: 10px;">
+                                                                <th scope="col">Mã HĐ</th>
+                                                                <th scope="col">Ngày</th>
+                                                                <th scope="col">Trạng thái</th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% lich_sus.forEach(function(lich_su){ %>
+                                                                    <% if (user.ho_va_ten == lich_su.hop_dong.khach_hang.ho_va_ten) { %>
+                                                                    <tr>
+                                                                        <td><%= lich_su.hop_dong.ma_hop_dong %></td>
+                                                                        <td><%= lich_su.ngay_tra_lai.getDate() %>/<%= lich_su.ngay_tra_lai.getMonth() + 1 %>/<%= lich_su.ngay_tra_lai.getFullYear() %></td>
+                                                                        <td><%= lich_su.trang_thai.ten_trang_thai %></td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                                <% }); %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div><!-- end card body -->
                                             </div><!-- end card -->
                                         </div> <!-- end col-->
@@ -270,7 +313,7 @@
                                                                 <th>STT</th>
                                                                 <th scope="col">Mã HĐ</th>
                                                                 <th scope="col">Khách hàng</th>
-                                                                <th scope="col">Tiền ầu tư</th>
+                                                                <th scope="col">Tiền đầu tư</th>
                                                                 <th scope="col">Thời hạn</th>
                                                                 <th scope="col">Ngày ký</th>
                                                                 <th scope="col">Tiền thưởng OCS</th>

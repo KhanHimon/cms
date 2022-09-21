@@ -73,6 +73,7 @@ class sale_Controller {
       chuc_vu: req.body.chuc_vu,
       vung: req.body.vung,
       tinh: req.body.tinh,
+      nguoi_them: req.body.nguoi_them,
       ghi_chu: req.body.ghi_chu,
       create_date: Date.now()
     });
@@ -129,6 +130,9 @@ class sale_Controller {
     }
     if (req.body.email) {
       edit_sale.email = req.body.email;
+    }
+    if (req.body.trang_thai_quyet_dinh) {
+      edit_sale.trang_thai_quyet_dinh = req.body.trang_thai_quyet_dinh;
     }
     const options = {
       new: true,

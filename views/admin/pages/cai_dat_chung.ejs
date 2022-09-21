@@ -36,7 +36,7 @@
                             </div> <!-- end .h-100-->
                         </div> <!-- end col -->
                         <div class="row">
-                            <div class="col-xl-5 col-md-5">
+                            <div class="col-xl-5 col-md-5"> 
                                 <!-- card -->
                                 <div class="card card-animate">
                                     <div class="card-body">
@@ -54,7 +54,7 @@
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
                                                                 <label for="nam_sinh" class="form-label">Ngày sinh</label>
-                                                                <input type="text"  value="<%= sale.nam_sinh %>" class="form-control" id="nam_sinh" name="nam_sinh">
+                                                                <input type="date"  value="<%= sale.nam_sinh %>" class="form-control" id="nam_sinh" name="nam_sinh">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
@@ -73,7 +73,7 @@
                                                         <div class="col-md-5">
                                                             <div class="mb-3">
                                                                 <label for="ngay_cap" class="form-label">Ngày cấp</label>
-                                                                <input type="date" value="" class="form-control" id="nam_sinh" name="nam_sinh" >
+                                                                <input type="date" value="<%= (sale.ngay_cap).getFullYear() %>-<%= String(sale.ngay_cap.getMonth() + 1).padStart(2, '0') %>-<%= String(sale.ngay_cap.getDate()).padStart(2, '0') %>" class="form-control" id="nam_sinh" name="nam_sinh" >
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">

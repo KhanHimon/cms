@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var flash = require('connect-flash');
 var session = require('express-session');
-const http = require('http');
 const jsonwebtoken = require("jsonwebtoken");
 
 var indexRouter = require('./routes/index.route');
@@ -28,17 +27,7 @@ db.once('open', function() {
   console.log("Kết nối database thành công !");
 });
 
-var app = express();
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
-
-//Tạo socket 
-io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
-  });
-});
+var app = require('express')();
 
 app.use(function(req, res, next) {
   if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
