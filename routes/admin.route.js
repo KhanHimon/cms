@@ -74,7 +74,7 @@ router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (re
               }).populate('nhom_kinh_doanh').populate('chuc_vu')
             }).populate('khach_hang')
           })
-        })
+        }).sort({ ngay_thong_bao: -1 })
       })
     }).populate('nguoi_gui').populate('trang_thai')
   }).populate('chuc_vu')

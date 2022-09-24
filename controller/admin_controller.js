@@ -75,6 +75,12 @@ class admin_Controller {
         });
         
     }
+    API_USER(req,res){
+        User_Schema.find(function (err, users){
+            if (err) throw err;
+            res.json(users);
+        });
+    }
 }
 
 module.exports = new admin_Controller
