@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
 const cors = require('cors');
-const admin_controller = require('../controller/admin_controller');
+const API_CONTROLLER = require('../controller/api_controller');
 
-router.get('/users' ,admin_controller.API_USER)
+router.get('/users' ,API_CONTROLLER.API_USER)
+router.get('/history' ,API_CONTROLLER.API_HISTORY)
 
 module.exports = router;

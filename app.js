@@ -12,6 +12,7 @@ var loginRouter = require('./routes/login.route');
 var userRouter = require('./routes/users.route');
 const adminRouter = require('./routes/admin.route');
 const api_router = require('./routes/api.route');
+const cors=require('cors');
 
 
 // thêm thư viện mongoose để kết nối vớ mongodb
@@ -65,6 +66,8 @@ app.use('/login', loginRouter);
 app.use('/user', userRouter);
 app.use('/admin', adminRouter);
 app.use('/api',api_router)
+
+app.use(cors())
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

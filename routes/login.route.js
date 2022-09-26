@@ -10,5 +10,6 @@ router.get('/*', function(req, res, next) {
   res.render('login',{message:''});
 }); 
 router.post('/', login_controller.check);
+router.post('/app', login_controller.check_app);
 
 module.exports = router;
