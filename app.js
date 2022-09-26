@@ -12,6 +12,7 @@ var loginRouter = require('./routes/login.route');
 var userRouter = require('./routes/users.route');
 const adminRouter = require('./routes/admin.route');
 const api_router = require('./routes/api.route');
+const app_router = require('./routes/app_user.route');
 const cors=require('cors');
 
 
@@ -66,6 +67,7 @@ app.use('/login', loginRouter);
 app.use('/user', userRouter);
 app.use('/admin', adminRouter);
 app.use('/api',api_router)
+app.use('/app', app_router)
 
 app.use(cors())
 

@@ -1,0 +1,325 @@
+<%- include ./layouts/header.ejs %>
+<% if (user) { %>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+    <div class="layout-width">
+        <%- include ./layouts/menu.ejs %>
+    </div>
+</header>
+        <!-- ========== App Menu ========== -->
+        <%- include ./layouts/nav.ejs %>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+              <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="h-100">
+                                <div class="row mb-3 pb-1">
+                                    <div class="col-12">
+                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                            <div class="flex-grow-1">
+                                                <h4 class="fs-16 mb-1" style="color: white;">Chào mừng, <%= user.ho_va_ten %>!</h4>
+                                                <p class="mb-0" style="color: white;">Chúc bạn một ngày làm việc hiệu quả</p>
+                                            </div>
+                                        </div><!-- end card header -->
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div> <!-- end .h-100-->
+                        </div> <!-- end col -->
+                        <div class="row">
+                          <div class="col-6">
+                              <!-- card -->
+                              <div class="card card-animate" style="border-radius: 25px">
+                                  <div class="card-body">
+                                      <div class="d-flex align-items-center">
+                                          <div class="flex-grow-1 overflow-hidden">
+                                              <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tổng số tiền đầu tư</p>
+                                          </div>
+                                      </div>
+                                      <div class="d-flex align-items-end justify-content-between mt-4">
+                                        
+                                            <div>
+                                              <% let total = 0; %>
+                                              <% hop_dongs.forEach(hop_dong => { %>
+                                                <% if ( hop_dong.khach_hang.id === user.id) { %>
+                                                  <% total += hop_dong.so_tien_dau_tu %>
+                                                <% } %>
+                                              <% }); %>
+                                              <p class="fs-20 ff-secondary" style="color: rgb(59, 59, 241);">Tiền đầu tư: <span class="counter-value" data-target="<%= total %>">0</span> đ </p>
+                                              </div>
+                                      </div>
+                                  </div><!-- end card body -->
+                              </div><!-- end card -->
+                          </div><!-- end col -->
+                          <div class="col-6">
+                            <!-- card -->
+                            <div class="card card-animate" style="border-radius: 25px">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Tiền thưởng Ocopshop</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                          <div>
+                                            <% let total_ocss = 0; %>
+                                            <% hop_dongs.forEach(function(hop_dong){ %>
+                                              <% if ( hop_dong.khach_hang.id === user.id) { %>
+                                                <% total_ocss += hop_dong.tien_ocopshop %>
+                                              <% } %>
+                                            <% }); %>
+                                            <p class="fs-20 ff-secondary" style="color: green;">Tiền thưởng: <span class="counter-value" data-target="<%= total_ocss %>">0</span> đ </p>
+                                            </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                          </div><!-- end col -->
+                        </div>
+                    </div>
+                      
+                      <div class="row h-100">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body p-0">
+                                    <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center"
+                                        role="alert">
+                                        <i data-feather="alert-triangle"
+                                            class="text-warning me-2 icon-sm"></i>
+                                        <div class="flex-grow-1 text-truncate">
+                                            CẢNH BÁO GIẢ MẠO
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-end">
+                                        <div class="col-sm-12">
+                                            <div class="p-3">
+                                                <p class="fs-16 lh-base">Công ty cổ phần Tập đoàn
+                                                    Chợ Toàn Cầu Thông báo: Cảnh giác với những
+                                                    website và các trang mạng xã hội như FB, Tiktok,
+                                                    youtube... giả mạo thương hiệu </p>
+                                                <div class="flex-shrink-0">
+                                                    <a href="https://chotoancau.vn/tin-hoat-dong/thong-bao-canh-giac-gia-mao-thuong-hieu-43.html"
+                                                        class="text-reset text-decoration-underline"><b>Xem
+                                                            thêm</b></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end card-body-->
+                            </div>
+                        </div> <!-- end col-->
+                    </div> <!-- end row-->
+                    <div class="row h-100">
+                        <div class="col-xxl-6">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Tin tức mới</h4>
+                                    <div>
+                                        <button type="button" class="btn btn-soft-primary btn-sm">
+                                            Xem thêm
+                                        </button>
+                                    </div>
+                                </div><!-- end card-header -->
+
+                                <div class="card-body">
+                                    <div class="d-flex align-middle">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://chotoancau.vn/uploads/news/2022_09/z3728460266456_d751def7c60fa16ac2011b014171e903.jpg"
+                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 lh-base"><a
+                                                    href="https://chotoancau.vn/tin-hoat-dong/le-dong-tho-du-an-khu-tmdv-tong-hop-phuong-tan-thanh-48.html"
+                                                    class="text-reset">Lễ động thổ dự án Khu TMDV Tổng
+                                                    hợp Phường Tân Thành</a></h6>
+                                            <p class="text-muted fs-12 mb-0">Ngày 17/09/2022 <i
+                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>10:51
+                                            </p>
+                                        </div>
+                                    </div><!-- end -->
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://chotoancau.vn/uploads/news/2022_09/img_7018.jpg"
+                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 lh-base"><a
+                                                    href="https://chotoancau.vn/tin-hoat-dong/hoi-nghi-xuc-tien-dau-tu-bds-thuong-mai-cho-ngay-hoi-trang-ram-tung-bung-qua-tang-46.html"
+                                                    class="text-reset">Hội nghị xúc tiến đầu tư BĐS
+                                                    Thương mại - Chợ. Ngày hội trăng rằm từng bừng quà
+                                                    tặng</a></h6>
+                                            <p class="text-muted fs-12 mb-0">Ngày 11/09/2022 <i
+                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>11:34
+                                            </p>
+                                        </div>
+                                    </div><!-- end -->
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://storage.ovp.vnews.gov.vn/Mam/VNEWS/attach/upload/13092022144304/144305_chay_2.jpg"
+                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 lh-base"><a href="#" class="text-reset">Hưng
+                                                    Yên: Cháy chợ dân sinh, nhiều ki ốt bị thiêu rụi
+                                                </a></h6>
+                                            <p class="text-muted fs-12 mb-0">Ngày 13/09/2022 <i
+                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>16:49
+                                            </p>
+                                        </div>
+                                    </div><!-- end -->
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://chotoancau.vn/uploads/news/2022_08/img_5516.jpg"
+                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 lh-base"><a
+                                                    href="https://chotoancau.vn/tin-hoat-dong/hoi-nghi-khach-hang-khu-vuc-mien-bac-giai-phap-hop-tac-dau-tu-kinh-doanh-bat-dong-san-hieu-qua-41.html"
+                                                    class="text-reset">Hội nghị khách hàng khu vực miền
+                                                    Bắc: Giải pháp hợp tác đầu tư kinh doanh Bất động
+                                                    sản hiệu quả.</a></h6>
+                                            <p class="text-muted fs-12 mb-0">Ngày 14/08/2022 <i
+                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>23:19
+                                            </p>
+                                        </div>
+                                    </div><!-- end -->
+                                    <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0">
+                                            <img src="https://chotoancau.vn/uploads/news/2022_08/sequence-01.00_00_20_07.still001.jpg"
+                                                class="rounded img-fluid" style="height: 60px;" alt="">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h6 class="mb-1 lh-base"><a
+                                                    href="https://chotoancau.vn/tin-hoat-dong/chuong-trinh-huan-luyen-dac-biet-danh-cho-giam-doc-kinh-doanh-toan-nang-37.html"
+                                                    class="text-reset">Chương trình Huấn luyện đặc biệt
+                                                    dành cho Giám đốc kinh doanh toàn năng</a></h6>
+                                            <p class="text-muted fs-12 mb-0">Ngày 06/08/2022 <i
+                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>18:19
+                                            </p>
+                                        </div>
+                                    </div><!-- end -->
+
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12">
+                            <!-- card -->
+                            <div class="card card-animate">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Danh sách hợp đồng</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-end justify-content-between mt-4">
+                                      <div class="table-responsive table-card" style="width: 103%;">
+                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                            <thead class="text-muted table-light">
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th scope="col">Mã HĐ</th>
+                                                    <th scope="col">Khách hàng</th>
+                                                    <th scope="col">Tiền ầu tư</th>
+                                                    <th scope="col">Thời hạn</th>
+                                                    <th scope="col">Ngày ký</th>
+                                                    <th scope="col">Tiền thưởng OCS</th>
+                                                    <th scope="col">Ngày hết hạn</th>
+                                                    <th scope="col">Lãi hàng tháng</th>
+                                                    <th scope="col">Trạng thái</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="myTable" style="font-size: 16px;">
+                                                    <% var index = 0 %>
+                                                    <% const thang = new Date(); %>
+                                                    <% const month = thang.getMonth() + 1; %>
+                                                    <% thang.setMonth(month, 0); %>
+                                                    <% const ngay_trong_thang = thang.getDate(); %>
+                                                    <% const ngay_het = thang.getDate() - 1 %>
+                                                    <% hop_dongs.forEach(function(hop_dong){ index++ %>
+                                                        <% if ( hop_dong.khach_hang.id === user.id) { %>
+                                                            <tr>
+                                                                <td style="text-align: center;"><%= index %></td>
+                                                                <td><%= hop_dong.ma_hop_dong %></td>
+                                                                <td><%= hop_dong.khach_hang.ho_va_ten %></td>
+                                                                <td><%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ</td>
+                                                                <td><%= hop_dong.thoi_han_dau_tu %> tháng</td>
+                                                                
+                                                                <td><%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
+                                                                <td><%= hop_dong.tien_ocopshop.toLocaleString(); %> đ</td>
+                                                                <td><%= hop_dong.ngay_ky_hop_dong.getDate() - 1 %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() + (hop_dong.thoi_han_dau_tu/12) %></td>
+                                                                <% if ((hop_dong.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
+                                                                  <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= hop_dong.loi_nhuan.thang_dau.toFixed(0) %>">0</span> đ</td>
+                                                                  <% } %>
+                                                                  <% if ((hop_dong.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
+                                                                    <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= hop_dong.loi_nhuan.thang.toLocaleString() %> đ</td>
+                                                                  <% } %>
+                                                                <td style="color: green; font-weight: 600;"><%= hop_dong.trang_thai.ten_trang_thai %></td>
+                                                                <!-- <td>
+                                                                  <button type="submit" class="btn btn-soft-success" ><i class="ri-add-circle-line align-middle me-1"></i> Xem hợp đồng</button>
+                                                                </td> -->
+                                                              </tr>
+                                                        <% } %>
+                                                    <% }); %>
+                                                    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </div>
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+                      </div>
+              </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Lê Tuấn Khang
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <% } %>
+<%- include ./layouts/footer.ejs %>
