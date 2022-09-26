@@ -25,7 +25,7 @@ class sale_Controller {
           })
         }).populate('chuc_vu').populate('nhom_kinh_doanh').sort({ 'create_date': -1 })
       })
-    }).populate('chuc_vu')
+    }).populate('chuc_vu').populate('nhom_kinh_doanh')
   }
 
   chi_tiet_sale(req, res) {

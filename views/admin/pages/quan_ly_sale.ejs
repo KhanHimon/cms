@@ -60,7 +60,8 @@
                                                                         const box = document.getElementById('mess');
                                                                         box.style.display = 'none';
                                                                     }, 10000);
-                                                                </script>   
+                                                                </script>
+                                                            <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                                                             <button type="button" class="btn btn-soft-success"  data-bs-toggle="modal" data-bs-target="#add_sale"><i class="ri-add-circle-line align-middle me-1"></i> Thêm người dùng</button>
                                                             <div id="add_sale" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog modal-lg">
@@ -232,6 +233,7 @@
                                                                         </div>
                                                                 </div>
                                                             </div>
+                                                            <% } %>
                                                         </div>
                                                         <!--end col-->
                                                     </div>
@@ -321,7 +323,8 @@
                                                                                 </thead>
                                                                                 <tbody id="myTable">
                                                                                     <% var index_1 = 0 %>
-                                                                                    <% sales.forEach(function(sales){ index_1++ %>
+                                                                                        <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                            <% sales.forEach(function(sales){ index_1++ %>
                                                                                             <tr>
                                                                                                 <td><%= index_1 %></td>
                                                                                                 <td><%= sales.ma_gioi_thieu %></td>
@@ -359,8 +362,51 @@
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
                                                                                                 </td>
                                                                                             </tr>
+                                                                                            <% }); %>
+                                                                                        <% } %>
+                                                                                    <% sales.forEach(function(sales){ index_1++ %>
+                                                                                        <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom) { %>
+                                                                                            <tr>
+                                                                                                <td><%= index_1 %></td>
+                                                                                                <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
+                                                                                
                                                                             </table><!-- end table -->
                                                                             <script>
                                                                                 var wb = XLSX.utils.table_to_book(document.getElementById('tat_ca'), {sheet:"Sheet JS"});
@@ -408,41 +454,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr> 
                                                                                 </thead>
                                                                                 <tbody id="myTable">
                                                                                     <% var index_1 = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5b8ef1b55b0b9c8745a6") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index_1++ %>
                                                                                         <% if (sales.chuc_vu._id == "62fb5b8ef1b55b0b9c8745a6") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index_1 %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
@@ -480,41 +590,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody id="GD_KD">
                                                                                     <% var index = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c65f1b55b0b9c8745db") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index++ %>
                                                                                         <% if (sales.chuc_vu._id == "62fb5c65f1b55b0b9c8745db") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
@@ -552,41 +726,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody id="GD_T">
                                                                                     <% var index = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c79f1b55b0b9c8745e6") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index++ %>
                                                                                         <% if (sales.chuc_vu._id == "62fb5c79f1b55b0b9c8745e6") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
@@ -624,41 +862,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody id="GD_V">
                                                                                     <% var index = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c8af1b55b0b9c8745f1") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index++ %>
                                                                                         <% if (sales.chuc_vu._id == "62fb5c8af1b55b0b9c8745f1") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
@@ -696,41 +998,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody id="P_GD">
                                                                                     <% var index = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c59f1b55b0b9c8745d0") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index++ %>
                                                                                         <% if (sales.chuc_vu._id == "62fb5c59f1b55b0b9c8745d0") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
@@ -767,41 +1133,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr> 
                                                                                 </thead>
                                                                                 <tbody id="CTV">
                                                                                     <% var index_1 = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5b5e7f511110aaee0ce5") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index_1++ %>
                                                                                         <% if (sales.chuc_vu._id == "62fb5b5e7f511110aaee0ce5") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index_1 %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
@@ -838,41 +1268,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr> 
                                                                                 </thead>
                                                                                 <tbody id="GD_CL">
                                                                                     <% var index_1 = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index_1++ %>
                                                                                         <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index_1 %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
@@ -909,41 +1403,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr> 
                                                                                 </thead>
                                                                                 <tbody id="TN">
                                                                                     <% var index_1 = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c1df1b55b0b9c8745ba") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index_1++ %>
                                                                                         <% if (sales.chuc_vu._id == "62fb5c1df1b55b0b9c8745ba") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index_1 %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
@@ -980,41 +1538,105 @@
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
                                                                                         <th scope="col">CODE</th>
-                                                                                        <th scope="col">Họ và tên</th>
-                                                                                        <th scope="col">Nhóm kinh doanh</th>
-                                                                                        <th scope="col">Chức vụ</th>
-                                                                                        <th scope="col">Số điện thoại</th>
-                                                                                        <th scope="col"></th>
+                                                                                            <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Nhóm kinh doanh</th>
+                                                                                            <th scope="col">Chức vụ</th>
+                                                                                            <th scope="col">CCCD/CMND</th>
+                                                                                            <th scope="col">Ngày cấp</th>
+                                                                                            <th scope="col">Nơi cấp</th>
+                                                                                            <th scope="col">Số điện thoại</th>
+                                                                                            <th scope="col">Email</th>
+                                                                                            <th scope="col">Địa chỉ</th>
+                                                                                            <th scope="col">Số tài khoản</th>
+                                                                                            <th scope="col">Ngân hàng</th>
                                                                                     </tr> 
                                                                                 </thead>
                                                                                 <tbody id="TP">
                                                                                     <% var index_1 = 0 %>
+                                                                                    <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                                                        <% sales.forEach(function(sales){ index_1++ %>
+                                                                                            <% if (sales.chuc_vu._id == "62fb5c2cf1b55b0b9c8745c5") { %>
+                                                                                        <tr>
+                                                                                            <td><%= index_1 %></td>
+                                                                                            <td><%= sales.ma_gioi_thieu %></td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <% } %>
+                                                                                        <% }); %>
+                                                                                    <% } %>
                                                                                     <% sales.forEach(function(sales){ index_1++ %>
                                                                                         <% if (sales.chuc_vu._id == "62fb5c2cf1b55b0b9c8745c5") { %>
-                                                                                            <tr>
-                                                                                                <td><%= index_1 %></td>
-                                                                                                <td><%= sales.ma_gioi_thieu %></td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
-                                                                                                </td>
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
-                                                                                                </td>
-                                                                                                
-                                                                                                <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>">
-                                                                                                        <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                                            <i class="ri-file-list-3-line align-middle"></i> Chi tiết nhân viên
-                                                                                                        </button>
-                                                                                                    </a>
-                                                                                                </td>
-                                                                                            </tr>
+                                                                                            <% if (sales.nhom_kinh_doanh.ten_nhom == sale.nhom_kinh_doanh.ten_nhom ) { %>
+                                                                                                <tr>
+                                                                                                    <td><%= index_1 %></td>
+                                                                                                    <td><%= sales.ma_gioi_thieu %></td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.chuc_vu.ten_chuc_vu %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="text-success">0<%= sales.dien_thoai %></span></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.email %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.dia_chi %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.so_tai_khoan %></a>
+                                                                                                    </td>
+                                                                                                    <td>
+                                                                                                        <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngan_hang %></a>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            <% } %>
                                                                                         <% } %>
                                                                                     <% }); %>
                                                                                 </tbody><!-- end tbody -->
