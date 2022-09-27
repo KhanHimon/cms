@@ -17,7 +17,29 @@
             <%- include ../layouts/nav.ejs %>
             <div class="page-content">
               <div class="container-fluid">
-                    
+                <div class="col-12" style="background-color: white; width: 100%;">
+                    <!-- Striped Rows -->
+                    <table class="table table-striped" style="padding: 10px;">
+                        <thead>
+                            <tr>
+                                <th scope="col">MÃ HĐ</th>
+                                <th scope="col">Tiền đầu tư</th>
+                                <th scope="col">Ngày ký</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% hop_dongs.forEach(function(hop_dong){ %>
+                                <% if ( hop_dong.khach_hang.id === user.id) { %>
+                                    <tr>
+                                        <td><%= hop_dong.ma_hop_dong %></td>
+                                        <td><%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ</td>
+                                        <td><%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
+                                    </tr>
+                                <% } %>
+                            <% }); %>
+                        </tbody>
+                    </table>
+               </div> 
               </div>
             </div>
         </div>
