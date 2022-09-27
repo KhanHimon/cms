@@ -21,53 +21,89 @@ const { token } = require('morgan');
 
 class APP_USER_CONTROLLER {
 
-    GET_LOGIN(req,res){
-        res.render('app/app_login_users');
-    }
-
-    GET_HOME(req,res){
-      User_Schema.findById(req.params._id, function (err, user) {
-          Hop_dong_dau_tu_Schema.find(function(err, hop_dongs){
-            if (err) console.log(err);
-            res.render('app/app_users', { user, hop_dongs });
-          }).populate('khach_hang').populate('trang_thai')
-      })
+  GET_LOGIN(req, res) {
+    res.render('app/app_login_users');
   }
 
-    check_app_user(req, res) {
-        User_Schema.findOne({
-          username: req.body.username,
-          password: req.body.password,
-        }, function (err, user) {
-          if (err) throw err;
-          if (!user) {
-            // res.status(401).json({ message: 'Authentication failed. User not found.' });
-            res.render('/app/login',{ message: 'Sai tài khoản hoặc mật khẩu' });
-          } else if (user) {
-            if (!user.password) {
-              // res.status(401).json({ message: 'Authentication failed. Wrong password.' });
-              res.render('/app/login');
-            } else {
-              res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
-              return res.redirect('/app/home/' + user._id);
-            }
-          }
-        });
-      }
-    
-      loginRequired(req, res, next) {
-        var token = req.cookies.token
-        const user = User_Schema.findOne({})
-        if (token) {
-          next()
+  GET_HOME(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/app_users', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  GET_PROFILE(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/profile', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  GET_HISTORY(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/history', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  GET_CONTRACT(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/contract', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  GET_SUPPORT(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/support', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  check_app_user(req, res) {
+    User_Schema.findOne({
+      username: req.body.username,
+      password: req.body.password,
+    }, function (err, user) {
+      if (err) throw err;
+      if (!user) {
+        // res.status(401).json({ message: 'Authentication failed. User not found.' });
+        res.render('/app/login', { message: 'Sai tài khoản hoặc mật khẩu' });
+      } else if (user) {
+        if (!user.password) {
+          // res.status(401).json({ message: 'Authentication failed. Wrong password.' });
+          res.render('/app/login');
         } else {
-          res.redirect('/app/login');
+          res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
+          return res.redirect('/app/home/' + user._id);
         }
-      };
-      logout(req,res,next){
-        res.clearCookie('token');
-        return res.redirect('/app/login');
       }
+    });
+  }
+
+  loginRequired(req, res, next) {
+    var token = req.cookies.token
+    const user = User_Schema.findOne({})
+    if (token) {
+      next()
+    } else {
+      res.redirect('/app/login');
+    }
+  };
+  logout(req, res, next) {
+    res.clearCookie('token');
+    return res.redirect('/app/login');
+  }
 
 }
 
