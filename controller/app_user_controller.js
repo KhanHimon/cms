@@ -46,8 +46,15 @@ class APP_USER_CONTROLLER {
   GET_HISTORY(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
-        if (err) console.log(err);
-        res.render('app/pages/history', { user, hop_dongs });
+        Lich_su_Schema.find(function (err, lich_sus) {
+          if (err) console.log(err);
+          res.render('app/pages/history', { user, hop_dongs, lich_sus });
+        }).populate('nguoi_duyet').populate('trang_thai').sort({ ngay_tra_lai: -1 }).populate({
+          path: 'hop_dong',
+          populate: {
+            path: 'khach_hang'
+          }
+        })
       }).populate('khach_hang').populate('trang_thai')
     })
   }

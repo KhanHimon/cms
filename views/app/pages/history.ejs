@@ -16,33 +16,35 @@
         <div class="main-content">
             <%- include ../layouts/nav.ejs %>
             <div class="page-content">
-              <div class="container-fluid">
+              <div class="">
                    <div class="col-12" style="background-color: white; width: 100%;">
                         <!-- Striped Rows -->
                         <table class="table table-striped" style="padding: 10px;">
                             <thead>
                                 <tr>
                                     <th scope="col">MÃ HĐ</th>
+                                    <th scope="col-2">Tiền lãi</th>
                                     <th scope="col">Trạng thái</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Bobby Davis</td>
-                                    <td><span class="badge bg-success">Đã thanh toán</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Christopher Neal</td>
-                                    <td><span class="badge bg-warning">Chờ duyệt</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Monkey Karry</td>
-                                    <td><span class="badge bg-success">Đã thanh toán</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Aaron James</td>
-                                    <td><span class="badge bg-danger">Hủy bỏ</span></td>
-                                </tr>
+                                <% const thang = new Date(); %>
+                                <% const month = thang.getMonth() + 1; %>
+                                <% thang.setMonth(month, 0); %>
+                                <% lich_sus.forEach(function(lich_su){ %>
+                                    <% if (user.ho_va_ten == lich_su.hop_dong.khach_hang.ho_va_ten) { %>
+                                    <tr>
+                                        <td><%= lich_su.hop_dong.ma_hop_dong %></td>
+                                        <% if ((lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
+                                            <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= lich_su.hop_dong.loi_nhuan.thang_dau.toFixed(0) %>">0</span> </td>
+                                        <% } %>
+                                        <% if ((lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
+                                            <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= lich_su.hop_dong.loi_nhuan.thang.toLocaleString() %></td>
+                                        <% } %>
+                                        <td><%= lich_su.trang_thai.ten_trang_thai %></td>
+                                    </tr>
+                                    <% } %>
+                                <% }); %>
                             </tbody>
                         </table>
                    </div> 
