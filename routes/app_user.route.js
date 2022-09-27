@@ -42,7 +42,7 @@ router.get('/history/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLL
 router.get('/contract/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CONTRACT);
 router.get('/support/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_SUPPORT);
 
-router.get('/', APP_USER_CONTROLLER.GET_LOGIN );
+router.get('/',APP_USER_CONTROLLER.chekc_token, APP_USER_CONTROLLER.GET_LOGIN );
 router.get('/*', APP_USER_CONTROLLER.GET_LOGIN ); 
 
 router.post('/login_app',APP_USER_CONTROLLER.check_app_user)

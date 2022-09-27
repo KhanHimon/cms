@@ -84,11 +84,9 @@ class APP_USER_CONTROLLER {
     }, function (err, user) {
       if (err) throw err;
       if (!user) {
-        // res.status(401).json({ message: 'Authentication failed. User not found.' });
         res.render('/app/login', { message: 'Sai tài khoản hoặc mật khẩu' });
       } else if (user) {
         if (!user.password) {
-          // res.status(401).json({ message: 'Authentication failed. Wrong password.' });
           res.render('/app/login');
         } else {
           res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
@@ -96,6 +94,18 @@ class APP_USER_CONTROLLER {
         }
       }
     });
+  }
+  chekc_token(req,res){
+    var token = req.cookies.token
+    User_Schema.findOne({}, function(err,user){
+      if (token) {
+        res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
+        res.redirect('/app/home/' + user._id);
+      } else {
+        res.redirect('/app/login');
+      }
+    })
+    
   }
 
   loginRequired(req, res, next) {
