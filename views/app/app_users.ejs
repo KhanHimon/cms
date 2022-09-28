@@ -2,7 +2,7 @@
 <% if (user) { %>
     <!-- Begin page -->
     <div id="layout-wrapper">
-<header id="page-topbar">
+<header id="page-topbar" style="background-color: #eff4f7;">
     <%- include ./layouts/menu.ejs %>
 </header>
         <!-- ========== App Menu ========== -->
@@ -15,126 +15,113 @@
         <!-- ============================================================== -->
         <div class="main-content">
             <%- include ./layouts/nav.ejs %>
-            <div class="page-content">
-                    <% let total = 0; %>
-                            <% hop_dongs.forEach(hop_dong => { %>
+            <div class="page-content" style="padding-left: 0;">
+                <% let total = 0; %>
+                <% hop_dongs.forEach(hop_dong => { %>
+                     <% if ( hop_dong.khach_hang.id === user.id) { %>
+                        <% total += hop_dong.so_tien_dau_tu %>
+                    <% } %>
+                <% }); %>
+                <% let total_ocss = 0; %>
+                <% hop_dongs.forEach(function(hop_dong){ %>
+                    <% if ( hop_dong.khach_hang.id === user.id) { %>
+                        <% total_ocss += hop_dong.tien_ocopshop %>
+                    <% } %>
+                <% }); %>
+                <div class="col-12" style="background-color: white; color: black; line-height: 10px; padding-top: 15px; border-radius: 15px; padding-left: 20px; margin-bottom: 10px;">
+                    <div class="row">
+                        <div class="col-5">
+                            <p><b><%= user.ho_va_ten %></b></p>
+                            <p>ID : <%= user.username %></p>
+                        </div>
+                        <div class="col-7">
+                            <p style="color: rgb(39, 144, 243);">Tiền đầu tư : <span class="counter-value" data-target="<%= total %>"></span> đ</p>
+                            <p style="color: rgb(20, 149, 55);">Tiền ocopshop : <span class="counter-value" data-target="<%= total_ocss %>"></span> đ</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 103%;">
+                    <h4 style="padding-left: 15px;">Tin tức tổng hợp</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="https://lhhtx.vn/uploads/news/2022_09/pc-bao1-16641743540371092030135.jpg" width="100px" alt="" height="100px">
+                                </div>
+                                <div class="col-9" style="padding-left: 25px;">
+                                    <p>Sáng 26/9, TP. Đà Nẵng tổ chức họp ứng phó với bão số 4. Lãnh đạo Thành phố đã quyết định đưa ra nhiều biện pháp để bảo đảm ứng phó hiệu quả với cơn bão, giảm thấp nhất thiệt hại</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="https://lhhtx.vn/uploads/news/2022_09/1.jpeg" width="100px" alt="" height="100px">
+                                </div>
+                                <div class="col-9" style="padding-left: 25px;">
+                                    <p>Tin từ UBND tỉnh Thừa Thiên Huế cho biết, tỉnh đã chỉ đạo tạm đóng cửa chợ và cấm người dân ra đường từ chiều và tối 27/9 để bảo đảm an toàn khi siêu bão Noru (bão số 4) đổ bộ.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="https://chotoancau.vn/uploads/news/2022_09/z3728460266456_d751def7c60fa16ac2011b014171e903.jpg" width="100px" alt="" height="100px">
+                                </div>
+                                <div class="col-9" style="padding-left: 25px;">
+                                    <p>Liên hiệp Hợp tác xã Việt Nam cùng Công ty CP Tập đoàn Chợ toàn cầu GMG tổ chức Lễ Động thổ dự án Khu TMDV Tổng hợp phường Tân Thành</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="https://chotoancau.vn/uploads/news/2022_09/image-20200702112049-1.jpeg" width="100px" alt="" height="100px">
+                                </div>
+                                <div class="col-9" style="padding-left: 25px;">
+                                    <p>Trong bối cảnh nguồn cung khan hiếm và thị trường vừa khởi động lại sau dịch bệnh, các dự án nhà ở gần chợ, TTTM với ưu điểm sẵn có đã mạnh mẽ hút dòng tiền đầu tư từ thị trường.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="https://lhhtx.vn/uploads/news/2022_09/pc-bao1-16641743540371092030135.jpg" width="100px" alt="" height="100px">
+                                </div>
+                                <div class="col-9" style="padding-left: 25px;">
+                                    <p>Sáng 26/9, TP. Đà Nẵng tổ chức họp ứng phó với bão số 4. Lãnh đạo Thành phố đã quyết định đưa ra nhiều biện pháp để bảo đảm ứng phó hiệu quả với cơn bão, giảm thấp nhất thiệt hại</p>
+                                </div>
+                            </div>
+                        </li>
+                      </ul>
+                      <br>
+                    <h4 style="padding-left: 15px;">Hợp đồng đầu tư</h4>
+                    <table class="table table-striped" style="padding: 10px;">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">MÃ HĐ</th>
+                                <th scope="col">Tiền đầu tư</th>
+                                <th scope="col">Ngày ký</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% hop_dongs.forEach(function(hop_dong){ %>
                                 <% if ( hop_dong.khach_hang.id === user.id) { %>
-                                    <% total += hop_dong.so_tien_dau_tu %>
+                                    <tr>
+                                        <td><%= hop_dong.ma_hop_dong %></td>
+                                        <td><%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ</td>
+                                        <td><%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
+                                    </tr>
                                 <% } %>
                             <% }); %>
-                            <% let total_ocss = 0; %>
-                            <% hop_dongs.forEach(function(hop_dong){ %>
-                              <% if ( hop_dong.khach_hang.id === user.id) { %>
-                                <% total_ocss += hop_dong.tien_ocopshop %>
-                              <% } %>
-                            <% }); %>
-                    <div class="col-12" style="background-color: white; color: black; line-height: 10px; padding-top: 15px; border-radius: 15px; padding-left: 10px; padding-bottom: 5px; margin-bottom: 10px;">
-                        <div class="row">
-                            <div class="col-5">
-                                <p><b><%= user.ho_va_ten %></b></p>
-                                <p>ID : <%= user.username %></p>
-                            </div>
-                            <div class="col-7">
-                                <p style="color: rgb(39, 144, 243);">Tiền đầu tư : <span class="counter-value" data-target="<%= total %>"></span> đ</p>
-                                <p style="color: rgb(20, 149, 55);">Tiền ocopshop : <span class="counter-value" data-target="<%= total_ocss %>"></span> đ</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row h-100">
-                        <div class="col-xxl-6">
-                            <div class="card" style="border-radius: 15px;">
-                                <div class="card-body">
-                                    <h4 class="card-title mb-0 flex-grow-1">Tin tức mới</h4><br>
-                                    <div class="d-flex align-middle">
-                                        <div class="flex-shrink-0">
-                                            <img src="https://chotoancau.vn/uploads/news/2022_09/z3728460266456_d751def7c60fa16ac2011b014171e903.jpg"
-                                                class="rounded img-fluid" style="height: 60px;" alt="">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-1 lh-base"><a
-                                                    href="https://chotoancau.vn/tin-hoat-dong/le-dong-tho-du-an-khu-tmdv-tong-hop-phuong-tan-thanh-48.html"
-                                                    class="text-reset">Lễ động thổ dự án Khu TMDV Tổng
-                                                    hợp Phường Tân Thành</a></h6>
-                                            <p class="text-muted fs-12 mb-0">Ngày 17/09/2022 <i
-                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>10:51
-                                            </p>
-                                        </div>
-                                    </div><!-- end -->
-                                    <div class="d-flex mt-4">
-                                        <div class="flex-shrink-0">
-                                            <img src="https://chotoancau.vn/uploads/news/2022_09/img_7018.jpg"
-                                                class="rounded img-fluid" style="height: 60px;" alt="">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-1 lh-base"><a
-                                                    href="https://chotoancau.vn/tin-hoat-dong/hoi-nghi-xuc-tien-dau-tu-bds-thuong-mai-cho-ngay-hoi-trang-ram-tung-bung-qua-tang-46.html"
-                                                    class="text-reset">Hội nghị xúc tiến đầu tư BĐS
-                                                    Thương mại - Chợ. Ngày hội trăng rằm từng bừng quà
-                                                    tặng</a></h6>
-                                            <p class="text-muted fs-12 mb-0">Ngày 11/09/2022 <i
-                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>11:34
-                                            </p>
-                                        </div>
-                                    </div><!-- end -->
-                                    <div class="d-flex mt-4">
-                                        <div class="flex-shrink-0">
-                                            <img src="https://storage.ovp.vnews.gov.vn/Mam/VNEWS/attach/upload/13092022144304/144305_chay_2.jpg"
-                                                class="rounded img-fluid" style="height: 60px;" alt="">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-1 lh-base"><a href="#" class="text-reset">Hưng
-                                                    Yên: Cháy chợ dân sinh, nhiều ki ốt bị thiêu rụi
-                                                </a></h6>
-                                            <p class="text-muted fs-12 mb-0">Ngày 13/09/2022 <i
-                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>16:49
-                                            </p>
-                                        </div>
-                                    </div><!-- end -->
-                                    <div class="d-flex mt-4">
-                                        <div class="flex-shrink-0">
-                                            <img src="https://chotoancau.vn/uploads/news/2022_08/img_5516.jpg"
-                                                class="rounded img-fluid" style="height: 60px;" alt="">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-1 lh-base"><a
-                                                    href="https://chotoancau.vn/tin-hoat-dong/hoi-nghi-khach-hang-khu-vuc-mien-bac-giai-phap-hop-tac-dau-tu-kinh-doanh-bat-dong-san-hieu-qua-41.html"
-                                                    class="text-reset">Hội nghị khách hàng khu vực miền
-                                                    Bắc: Giải pháp hợp tác đầu tư kinh doanh Bất động
-                                                    sản hiệu quả.</a></h6>
-                                            <p class="text-muted fs-12 mb-0">Ngày 14/08/2022 <i
-                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>23:19
-                                            </p>
-                                        </div>
-                                    </div><!-- end -->
-                                    <div class="d-flex mt-4">
-                                        <div class="flex-shrink-0">
-                                            <img src="https://chotoancau.vn/uploads/news/2022_08/sequence-01.00_00_20_07.still001.jpg"
-                                                class="rounded img-fluid" style="height: 60px;" alt="">
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-1 lh-base"><a
-                                                    href="https://chotoancau.vn/tin-hoat-dong/chuong-trinh-huan-luyen-dac-biet-danh-cho-giam-doc-kinh-doanh-toan-nang-37.html"
-                                                    class="text-reset">Chương trình Huấn luyện đặc biệt
-                                                    dành cho Giám đốc kinh doanh toàn năng</a></h6>
-                                            <p class="text-muted fs-12 mb-0">Ngày 06/08/2022 <i
-                                                    class="mdi mdi-circle-medium align-middle mx-1"></i>18:19
-                                            </p>
-                                        </div>
-                                    </div><!-- end -->
-
-                                </div><!-- end card body -->
-                            </div><!-- end card -->
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!-- end main content-->
-
     </div>
     <!-- END layout-wrapper -->
-
-
-
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>

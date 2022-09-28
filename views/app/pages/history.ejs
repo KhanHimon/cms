@@ -2,7 +2,7 @@
 <% if (user) { %>
     <!-- Begin page -->
     <div id="layout-wrapper">
-<header id="page-topbar">
+<header id="page-topbar" style="background-color: #eff4f7;">
     <%- include ../layouts/menu.ejs %>
 </header>
         <!-- ========== App Menu ========== -->
@@ -15,12 +15,12 @@
         <!-- ============================================================== -->
         <div class="main-content">
             <%- include ../layouts/nav.ejs %>
-            <div class="page-content">
+            <div class="page-content" style="padding-left: 0; padding-top: 70px;">
               <div class="">
-                   <div class="col-12" style="background-color: white; width: 100%;">
+                   <div class="col-12" style="background-color: white; width: 103%;">
                         <!-- Striped Rows -->
                         <table class="table table-striped" style="padding: 10px;">
-                            <thead>
+                            <thead class="table-light">
                                 <tr>
                                     <th scope="col">MÃ HĐ</th>
                                     <th scope="col-2">Tiền lãi</th>
