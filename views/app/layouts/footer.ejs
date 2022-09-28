@@ -1,6 +1,6 @@
 <div class="footer">
-    <div class="row">
-        <div class="col">
+    <div class="row" id="myDIV">
+        <!-- <div class="col">
             <form action="/app/profile/<%= user._id %>">
                 <button style="background: none; border: none;"><img src="../../icons/user.png" alt=""  style="margin-top: 5px;" width="30px"></button>
             </form>
@@ -24,19 +24,51 @@
             <form action="/app/support/<%= user._id %>">
                 <button style="background: none; border: none;"><img src="../../icons/support.png" alt=""  style="margin-top: 5px;" width="30px"></button>
             </form>
+        </div> -->
+        <div class="col">
+            <form action="/app/home/<%= user._id %>">
+                <button type="submit" class="button" style="background: none; border: none;">
+                    <i class="ri-dashboard-line" style="font-size: 20px;"></i>
+                    <p style="font-size: 12px;">Trang chủ</p>
+                </button>
+            </form>
+        </div>
+        <div class="col">
+            <form action="/app/profile/<%= user._id %>">
+                <button type="submit" class="button" style="background: none; border: none;">
+                    <i class="ri-user-6-line" style="font-size: 20px;"></i>
+                    <p style="font-size: 12px;">Tài khoản</p>
+                </button>
+            </form>
+        </div>
+        <div class="col">
+            <form action="/app/history/<%= user._id %>">
+                <button type="submit" class="button" style="background: none; border: none;">
+                    <i class="ri-history-line" style="font-size: 20px;"></i>
+                    <p style="font-size: 12px;">lịch sử</p>
+                </button>
+            </form>
+        </div>
+        <div class="col">
+            <form action="/app/contract/<%= user._id %>">
+                <button type="submit" class="button" style="background: none; border: none;">
+                    <i class="ri-article-line" style="font-size: 20px;"></i>
+                    <p style="font-size: 12px;">Hợp đồng</p>
+                </button>
+            </form>
         </div>
     </div>
 </div>
 <style>
     .footer {
-       position: fixed;
-       left: 0;
-       bottom: 0;
-       width: 100%;
-       background-color: rgb(252, 252, 252);
-       text-align: center;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(252, 252, 252);
+        text-align: center;
     }
-    </style>
+</style>
 <!-- JAVASCRIPT -->
 <script src="../../admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../../admin/assets/libs/simplebar/simplebar.min.js"></script>
