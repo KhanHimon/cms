@@ -34,30 +34,44 @@
         </div>
     </div> -->
     <ul class="menu-app">
-        <li style="padding-left: 0;">
-            <a href="/app/home/<%= user._id %>">
-                <i class="ri-dashboard-line" style="font-size: 20px;"></i>
-                <p style="font-size: 12px;">Trang chủ</p>
-            </a>
-        </li>
-        <li>
-            <a href="/app/profile/<%= user._id %>">
-                <i class="ri-user-6-line" style="font-size: 20px;"></i>
-                <p style="font-size: 12px;">Tài khoản</p>
-            </a>
-        </li>
-        <li>
-            <a href="/app/history/<%= user._id %>">
-                <i class="ri-history-line" style="font-size: 20px;"></i>
-                <p style="font-size: 12px;">lịch sử</p>
-            </a>
-        </li>
-        <li>
-            <a href="/app/contract/<%= user._id %>">
-                <i class="ri-article-line" style="font-size: 20px;"></i>
-                <p style="font-size: 12px;">Hợp đồng</p>
-            </a>
-        </li>
+        <div class="row">
+            <div class="col">
+                <li style="padding-left: 0;">
+                    <a href="/app/home/<%= user._id %>">
+                        <i class="ri-dashboard-line" style="font-size: 20px;"></i>
+                        <p style="font-size: 12px;">Trang chủ</p>
+                    </a>
+                </li>
+            </div>
+            <div class="col">
+                <li>
+                    <a href="/app/profile/<%= user._id %>">
+                        <i class="ri-user-6-line" style="font-size: 20px;"></i>
+                        <p style="font-size: 12px;">Tài khoản</p>
+                    </a>
+                </li>
+            </div>
+            <div class="col">
+                <li>
+                    <a href="/app/history/<%= user._id %>">
+                        <i class="ri-history-line" style="font-size: 20px;"></i>
+                        <p style="font-size: 12px;">lịch sử</p>
+                    </a>
+                </li>
+            </div>
+            <div class="col">
+                <li>
+                    <a href="/app/contract/<%= user._id %>">
+                        <i class="ri-article-line" style="font-size: 20px;"></i>
+                        <p style="font-size: 12px;">Hợp đồng</p>
+                    </a>
+                </li>
+            </div>
+        </div>
+        
+        
+        
+        
     </ul>
     <script>
         jQuery(function ($) {
@@ -102,7 +116,6 @@
     .menu-app li{
         color: black;
         display: inline-block;
-        padding-left: 40px;
     }
     .footer {
         position: fixed;

@@ -46,7 +46,7 @@
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Next</span>
                         </button>
-                      </div>
+                    </div>
                 </div>
                 <% let total = 0; %>
                 <% hop_dongs.forEach(hop_dong => { %>
@@ -72,12 +72,56 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col" style="background-color: rgb(245, 245, 245); margin: 5px; margin-left: 5px;">
-                        
+                <div class="row" style="margin-left: 6px; margin-right: 0; text-align: center;">
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= user._id %>">
+                            <i class="ri-wallet-3-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Ví điện tử</p>
+                        </a>
                     </div>
-                    <div class="col" style="background-color: rgb(245, 245, 245); height: 50px; margin: 5px; margin-right: 0;">
-
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= user._id %>">
+                            <i class="ri-bank-card-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Visa Card</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= user._id %>">
+                            <i class="ri-shopping-basket-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Ocopshop</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= user._id %>">
+                            <i class="ri-gift-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Quà tặng</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 6px; margin-right: 0; text-align: center;">
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= user._id %>">
+                            <i class="ri-qr-scan-line" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Scan QR</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= user._id %>">
+                            <i class="ri-questionnaire-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">FAQ</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= user._id %>">
+                            <i class="ri-user-add-line" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Giới thiệu</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= user._id %>">
+                            <i class="ri-customer-service-2-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Hỗ trợ</p>
+                        </a>
                     </div>
                 </div>
                 <div style="width: 103%;">
@@ -90,7 +134,6 @@
                         <thead class="table-light">
                             <tr>
                                 <th scope="col">MÃ HĐ</th>
-                                <th scope="col">Tiền đầu tư</th>
                                 <th scope="col">Ngày ký</th>
                             </tr>
                         </thead>
@@ -99,7 +142,7 @@
                                 <% if ( hop_dong.khach_hang.id === user.id) { %>
                                     <tr>
                                         <td><%= hop_dong.ma_hop_dong %></td>
-                                        <td><%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ</td>
+                                        <!-- <td><%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ</td> -->
                                         <td><%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
                                     </tr>
                                 <% } %>
