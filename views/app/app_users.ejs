@@ -1,10 +1,10 @@
 <%- include ./layouts/header.ejs %>
 <% if (user) { %>
     <!-- Begin page -->
-    <div id="layout-wrapper">
-<header id="page-topbar" style="background-color: #eff4f7;">
-    <%- include ./layouts/menu.ejs %>
-</header>
+<div id="layout-wrapper">
+    <header id="page-topbar" style="background-color: #eff4f7;">
+        <%- include ./layouts/menu.ejs %>
+    </header>
         <!-- ========== App Menu ========== -->
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
@@ -15,7 +15,10 @@
         <!-- ============================================================== -->
         <div class="main-content">
             <%- include ./layouts/nav.ejs %>
-            <div class="page-content" style="padding-left: 0;">
+            <div class="page-content" style="padding-left: 0; padding-top: 45px;">
+                <div style="width: 103%; height: 150px; background: black;">
+
+                </div>
                 <% let total = 0; %>
                 <% hop_dongs.forEach(hop_dong => { %>
                      <% if ( hop_dong.khach_hang.id === user.id) { %>
@@ -40,63 +43,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col" style="background-color: rgb(245, 245, 245); margin: 5px; margin-left: 5px;">
+                        
+                    </div>
+                    <div class="col" style="background-color: rgb(245, 245, 245); height: 50px; margin: 5px; margin-right: 0;">
+
+                    </div>
+                </div>
                 <div style="width: 103%;">
-                    <h4 style="padding-left: 15px;">Tin tức tổng hợp</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="https://lhhtx.vn/uploads/news/2022_09/pc-bao1-16641743540371092030135.jpg" width="100px" alt="" height="100px">
-                                </div>
-                                <div class="col-9" style="padding-left: 25px;">
-                                    <p>Sáng 26/9, TP. Đà Nẵng tổ chức họp ứng phó với bão số 4. Lãnh đạo Thành phố đã quyết định đưa ra nhiều biện pháp để bảo đảm ứng phó hiệu quả với cơn bão, giảm thấp nhất thiệt hại</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="https://lhhtx.vn/uploads/news/2022_09/1.jpeg" width="100px" alt="" height="100px">
-                                </div>
-                                <div class="col-9" style="padding-left: 25px;">
-                                    <p>Tin từ UBND tỉnh Thừa Thiên Huế cho biết, tỉnh đã chỉ đạo tạm đóng cửa chợ và cấm người dân ra đường từ chiều và tối 27/9 để bảo đảm an toàn khi siêu bão Noru (bão số 4) đổ bộ.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="https://chotoancau.vn/uploads/news/2022_09/z3728460266456_d751def7c60fa16ac2011b014171e903.jpg" width="100px" alt="" height="100px">
-                                </div>
-                                <div class="col-9" style="padding-left: 25px;">
-                                    <p>Liên hiệp Hợp tác xã Việt Nam cùng Công ty CP Tập đoàn Chợ toàn cầu GMG tổ chức Lễ Động thổ dự án Khu TMDV Tổng hợp phường Tân Thành</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="https://chotoancau.vn/uploads/news/2022_09/image-20200702112049-1.jpeg" width="100px" alt="" height="100px">
-                                </div>
-                                <div class="col-9" style="padding-left: 25px;">
-                                    <p>Trong bối cảnh nguồn cung khan hiếm và thị trường vừa khởi động lại sau dịch bệnh, các dự án nhà ở gần chợ, TTTM với ưu điểm sẵn có đã mạnh mẽ hút dòng tiền đầu tư từ thị trường.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="list-group-item" style="border: none; border-bottom: solid 0.5px silver;">
-                            <div class="row">
-                                <div class="col-3">
-                                    <img src="https://lhhtx.vn/uploads/news/2022_09/pc-bao1-16641743540371092030135.jpg" width="100px" alt="" height="100px">
-                                </div>
-                                <div class="col-9" style="padding-left: 25px;">
-                                    <p>Sáng 26/9, TP. Đà Nẵng tổ chức họp ứng phó với bão số 4. Lãnh đạo Thành phố đã quyết định đưa ra nhiều biện pháp để bảo đảm ứng phó hiệu quả với cơn bão, giảm thấp nhất thiệt hại</p>
-                                </div>
-                            </div>
-                        </li>
-                      </ul>
-                      <br>
-                    <h4 style="padding-left: 15px;">Hợp đồng đầu tư</h4>
                     <table class="table table-striped" style="padding: 10px;">
+                        <thead class="">
+                            <tr>
+                                <th colspan="3">Hợp đồng đầu tư</th>
+                            </tr>
+                        </thead>
                         <thead class="table-light">
                             <tr>
                                 <th scope="col">MÃ HĐ</th>
