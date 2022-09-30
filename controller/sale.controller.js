@@ -134,6 +134,9 @@ class sale_Controller {
     if (req.body.trang_thai_quyet_dinh) {
       edit_sale.trang_thai_quyet_dinh = req.body.trang_thai_quyet_dinh;
     }
+    if (req.body.ghi_chu) {
+      edit_sale.ghi_chu = req.body.ghi_chu;
+    }
     const options = {
       new: true,
     }

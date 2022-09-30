@@ -1,0 +1,145 @@
+<%- include ./layouts/header.ejs %>
+<% if (sale) { %>
+    <!-- Begin page -->
+<div id="layout-wrapper">
+    <header id="page-topbar" style="background-color: #eff4f7;">
+        <%- include ./layouts/menu.ejs %>
+    </header>
+        <!-- ========== App Menu ========== -->
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+            <%- include ./layouts/nav.ejs %>
+            <div class="page-content" style="padding-left: 0; padding-top: 45px;">
+                <div style="width: 103%; height: 150px;">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="https://chotoancau.vn/uploads/news/2022_09/image-20200702112049-1.jpeg" style="height: 150px;" class="d-block w-100" alt="...">
+                            <div class="carousel-caption" style="width: 100%; left: 0; background-color: #000000ad; bottom: -15%; padding-top: 0;">
+                                <p style="padding: 10px; font-size: 12px; padding-bottom: 0px;">Lực hấp dẫn của thị trường nhà ở gần chợ, trung tâm thương mại</p>
+                              </div>
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://chotoancau.vn/uploads/news/2022_09/z3728460266456_d751def7c60fa16ac2011b014171e903.jpg" style="height: 150px;" class="d-block w-100" alt="...">
+                            <div class="carousel-caption" style="width: 100%; left: 0; background-color: #000000ad; bottom: -15%; padding-top: 0;">
+                                <p style="padding: 10px; font-size: 12px; padding-bottom: 0px;">Lễ động thổ dự án Khu TMDV Tổng hợp Phường Tân Thành</p>
+                              </div>
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://chotoancau.vn/uploads/news/2022_08/img_5516.jpg" style="height: 150px;" class="d-block w-100" alt="...">
+                            <div class="carousel-caption" style="width: 100%; left: 0; background-color: #000000ad; bottom: -15%; padding-top: 0;">
+                                <p style="padding: 10px; font-size: 12px; padding-bottom: 0px;">Hội nghị khách hàng khu vực miền Bắc: Giải pháp hợp tác đầu tư kinh doanh Bất động sản hiệu quả.</p>
+                              </div>
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12" style="background-color: white; color: black; line-height: 10px; padding-top: 15px; border-radius: 15px; padding-left: 20px; margin-bottom: 10px;">
+                    <div class="row">
+                        <div class="col-5">
+                            <p><b><%= sale.ho_va_ten %></b></p>
+                            <p>ID : <%= sale.username_sale %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 6px; margin-right: 0; text-align: center;">
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= sale._id %>">
+                            <i class="ri-group-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Nhóm</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= sale._id %>">
+                            <i class="ri-bank-card-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Visa Card</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= sale._id %>">
+                            <i class="ri-shopping-basket-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Ocopshop</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= sale._id %>">
+                            <i class="ri-book-read-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Chính sách</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 6px; margin-right: 0; text-align: center;">
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= sale._id %>">
+                            <i class="ri-qr-scan-line" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Scan QR</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= sale._id %>">
+                            <i class="ri-questionnaire-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">FAQ</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= sale._id %>">
+                            <i class="ri-user-add-line" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Giới thiệu</p>
+                        </a>
+                    </div>
+                    <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
+                        <a href="/app/history/<%= sale._id %>">
+                            <i class="ri-customer-service-2-fill" style="font-size: 20px;color: #187ce8;"></i>
+                            <p style="font-size: 12px;">Hỗ trợ</p>
+                        </a>
+                    </div>
+                </div>
+                <div style="width: 103%;">
+                    <table class="table table-striped" style="padding: 10px;">
+                        <thead class="">
+                            <tr>
+                                <th colspan="3">Hợp đồng đầu tư</th>
+                            </tr>
+                        </thead>
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">MÃ HĐ</th>
+                                <th scope="col">Ngày ký</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <%- include ./layouts/footer.ejs %>
+<% } %>

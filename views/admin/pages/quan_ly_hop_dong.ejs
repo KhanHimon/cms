@@ -746,7 +746,7 @@
                                                                             <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.cccd_cmnd %></a>
                                                                         </td>
                                                                         <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.so_tien_dau_tu.toLocaleString() %> đ</a>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.so_tien_dau_tu %> đ</a>
                                                                         </td>
                                                                         <% if ((hop_dong_dau_tu.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
                                                                             <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= hop_dong_dau_tu.loi_nhuan.thang_dau.toFixed(0) %>">0</span> đ</td>
@@ -782,9 +782,6 @@
                                                                     </tr>
                                                                 <% }); %>
                                                                 <% } %>
-                                                            </div>
-                                                        </tbody><!-- end tbody -->
-                                                    </table><!-- end table -->
                                                 </div>
                                             </div>
                                         </div> <!-- .card-->
@@ -799,22 +796,6 @@
                 </div>
                 <!-- container-fluid -->
             </div>
-            <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Lê Tuấn Khang
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
         <!-- end main content-->
 

@@ -23,6 +23,7 @@ const Sale_Schema = new Schema({
         type: Schema.Types.ObjectId,
         ref:'Nhom_sale'
     },
+    ghi_chu: { type: String },
     nguoi_them: {type: String},
     chuc_vu:{
         type: Schema.Types.ObjectId,

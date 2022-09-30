@@ -43,13 +43,15 @@
                             <div class="col-12">
                                 <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                     <div class="flex-grow-1">
-                                        <h4 class="fs-16 mb-1">Chào mừng, <%= sale.ho_va_ten %>!</h4>
+                                        <h4 class="fs-16 mb-1">Chào mừng, <%= sale.ho_va_ten %></h4>
                                         <p class="text-muted mb-0">Chúc bạn một ngày làm việc hiệu quả</p>
                                     </div>
                                 </div><!-- end card header -->
                             </div>
                             <!--end col-->
                         </div>
+                        <!-- Dashboard ADMIN -->
+                        <% if (sale.chuc_vu = "62f60037939e9682e0c6973c") { %>
                         <div class="col-xxl-5">
                             <div class="d-flex flex-column h-100">
                                 <div class="row h-100">
@@ -171,9 +173,58 @@
                                 </div> <!-- end row-->
                             </div>
                         </div> <!-- end col-->
-
-                        <div class="col-xxl-7">
-                            <div class="row h-100">
+                        <% } %>
+                        <!-- DASHBOARD SALE -->
+                        <% if (sale.chuc_vu = "62f60037939e9682e0c6973c") { %>
+                        <div class="col-xxl-6">
+                            <div class="d-flex flex-column h-100">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách khách hàng</h4>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card card-animate">
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <% const month = new Date().getMonth() + 1 %>
+                                                            <tr>
+                                                                <th scope="col">Họ và tên</th>
+                                                                <th scope="col">CMND/CCCD</th>
+                                                                <th scope="col">Số điện thoại</th>
+                                                                <th scope="col">Email</th>
+                                                                <th scope="col">Địa chỉ</th>
+                                                                <th scope="col">Số tài khoản</th>
+                                                                <th scope="col">Ngân hàng</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="myTable">
+                                                            <% khach_hang.forEach(function(khach_hang){ %>
+                                                                <% if (khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
+                                                                    <tr>
+                                                                        <td><%= khach_hang.ho_va_ten %></td>
+                                                                        <td><%= khach_hang.cccd_cmnd %></td>
+                                                                        <td><%= khach_hang.so_dien_thoai %></td>
+                                                                        <td><%= khach_hang.email %></td>
+                                                                        <td><%= khach_hang.dia_chi %></td>
+                                                                        <td><%= khach_hang.so_tai_khoan %></td>
+                                                                        <td><%= khach_hang.ngan_hang %></td>
+                                                                    </tr>
+                                                                <% } %>
+                                                            <% }); %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
+                                </div> <!-- end row-->
+                            </div>
+                        </div> <!-- end col-->
+                        <% } %>
+                        <div class="col-xxl-6">
+                            <div class="row">
                                 <div class="col-xl-12">
                                     <div class="card card-height-100">
                                         <div class="card-header align-items-center d-flex">
@@ -206,7 +257,45 @@
                                         <!-- end card body -->
                                     </div><!-- end card -->
                                 </div><!-- end col -->
-
+                            </div> <!-- end row-->
+                            <div class="row">
+                                    <div class="col">
+                                        <div class="card card-animate">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Danh sách hợp đồng</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">MÃ HĐ</th>
+                                                                <th scope="col">Họ và tên</th>
+                                                                <th scope="col">Số điện thoại</th>
+                                                                <th scope="col">Email</th>
+                                                                <th scope="col">Đầu tư</th>
+                                                                <th scope="col">Ngày ký</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="myTable">
+                                                            <% hop_dong.forEach(function(hop_dong){ %>
+                                                                <% if (hop_dong.khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
+                                                                    <tr>
+                                                                        <td><%= hop_dong.ma_hop_dong %></td>
+                                                                        <td><%= hop_dong.khach_hang.ho_va_ten %></td>
+                                                                        <td>0<%= hop_dong.khach_hang.so_dien_thoai %></td>
+                                                                        <td><%= hop_dong.khach_hang.email %></td>
+                                                                        <td><%= hop_dong.so_tien_dau_tu.toLocaleString() %></td>
+                                                                        <td><%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() +1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
+                                                                    </tr>
+                                                                <% } %>
+                                                            <% }); %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col-->
                             </div> <!-- end row-->
                         </div><!-- end col -->
                     </div>
@@ -214,21 +303,6 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Lê Tuấn Khang
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
         <!-- end main content-->
 
