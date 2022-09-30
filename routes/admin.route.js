@@ -77,7 +77,7 @@ router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (re
         }).sort({ ngay_thong_bao: -1 })
       })
     }).populate('nguoi_gui').populate('trang_thai')
-  }).populate('chuc_vu')
+  }).populate('chuc_vu').populate('nhom_kinh_doanh')
 });
 router.get('/quan-ly-giao-dich/:_id', login_admin_controller.loginRequired, function (req, res, next) {
   Sale_Schema.findById(req.params._id, function (err, sale) {

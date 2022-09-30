@@ -98,12 +98,7 @@
                                                                                                 <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="khach_hang">Khách hàng
                                                                                                     <span class="text-danger">*</span>
                                                                                                 </label>
-                                                                                                <select class="form-control" id="khach_hang" name="khach_hang">
-                                                                                                    <option>---- Khách hàng ----</option>
-                                                                                                    <% khach_hang.forEach(function(khach_hang){ %>
-                                                                                                    <option value="<%= khach_hang._id %>"><%= khach_hang.ho_va_ten %> | <%= khach_hang.wallet.wallet_basic.toLocaleString() %> đ </option>
-                                                                                                    <% }); %>
-                                                                                                </select>
+                                                                                                
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
