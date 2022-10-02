@@ -18,7 +18,7 @@ class sale_Controller {
               Nhom_sale_Schema.find(function (err, nhoms) {
                 Chuc_vu_Schema.find(function (err, chuc_vus) {
                   if (err) throw err;
-                  res.render('admin/pages/quan_ly_sale', { sale, thong_bao, sales, vungs, tinhs, nhoms, chuc_vus, message: req.flash('message') });
+                  res.render('admin/pages/sales/quan_ly_sale', { sale, thong_bao, sales, vungs, tinhs, nhoms, chuc_vus, message: req.flash('message') });
                 })
               })
             })
@@ -39,7 +39,7 @@ class sale_Controller {
                   Tinh_Schema.find(function (err, tinhs) {
                     Chuc_vu_Schema.find(function (err, chuc_vus) {
                       if (err) throw err;
-                      res.render('admin/pages/chi_tiet_sale', {chuc_vus, tinhs, vungs, sale, thong_bao, chi_tiet_sale, hop_dongs, khach_hangs, sales });
+                      res.render('admin/pages/sales/chi_tiet_sale', {chuc_vus, tinhs, vungs, sale, thong_bao, chi_tiet_sale, hop_dongs, khach_hangs, sales });
                     })
                   })
                 })

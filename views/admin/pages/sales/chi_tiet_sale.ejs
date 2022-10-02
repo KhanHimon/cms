@@ -1,14 +1,14 @@
-<%- include ../layouts/header.ejs %>
+<%- include ../../layouts/header.ejs %>
 
     <!-- Begin page -->
     <div id="layout-wrapper">
         <header id="page-topbar">
             <div class="layout-width">
-                <%- include ../layouts/nav_header.ejs %>
+                <%- include ../../layouts/nav_header.ejs %>
             </div>
         </header>
         <!-- ========== App Menu ========== -->
-        <%- include ../layouts/left_menu.ejs %>
+        <%- include ../../layouts/left_menu.ejs %>
             <!-- Left Sidebar End -->
             <!-- Vertical Overlay-->
             <div class="vertical-overlay"></div>
@@ -174,7 +174,7 @@
                                                                 <div class="col-md-3">
                                                                     <div class="mb-3">
                                                                         <label for="ma_code" class="form-label">Trạng thái quyết định</label>
-                                                                        <input type="text" disabled class="form-control" value="<%= chi_tiet_sale.trang_thai_quyet_dinh %>" placeholder="Nhập mã giới thiệu" id="ma_code" name="ma_code">
+                                                                        <input type="text" disabled class="form-control" value="<%= chi_tiet_sale.trang_thai_quyet_dinh %>" placeholder="" id="ma_code" name="ma_code">
                                                                     </div>
                                                                 </div>
                                                                 <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" ) { %>
@@ -583,4 +583,4 @@
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
-    <%- include ../layouts/footer.ejs %>
+    <%- include ../../layouts/footer.ejs %>

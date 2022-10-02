@@ -21,7 +21,7 @@ class lich_su_tra_thuong_controller {
             Lich_su_Schema.find(function (err, lich_sus) {
                 thong_bao_Schema.find(function (err, thong_bao) {
                     if (err) throw err;
-                    res.render('admin/pages/lich_su_tra_lai', { thong_bao, sale, lich_sus });
+                    res.render('admin/pages/ke_toan/lich_su_tra_lai', { thong_bao, sale, lich_sus });
                 })
             }).populate('nguoi_duyet').populate({
                 path: 'hop_dong',

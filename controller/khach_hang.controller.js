@@ -25,7 +25,7 @@ class khach_hang_Controller {
             User_Schema.find(function (err, khach_hang) {
               thong_bao_Schema.find(function (err, thong_bao) {
                 if (err) throw err;
-                res.render('admin/pages/quan_ly_khach_hang_sale', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang, message: req.flash('message') });
+                res.render('admin/pages/khach_hang/quan_ly_khach_hang_sale', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang, message: req.flash('message') });
               })
             })
           }).populate('nhom_kinh_doanh').populate('chuc_vu')
@@ -41,7 +41,7 @@ class khach_hang_Controller {
             Sale_Schema.find(function (err, sales) {
             if (err) throw err;
             // res.json(khach_hang_chi_tiet)
-            res.render('admin/pages/chi_tiet_khach_hang', { message: req.flash('message'), sale, thong_bao, khach_hang_chi_tiet, hop_dong, sales });
+            res.render('admin/pages/khach_hang/chi_tiet_khach_hang', { message: req.flash('message'), sale, thong_bao, khach_hang_chi_tiet, hop_dong, sales });
             })
           }).populate('khach_hang').populate('trang_thai')
         })

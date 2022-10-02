@@ -14,7 +14,7 @@ class nhom_Controller {
                 Nhom_sale_Schema.find(function (err, nhoms) {
                     Sale_Schema.find(function (err, sales) {
                         if (err) throw err;
-                        res.render('admin/pages/quan_ly_doi_nhom', { sale, thong_bao, nhoms, sales });
+                        res.render('admin/pages/sale_group/quan_ly_doi_nhom', { sale, thong_bao, nhoms, sales });
                     }).populate('chuc_vu').populate('nhom_kinh_doanh').populate('vung').populate('tinh').limit(13)
                 })
             })
@@ -32,7 +32,7 @@ class nhom_Controller {
                                     Tinh_Schema.find(function (err, tinhs) {
                                         Chuc_vu_Schema.find(function (err, chuc_vus) {
                                             if (err) throw err;
-                                            res.render('admin/pages/chi_tiet_doi_nhom', { chuc_vus, vungs, tinhs, sale, thong_bao, nhom, sales, hop_dongs, khach_hangs, message: req.flash('message') });
+                                            res.render('admin/pages/sale_group/chi_tiet_doi_nhom', { chuc_vus, vungs, tinhs, sale, thong_bao, nhom, sales, hop_dongs, khach_hangs, message: req.flash('message') });
                                         })
                                     })
                                 })

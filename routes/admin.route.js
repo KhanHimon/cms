@@ -38,104 +38,27 @@ const lich_su_tra_thuong_controller = require('../controller/lich_su.controller'
 /* ROUTER VÙNG */
 router.get('/quan-ly-khu-vuc/:_id',login_admin_controller.loginRequired, vung_Controller.hien_thi);
 router.post('/them-vung/',login_admin_controller.loginRequired, vung_Controller.them_vung);
-
 /* ROUTER TỈNH */
 router.post('/them-tinh/',login_admin_controller.loginRequired, vung_Controller.them_tinh);
-
-
 /* ROUTER NHOM */
 router.get('/danh-sach-nhom/:_id',login_admin_controller.loginRequired, nhom_Controller.hien_thi);
 router.get('/chi-tiet-nhom=:id/:_id',login_admin_controller.loginRequired, nhom_Controller.chi_tiet_doi_nhom);
-
 /* ROUTER SALE */
 router.get('/danh-sach-sale/:_id',login_admin_controller.loginRequired, sale_Controller.hien_thi);
 router.post('/them-nhan-vien',login_admin_controller.loginRequired, sale_Controller.them_moi_sale);
 router.post('/sua-nhan-vien/:_id',login_admin_controller.loginRequired, sale_Controller.thay_doi_thong_tin_sale);
 router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, sale_Controller.chi_tiet_sale);
-
 /* ROUTER LỊCH SỬ */
-
 router.get('/lich-su-tra-lai/:_id',login_admin_controller.loginRequired, lich_su_tra_thuong_controller.hien_thi_lich_su);
 router.post('/check-trang-thai/:_id', hop_dong_tra_thuong_controller.check_date);
 router.post('/check-trang-thai', hop_dong_tra_thuong_controller.reset_lich_su);
+/* GET DASHBOARD */
+router.get('/dashboard/:_id', login_admin_controller.loginRequired, admin_controller.GET_DASHBOARD);
 
-
-/* GET users listing. */
-router.get('/dashboard/:_id', login_admin_controller.loginRequired, function (req, res, next) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    Lich_su_Schema.find(function (err, lich_su) {
-      User_Schema.find(function (err, khach_hang) {
-        thong_bao_Schema.find(function (err, thong_bao) {
-          trang_thai_Schema.find(function (err, trang_thai) {
-            Hop_dong_dau_tu_Schema.find(function(err, hop_dong){
-              Sale_Schema.find(function (err, sales) {
-                if (err) throw err;
-                res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai,hop_dong, sales });
-              }).populate('nhom_kinh_doanh').populate('chuc_vu')
-            }).populate('khach_hang')
-          })
-        }).sort({ ngay_thong_bao: -1 })
-      })
-    }).populate('nguoi_gui').populate('trang_thai')
-  }).populate('chuc_vu').populate('nhom_kinh_doanh')
-});
-router.get('/quan-ly-giao-dich/:_id', login_admin_controller.loginRequired, function (req, res, next) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    Lich_su_Schema.find(function (err, lich_su) {
-      thong_bao_Schema.find(function (err, thong_bao) {
-        trang_thai_Schema.find(function (err, trang_thai) {
-          if (err) throw err;
-          res.render('admin/pages/quan_ly_giao_dich', { lich_su, sale, thong_bao, trang_thai });
-        })
-      })
-    }).populate('nguoi_gui').populate('trang_thai')
-  }).populate('chuc_vu')
-});
-
-
-
-router.get('/quan-ly-du-an/:_id', login_admin_controller.loginRequired, function (req, res, next) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    thong_bao_Schema.find(function (err, thong_bao) {
-      if (err) throw err;
-      res.render('admin/pages/quan_ly_du_an', { thong_bao, sale });
-    })
-  }).populate('chuc_vu')
-});
 
 router.get('/login', function (req, res, next) {
   res.render('admin/login_admin');
 })
-
-router.get('/quan-ly-sale/:_id', login_admin_controller.loginRequired, function (req, res, next) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    Nhom_sale_Schema.find(function (err, nhom_sale) {
-      Chuc_vu_Schema.find(function (err, chuc_vu) {
-        Sale_Schema.find(function (err, sales) {
-          thong_bao_Schema.find(function (err, thong_bao) {
-            if (err) throw err;
-            res.render('admin/pages/quan_ly_sale', { sale, chuc_vu, nhom_sale, sales, thong_bao });
-          })
-        }).populate('chuc_vu').populate('nhom_kinh_doanh')
-      })
-    })
-  }).populate('chuc_vu')
-});
-
-router.get('/quan-ly-doi-nhom/:_id', login_admin_controller.loginRequired, function (req, res, next) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    Nhom_sale_Schema.find(function (err, nhom_sale) {
-      Chuc_vu_Schema.find(function (err, chuc_vu) {
-        Sale_Schema.find(function (err, sales) {
-          thong_bao_Schema.find(function (err, thong_bao) {
-            if (err) throw err;
-            res.render('admin/pages/quan_ly_doi_nhom', { sale, chuc_vu, nhom_sale, sales, thong_bao });
-          })
-        }).populate('nhom_kinh_doanh').populate('chuc_vu')
-      })
-    })
-  }).populate('chuc_vu')
-});
 
 
 
@@ -152,23 +75,30 @@ router.get('/cai-dat-chung/:_id', login_admin_controller.loginRequired, function
   }).populate('nhom_kinh_doanh').populate('chuc_vu')
 });
 
-router.get('/quan-ly-tai-khoan/:_id', login_admin_controller.loginRequired, function (req, res, next) {
+router.get('/phieu-thong-tin-khach-hang/:_id', login_admin_controller.loginRequired, function (req, res) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
-    Nhom_sale_Schema.find(function (err, nhom_sale) {
-      Chuc_vu_Schema.find(function (err, chuc_vu) {
-        Sale_Schema.find(function (err, sales) {
-          User_Schema.find(function (err, khach_hang) {
-            thong_bao_Schema.find(function (err, thong_bao) {
-              if (err) throw err;
-              res.render('admin/pages/quan_ly_tai_khoan', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang });
-            })
-          })
-        }).populate('nhom_kinh_doanh').populate('chuc_vu')
-      })
+    thong_bao_Schema.find(function (err, thong_bao) {
+      phieu_thong_tin_khach_hang_Schema.find(function (err, phieu_thong_tin) {
+        if (err) throw err;
+        res.render('admin/pages/phieu_thong_tin', { thong_bao, sale, phieu_thong_tin });
+      }).populate('ma_gioi_thieu').populate('trang_thai').sort({ ngay_tao: -1 })
     })
-  }).populate('chuc_vu')
+  })
 });
 
+router.get('/danh-sach-phieu/:_id', login_admin_controller.loginRequired, function (req, res) {
+  Sale_Schema.findById(req.params._id, function (err, sale) {
+    thong_bao_Schema.find(function (err, thong_bao) {
+      phieu_thong_tin_khach_hang_Schema.find(function (err, phieu_thong_tin) {
+        trang_thai_Schema.find(function (err, trang_thai) {
+          if (err) throw err;
+
+          res.render('admin/pages/danh_sach_phieu', { thong_bao, sale, phieu_thong_tin, trang_thai, message: req.flash('message') });
+        })
+      }).populate('ma_gioi_thieu').populate('trang_thai').sort({ ngay_tao: -1 })
+    })
+  })
+});
 
 
 /** ROUTER KHÁCH HÀNG */
@@ -271,51 +201,22 @@ router.get('/hoa-hong/:_id', login_admin_controller.loginRequired, function (req
     })
   }).populate('chuc_vu')
 });
+
 // POST
 router.post('/them-hoa-hong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_co_dinh);
 // DELETE
 router.post('/xoa-hoa-hong/:_id', login_admin_controller.loginRequired, hoa_hong_controller.xoa_hoa_hong_co_dinh);
-
 // router hoa hồng linh động
 router.post('/them-hoa-hong-linh-dong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_linh_dong);
-
 // router hoa hồng văn phòng
 router.post('/them-hoa-hong-van-phong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_van_phong);
-
 // router hoa hồng thưởng
 router.post('/them-hoa-hong-thuong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_thuong);
-
 // router hoa hồng voucher
 router.post('/them-hoa-hong-voucher', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_voucher);
-
 // 
 router.post('/them-phieu-thong-tin', login_admin_controller.loginRequired, phieu_thong_tin_controller.them_thong_tin);
 router.post('/sua-trang-thai-phieu/:_id', login_admin_controller.loginRequired, phieu_thong_tin_controller.xu_ly_nap_tien);
-
-router.get('/phieu-thong-tin-khach-hang/:_id', login_admin_controller.loginRequired, function (req, res) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    thong_bao_Schema.find(function (err, thong_bao) {
-      phieu_thong_tin_khach_hang_Schema.find(function (err, phieu_thong_tin) {
-        if (err) throw err;
-        res.render('admin/pages/phieu_thong_tin', { thong_bao, sale, phieu_thong_tin });
-      }).populate('ma_gioi_thieu').populate('trang_thai').sort({ ngay_tao: -1 })
-    })
-  })
-});
-
-router.get('/danh-sach-phieu/:_id', login_admin_controller.loginRequired, function (req, res) {
-  Sale_Schema.findById(req.params._id, function (err, sale) {
-    thong_bao_Schema.find(function (err, thong_bao) {
-      phieu_thong_tin_khach_hang_Schema.find(function (err, phieu_thong_tin) {
-        trang_thai_Schema.find(function (err, trang_thai) {
-          if (err) throw err;
-
-          res.render('admin/pages/danh_sach_phieu', { thong_bao, sale, phieu_thong_tin, trang_thai, message: req.flash('message') });
-        })
-      }).populate('ma_gioi_thieu').populate('trang_thai').sort({ ngay_tao: -1 })
-    })
-  })
-});
 
 router.get('/thong-tin-ca-nhan=:_id', login_admin_controller.loginRequired, admin_controller.thong_tin_ca_nhan)
 router.post('/', login_admin_controller.check);

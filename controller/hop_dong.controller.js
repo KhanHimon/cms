@@ -40,7 +40,7 @@ class hop_dong_tra_thuong_controller {
                     trang_thai_Schema.find(function (err, trang_thai) {
                         Lich_su_Schema.find(function (err, lich_sus) {
                             if (err) throw err;
-                            res.render('admin/pages/tra_lai_hop_dong', {lich_sus, thong_bao, sale, hop_dong_dau_tu, trang_thai, message: req.flash('message') });
+                            res.render('admin/pages/ke_toan/tra_lai_hop_dong', {lich_sus, thong_bao, sale, hop_dong_dau_tu, trang_thai, message: req.flash('message') });
                         })
                     })
                 }).populate('khach_hang').populate('trang_thai').sort({})
