@@ -43,28 +43,6 @@
                                 <div class="h-100">
                                     <!--end row-->
                                     <div class="row">
-                                        <!-- <div class="col-xl-12">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-6">
-                                                            <% hop_dongs.forEach(function(hop_dongs){ %>
-                                                                <% sales.forEach(function(sale){ %>
-                                                                    <% if ( sale.nhom_kinh_doanh.id == nhom.id ) { %>
-                                                                        <% if (hop_dongs.khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu ) { %>
-                                                                        <% let total = 0; %>
-                                                                        <% total += hop_dongs.so_tien_dau_tu %>
-                                                                        <% const date = new Date() %>
-                                                                        <h2 style="color: blue;">Tổng doanh số : <%= total.toLocaleString() %> vnđ</h2>
-                                                                        <% } %>
-                                                                        <% } %>
-                                                                    <% }); %>
-                                                                <% }); %>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                         <div class="col-xl-9">
                                             <div class="row">
                                                 <div class="col">
@@ -250,7 +228,13 @@
                                             </div>
                                             <div class="card">
                                                 <div class="card-header align-items-center d-flex">
-                                                    <h4 class="card-title mb-0 flex-grow-1">Thông tin đội nhóm kinh doanh : <%= nhom.ten_nhom %> <b></b> </h4>
+                                                    <% let so_luong = 0 %>
+                                                    <% sales.forEach(function(sales){ index_1++ %>
+                                                        <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
+                                                            <% so_luong++ %>
+                                                        <% } %>
+                                                     <% }); %>
+                                                    <h4 class="card-title mb-0 flex-grow-1">Thông tin đội nhóm kinh doanh : <%= nhom.ten_nhom %></h4>
                                                     <b scope="col">Giám đốc chiến lược : 
                                                         <% sales.forEach(function(sales){ %>
                                                         <% if (sales.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
@@ -262,6 +246,7 @@
                                                     </b>
                                                 </div><!-- end card header -->
                                                 <div class="card-body">
+                                                    <h4>Tổng số thành viên : <%= so_luong %> người</h4><br>
                                                     <ul class="nav nav-pills nav-justified nav-danger mb-3" role="tablist">
                                                         <li class="nav-item">
                                                             <a class="nav-link active" data-bs-toggle="tab" href="#tat-ca" role="tab">Tất cả</a>
@@ -335,11 +320,10 @@
                                                                                     </thead>
                                                                                     <tbody id="myTable">
                                                                                         <% var index_1 = 0 %>
-                                                                                        <% const tong = 0 %>
                                                                                         <% sales.forEach(function(sales){ index_1++ %>
                                                                                             <% if ( sales.nhom_kinh_doanh.id == nhom.id ) { %>
                                                                                                 <tr>
-                                                                                                    <td><%= index_1 %> </td>
+                                                                                                    <td><%= index_1 %></td>
                                                                                                     <td><%= sales.ma_gioi_thieu %></td>
                                                                                                     <td>
                                                                                                         <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
