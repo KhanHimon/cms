@@ -34,7 +34,7 @@ const khach_hang_Controller = require('../controller/khach_hang.controller');
 const lich_su_tra_thuong_controller = require('../controller/lich_su.controller');
 
  
-
+ 
 /* ROUTER VÙNG */
 router.get('/quan-ly-khu-vuc/:_id',login_admin_controller.loginRequired, vung_Controller.hien_thi);
 router.post('/them-vung/',login_admin_controller.loginRequired, vung_Controller.them_vung);
@@ -47,6 +47,8 @@ router.get('/chi-tiet-nhom=:id/:_id',login_admin_controller.loginRequired, nhom_
 router.get('/danh-sach-sale/:_id',login_admin_controller.loginRequired, sale_Controller.hien_thi);
 router.post('/them-nhan-vien',login_admin_controller.loginRequired, sale_Controller.them_moi_sale);
 router.post('/sua-nhan-vien/:_id',login_admin_controller.loginRequired, sale_Controller.thay_doi_thong_tin_sale);
+router.post('/doi-mat-khau/:_id',login_admin_controller.loginRequired, sale_Controller.doi_mat_khau_sale);
+router.post('/doi-tai-khoan/:_id',login_admin_controller.loginRequired, sale_Controller.doi_username_sale);
 router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, sale_Controller.chi_tiet_sale);
 /* ROUTER LỊCH SỬ */
 router.get('/lich-su-tra-lai/:_id',login_admin_controller.loginRequired, lich_su_tra_thuong_controller.hien_thi_lich_su);
@@ -68,7 +70,7 @@ router.get('/cai-dat-chung/:_id', login_admin_controller.loginRequired, function
       Chuc_vu_Schema.find(function (err, chuc_vu) {
         thong_bao_Schema.find(function (err, thong_bao) {
           if (err) throw err;
-          res.render('admin/pages/cai_dat_chung', { sale, chuc_vu, nhom_sale, thong_bao });
+          res.render('admin/pages/cai_dat_chung', { sale, chuc_vu, nhom_sale, thong_bao,message: req.flash('message') });
         })
       })
     })

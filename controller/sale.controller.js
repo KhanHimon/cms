@@ -90,6 +90,36 @@ class sale_Controller {
     });
   }
 
+  doi_mat_khau_sale(req,res){
+    const pass_sale = {};
+    if (req.body.password_sale) {
+      pass_sale.password_sale = req.body.password_sale;
+    }
+    const options = {
+      new: true,
+    }
+    Sale_Schema.findByIdAndUpdate(req.params._id, { $set: pass_sale }, options, (err, pass_update_sale) => {
+      console.log(pass_update_sale);
+      req.flash('message', 'Đổi mật khẩu thành công');
+      res.redirect(req.get('referer'));
+    });
+  }
+
+  doi_username_sale(req,res){
+    const user_sale = {};
+    if (req.body.username_sale) {
+      user_sale.username_sale = req.body.username_sale;
+    }
+    const options = {
+      new: true,
+    }
+    Sale_Schema.findByIdAndUpdate(req.params._id, { $set: user_sale }, options, (err, pass_update_sale) => {
+      console.log(pass_update_sale);
+      req.flash('message', 'Đổi tên đăng nhập thành công');
+      res.redirect(req.get('referer'));
+    });
+  }
+
   thay_doi_thong_tin_sale(req, res) {
     var edit_sale = {};
     if (req.body.ho_va_ten) {

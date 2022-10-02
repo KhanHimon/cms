@@ -27,22 +27,33 @@
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
                                                 <h4 class="fs-16 mb-1">Thông tin cá nhân, <%= sale.ho_va_ten %>!</h4>
+                                                <% if (message) { %>
+                                                    <b id="mess" style="font-size: 16px; color: green;">
+                                                        <%= message %>
+                                                    </b>
+                                                <% } %>
+                                                <script>
+                                                    setTimeout(() => {
+                                                        const box = document.getElementById('mess');
+                                                        box.style.display = 'none';
+                                                    }, 5000);
+                                                </script>
                                             </div>
                                         </div><!-- end card header -->
                                     </div>
                                     <!--end col-->
                                 </div>
-                                <!--end row-->
+                                <!--end row--> 
                             </div> <!-- end .h-100-->
                         </div> <!-- end col -->
                         <div class="row">
-                            <div class="col-xl-5 col-md-5"> 
+                            <div class="col-xl-6 col-md-6"> 
                                 <!-- card -->
                                 <div class="card card-animate">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-12">
-                                                <form action="/sua-thong-tin/<%= sale._id %>" method="POST">
+                                                <form action="/admin/sua-nhan-vien/<%= sale._id %>" method="POST">
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <div class="mb-3">
@@ -73,7 +84,7 @@
                                                         <div class="col-md-5">
                                                             <div class="mb-3">
                                                                 <label for="ngay_cap" class="form-label">Ngày cấp</label>
-                                                                <input type="date" value="<%= (sale.ngay_cap).getFullYear() %>-<%= String(sale.ngay_cap.getMonth() + 1).padStart(2, '0') %>-<%= String(sale.ngay_cap.getDate()).padStart(2, '0') %>" class="form-control" id="nam_sinh" name="nam_sinh" >
+                                                                <input type="date" value="<%= (sale.ngay_cap).getFullYear() %>-<%= String(sale.ngay_cap.getMonth() + 1).padStart(2, '0') %>-<%= String(sale.ngay_cap.getDate()).padStart(2, '0') %>" class="form-control" id="ngay_cap" name="ngay_cap" >
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -134,12 +145,6 @@
                                                                 <input type="text" class="form-control" value="<%= (sale.username_sale) %>" placeholder="Nhập mã giới thiệu" id="username_sale" name="username_sale" disabled>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <div class="mb-3">
-                                                                <label for="password_sale" class="form-label">Mật khẩu</label>
-                                                                <input type="text" class="form-control" value="<%= (sale.password_sale) %>" placeholder="Nhập mã giới thiệu" id="password_sale" name="password_sale" >
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                     <button type="submit"
                                                         class="btn btn-soft-info btn-sm card-title mb-0 flex-grow-9">
@@ -150,6 +155,102 @@
                                         </div>
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="card card-animate">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Đổi mật khẩu</h4>
+                                            </div><!-- end card header -->
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <form action="/admin/doi-mat-khau/<%= sale._id %>" method="POST">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="mb-12">
+                                                                        <label for="password_sale" class="form-label">Mật khẩu mới</label>
+                                                                        <input type="password" class="form-control" value="" placeholder="Nhập mật khẩu mới" id="password_sale" name="password_sale" >
+                                                                    </div>
+                                                                </div>
+                                                            </div><br>
+                                                            <button type="submit"
+                                                                class="btn btn-soft-info btn-sm card-title mb-0 flex-grow-9">
+                                                                 Đổi mật khẩu
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card card-animate">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Đổi tên đăng nhập</h4>
+                                            </div><!-- end card header -->
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <form action="/admin/doi-tai-khoan/<%= sale._id %>" method="POST">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="mb-12">
+                                                                        <label for="username_sale" class="form-label">Tên đăng nhập mới</label>
+                                                                        <input type="text" class="form-control" value="" placeholder="Nhập tên đăng nhập mới" id="username_sale" name="username_sale" >
+                                                                    </div>
+                                                                </div>
+                                                            </div><br>
+                                                            <button type="submit"
+                                                                class="btn btn-soft-info btn-sm card-title mb-0 flex-grow-9">
+                                                                 Đổi tài khoản
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div><!-- end card body -->
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="col-xl-12">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <div class="card card-height-100">
+                                                        <div class="card-header align-items-center d-flex">
+                                                            <h4 class="card-title mb-0 flex-grow-1">Thông báo và sự kiện</h4>
+                                                        </div><!-- end card header -->
+                                                        <!-- card body -->
+                                                        <div class="card-body">
+                                                            <div class="table-responsive table-card">
+                                                                <table class="table table-borderless table-sm table-centered align-middle table-nowrap mb-1">
+                                                                    <thead class="text-muted border-dashed border border-start-0 border-end-0 bg-soft-light">
+                                                                        <tr>
+                                                                            <th>Thông báo</th>
+                                                                            <th style="width: 70%">Mô tả</th>
+                                                                            <th>Ngày</th>
+                                                                            <th></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="border-0">
+                                                                        <% thong_bao.forEach(function(thong_bao){ %>
+                                                                        <tr>
+                                                                            <td> <b>[<%= thong_bao.tieu_de_thong_bao %>]</b> </td>
+                                                                            <td><a href="<%= thong_bao.noi_dung_thong_bao %>"  target="_blank" rel="noopener noreferrer"> <%= thong_bao.mo_ta_thong_bao %></a></td>
+                                                                            <td><a href="<%= thong_bao.noi_dung_thong_bao %>"  target="_blank" rel="noopener noreferrer"><%= thong_bao.ngay_thong_bao.getDate() %>/<%= thong_bao.ngay_thong_bao.getMonth() + 1 %>/<%= thong_bao.ngay_thong_bao.getFullYear() %></a></td>
+                                                                        </tr>
+                                                                        <% }); %>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <!-- end card body -->
+                                                    </div><!-- end card -->
+                                                </div><!-- end col -->
+                                            </div> <!-- end row-->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
