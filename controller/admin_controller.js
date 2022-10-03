@@ -13,7 +13,7 @@ const Hoa_hong_van_phong_Schema = require('../models/hoa_hong_van_phong.model');
 const Hoa_hong_thuong_Schema = require('../models/hoa_hong_thuong.model');
 const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
-const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_khach_hang.model');
+const gioi_thieu_sale_Schema = require('../models/gioi_thieu_sale.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 
 class admin_Controller {
@@ -29,7 +29,7 @@ class admin_Controller {
                   Vung_Schema.find(function (err, vungs) {
                     Tinh_Schema.find(function (err, tinhs) {
                       if (err) throw err;
-                      res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai, hop_dong, sales, vungs, tinhs });
+                      res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai, hop_dong, sales, vungs, tinhs, message: req.flash('message') });
                     })
                   })
                 }).populate('nhom_kinh_doanh').populate('chuc_vu')
@@ -41,10 +41,73 @@ class admin_Controller {
     }).populate('chuc_vu').populate('nhom_kinh_doanh')
   }
 
+  GET_GIOI_THIEU(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      thong_bao_Schema.find(function (err, thong_bao) {
+        Chuc_vu_Schema.find(function (err, chuc_vus) {
+          Vung_Schema.find(function (err, vungs) {
+            Tinh_Schema.find(function (err, tinhs) {
+              gioi_thieu_sale_Schema.find(function (err, gioi_thieu_sale) {
+                if (err) throw err;
+                res.render('admin/pages/sales/gioi_thieu', { sale, vungs, tinhs, thong_bao, chuc_vus, gioi_thieu_sale, message: req.flash('message') });
+              }).populate('chuc_vu').populate('nhom_kinh_doanh')
+            })
+          })
+        })
+      }).sort({ ngay_thong_bao: -1 })
+    }).populate('chuc_vu').populate('nhom_kinh_doanh')
+  }
 
 
+  GET_CAP_DUOI(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      thong_bao_Schema.find(function (err, thong_bao) {
+        Chuc_vu_Schema.find(function (err, chuc_vus) {
+          Sale_Schema.find(function (err, sales) {
+            if (err) throw err;
+            res.render('admin/pages/sales/cap_duoi', { sale, thong_bao, chuc_vus, sales, message: req.flash('message') });
+          }).populate('chuc_vu').populate('nhom_kinh_doanh')
+        })
+      }).sort({ ngay_thong_bao: -1 })
+    }).populate('chuc_vu').populate('nhom_kinh_doanh')
+  }
 
 
+  POST_GIOI_THIEU(req, res) {
+    const gioi_thieu_sale = new gioi_thieu_sale_Schema({
+      ho_va_ten: req.body.ho_va_ten,
+      nam_sinh: req.body.nam_sinh,
+      cmnd_cccd: req.body.cmnd_cccd,
+      noi_cap: req.body.noi_cap,
+      ngay_cap: req.body.ngay_cap,
+      dan_toc: req.body.dan_toc,
+      so_tai_khoan: req.body.so_tai_khoan,
+      ngan_hang: req.body.ngan_hang,
+      chi_nhanh: req.body.chi_nhanh,
+      dien_thoai: req.body.dien_thoai,
+      email: req.body.email,
+      dia_chi: req.body.dia_chi,
+      ma_code: req.body.ma_code,
+      nhom_kinh_doanh: req.body.nhom_kinh_doanh,
+      chuc_vu: req.body.chuc_vu,
+      vung: req.body.vung,
+      tinh: req.body.tinh,
+      nguoi_them: req.body.nguoi_them,
+      ghi_chu: req.body.ghi_chu,
+      create_date: Date.now()
+    });
+    gioi_thieu_sale_Schema.find({ cmnd_cccd: req.body.cmnd_cccd }).then(resp => {
+      if (resp.length != 0) {
+        req.flash('message', 'Nhân sự : ' + gioi_thieu_sale.ho_va_ten + " đã tồn tại");
+        res.redirect(req.get('referer'));
+      } else {
+        gioi_thieu_sale.save();
+        console.log(gioi_thieu_sale.ho_va_ten)
+        req.flash('message', 'Thêm mới nhân sự mới : ' + gioi_thieu_sale.ho_va_ten + " thành công , chờ duyệt nhân sự");
+        res.redirect(req.get('referer'));
+      }
+    });
+  }
 
 
   thong_tin_ca_nhan(req, res) {

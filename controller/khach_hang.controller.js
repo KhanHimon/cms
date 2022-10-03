@@ -12,7 +12,6 @@ const Hoa_hong_van_phong_Schema = require('../models/hoa_hong_van_phong.model');
 const Hoa_hong_thuong_Schema = require('../models/hoa_hong_thuong.model');
 const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
-const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_khach_hang.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 
 

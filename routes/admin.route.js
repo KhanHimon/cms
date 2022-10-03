@@ -15,7 +15,7 @@ const Hoa_hong_van_phong_Schema = require('../models/hoa_hong_van_phong.model');
 const Hoa_hong_thuong_Schema = require('../models/hoa_hong_thuong.model');
 const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
-const phieu_thong_tin_khach_hang_Schema = require('../models/phieu_thong_tin_khach_hang.model');
+const gioi_thieu_sale_Schema = require('../models/gioi_thieu_sale.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 // IMPORT CONTROLLER
 const vung_Controller = require('../controller/vung.controller');
@@ -29,7 +29,6 @@ const admin_controller = require('../controller/admin_controller');
 const login_admin_controller = require('../controller/login_admin.controller');
 const hoa_hong_controller = require('../controller/hoa_hong.controller');
 const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controller');
-const phieu_thong_tin_controller = require('../controller/phieu_thong_tin.controller');
 const khach_hang_Controller = require('../controller/khach_hang.controller');
 const lich_su_tra_thuong_controller = require('../controller/lich_su.controller');
 
@@ -56,7 +55,9 @@ router.post('/check-trang-thai/:_id', hop_dong_tra_thuong_controller.check_date)
 router.post('/check-trang-thai', hop_dong_tra_thuong_controller.reset_lich_su);
 /* GET DASHBOARD */
 router.get('/dashboard/:_id', login_admin_controller.loginRequired, admin_controller.GET_DASHBOARD);
-
+router.get('/gioi-thieu/:_id', login_admin_controller.loginRequired, admin_controller.GET_GIOI_THIEU);
+router.get('/cap-duoi/:_id', login_admin_controller.loginRequired, admin_controller.GET_CAP_DUOI);
+router.post('/gioi-thieu/:_id', login_admin_controller.loginRequired, admin_controller.POST_GIOI_THIEU);
 
 router.get('/login', function (req, res, next) {
   res.render('admin/login_admin');
@@ -216,9 +217,6 @@ router.post('/them-hoa-hong-van-phong', login_admin_controller.loginRequired, ho
 router.post('/them-hoa-hong-thuong', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_thuong);
 // router hoa hồng voucher
 router.post('/them-hoa-hong-voucher', login_admin_controller.loginRequired, hoa_hong_controller.them_hoa_hong_voucher);
-// 
-router.post('/them-phieu-thong-tin', login_admin_controller.loginRequired, phieu_thong_tin_controller.them_thong_tin);
-router.post('/sua-trang-thai-phieu/:_id', login_admin_controller.loginRequired, phieu_thong_tin_controller.xu_ly_nap_tien);
 
 router.get('/thong-tin-ca-nhan=:_id', login_admin_controller.loginRequired, admin_controller.thong_tin_ca_nhan)
 router.post('/', login_admin_controller.check);

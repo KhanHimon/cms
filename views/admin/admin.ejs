@@ -232,6 +232,17 @@
                             <div class="col-xxl-6">
                                 <div class="d-flex flex-column h-100">
                                     <div class="card-header align-items-center d-flex">
+                                        <% if (message) { %>
+                                            <p id="mess" style="font-size: 16px; color: green;">
+                                                <%= message %>
+                                            </p> 
+                                        <% } %>
+                                        <script>
+                                            setTimeout(() => {
+                                                const box = document.getElementById('mess');
+                                                box.style.display = 'none';
+                                            }, 10000);
+                                        </script>  
                                         <h4 class="card-title mb-0 flex-grow-1">Phiếu thông tin khách hàng mới</h4>
                                     </div>
                                     <div class="row">
@@ -239,150 +250,142 @@
                                             <div class="card card-animate">
                                                 <div class="card-body">
                                                     <div class="live-preview">
-                                                        <div class="row">
-                                                            <input type="hidden" class="form-control" value="62f227402387a6f3c2bbb24b" id="trang_thai" name="trang_thai">
-                                                            <!-- <div class="col-md-6">
-                                                                <div class="mb-3">
-                                                                    <label for="username" class="form-label">Tài khoản</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập tài khoản" id="username" name="username">
+                                                        <form action="/admin/them-khach-hang" method="post">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten"  oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập họ và tên')" required="">
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="nam_sinh" class="form-label">Ngày sinh</label>
+                                                                        <input type="date" class="form-control" id="nam_sinh" name="nam_sinh" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập ngày sinh')" required="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="dan_toc" class="form-label">Dân tộc</label>
+                                                                        <input type="text" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc">
+                                                                    </div>
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="cccd_cmnd" class="form-label">Số CMND/CCCD</label>
+                                                                        <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cccd_cmnd" name="cccd_cmnd" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập CMND/CCCD')" required="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5">
+                                                                    <div class="mb-3">
+                                                                        <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                        <input type="date" class="form-control" id="ngay_cap" name="ngay_cap" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Nhập ngày cấp')" required="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="noi_cap" class="form-label">Nơi cấp</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Nhập nơi cấp')" required="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="vung" class="form-label">Vùng</label>
+                                                                        <select class="form-select mb-3" aria-label=".form-select-lg example"  id="vung" name="vung">
+                                                                            <option value="6309a05c6d6575d010cc2ee8" selected>Chọn vùng</option>
+                                                                            <% var vung_index = 0 %>
+                                                                            <% vungs.forEach(function(vung){ vung_index++ %>
+                                                                                <option value="<%= vung.ten_vung %>"><%= vung_index %>. <%= vung.ten_vung %></option>
+                                                                            <% }); %>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="tinh" class="form-label">Tỉnh</label>
+                                                                        <select class="form-control" id="tinh" data-choices data-choices-groups data-placeholder="Chọn Tỉnh" name="tinh">
+                                                                            <option value="6309a0cc6d6575d010cc2eea">Chọn tỉnh</option>
+                                                                            <% var tinh_index = 0 %>
+                                                                            <% tinhs.forEach(function(tinh){ tinh_index++ %>
+                                                                                <option value="<%= tinh.ten_tinh %>"><%= tinh_index %>. <%= tinh.ten_tinh %></option>
+                                                                            </optgroup>
+                                                                            <% }); %>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="huyen" class="form-label">Quận/Huyện</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="huyen" name="huyen">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="xa" class="form-label">Phường/Xã</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="xa" name="xa">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="mb-3">
+                                                                        <label for="dia_chi" class="form-label">Địa chỉ thường trú</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập địa chỉ')" required="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="mb-3">
+                                                                        <label for="dia_chi_hien_tai" class="form-label">Địa chỉ hiện tại</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập địa chỉ hiện tại" id="dia_chi_hien_tai" name="dia_chi_hien_tai">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
+                                                                        <input type="tel" class="form-control" placeholder="+(84) 444 78765" id="so_dien_thoai" name="so_dien_thoai">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="email" class="form-label">Email</label>
+                                                                        <input type="email" class="form-control" placeholder="example@gamil.com" id="email" name="email">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="ngan_hang" class="form-label">Ngân hàng</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="mb-3">
+                                                                        <label for="chi_nhanh" class="form-label">Chi nhánh</label>
+                                                                        <input type="text" class="form-control" placeholder="Nhập chi nhánh" id="chi_nhanh" name="chi_nhanh">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div class="mb-3">
+                                                                        <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
+                                                                        <input type="hidden" class="form-control" value="<%= sale.ma_gioi_thieu %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" >
+                                                                        <input type="text" class="form-control" value="<%= sale.ma_gioi_thieu %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="row">
+                                                                        <div class="col-5">
+                                                                            <button id="check" type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <div class="mb-3">
-                                                                    <label for="password" class="form-label">Mật khẩu</label>
-                                                                    <input type="password" class="form-control" placeholder="Nhập mật khẩu" id="password" name="password">
-                                                                </div>
-                                                            </div> -->
-                                                            <div class="col-md-4">
-                                                                <div class="mb-3">
-                                                                    <label for="ho_va_ten" class="form-label">Họ và tên</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten"  oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập họ và tên')" required="">
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-md-4">
-                                                                <div class="mb-3">
-                                                                    <label for="nam_sinh" class="form-label">Ngày sinh</label>
-                                                                    <input type="date" class="form-control" id="nam_sinh" name="nam_sinh" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập ngày sinh')" required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="mb-3">
-                                                                    <label for="dan_toc" class="form-label">Dân tộc</label>
-                                                                    <input type="text" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc">
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-md-4">
-                                                                <div class="mb-3">
-                                                                    <label for="cccd_cmnd" class="form-label">Số CMND/CCCD</label>
-                                                                    <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cccd_cmnd" name="cccd_cmnd" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập CMND/CCCD')" required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-5">
-                                                                <div class="mb-3">
-                                                                    <label for="ngay_cap" class="form-label">Ngày cấp</label>
-                                                                    <input type="date" class="form-control" id="ngay_cap" name="ngay_cap" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Nhập ngày cấp')" required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="mb-3">
-                                                                    <label for="noi_cap" class="form-label">Nơi cấp</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Nhập nơi cấp')" required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="mb-3">
-                                                                    <label for="vung" class="form-label">Vùng</label>
-                                                                    <select class="form-select mb-3" aria-label=".form-select-lg example"  id="vung" name="vung">
-                                                                        <option value="6309a05c6d6575d010cc2ee8" selected>Chọn vùng</option>
-                                                                        <% var vung_index = 0 %>
-                                                                        <% vungs.forEach(function(vung){ vung_index++ %>
-                                                                            <option value="<%= vung._id %>"><%= vung_index %>. <%= vung.ten_vung %></option>
-                                                                        <% }); %>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="mb-3">
-                                                                    <label for="tinh" class="form-label">Tỉnh</label>
-                                                                    <select class="form-control" id="tinh" data-choices data-choices-groups data-placeholder="Chọn Tỉnh" name="tinh">
-                                                                        <option value="6309a0cc6d6575d010cc2eea">Chọn tỉnh</option>
-                                                                        <% var tinh_index = 0 %>
-                                                                        <% tinhs.forEach(function(tinh){ tinh_index++ %>
-                                                                            <option value="<%= tinh._id %>"><%= tinh_index %>. <%= tinh.ten_tinh %></option>
-                                                                        </optgroup>
-                                                                        <% }); %>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="mb-3">
-                                                                    <label for="huyen" class="form-label">Quận/Huyện</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="huyen" name="huyen">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <div class="mb-3">
-                                                                    <label for="xa" class="form-label">Phường/Xã</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="xa" name="xa">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="mb-3">
-                                                                    <label for="dia_chi" class="form-label">Địa chỉ thường trú</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập địa chỉ')" required="">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <div class="mb-3">
-                                                                    <label for="dia_chi_hien_tai" class="form-label">Địa chỉ hiện tại</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập địa chỉ hiện tại" id="dia_chi_hien_tai" name="dia_chi_hien_tai">
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-md-6">
-                                                                <div class="mb-3">
-                                                                    <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
-                                                                    <input type="tel" class="form-control" placeholder="+(84) 444 78765" id="so_dien_thoai" name="so_dien_thoai">
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-md-6">
-                                                                <div class="mb-3">
-                                                                    <label for="email" class="form-label">Email</label>
-                                                                    <input type="email" class="form-control" placeholder="example@gamil.com" id="email" name="email">
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-md-4">
-                                                                <div class="mb-3">
-                                                                    <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="mb-3">
-                                                                    <label for="ngan_hang" class="form-label">Ngân hàng</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <div class="mb-3">
-                                                                    <label for="chi_nhanh" class="form-label">Chi nhánh</label>
-                                                                    <input type="text" class="form-control" placeholder="Nhập chi nhánh" id="chi_nhanh" name="chi_nhanh">
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                            <div class="col-md-6">
-                                                                <div class="mb-3">
-                                                                    <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
-                                                                    <input type="text" class="form-control" value="<%= sale.ma_gioi_thieu %>" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" disabled>
-                                                                </div>
-                                                            </div>
-                                                            <!--end col-->
-                                                        </div>
-                                                </div>
+                                                        </form>
+                                                    </div>
                                                 </div><!-- end card body -->
                                             </div> <!-- end card-->
                                         </div> <!-- end col-->
