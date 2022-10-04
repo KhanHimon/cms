@@ -52,7 +52,7 @@ class index_controller {
                 populate: {
                     path: 'trang_thai'
                 }
-            })
+            }).populate('trang_thai')
         })
     }
 
