@@ -26,6 +26,6 @@ router.post('/sua-thong-tin/:id', login_controller.loginRequired, user_controlle
 
 
 
-router.post('/logout', login_controller.logout);
+router.post('/logout-client', login_controller.logout); 
 
 module.exports = router;

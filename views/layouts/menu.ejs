@@ -108,9 +108,12 @@
               <a class="dropdown-item" href="pages-profile.html"><i
                       class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                       class="align-middle">Thông tin cá nhân</span></a>
-              <a class="dropdown-item" href="/logout"><i
-                      class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                      class="align-middle" data-key="t-logout">Đăng xuất</span></a>
+                <a class="dropdown-item">
+                <form action="/logout-client" method="post">
+                    
+                    <button type="submit" style="border: none; background: none;" class="align-middle" data-key="t-logout"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>  Đăng xuất</button></a>
+                </form>
+            </a>
           </div>
       </div>
   </div>
