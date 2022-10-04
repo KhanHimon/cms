@@ -178,7 +178,7 @@
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <!--end col-->
-                                                                                                <div class="col-md-4">
+                                                                                                <div class="col-md-4"> 
                                                                                                     <div class="mb-3">
                                                                                                         <label for="ma_gioi_thieu" class="form-label">Mã cấp trên</label>
                                                                                                         <input type="text" class="form-control" placeholder="Nhập mã giới thiệu" id="ma_code" name="ma_code" >
@@ -187,8 +187,8 @@
                                                                                                 <div class="col-md-4">
                                                                                                     <div class="mb-3">
                                                                                                         <label for="nhom_kinh_doanh" class="form-label">Đội nhóm kinh doanh</label>
-                                                                                                        <select class="form-select mb-3" aria-label=".form-select-lg example"  id="nhom_kinh_doanh" name="nhom_kinh_doanh">
-                                                                                                            <option selected>Chọn nhóm kinh doanh</option>
+                                                                                                        <select required class="form-select mb-3" aria-label=".form-select-lg example"  id="nhom_kinh_doanh" name="nhom_kinh_doanh">
+                                                                                                            <option>Chọn nhóm kinh doanh</option>
                                                                                                             <% var nhom_index = 0 %>
                                                                                                             <% nhoms.forEach(function(nhom){ nhom_index++ %>
                                                                                                                 <option value="<%= nhom._id %>"><%= nhom_index %>.Nhóm kinh doanh <%= nhom.ten_nhom %></option>
@@ -199,8 +199,8 @@
                                                                                                 <div class="col-md-4">
                                                                                                     <div class="mb-3">
                                                                                                         <label for="chuc_vu" class="form-label">Chức vụ</label>
-                                                                                                        <select class="form-select mb-3" aria-label=".form-select-lg example"  id="chuc_vu" name="chuc_vu">
-                                                                                                            <option selected>Chọn chức vụ</option>
+                                                                                                        <select required class="form-select mb-3" aria-label=".form-select-lg example"  id="chuc_vu" name="chuc_vu" >
+                                                                                                            <option>Chọn chức vụ</option>
                                                                                                             <% var chuc_vu_index = 0 %>
                                                                                                             <% chuc_vus.forEach(function(chuc_vu){ chuc_vu_index++ %>
                                                                                                                 <option value="<%= chuc_vu._id %>"><%= chuc_vu_index %>. <%= chuc_vu.ten_chuc_vu %></option>
