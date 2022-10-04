@@ -446,6 +446,7 @@
                                                 </div>
                                             </div>
                                         </div> <!-- .card-->
+                                        <% if (sale.chuc_vu._id == "62fb5c59f1b55b0b9c8745d0" || sale.chuc_vu._id == "62fb5c65f1b55b0b9c8745db" || sale.chuc_vu._id == "62fb5c79f1b55b0b9c8745e6" || sale.chuc_vu._id == "62fb5c8af1b55b0b9c8745f1" || sale.chuc_vu._id == "63099cfeea61e1dad3c7a959" ) { %>
                                         <div class="col-xl-3">
                                             <div class="card">
                                                 <div class="card-header align-items-center d-flex">
@@ -478,6 +479,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <% } %>
                                         <div class="col-xl-3">
                                             <div class="card">
                                                 <div class="card-header align-items-center d-flex">
@@ -499,39 +501,6 @@
                                                                         <tr>
                                                                             <td><%= hop_dong.ma_hop_dong %></td>
                                                                             <td><%= hop_dong.khach_hang.ho_va_ten %></td>
-                                                                        </tr>
-                                                                    <% } %>
-                                                                <% }); %>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div class="card">
-                                                <div class="card-header align-items-center d-flex">
-                                                    <h4 class="card-title mb-0 flex-grow-1">Danh sách nhân viên cấp dưới</h4>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="table-responsive table-card">
-                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                                            <thead class="text-muted table-light">
-                                                                <tr>
-                                                                    <th scope="col">Chức vụ</th>
-                                                                    <th scope="col">Họ và tên</th>
-                                                                    <th scope="col">Số điện thoại</th>
-                                                                    <th scope="col">Địa chỉ</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <% sales.forEach(function(sales){%>
-                                                                    <% if (chi_tiet_sale.ma_gioi_thieu == sales.ma_code ) { %>
-                                                                        <tr>
-                                                                            <td><%= sales.chuc_vu.ten_chuc_vu %></td>
-                                                                            <td><%= sales.ho_va_ten %></td>
-                                                                            <td>0<%= sales.dien_thoai %></td>
-                                                                            <td><%= sales.dia_chi %></td>
                                                                         </tr>
                                                                     <% } %>
                                                                 <% }); %>
