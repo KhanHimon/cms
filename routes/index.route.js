@@ -12,9 +12,10 @@ const user_controller = require('../controller/user.controller');
 router.get('/', function (req, res, next) {
   res.render('index');
 });
-router.get('/dang-ky', function (req, res, next) {
-  res.render('dang_ky');
+router.get('/phieu-khach-hang', function (req, res, next) {
+  res.render('phieu_khach_hang');
 });
+
 /** ROUTER TỔNG QUAN */
 router.get('/tong-quan/:_id', login_controller.loginRequired, index_controller.hien_thi_tong_quan);
 router.get('/thong-tin-ca-nhan/:_id', login_controller.loginRequired, index_controller.hien_thi_thong_tin_ca_nhan);
