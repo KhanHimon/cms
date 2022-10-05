@@ -36,7 +36,7 @@
 
                                             <div class="mb-3">
                                                 <label for="username_sale" class="form-label">Tài khoản</label>
-                                                <input type="text" class="form-control" style="text-transform: uppercase" id="username_sale" name="username_sale" placeholder="Enter username">
+                                                <input type="text" class="form-control" onkeypress="this.value = this.value + event.key.toUpperCase(); return false;" style="text-transform: uppercase" id="username_sale" name="username_sale" placeholder="Enter username">
                                             </div>
 
                                             <div class="mb-3">
