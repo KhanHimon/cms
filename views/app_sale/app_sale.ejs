@@ -56,6 +56,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-6">
+                        <% let sl_hd = 0; %>
+                        <% hop_dong.forEach(function(hop_dong){ %>
+                            <% if (hop_dong.khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
+                                <% sl_hd++ %>
+                            <% } %>
+                        <% }); %>
+                        <p style="padding-left: 20px;"><b>Số lượng HĐ : <%= sl_hd %> </b> HĐ</p>
+                    </div>
+                    <div class="col-6">
+                        <% let sl_kh = 0; %>
+                        <% khach_hang.forEach(function(khach_hang){ %>
+                            <% if (khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
+                                <% sl_kh++ %>
+                            <% } %>
+                        <% }); %>
+                        <p style="padding-left: 20px;"><b>Số lượng KH : <%= sl_kh %></b> KH</p>
+                    </div>
+                </div>
                 <div class="row" style="margin-left: 6px; margin-right: 0; text-align: center;">
                     <div class="col" style=" height: 50px; margin: 5px; margin-right: 0;">
                         <a href="/app/history/<%= sale._id %>">
@@ -112,16 +132,37 @@
                     <table class="table table-striped" style="padding: 10px;">
                         <thead class="">
                             <tr>
-                                <th colspan="3">Hợp đồng đầu tư</th>
+                                <th colspan="3">Danh sách khách hàng</th>
                             </tr>
                         </thead>
                         <thead class="table-light">
                             <tr>
-                                <th scope="col">MÃ HĐ</th>
-                                <th scope="col">Ngày ký</th>
+                                <th></th>
+                                <th scope="col">Họ và tên</th>
+                                <th scope="col">Số điện thoại</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <% khach_hang.forEach(function(khach_hang){ %>
+                                <% if (khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
+                                    <tr>
+                                        <td style="padding-top: 5px;">
+                                            <div class="dropdown">
+                                                <button style="background: none; border: none; padding: 0;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ri-more-2-line" style="color: black; font-size: 20px;"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                  <a class="dropdown-item" href="tel:0<%= khach_hang.so_dien_thoai %>">Gọi điện</a>
+                                                  <a class="dropdown-item" href="#">Thông tin khách hàng</a>
+                                                  <a class="dropdown-item" href="#">Hợp đồng khách hàng</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><%= khach_hang.ho_va_ten %></td>
+                                        <td>0<%= khach_hang.so_dien_thoai %></td>
+                                    </tr>
+                                <% } %>
+                            <% }); %>
                         </tbody>
                     </table>
                 </div>

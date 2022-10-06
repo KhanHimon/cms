@@ -22,73 +22,77 @@ const { token_sale } = require('morgan');
 
 class APP_SALE_CONTROLLER {
 
-    GET_LOGIN_SALE(req, res) {
-        res.render('app_sale/app_login_sale');
-      }
+  GET_LOGIN_SALE(req, res) {
+    res.render('app_sale/app_login_sale');
+  }
 
-    GET_HOME_SALE(req, res) {
-        Sale_Schema.findById(req.params._id, function (err, sale) {
-            thong_bao_Schema.find(function (err, thong_bao) {
-                Sale_Schema.find(function (err, sales) {
-                    Vung_Schema.find(function (err, vungs) {
-                        Tinh_Schema.find(function (err, tinhs) {
-                            Nhom_sale_Schema.find(function (err, nhoms) {
-                                Chuc_vu_Schema.find(function (err, chuc_vus) {
-                                    if (err) throw err;
-                                    res.render('app_sale/app_sale', { sale, thong_bao, sales, vungs, tinhs, nhoms, chuc_vus, message: req.flash('message') });
-                                })
-                            })
-                        })
+  GET_HOME_SALE(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      thong_bao_Schema.find(function (err, thong_bao) {
+        Sale_Schema.find(function (err, sales) {
+          Vung_Schema.find(function (err, vungs) {
+            Tinh_Schema.find(function (err, tinhs) {
+              Nhom_sale_Schema.find(function (err, nhoms) {
+                Chuc_vu_Schema.find(function (err, chuc_vus) {
+                  Hop_dong_dau_tu_Schema.find(function (err, hop_dong) {
+                    User_Schema.find(function (err, khach_hang) {
+                      if (err) throw err;
+                      res.render('app_sale/app_sale', { sale, thong_bao, sales, vungs, tinhs, nhoms, chuc_vus, hop_dong, khach_hang, message: req.flash('message') });
                     })
-                }).populate('chuc_vu').populate('nhom_kinh_doanh').sort({ 'create_date': -1 })
+                  }).populate('khach_hang')
+                })
+              })
             })
-        }).populate('chuc_vu').populate('nhom_kinh_doanh')
-    }
+          })
+        }).populate('chuc_vu').populate('nhom_kinh_doanh').sort({ 'create_date': -1 })
+      })
+    }).populate('chuc_vu').populate('nhom_kinh_doanh')
+  }
 
-    check_app_sale(req, res) {
-        Sale_Schema.findOne({
-          username_sale: req.body.username_sale,
-          password_sale: req.body.password_sale,
-        }, function (err, sale) {
-          if (err) throw err;
-          if (!sale) {
-            res.render('app_sale/app_login_sale', { message: 'Sai tài khoản hoặc mật khẩu' });
-          } else if (sale) {
-            if (!sale.password_sale) {
-              res.redirect('/sale/login');
-            } else {
-              res.cookie('token_sale', jwt.sign({ username_sale: sale.username_sale, _id: sale._id }, 'RESTFULAPIs'));
-              return res.redirect('/sale/home/' + sale._id);
-            }
-          }
-        });
-      }
-      chekc_sale(req,res){
-        var token_sale = req.cookies.token_sale
-        Sale_Schema.findOne({}, function(err,sale){
-          if (token_sale) {
-            res.cookie('token_sale', jwt.sign({ username_sale: sale.username_sale, _id: sale._id }, 'RESTFULAPIs'));
-            res.redirect('/sale/home/' + sale._id);
-          } else {
-            res.redirect('/sale/login');
-          }
-        })
-        
-      }
-    
-      loginRequired(req, res, next) {
-        var token_sale = req.cookies.token_sale
-        const sale = Sale_Schema.findOne({})
-        if (token_sale) {
-          next()
-        } else {
+  check_app_sale(req, res) {
+    Sale_Schema.findOne({
+      username_sale: req.body.username_sale,
+      password_sale: req.body.password_sale,
+    }, function (err, sale) {
+      if (err) throw err;
+      if (!sale) {
+        res.render('app_sale/app_login_sale', { message: 'Sai tài khoản hoặc mật khẩu' });
+      } else if (sale) {
+        if (!sale.password_sale) {
           res.redirect('/sale/login');
+        } else {
+          res.cookie('token_sale', jwt.sign({ username_sale: sale.username_sale, _id: sale._id }, 'RESTFULAPIs'));
+          return res.redirect('/sale/home/' + sale._id);
         }
-      };
-      logout(req, res, next) {
-        res.clearCookie('token_sale');
-        return res.redirect('/sale/login');
       }
+    });
+  }
+  chekc_sale(req, res) {
+    var token_sale = req.cookies.token_sale
+    Sale_Schema.findOne({}, function (err, sale) {
+      if (token_sale) {
+        res.cookie('token_sale', jwt.sign({ username_sale: sale.username_sale, _id: sale._id }, 'RESTFULAPIs'));
+        res.redirect('/sale/home/' + sale._id);
+      } else {
+        res.redirect('/sale/login');
+      }
+    })
+
+  }
+
+  loginRequired(req, res, next) {
+    var token_sale = req.cookies.token_sale
+    const sale = Sale_Schema.findOne({})
+    if (token_sale) {
+      next()
+    } else {
+      res.redirect('/sale/login');
+    }
+  };
+  logout(req, res, next) {
+    res.clearCookie('token_sale');
+    return res.redirect('/sale/login');
+  }
 }
 
 module.exports = new APP_SALE_CONTROLLER

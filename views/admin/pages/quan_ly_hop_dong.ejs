@@ -41,7 +41,6 @@
 
                     <div class="row">
                         <div class="col">
-
                             <div class="h-100">
                                 <div class="row mb-3 pb-1">
                                     <div class="col-12">
@@ -80,9 +79,8 @@
                                                 <h4 class="card-title mb-0 flex-grow-1 d-md-block d-none">Danh sách hợp đồng</h4>
                                                 <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
                                             </div><!-- end card header -->
-
                                             <div class="card-body">
-                                                <div class="table-responsive table-card">
+                                                <div class="table-responsive table-card d-md-block d-none">
                                                     <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                         <thead class="text-muted table-light">
                                                             <% const month = new Date().getMonth() + 1 %>
@@ -101,6 +99,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody id="myTable">
+                                                                <% if (sale.chuc_vu._id != '62f60037939e9682e0c6973c') { %>
                                                                 <% hop_dong_dau_tu.forEach(function(hop_dong_dau_tu){ %>
                                                                     <% if (hop_dong_dau_tu.khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
                                                                     <tr>
@@ -730,6 +729,7 @@
                                                                     </tr>
                                                                     <% } %>
                                                                 <% }); %>
+                                                                <% } %>
                                                                 <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                                                                 <% hop_dong_dau_tu.forEach(function(hop_dong_dau_tu){ %>
                                                                     <tr>
@@ -782,12 +782,61 @@
                                                                     </tr>
                                                                 <% }); %>
                                                                 <% } %>
+                                                        </tbody>
+                                                    </table>  
+                                                </div>
+                                                <div class="table-responsive table-card d-xl-none">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">Mã hợp đồng</th>
+                                                                <th scope="col">Họ và tên</th>
+                                                                <th scope="col">Số điện thoại</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="myTable">
+                                                            <% if (sale.chuc_vu._id != '62f60037939e9682e0c6973c') { %>
+                                                                <% hop_dong_dau_tu.forEach(function(hop_dong_dau_tu){ %>
+                                                                    <% if (hop_dong_dau_tu.khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.ma_hop_dong %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.ho_va_ten %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary">0<%= hop_dong_dau_tu.khach_hang.so_dien_thoai %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                                <% }); %>
+                                                                <% } %>
+                                                                <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
+                                                                <% hop_dong_dau_tu.forEach(function(hop_dong_dau_tu){ %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.ma_hop_dong %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= hop_dong_dau_tu.khach_hang.ho_va_ten %></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= hop_dong_dau_tu.khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary">0<%= hop_dong_dau_tu.khach_hang.so_dien_thoai %></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                <% }); %>
+                                                                <% } %>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div> <!-- .card-->
                                     </div> <!-- .col-->
+                                    
                                 </div> <!-- end row-->
-
                             </div> <!-- end .h-100-->
 
                         </div> <!-- end col -->
