@@ -65,7 +65,7 @@
                                                                             });
                                                                           });
                                                                         });
-                                                                        </script>
+                                                                    </script>
                                                             </div>
                                                         </div>
                                                         <!--end col-->
@@ -156,7 +156,7 @@
                                                 <% }; %>
                                             </div><!-- end card header -->
 
-                                            <div class="card-body">
+                                            <div class="card-body d-md-block d-none">
                                                 <div class="table-responsive table-card">
                                                     <table  id="danh_sach_khach_hang" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                         <thead class="text-muted table-light">
@@ -209,13 +209,6 @@
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
                                                                         </td>
-                                                                        <!-- <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
-                                                                                <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                    <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
-                                                                                </button>
-                                                                            </a>
-                                                                        </td> -->
                                                                     </tr>
                                                                 <% }); %>
                                                             <% } %>
@@ -253,13 +246,6 @@
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
                                                                         </td>
-                                                                        <!-- <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
-                                                                                <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                    <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
-                                                                                </button>
-                                                                            </a>
-                                                                        </td> -->
                                                                     </tr>
                                                                 <% }); %>
                                                             <% } %>
@@ -297,13 +283,6 @@
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
                                                                         </td>
-                                                                        <!-- <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
-                                                                                <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                    <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
-                                                                                </button>
-                                                                            </a>
-                                                                        </td> -->
                                                                     </tr>
                                                                 <% }); %>
                                                             <% } %>
@@ -341,13 +320,6 @@
                                                                             <td>
                                                                                 <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ma_gioi_thieu %></span></a> 
                                                                             </td>
-                                                                            <!-- <td>
-                                                                                <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>"> 
-                                                                                    <button type="button" class="btn btn-soft-info btn-sm">
-                                                                                        <i class="ri-file-list-3-line align-middle"></i>Chi tiết khách hàng
-                                                                                    </button>
-                                                                                </a>
-                                                                            </td> -->
                                                                         </tr>
                                                                     <% } %>
                                                                 <% }); %>
@@ -373,18 +345,7 @@
                                                                                             <div class="live-preview">
                                                                                                     <div class="row">
                                                                                                         <input type="hidden" class="form-control" value="62f227402387a6f3c2bbb24b" id="trang_thai" name="trang_thai">
-                                                                                                        <!-- <div class="col-md-6">
-                                                                                                            <div class="mb-3">
-                                                                                                                <label for="username" class="form-label">Tài khoản</label>
-                                                                                                                <input type="text" class="form-control" placeholder="Nhập tài khoản" id="username" name="username">
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                        <div class="col-md-6">
-                                                                                                            <div class="mb-3">
-                                                                                                                <label for="password" class="form-label">Mật khẩu</label>
-                                                                                                                <input type="password" class="form-control" placeholder="Nhập mật khẩu" id="password" name="password">
-                                                                                                            </div>
-                                                                                                        </div> -->
+                                                                                                        
                                                                                                         <div class="col-md-4">
                                                                                                             <div class="mb-3">
                                                                                                                 <label for="ho_va_ten" class="form-label">Họ và tên</label>
@@ -616,8 +577,8 @@
                                                             </div>
                                                         </tbody><!-- end tbody -->
                                                     </table><!-- end table -->
-                                                </div>
-                                                <script>
+                                            </div>
+                                            <script>
                                                     var wb = XLSX.utils.table_to_book(document.getElementById('danh_sach_khach_hang'), {sheet:"Sheet JS"});
                                                     var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
 
@@ -631,10 +592,339 @@
                                                     $("#button-a").click(function(){
                                                     saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_KH.xlsx');
                                                     });
-                                                </script>
-                                            </div>
-                                        </div> <!-- .card-->
-                                    </div> <!-- .col-->
+                                            </script>
+                                        </div>
+                                        <div class="card-body d-xl-none">
+                                            <div class="table-responsive table-card">
+                                                <table  id="danh_sach_khach_hang" class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                    <thead class="text-muted table-light">
+                                                        <tr>
+                                                            <th scope="col">Họ và tên</th>
+                                                            <th scope="col">Ngày sinh</th>
+                                                            <th scope="col">Số điện thoại</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="myTable">
+                                                        <% if (sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" ) { %>
+                                                            <% khach_hang.forEach(function(khach_hang){ %>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ho_va_ten %></span></a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">
+                                                                            <%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></span></a>
+                                                                        </td>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">0<%= khach_hang.so_dien_thoai %></span></a> 
+                                                                    </td>
+                                                                </tr>
+                                                            <% }); %>
+                                                        <% } %>
+                                                        <% if (sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
+                                                            <% khach_hang.forEach(function(khach_hang){ %>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ho_va_ten %></span></a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">
+                                                                            <%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></span></a>
+                                                                        </td>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">0<%= khach_hang.so_dien_thoai %></span></a> 
+                                                                    </td>
+                                                                </tr>
+                                                            <% }); %>
+                                                        <% } %>
+                                                        <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" ) { %>
+                                                            <% khach_hang.forEach(function(khach_hang){ %>
+                                                                <tr>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ho_va_ten %></span></a>
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">
+                                                                            <%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></span></a>
+                                                                        </td>
+                                                                    <td>
+                                                                        <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">0<%= khach_hang.so_dien_thoai %></span></a> 
+                                                                    </td>
+                                                                </tr>
+                                                            <% }); %>
+                                                        <% } %>
+                                                            <% khach_hang.forEach(function(khach_hang){ %>
+                                                                <% if (khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ho_va_ten %></span></a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">
+                                                                                <%= khach_hang.nam_sinh.getDate() %>/<%= khach_hang.nam_sinh.getMonth() %>/<%= khach_hang.nam_sinh.getFullYear() %></span></a>
+                                                                            </td>
+                                                                        <td>
+                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class="">0<%= khach_hang.so_dien_thoai %></span></a> 
+                                                                        </td>
+                                                                    </tr>
+                                                                <% } %>
+                                                            <% }); %>
+                                                        
+                                                        <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                            <div class="modal-dialog modal-xl">
+                                                                <form action="/admin/them-khach-hang" method="post"  onsubmit='disableButton()'>
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="myModalLabel">Thêm mới tài khoản</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    
+                                                                    <div class="modal-body">
+                                                                        <div class="row">
+                                                                            <div class="col-xl-12">
+                                                                                <div class="card">
+                                                                                    <div class="card-header align-items-center d-flex">
+                                                                                        <h4 class="card-title mb-0 flex-grow-1">Điền thông tin khách hàng</h4>
+                                                                                    </div><!-- end card header -->
+                                        
+                                                                                    <div class="card-body">
+                                                                                        <div class="live-preview">
+                                                                                                <div class="row">
+                                                                                                    <input type="hidden" class="form-control" value="62f227402387a6f3c2bbb24b" id="trang_thai" name="trang_thai">
+                                                                                                    
+                                                                                                    <div class="col-md-4">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập họ và tên" id="ho_va_ten" name="ho_va_ten"  oninput="setCustomValidity('')" oninvalid="this.setCustomValidity('Yêu cầu nhập họ và tên')" required="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <!--end col-->
+                                                                                                    <div class="col-md-4">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="nam_sinh" class="form-label">Ngày sinh</label>
+                                                                                                            <input type="date" class="form-control" id="nam_sinh" name="nam_sinh" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập ngày sinh')" required="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-4">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="dan_toc" class="form-label">Dân tộc</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Dân tộc" id="dan_toc" name="dan_toc">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <!--end col-->
+                                                                                                    <div class="col-md-7">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="cccd_cmnd" class="form-label">Số CMND/CCCD</label>
+                                                                                                            <input type="number" class="form-control" placeholder="Nhập chứng minh nhân dân hoặc căn cước công dân" id="cccd_cmnd" name="cccd_cmnd" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập CMND/CCCD')" required="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-5">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="ngay_cap" class="form-label">Ngày cấp</label>
+                                                                                                            <input type="date" class="form-control" id="ngay_cap" name="ngay_cap" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Nhập ngày cấp')" required="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-6">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="noi_cap" class="form-label">Nơi cấp</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập nơi cấp" id="noi_cap" name="noi_cap" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Nhập nơi cấp')" required="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-3">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="vung" class="form-label">Vùng</label>
+                                                                                                            <select class="form-select mb-3" aria-label=".form-select-lg example"  id="vung" name="vung">
+                                                                                                                <option selected>Chọn vùng</option>
+                                                                                                                <option value="Đông bắc Bộ">1.Đông bắc Bộ</option>
+                                                                                                                <option value="Tây Bắc Bộ">2.Tây Bắc Bộ</option>
+                                                                                                                <option value="Đồng Bằng Sông Hồng">3.Đồng Bằng Sông Hồng</option>
+                                                                                                                <option value="Bắc Trung Bộ">4.Bắc Trung Bộ</option>
+                                                                                                                <option value="Duyên Hải Miền Trung">5.Duyên Hải Miền Trung</option>
+                                                                                                                <option value="Tây Nguyên">6.Tây Nguyên</option>
+                                                                                                                <option value="Đông Nam Bộ">7.Đông Nam Bộ</option>
+                                                                                                                <option value="Tây Nam Bộ">8.Tây Nam Bộ</option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-3">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="tinh" class="form-label">Tỉnh</label>
+                                                                                                            <select class="form-control" id="tinh" data-choices data-choices-groups data-placeholder="Chọn Tỉnh" name="tinh">
+                                                                                                                <option value="">Chọn tỉnh</option>
+                                                                                                                <optgroup label="1.Đông bắc Bộ">
+                                                                                                                    <option value="Hà Giang">Hà Giang</option>
+                                                                                                                    <option value="Cao Bằng">Cao Bằng</option>
+                                                                                                                    <option value="Bắc Kạn">Bắc Kạn</option>
+                                                                                                                    <option value="Lạng Sơn">Lạng Sơn</option>
+                                                                                                                    <option value="Tuyên Quang">Tuyên Quang</option>
+                                                                                                                    <option value="Thái Nguyên">Thái Nguyên</option>
+                                                                                                                    <option value="Phú Thọ">Phú Thọ</option>
+                                                                                                                    <option value="Bắc Giang">Bắc Giang</option>
+                                                                                                                    <option value="Quảng Ninh">Quảng Ninh</option>
+                                                                                                                </optgroup>
+                                                                                                                <optgroup label="2.Tây Bắc Bộ">
+                                                                                                                    <option value="Lào Cai">Lào Cai</option>
+                                                                                                                    <option value="Yên Bái">Yên Bái</option>
+                                                                                                                    <option value="Điện Biên">Điện Biên</option>
+                                                                                                                    <option value="Hòa Bình">Hòa Bình</option>
+                                                                                                                    <option value="Lai Châu">Lai Châu</option>
+                                                                                                                    <option value="Sơn La">Sơn La</option>
+                                                                                                                </optgroup>
+                                                                                                                <optgroup label="3.Đồng Bằng Sông Hồng">
+                                                                                                                    <option value="Bắc Ninh">Bắc Ninh</option>
+                                                                                                                    <option value="Hà Nam">Hà Nam</option>
+                                                                                                                    <option value="Thành phố Hà Nội">Hà Nội</option>
+                                                                                                                    <option value="Hải Dương">Hải Dương</option>
+                                                                                                                    <option value="Hải Phòng">Hải Phòng</option>
+                                                                                                                    <option value="Hương Yên">Hương Yên</option>
+                                                                                                                    <option value="Nam Định">Nam Định</option>
+                                                                                                                    <option value="Ninh Bình">Ninh Bình</option>
+                                                                                                                    <option value="Thái Bình">Thái Bình</option>
+                                                                                                                    <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                                                                                                                </optgroup>
+                                                                                                                <optgroup label="4.Bắc Trung Bộ">
+                                                                                                                    <option value="Thanh Hóa">Thanh Hóa</option>
+                                                                                                                    <option value="Nghệ An" disabled>Nghệ An</option>
+                                                                                                                    <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                                                                                                    <option value="Quảng Bình">Quảng Bình</option>
+                                                                                                                    <option value="Quảng Trị" >Quảng Trị</option>
+                                                                                                                    <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+                                                                                                                </optgroup>
+                                                                                                                <optgroup label="5.Duyên Hải Miền Trung">
+                                                                                                                    <option value="Đà Nẵng">Đà Nẵng</option>
+                                                                                                                    <option value="Quảng Nam">Quảng Nam</option>
+                                                                                                                    <option value="Quảng Ngãi">Quảng Ngãi</option>
+                                                                                                                    <option value="Bình Định">Bình Định</option>
+                                                                                                                    <option value="Phú Yên">Phú Yên</option>
+                                                                                                                    <option value="Khánh Hòa">Khánh Hòa</option>
+                                                                                                                    <option value="Ninh Thuận">Ninh Thuận</option>
+                                                                                                                    <option value="Bình Thuận">Bình Thuận</option>
+                                                                                                                </optgroup>
+                                                                                                                <optgroup label="6.Tây Nguyên">
+                                                                                                                    <option value="Kon Tum">Kon Tum</option>
+                                                                                                                    <option value="Gia Lai">Gia Lai</option>
+                                                                                                                    <option value="Đắk Lắk">Đắk Lắk</option>
+                                                                                                                    <option value="Đắk Nông">Đắk Nông</option>
+                                                                                                                    <option value="Lâm Đồng">Lâm Đồng</option>
+                                                                                                                </optgroup>
+                                                                                                                <optgroup label="7.Đông Nam Bộ">
+                                                                                                                    <option value="Bình Phước">Bình Phước</option>
+                                                                                                                    <option value="Bình Dương">Bình Dương</option>
+                                                                                                                    <option value="Đồng Nai">Đồng Nai</option>
+                                                                                                                    <option value="Tây Ninh">Tây Ninh</option>
+                                                                                                                    <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+                                                                                                                    <option value="Thành phố Hồ Chí Minh">Thành phố Hồ Chí Minh</option>
+                                                                                                                </optgroup>
+                                                                                                                <optgroup label="8.Tây Nam Bộ">
+                                                                                                                    <option value="Long An">Long An</option>
+                                                                                                                    <option value="Đồng Tháp">Đồng Tháp</option>
+                                                                                                                    <option value="Tiền Giang">Tiền Giang</option>
+                                                                                                                    <option value="An Giang">An Giang</option>
+                                                                                                                    <option value="Bến Tre">Bến Tre</option>
+                                                                                                                    <option value="Vĩnh Long">Vĩnh Long</option>
+                                                                                                                    <option value="Trà Vinh">Trà Vinh</option>
+                                                                                                                    <option value="Hậu Giang">Hậu Giang</option>
+                                                                                                                    <option value="Kiên Giang">Kiên Giang</option>
+                                                                                                                    <option value="Sóc Trăng">Sóc Trăng</option>
+                                                                                                                    <option value="Bạc Liêu">Bạc Liêu</option>
+                                                                                                                    <option value="Cà Mau">Cà Mau</option>
+                                                                                                                    <option value="Thành phố Cần Thơ">Thành phố Cần Thơ</option>
+                                                                                                                </optgroup>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-3">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="huyen" class="form-label">Quận/Huyện</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="huyen" name="huyen">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-3">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="xa" class="form-label">Phường/Xã</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="xa" name="xa">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-12">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="dia_chi" class="form-label">Địa chỉ thường trú</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập địa chỉ thường trú" id="dia_chi" name="dia_chi" oninput="setCustomValidity('')"  oninvalid="this.setCustomValidity('Yêu cầu nhập địa chỉ')" required="">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-12">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="dia_chi_hien_tai" class="form-label">Địa chỉ hiện tại</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập địa chỉ hiện tại" id="dia_chi_hien_tai" name="dia_chi_hien_tai">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <!--end col-->
+                                                                                                    <div class="col-md-6">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="so_dien_thoai" class="form-label">Số điện thoại</label>
+                                                                                                            <input type="tel" class="form-control" placeholder="+(84) 444 78765" id="so_dien_thoai" name="so_dien_thoai">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <!--end col-->
+                                                                                                    <div class="col-md-6">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="email" class="form-label">Email</label>
+                                                                                                            <input type="email" class="form-control" placeholder="example@gamil.com" id="email" name="email">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <!--end col-->
+                                                                                                    <div class="col-md-4">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="so_tai_khoan" class="form-label">Số tài khoản</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập số tài khoản" id="so_tai_khoan" name="so_tai_khoan">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-4">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="ngan_hang" class="form-label">Ngân hàng</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập ngân hàng" id="ngan_hang" name="ngan_hang">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <div class="col-md-4">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="chi_nhanh" class="form-label">Chi nhánh</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập chi nhánh" id="chi_nhanh" name="chi_nhanh">
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <!--end col-->
+                                                                                                    <div class="col-md-6">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label for="ma_gioi_thieu" class="form-label">Mã giới thiệu</label>
+                                                                                                            <input type="text" class="form-control" placeholder="Nhập mã giới thiệu" id="ma_gioi_thieu" name="ma_gioi_thieu" >
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    <!--end col-->
+                                                                                                </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div> <!-- .card-->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
+                                                                        <button id="check" type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                                        <script>
+                                                                            function disableButton() {
+                                                                                var btn = document.getElementById('check');
+                                                                                btn.disabled = true;
+                                                                                btn.innerText = 'Đang xóa...';
+                                                                            }
+                                                                        </script>
+                                                                    </div>
+                                                                </form>
+            
+                                                                </div><!-- /.modal-content -->
+                                                            </div><!-- /.modal-dialog -->
+                                                        </div>
+                                                    </tbody><!-- end tbody -->
+                                                </table><!-- end table -->
+                                        </div>
+                                    </div> <!-- .card-->
                                 </div> <!-- end row-->
 
                             </div> <!-- end .h-100-->
