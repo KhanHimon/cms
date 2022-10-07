@@ -45,5 +45,6 @@ router.get('/',APP_USER_CONTROLLER.chekc_token, APP_USER_CONTROLLER.GET_LOGIN );
 router.get('/*', APP_USER_CONTROLLER.GET_LOGIN ); 
 
 router.post('/login_app',APP_USER_CONTROLLER.check_app_user)
+router.post('/logout',APP_USER_CONTROLLER.logout)
 
 module.exports = router;

@@ -29,6 +29,17 @@
                                         <img src="../images/gmg.png" width="100px" alt="">
                                     </center><br>
                                     <h4 class="text-center mb-4" style="color: white;">GMG INVESTING</h4>
+                                    <% if (message) { %>
+                                        <p id="mess" style="font-size: 16px; color: rgb(255, 255, 255); text-align: center;">
+                                            <%= message %>
+                                        </p> 
+                                    <% } %>
+                                    <script>
+                                        setTimeout(() => {
+                                            const box = document.getElementById('mess');
+                                            box.style.display = 'none';
+                                        }, 5000);
+                                    </script>
                                     <form action="/app/login_app" method="post">
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Tài khoản</strong></label>

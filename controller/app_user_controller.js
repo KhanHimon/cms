@@ -83,10 +83,12 @@ class APP_USER_CONTROLLER {
     }, function (err, user) {
       if (err) throw err;
       if (!user) {
-        res.render('/app/login', { message: 'Sai tài khoản hoặc mật khẩu' });
+        req.flash('message', "Sai tài khoản hoặc mật khẩu");
+        res.render('./app/app_login_users', { message: req.flash('message') });
       } else if (user) {
         if (!user.password) {
-          res.render('/app/login');
+          req.flash('message', "Sai tài khoản hoặc mật khẩu");
+          res.render('./app/app_login_users', { message: req.flash('message') });
         } else {
           res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
           return res.redirect('/app/home/' + user._id);
