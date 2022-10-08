@@ -21,7 +21,7 @@ const { token } = require('morgan');
 class APP_USER_CONTROLLER {
 
   GET_LOGIN(req, res) {
-    res.render('app/app_login_users');
+    res.render('app/app_login_users',{message: req.flash('message') });
   }
 
   GET_HOME(req, res) {

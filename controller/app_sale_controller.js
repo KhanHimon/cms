@@ -23,7 +23,7 @@ const { token_sale } = require('morgan');
 class APP_SALE_CONTROLLER {
 
   GET_LOGIN_SALE(req, res) {
-    res.render('app_sale/app_login_sale');
+    res.render('app_sale/app_login_sale', {message: req.flash('message') });
   }
 
   GET_HOME_SALE(req, res) {
@@ -33,7 +33,7 @@ class APP_SALE_CONTROLLER {
           Vung_Schema.find(function (err, vungs) {
             Tinh_Schema.find(function (err, tinhs) {
               Nhom_sale_Schema.find(function (err, nhoms) {
-                Chuc_vu_Schema.find(function (err, chuc_vus) {
+                Chuc_vu_Schema.find(function (err, chuc_vus) { 
                   Hop_dong_dau_tu_Schema.find(function (err, hop_dong) {
                     User_Schema.find(function (err, khach_hang) {
                       if (err) throw err;
@@ -56,10 +56,12 @@ class APP_SALE_CONTROLLER {
     }, function (err, sale) {
       if (err) throw err;
       if (!sale) {
-        res.render('app_sale/app_login_sale', { message: 'Sai tài khoản hoặc mật khẩu' });
+        req.flash('message', "Sai tài khoản hoặc mật khẩu");
+        res.render('app_sale/app_login_sale', { message: req.flash('message') });
       } else if (sale) {
         if (!sale.password_sale) {
-          res.redirect('/sale/login');
+          req.flash('message', "Sai tài khoản hoặc mật khẩu");
+          res.render('app_sale/app_login_sale', { message: req.flash('message') });
         } else {
           res.cookie('token_sale', jwt.sign({ username_sale: sale.username_sale, _id: sale._id }, 'RESTFULAPIs'));
           return res.redirect('/sale/home/' + sale._id);
