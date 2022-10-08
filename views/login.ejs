@@ -15,15 +15,6 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-    <!-- <form action="/login" method="post">
-        <h2>ĐĂNG Nhập</h2>
-        <p>username <input name="username" id="username" type="text"></p>
-        <p>password <input name="password" id="password" type="password"></p>
-        <% if(message) { %>
-            <p style="background-color: red; width: 200px; padding: 5px; color: white;"><%= message %> </p>
-        <% } %></br>
-        <input type="submit" value="Đăng nhập">
-    </form> -->
 </body>
 <body class="h-100">
     <div class="authincation h-100">
@@ -45,6 +36,17 @@
                                         <img src="./images/gmg.png" width="100px" alt="">
                                     </center><br>
                                     <h4 class="text-center mb-4">Đăng nhập tài khoản</h4>
+                                    <% if (message) { %>
+                                        <p id="mess" style="font-size: 16px; color: rgb(252, 9, 9); text-align: center;">
+                                            <%= message %>
+                                        </p> 
+                                    <% } %>
+                                    <script>
+                                        setTimeout(() => {
+                                            const box = document.getElementById('mess');
+                                            box.style.display = 'none';
+                                        }, 5000);
+                                    </script>
                                     <form action="/login" method="post">
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Tài khoản</strong></label>

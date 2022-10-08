@@ -11,16 +11,30 @@ class Login_Admin_Comtroller {
     }, function (err, sale) {
       if (err) throw err;
       if (!sale) {
-        res.render('admin/login_admin',{ message: 'Sai tài khoản hoặc mật khẩu' });
+        req.flash('message', "Sai tài khoản hoặc mật khẩu");
+        res.render('admin/login_admin',{ message: req.flash('message') });
       } else if (sale) {
         if (!sale.password_sale) {
-          res.render('admin/login_admin');
+          req.flash('message', "Sai tài khoản hoặc mật khẩu");
+        res.render('admin/login_admin',{ message: req.flash('message') });
         } else {
           res.cookie('token_admin', jwt.sign({ username_sale: sale.username_sale, _id: sale._id }, 'RESTFULAPIs'));
           return res.redirect('/admin/dashboard/' + sale._id);
         }
       }
     });
+  }
+
+  check_token(req,res){
+    var token_admin = req.cookies.token_admin
+    Sale_Schema.findOne({}, function(err,sale){
+      if (token_admin) {
+        res.cookie('token_admin', jwt.sign({ username_sale: sale.username_sale, _id: sale._id }, 'RESTFULAPIs'));
+        return res.redirect('/admin/dashboard/' + sale._id);
+      } else {
+        return res.redirect('/admin/login');
+      }
+    })
   }
 
   loginRequired(req, res, next) {

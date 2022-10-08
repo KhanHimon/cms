@@ -60,7 +60,7 @@ router.get('/cap-duoi/:_id', login_admin_controller.loginRequired, admin_control
 router.post('/gioi-thieu/:_id', login_admin_controller.loginRequired, admin_controller.POST_GIOI_THIEU);
 
 router.get('/login', function (req, res, next) {
-  res.render('admin/login_admin');
+  res.render('admin/login_admin',{ message: req.flash('message') });
 })
 
 
@@ -221,6 +221,6 @@ router.post('/them-hoa-hong-voucher', login_admin_controller.loginRequired, hoa_
 router.get('/thong-tin-ca-nhan=:_id', login_admin_controller.loginRequired, admin_controller.thong_tin_ca_nhan)
 router.post('/', login_admin_controller.check);
 router.post('/logout', login_admin_controller.logout);
-router.get('/*', login_admin_controller.check);
+router.get('/*', login_admin_controller.check_token, login_admin_controller.check);
 
 module.exports = router;

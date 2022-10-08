@@ -31,6 +31,17 @@
                                     <div>
                                         <h5 class="text-primary">Chào bạn !</h5>
                                         <p class="text-muted">Đăng nhập vào quản trị.</p>
+                                        <% if (message) { %>
+                                            <p id="mess" style="font-size: 16px; color: rgb(252, 9, 9); text-align: center;">
+                                                <%= message %>
+                                            </p> 
+                                        <% } %>
+                                        <script>
+                                            setTimeout(() => {
+                                                const box = document.getElementById('mess');
+                                                box.style.display = 'none';
+                                            }, 5000);
+                                        </script>
                                     </div>
 
                                     <div class="mt-4">

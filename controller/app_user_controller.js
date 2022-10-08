@@ -106,7 +106,6 @@ class APP_USER_CONTROLLER {
         res.redirect('/app/login');
       }
     })
-    
   }
 
   loginRequired(req, res, next) {

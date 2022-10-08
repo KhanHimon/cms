@@ -17,6 +17,7 @@ router.get('/phieu-khach-hang', function (req, res, next) {
 });
 
 /** ROUTER TỔNG QUAN */
+
 router.get('/tong-quan/:_id', login_controller.loginRequired, index_controller.hien_thi_tong_quan);
 router.get('/thong-tin-ca-nhan/:_id', login_controller.loginRequired, index_controller.hien_thi_thong_tin_ca_nhan);
 router.get('/hop-dong-dau-tu/:_id', login_controller.loginRequired, index_controller.hien_thi_hop_dong_dau_tu);

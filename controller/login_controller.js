@@ -12,12 +12,12 @@ class LoginComtroller {
     }, function (err, user) {
       if (err) throw err;
       if (!user) {
-        // res.status(401).json({ message: 'Authentication failed. User not found.' });
-        res.render('login',{ message: 'Sai tài khoản hoặc mật khẩu' });
+        req.flash('message', "Sai tài khoản hoặc mật khẩu");
+        res.render('login',{ message: req.flash('message') });
       } else if (user) {
         if (!user.password) {
-          // res.status(401).json({ message: 'Authentication failed. Wrong password.' });
-          res.render('login');
+          req.flash('message', "Sai tài khoản hoặc mật khẩu");
+          res.render('login',{ message: req.flash('message') });
         } else {
           res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
           return res.redirect('/tong-quan/' + user._id);
@@ -27,20 +27,15 @@ class LoginComtroller {
   }
 
   check_app(req, res) {
-    res.header('Access-Control-Allow-Origin','*');
-    res.header('Access-Control-Allow-Headers','Content-Type');
-    res.header('Access-Control-Allow-Methods','GET','POST','PUT','DELETE','OPTIONS');
     UserSchema.findOne({
       username: req.body.username,
       password: req.body.password,
     }, function (err, user) {
       if (err) throw err;
       if (!user) {
-        // res.status(401).json({ message: 'Authentication failed. User not found.' });
         console.log("Sai tài khoản hoặc mật khẩu");
       } else if (user) {
         if (!user.password) {
-          // res.status(401).json({ message: 'Authentication failed. Wrong password.' });
           console.log("Sai tài khoản hoặc mật khẩu");
         } else {
           res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
@@ -50,9 +45,19 @@ class LoginComtroller {
     });
   }
 
+  check_token(req,res){
+    var token = req.cookies.token
+    UserSchema.findOne({}, function(err,user){
+      if (token) {
+        res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
+        return res.redirect('/tong-quan/' + user._id);
+      } else {
+        res.render('login',{ message: req.flash('message') });
+      }
+    })
+  }
+
   loginRequired(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var token = req.cookies.token
     const user = UserSchema.findOne({})
     if (token) {
