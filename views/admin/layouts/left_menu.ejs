@@ -159,7 +159,7 @@
                 <% } %>
             </ul>
             <!-- ADMIN -->
-            <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
+            <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c' || sale.chuc_vu._id == '6341138773407c222e681c01') { %>
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 
@@ -178,21 +178,25 @@
                         <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Danh sách khách hàng</span>
                     </a>
                 </li>
+                <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="/admin/quan-ly-khu-vuc/<%= sale._id %>">
                         <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Quản lý khu vực</span>
                     </a>
                 </li>
+                <% } %>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="/admin/danh-sach-sale/<%= sale._id %>">
                         <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Nhân viên kinh doanh</span>
                     </a>
                 </li>
+                <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="/admin/quan-ly-thong-bao/<%= sale._id %>">
                         <i class="ri-notification-line"></i> <span data-key="t-dashboards">Quản lý thông báo</span>
                     </a>
                 </li>
+                <% } %>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#nhom_kinh_doanh" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="nhom_kinh_doanh">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Đội nhóm kinh doanh</span>
@@ -228,6 +232,7 @@
                                     <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Hợp đồng trả thưởng</span>
                                 </a>
                             </li>
+                            <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="/admin/hoa-hong/<%= sale._id %>">
                                     <i class="ri-file-list-line"></i> <span data-key="t-dashboards">Hoa hồng</span>
@@ -238,6 +243,7 @@
                                     <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Trả lãi hợp đồng</span>
                                 </a>
                             </li>
+                            <% } %>
                             <li class="nav-item">
                                 <a class="nav-link menu-link" href="/admin/lich-su-tra-lai/<%= sale._id %>">
                                     <i class="ri-newspaper-line"></i> <span data-key="t-dashboards">Lịch sử trả lãi</span>
@@ -246,6 +252,7 @@
                         </ul>
                     </div>
                 </li>
+                <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarSetting" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSetting">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Cài Đặt</span>
@@ -275,6 +282,8 @@
                         </ul>
                     </div>
                 </li>
+                <% } %>
+                <% if (sale.chuc_vu._id == '62f60037939e9682e0c6973c') { %>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarChart" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarChart">
                         <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Thống kê</span>
@@ -289,6 +298,7 @@
                         </ul>
                     </div>
                 </li>
+                <% } %>
             </ul>
             <% } %>
             <!-- NHÂN VIÊN KẾ TOÁN -->

@@ -124,7 +124,7 @@
                                         </div> <!-- end card-->
                                     </div>
                                     <% } %>
-                                    <% if(sale.chuc_vu._id == '62f60037939e9682e0c6973c' || sale.chuc_vu._id == '630ed1b47b0c8dd5727f39b6' || sale.chuc_vu._id == '630ed69b7b0c8dd5727f3b50' || sale.chuc_vu._id == '6316e5768871a27fb5b0ae8f' ) { %>
+                                    <% if(sale.chuc_vu._id == '62f60037939e9682e0c6973c' || sale.chuc_vu._id == '630ed1b47b0c8dd5727f39b6' || sale.chuc_vu._id == '630ed69b7b0c8dd5727f3b50' || sale.chuc_vu._id == '6316e5768871a27fb5b0ae8f' || sale.chuc_vu._id == '6341138773407c222e681c01' ) { %>
                                     <div class="col-md-3">
                                         <div class="card card-animate">
                                             <div class="card-body">
@@ -149,6 +149,19 @@
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Danh sách khách hàng</h4>
+                                                <div class="input-group" style="width: 300px;">
+                                                    <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;">
+                                                        <script>
+                                                            $(document).ready(function(){
+                                                              $("#myInput").on("keyup", function() {
+                                                                var value = $(this).val().toLowerCase();
+                                                                $("#myTable tr").filter(function() {
+                                                                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                });
+                                                              });
+                                                            });
+                                                        </script>
+                                                </div>
                                                 <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" ) { %>
                                                 <div class="col-auto">
                                                     <button name="button-a" id="button-a" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
@@ -249,7 +262,7 @@
                                                                     </tr>
                                                                 <% }); %>
                                                             <% } %>
-                                                            <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" ) { %>
+                                                            <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == '6341138773407c222e681c01' ) { %>
                                                                 <% khach_hang.forEach(function(khach_hang){ %>
                                                                     <tr>
                                                                         <td>
