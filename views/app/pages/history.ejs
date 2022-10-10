@@ -1,64 +1,100 @@
 <%- include ../layouts/header.ejs %>
-<% if (user) { %>
-    <!-- Begin page -->
-    <div id="layout-wrapper">
-<header id="page-topbar" style="background-color: #eff4f7;">
-    <%- include ../layouts/menu.ejs %>
-</header>
-        <!-- ========== App Menu ========== -->
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
-        <div class="vertical-overlay"></div>
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
-            <%- include ../layouts/nav.ejs %>
-            <div class="page-content" style="padding-left: 0;  padding-top: 45px;">
-              <div class="">
-                   <div class="col-12" style="background-color: white; width: 103%;">
-                        <!-- Striped Rows -->
-                        <table class="table table-striped" style="padding: 10px;">
-                            <thead class="table-light">
-                                <tr>
-                                    <th scope="col">MÃ HĐ</th>
-                                    <th scope="col-2">Tiền lãi</th>
-                                    <th scope="col">Trạng thái</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% const thang = new Date(); %>
-                                <% const month = thang.getMonth() + 1; %>
-                                <% thang.setMonth(month, 0); %>
-                                <% lich_sus.forEach(function(lich_su){ %>
-                                    <% if (user.ho_va_ten == lich_su.hop_dong.khach_hang.ho_va_ten) { %>
-                                    <tr>
-                                        <td><%= lich_su.hop_dong.ma_hop_dong %></td>
-                                        <% if ((lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
-                                            <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= lich_su.hop_dong.loi_nhuan.thang_dau.toFixed(0) %>">0</span> </td>
-                                        <% } %>
-                                        <% if ((lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
-                                            <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= lich_su.hop_dong.loi_nhuan.thang.toLocaleString() %></td>
-                                        <% } %>
-                                        <td><%= lich_su.trang_thai.ten_trang_thai %></td>
-                                    </tr>
-                                    <% } %>
-                                <% }); %>
-                            </tbody>
-                        </table>
-                   </div> 
-              </div>
+<body class="body-scroll" data-page="profile">
+
+    <!-- loader section -->
+    <%- include ../layouts/loading.ejs %>
+    <!-- loader section ends -->
+
+    <!-- Sidebar main menu -->
+    <%- include ../layouts/sidebar.ejs %>
+    <!-- Sidebar main menu ends -->
+
+    <!-- Begin page -->
+    <main class="h-100">
+
+        <!-- Header -->
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i> 
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="../../images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header ends -->
+
+        <!-- main page content -->
+        <div class="main-container container">
+            <div class="row">
+                <div class="col-xl-12 col-md-12">
+                    <div class="card card-animate">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 overflow-hidden">
+                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0"> Danh sách hợp đồng</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-end justify-content-between mt-4">
+                              <div class="table-responsive table-card" style="width: 103%;">
+                                <table class="table table-borderless table-centered align-middle table-nowrap mb-0" style="font-size: 11px;">
+                                    <thead class="text-muted table-light">
+                                        <tr>
+                                            <th scope="col">Mã HĐ</th>
+                                            <th scope="col">Lãi</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col">Ngày</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% const thang = new Date(); %>
+                                        <% const month = thang.getMonth() + 1; %>
+                                        <% thang.setMonth(month, 0); %>
+                                        <% lich_sus.forEach(function(lich_su){ %>
+                                            <% if (user.ho_va_ten == lich_su.hop_dong.khach_hang.ho_va_ten) { %>
+                                            <tr>
+                                                <td><%= lich_su.hop_dong.ma_hop_dong %></td>
+                                                <% if ((lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1) == month) { %>
+                                                    <td style="color: rgb(57, 78, 239); font-weight: 600;"> <span class="counter-value" data-target="<%= lich_su.hop_dong.loi_nhuan.thang_dau.toFixed(0) %>">0</span> đ</td>
+                                                <% } %>
+                                                <% if ((lich_su.hop_dong.ngay_ky_hop_dong.getMonth() + 1) != month) { %>
+                                                    <td style="color: rgb(57, 78, 239); font-weight: 600;"><%= lich_su.hop_dong.loi_nhuan.thang.toLocaleString() %> đ</td>
+                                                <% } %>
+                                                <td><%= lich_su.trang_thai.ten_trang_thai %></td>
+                                                <td><%= lich_su.ngay_tra_lai.getDate() %>/<%= lich_su.ngay_tra_lai.getMonth() + 1 %>/<%= lich_su.ngay_tra_lai.getFullYear() %></td>
+                                            </tr>
+                                            <% } %>
+                                        <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div><!-- end card body -->
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-        </div>
-    </div>
+    </main>
+    <!-- Page ends-->
+
+    <!-- Footer -->
+    <%- include ../layouts/tab.ejs %>
+    <!-- Footer ends-->
+
+
+    <!-- Required jquery and libraries -->
     <%- include ../layouts/footer.ejs %>
-<% } %>

@@ -1,0 +1,110 @@
+<%- include ../layouts/header.ejs %>
+
+<body class="body-scroll" data-page="profile">
+
+    <!-- loader section -->
+    <%- include ../layouts/loading.ejs %>
+    <!-- loader section ends -->
+
+    <!-- Sidebar main menu -->
+    <%- include ../layouts/sidebar.ejs %>
+    <!-- Sidebar main menu ends -->
+
+    <!-- Begin page -->
+    <main class="h-100">
+
+        <!-- Header -->
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i> 
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="../../images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header ends -->
+
+        <!-- main page content -->
+        <div class="main-container container">
+            <div class="row mb-3">
+                <div class="col">
+                    <h6 class="title">Tin tức mới nhất</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="https://chotoancau.vn/tin-hoat-dong/le-dong-tho-du-an-khu-tmdv-tong-hop-phuong-tan-thanh-48.html" class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
+                                        <img src="https://chotoancau.vn/uploads/news/2022_09/z3728460266456_d751def7c60fa16ac2011b014171e903.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center ps-0">
+                                    <p class="mb-1">Lễ động thổ dự án Khu TMDV Tổng hợp Phường Tân Thành</p>
+                                    <p class="text-muted size-12">Liên hiệp Hợp tác xã Việt Nam cùng Công ty CP Tập đoàn Chợ toàn cầu GMG tổ chức Lễ Động thổ dự án Khu TMDV Tổng hợp phường Tân Thành</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="https://chotoancau.vn/tin-hoat-dong/lanh-dao-xa-tran-yen-tinh-lang-son-hop-ban-phuong-an-xay-dung-cho-moi-69.html" class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
+                                        <img src="https://chotoancau.vn/uploads/news/2022_10/img_e4512.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center ps-0">
+                                    <p class="mb-1">Lãnh đạo xã Trấn Yên, tỉnh Lạng Sơn họp bàn phương án xây dựng chợ mới</p>
+                                    <p class="text-muted size-12">Sáng ngày 30/9/2022, tại thôn Tác Nàng, xã Trấn Yên, huyện Bắc Sơn, tỉnh Lạng Sơn đã diễn ra cuộc họp về phương án bố trí sắp xếp ngành hàng và phương án xây dựng mới Chợ Trấn Yên.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="https://chotoancau.vn/thong-tin-kinh-te-xa-hoi/day-manh-phu-song-cho-4-0-70.html" class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
+                                        <img src="https://chotoancau.vn/uploads/news/2022_10/1.1_5.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col align-self-center ps-0">
+                                    <p class="mb-1">Đẩy mạnh "phủ sóng" chợ 4.0</p>
+                                    <p class="text-muted size-12">Từ khi chợ Cồn (Q.Hải Châu, TP Đà Nẵng) triển khai mô hình chợ công nghệ 4.0 (gọi tắt là chợ 4.0) vào tháng 4-2022 đến nay</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Page ends-->
+
+    <!-- Footer -->
+    <%- include ../layouts/tab.ejs %>
+    <!-- Footer ends-->
+
+
+    <!-- Required jquery and libraries -->
+    <%- include ../layouts/footer.ejs %>

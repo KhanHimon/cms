@@ -1,54 +1,75 @@
 <%- include ../layouts/header.ejs %>
-<% if (user) { %>
-    <!-- Begin page -->
-    <div id="layout-wrapper">
-<header id="page-topbar" style="background-color: #eff4f7;">
-    <%- include ../layouts/menu.ejs %>
-</header>
-        <!-- ========== App Menu ========== -->
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
-        <div class="vertical-overlay"></div>
 
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
-            <%- include ../layouts/nav.ejs %>
-            <div class="page-content" style="padding-left: 0; padding-top: 45px;">
-                <div class="col-12" style="background-color: white; width: 103%;">
-                    <!-- Striped Rows -->
-                    <table class="table table-striped" style="padding: 10px;">
-                        <thead class="table-light">
-                            <tr>
-                                <th scope="col">MÃ HĐ</th>
-                                <th scope="col">Tiền đầu tư</th>
-                                <th scope="col">Ngày ký</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% hop_dongs.forEach(function(hop_dong){ %>
-                                <% if ( hop_dong.khach_hang.id === user.id) { %>
-                                    <tr>
-                                        <td><%= hop_dong.ma_hop_dong %></td>
-                                        <td><%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ</td>
-                                        <td><%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></td>
-                                    </tr>
-                                <% } %>
-                            <% }); %>
-                        </tbody>
-                    </table>
-              </div>
+<body class="body-scroll" data-page="profile">
+
+    <!-- loader section -->
+    <%- include ../layouts/loading.ejs %>
+    <!-- loader section ends -->
+
+    <!-- Sidebar main menu -->
+    <%- include ../layouts/sidebar.ejs %>
+    <!-- Sidebar main menu ends -->
+
+    <!-- Begin page -->
+    <main class="h-100">
+
+        <!-- Header -->
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i> 
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="../../images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header ends -->
+
+        <!-- main page content -->
+        <div class="main-container container">
+            <div class="row">
+                <% hop_dongs.forEach(hop_dong=> { %>
+                    <% if ( hop_dong.khach_hang.id===user.id) { %>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <a href="https://chotoancau.vn/tin-hoat-dong/le-dong-tho-du-an-khu-tmdv-tong-hop-phuong-tan-thanh-48.html" class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center ps-0">
+                                            <p class="mb-1" style="font-size: 14px;">Mã HĐ : <%= hop_dong.ma_hop_dong %></p>
+                                            <p class="text-muted size-18">Đầu tư : <%= hop_dong.so_tien_dau_tu.toLocaleString() %> đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>
+                <% }); %>
             </div>
         </div>
-    </div>
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-        </div>
-    </div>
+    </main>
+    <!-- Page ends-->
+
+    <!-- Footer -->
+    <%- include ../layouts/tab.ejs %>
+    <!-- Footer ends-->
+
+
+    <!-- Required jquery and libraries -->
     <%- include ../layouts/footer.ejs %>
-<% } %>

@@ -1,0 +1,45 @@
+<footer class="footer">
+    <div class="container">
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item">
+                <a class="nav-link" href="/app/home/<%= user.id %>">
+                    <span>
+                        <i class="nav-icon bi bi-house"></i>
+                        <span class="nav-text">Trang chủ</span>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/app/contract/<%= user.id %>">
+                    <span>
+                        <i class="nav-icon bi-receipt-cutoff"></i>
+                        <span class="nav-text">Hợp đồng</span>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item centerbutton">
+                <a class="nav-link" href="/app/profile/<%= user.id %>">
+                    <span class="theme-radial-gradient">
+                        <i class="bi bi-person-badge size-22"></i>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/app/history/<%= user.id %>">
+                    <span>
+                        <i class="nav-icon bi-clock-history"></i>
+                        <span class="nav-text">Lịch sử</span>
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/app/news/<%= user.id %>">
+                    <span>
+                        <i class="nav-icon bi bi-newspaper"></i>
+                        <span class="nav-text">Tin tức</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>

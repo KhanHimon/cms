@@ -1,145 +1,97 @@
 <%- include ../layouts/header.ejs %>
-<% if (user) { %>
+
+<body class="body-scroll" data-page="profile">
+
+    <!-- loader section -->
+    <%- include ../layouts/loading.ejs %>
+    <!-- loader section ends -->
+
+    <!-- Sidebar main menu -->
+    <%- include ../layouts/sidebar.ejs %>
+    <!-- Sidebar main menu ends -->
+
     <!-- Begin page -->
-<div id="layout-wrapper">
-    <header id="page-topbar" style="background-color: #eff4f7;">
-        <%- include ../layouts/menu.ejs %>
-    </header>
-        <!-- ========== App Menu ========== -->
-        <!-- Left Sidebar End -->
-        <!-- Vertical Overlay-->
-        <div class="vertical-overlay"></div>
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
-            <%- include ../layouts/nav.ejs %>
-            <div class="page-content" style="padding-left: 0;">
-                <% let total = 0; %>
-                <% hop_dongs.forEach(hop_dong => { %>
-                     <% if ( hop_dong.khach_hang.id === user.id) { %>
-                        <% total += hop_dong.so_tien_dau_tu %>
-                    <% } %>
-                <% }); %>
-                <% let total_ocss = 0; %>
-                <% hop_dongs.forEach(function(hop_dong){ %>
-                    <% if ( hop_dong.khach_hang.id === user.id) { %>
-                        <% total_ocss += hop_dong.tien_ocopshop %>
-                    <% } %>
-                <% }); %>
-                <div class="col-12" style="background-color: white; color: black; line-height: 10px; padding-top: 15px; border-radius: 15px; padding-left: 20px; margin-bottom: 10px;">
-                    <div class="row">
-                        <div class="col-5">
-                            <p><b><%= user.ho_va_ten %></b></p>
-                            <p>ID : <%= user.username %></p>
+    <main class="h-100">
+
+        <!-- Header -->
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="../../images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header ends -->
+
+        <!-- main page content -->
+        <div class="main-container container">
+            <div class="row">
+                <div class="col-12 profile-page">
+                    <div class="clearfix"></div>
+                    <div class="circle small one"></div>
+                    <div class="circle small two"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="282.062"
+                        height="209.359" viewBox="0 0 282.062 209.359" class="menubg">
+                        <defs>
+                            <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1"
+                                gradientUnits="objectBoundingBox">
+                                <stop offset="0" stop-color="#09b2fd" />
+                                <stop offset="1" stop-color="#6b00e5" />
+                            </linearGradient>
+                        </defs>
+                        <path id="profilebg"
+                            d="M751.177,233.459c-28.511,1.567-38.838,7.246-61.77,27.573s-27.623,71.926-65.15,70.883-27.624-21.369-79.744-40.132-47.13-53.005-23.676-84.8,4.009-57.671,33-75.867,83.269,30.223,127.232,21.5,64.157-41.353,82.329-26,5.953,29.138,8.773,46.369,13.786,23.5,13.786,37.91S779.688,231.893,751.177,233.459Z"
+                            transform="translate(-503.892 -122.573)" fill="url(#linear-gradient)" />
+                    </svg>
+
+
+                    <div class="row my-3 py-4">
+                        <div class="col-7 align-self-center">
+                            <h1 class="mb-2"><span class="fw-light text-secondary">Hello!</span><br />John</h1>
+                            <p class="text-muted size-12">New York City,<br />United States</p>
                         </div>
-                        <div class="col-7">
-                            <p style="color: rgb(39, 144, 243);">Tiền đầu tư : <span class="counter-value" data-target="<%= total %>"></span> đ</p>
-                            <p style="color: rgb(20, 149, 55);">Tiền ocopshop : <span class="counter-value" data-target="<%= total_ocss %>"></span> đ</p>
+
+                        <div class="col align-self-center">
+                            <figure class="avatar avatar-100 rounded-20 p-1 bg-white shadow-sm">
+                                <img src="../assets/img/user1.jpg" alt="" class="rounded-18">
+                            </figure>
                         </div>
                     </div>
                 </div>
-                <ul class="list list-group list-group-flush mb-0">
-                    <li class="list-group-item" data-id="01">
-                        <div class="d-flex align-items-start">
-                            <div class="flex-shrink-0 me-3">
-                                <div>
-                                    <img class="image avatar-xs rounded-circle" alt="" src="../../icons/security.png">
-                                </div>
-                            </div>
-
-                            <div class="flex-grow-1 overflow-hidden">
-                                <h5 class="contact-name fs-13 mb-1"><a href="#" class="link text-dark">Bảo mật tài khoản</a></h5>
-                                <p class="contact-born text-muted mb-0" style="font-size: 10px;">Xác thực 2AF , SMS , Email</p>
-                            </div>
-
-                            <div class="flex-shrink-0 ms-2">
-                                <div class="fs-11 text-muted">Đã bảo mật</div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- end list item -->
-                    <li class="list-group-item" data-id="02">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div>
-                                    <img class="image avatar-xs rounded-circle" alt="" src="../../icons/user_profile.png">
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 overflow-hidden">
-                                <h5 class="contact-name fs-13 mb-1"><a href="#" class="link text-dark">Thông tin cá nhân</a></h5>
-                                <p class="contact-born text-muted mb-0" style="font-size: 10px;">Chi tiết thông tin người dùng</p>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- end list item -->
-                    <li class="list-group-item" data-id="03">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div>
-                                    <img class="image avatar-xs rounded-circle" alt="" src="../../icons/qa.png">
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h5 class="contact-name fs-13 mb-1"><a href="#" class="link text-dark">Câu hỏi thường gặp</a></h5>
-                                <p class="contact-born text-muted mb-0" style="font-size: 10px;">Danh sách các câu hỏi hay gặp</p>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- end list item -->
-                    <li class="list-group-item" data-id="04">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div>
-                                    <img class="image avatar-xs rounded-circle" alt="" src="../../icons/edit_pass.png">
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h5 class="contact-name fs-13 mb-1"><a href="#" class="link text-dark">Thay đổi mật khẩu</a></h5>
-                                <p class="contact-born text-muted mb-0" style="font-size: 10px;">Thay đổi mật khẩu hiện tại</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item" data-id="04">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div>
-                                    <img class="image avatar-xs rounded-circle" alt="" src="../../icons/support.png">
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h5 class="contact-name fs-13 mb-1"><a href="#" class="link text-dark">Yêu cầu hỗ trợ</a></h5>
-                                <p class="contact-born text-muted mb-0">Hỗ trợ người dùng 24/7</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item" data-id="04">
-                        <form action="/app/logout" method="post">
-                        <div class="d-flex align-items-center">
-                            <div class="flex-shrink-0 me-3">
-                                <div>
-                                    <img class="image avatar-xs rounded-circle" alt="" src="https://cdn-icons-png.flaticon.com/512/4400/4400483.png">
-                                </div>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h5 class="contact-name fs-13 mb-1"><button style="background: none; border: none;">Đăng xuất</button></h5>
-                                <p class="contact-born text-muted mb-0">Thoát khỏi ứng dụng</p>
-                            </div>
-                        </div>
-                        </form>
-                    </li>
-                    <!-- end list item -->
-                </ul>
             </div>
-        </div>
-    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-        <i class="ri-arrow-up-line"></i>
-    </button>
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-        </div>
-    </div>
+
+            <!-- buttons -->
+            <div class="row mb-4">
+                <div class="col">
+                    <a href="#" class="btn btn-light btn-lg shadow-sm w-100">Hợp đồng</a>
+                </div>
+                <div class="col">
+                    <a href="message.html" class="btn btn-default btn-lg shadow-sm w-100">Hỗ trợ</a>
+                </div>
+            </div>
+
+
+    </main>
+    <!-- Page ends-->
+
+    <!-- Footer -->
+    <%- include ../layouts/tab.ejs %>
+    <!-- Footer ends-->
+
+
+    <!-- Required jquery and libraries -->
     <%- include ../layouts/footer.ejs %>
-</div>
-<% } %>

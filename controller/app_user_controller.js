@@ -33,6 +33,15 @@ class APP_USER_CONTROLLER {
     })
   }
 
+  GET_NEWS(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/news', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
   GET_PROFILE(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {

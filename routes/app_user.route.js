@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router(); 
 
 // IMPORT MODELS
 const Lich_su_Schema = require('../models/lich_su.model');
@@ -36,6 +36,7 @@ const APP_USER_CONTROLLER = require('../controller/app_user_controller');
 
 router.get('/login',APP_USER_CONTROLLER.GET_LOGIN )
 router.get('/home/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_HOME);
+router.get('/news/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_NEWS);
 router.get('/profile/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_PROFILE);
 router.get('/history/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_HISTORY);
 router.get('/contract/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CONTRACT);
