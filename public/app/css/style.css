@@ -40,9 +40,9 @@ Table of content
   /* radial gradient colors */
   --finwallapp-theme-color-grad-1: #57bdff;
   --finwallapp-theme-color-grad-2: #4f77fb;
-  --finwallapp-theme-color-grad-3: #6528cf;
+  --finwallapp-theme-color-grad-3: #0c6be6;
   /* color schemes */
-  --finwallapp-theme-color: #6500d8;
+  --finwallapp-theme-color: #0c6be6;
   --finwallapp-theme-text: #ffffff;
   --finwallapp-theme-text-primary: #000000;
   --finwallapp-theme-text-secondary: #999999;
@@ -62,9 +62,9 @@ Table of content
 
 .theme-indigo {
   /* radial gradient colors */
-  --finwallapp-theme-color-grad-1: #8b9dff;
-  --finwallapp-theme-color-grad-2: #5c00f1;
-  --finwallapp-theme-color-grad-3: #68008e;
+  --finwallapp-theme-color-grad-1: #0c6be6;
+  --finwallapp-theme-color-grad-2: #0c6be6;
+  --finwallapp-theme-color-grad-3: #0c6be6;
   /* color schemes */
   --finwallapp-theme-color: #6610f2;
   --finwallapp-page-bg-1: #ffffff;
@@ -75,10 +75,10 @@ Table of content
 .theme-purple {
   /* radial gradient colors */
   --finwallapp-theme-color-grad-1: #e908d8;
-  --finwallapp-theme-color-grad-2: #5a2ab3;
-  --finwallapp-theme-color-grad-3: #300284;
+  --finwallapp-theme-color-grad-2: #0c6be6;
+  --finwallapp-theme-color-grad-3: #0c6be6;
   /* color schemes */
-  --finwallapp-theme-color: #6f42c1;
+  --finwallapp-theme-color: #0c6be6;
   --finwallapp-page-bg-1: #ffffff;
   --finwallapp-page-bg-2: #fff5fc;
   --finwallapp-page-bg-3: #f6f0fb;
@@ -11034,7 +11034,7 @@ a {
 
 a,
 .text-color-theme {
-  color: var(--finwallapp-theme-color);
+  color: #009bd8;
 }
 
 .text-secondary {
@@ -11085,7 +11085,7 @@ body {
   background: var(--finwallapp-theme-color-grad-1);
   background: -moz-radial-gradient(30% 30%, ellipse cover, var(--finwallapp-theme-color-grad-1) 0%, var(--finwallapp-theme-color-grad-2) 50%, var(--finwallapp-theme-color-grad-3) 100%);
   background: -webkit-radial-gradient(30% 30%, ellipse cover, var(--finwallapp-theme-color-grad-1) 0%, var(--finwallapp-theme-color-grad-2) 50%, var(--finwallapp-theme-color-grad-3) 100%);
-  background: radial-gradient(ellipse at 30% 30%, var(--finwallapp-theme-color-grad-1) 0%, var(--finwallapp-theme-color-grad-2) 50%, var(--finwallapp-theme-color-grad-3) 100%);
+  background: radial-gradient(ellipse at 30% 30%, #2cacff 0%, #33a1d7 50%, #1bb3d7 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--finwallapp-theme-color-grad-1)', endColorstr='var(--finwallapp-theme-color-grad-3)',GradientType=1 );
 }
 
@@ -11168,12 +11168,12 @@ main.bg-3 {
 .alert-theme,
 .card.alert-theme,
 .bg-theme-light {
-  background-color: var(--finwallapp-theme-color-light);
+  background-color: #009bd8 ;
 }
 
 .bg-theme,
 .modal-backdrop {
-  background: var(--finwallapp-theme-color) !important;
+  background: #009bd8 !important;
   color: var(--finwallapp-theme-text) !important;
 }
 
@@ -12605,7 +12605,7 @@ linearGradient stop:last-child {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07), inset 0 1px 0px rgba(255, 255, 255, 0.18);
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07), inset 0 1px 0px rgba(255, 255, 255, 0.18);
   -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07), inset 0 1px 0px rgba(255, 255, 255, 0.18);
-  background-color: var(--finwallapp-theme-color);
+  background-color: #009bd8;
   color: var(--finwallapp-theme-text);
 }
 
@@ -13157,7 +13157,7 @@ a.card {
   -moz-align-self: center;
   height: 100%;
   line-height: 44px;
-  color: var(--finwallapp-theme-text-secondary);
+  color: #222;
   padding: calc(var(--finwallapp-padding) - 5px) calc(var(--finwallapp-padding) - 10px);
 }
 
@@ -13254,12 +13254,12 @@ a.card {
   --finwallapp-theme-text-secondary-light: #bbbbbb;
   --finwallapp-theme-bordercolor: rgba(255, 255, 255, 0.1);
   --finwallapp-header: transparent;
-  --finwallapp-header-active: #290058;
-  --finwallapp-footer: #290058;
+  --finwallapp-header-active: #00adf2;
+  --finwallapp-footer: #00adf2;
   --finwallapp-sidebar: var(--finwallapp-theme-color);
-  --finwallapp-card-color: rgba(64, 0, 138, 0.85);
-  --finwallapp-page-bg-1: #290058;
-  --finwallapp-page-bg-2: #1c003b;
+  --finwallapp-card-color:#009bd8;
+  --finwallapp-page-bg-1: #006086;
+  --finwallapp-page-bg-2: #074b66;
   --finwallapp-page-bg-3: #090013;
   --finwallapp-page-text: #ffffff;
   --finwallapp-page-link: var(--finwallapp-theme-color);
@@ -13491,9 +13491,9 @@ a.card {
 }
 
 .dark-mode .btn-light {
-  background-color: var(--finwallapp-page-bg-2);
+  background-color: #35bcf2;
   color: var(--finwallapp-theme-text);
-  border-color: var(--finwallapp-page-bg-2);
+  border-color: #35bcf2;
 }
 
 .dark-mode .bg-light {

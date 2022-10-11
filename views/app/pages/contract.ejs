@@ -43,7 +43,7 @@
                 <% hop_dongs.forEach(hop_dong=> { %>
                     <% if ( hop_dong.khach_hang.id===user.id) { %>
                         <div class="col-12 col-md-6 col-lg-4">
-                            <a href="https://chotoancau.vn/tin-hoat-dong/le-dong-tho-du-an-khu-tmdv-tong-hop-phuong-tan-thanh-48.html" class="card mb-3">
+                            <a href="/app/detail=<%= hop_dong.id %>/<%= user.id %>" class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-auto">

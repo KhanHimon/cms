@@ -1,0 +1,238 @@
+<%- include ../layouts/header.ejs %>
+
+    <body class="body-scroll" data-page="profile">
+
+        <!-- loader section -->
+        <%- include ../layouts/loading.ejs %>
+            <!-- loader section ends -->
+
+            <!-- Sidebar main menu -->
+            <%- include ../layouts/sidebar.ejs %>
+                <!-- Sidebar main menu ends -->
+
+                <!-- Begin page -->
+                <main class="h-100">
+
+                    <!-- Header -->
+                    <header class="header position-fixed">
+                        <div class="row">
+                            <div class="col-auto">
+                                <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                                    <i class="bi bi-list"></i>
+                                </a>
+                            </div>
+                            <div class="col text-center">
+                                <div class="logo-small">
+                                    <img src="../../images/gmg.png" alt="" />
+                                    <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                                    <i class="bi bi-person-circle"></i>
+                                    <span class="count-indicator"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+                    <!-- Header ends -->
+
+                    <!-- main page content -->
+                    <div class="main-container container">
+                        <div class="row">
+                            <div class="col-12">
+                                <a href="javascript:history.back()">Go Back</a>
+                                <div class="card mb-4 overflow-hidden shadow-sm card-theme rounded-0">
+                                    <div class="card-body" style="color: black;">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span class="tag bg-theme">Hợp đồng đầu tư</span>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <p class="h4 mb-1 d-block text-black" style="font-size: 16px;">Mã HĐ : <%=
+                                                hop_dong.ma_hop_dong %>
+                                        </p>
+                                        <p class="mb-3">Ngày ký : <%= hop_dong.ngay_ky_hop_dong.getDate() %>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %></p>
+                                        <p>- Căn cứ Bộ luật Dân sự số: 91/2015/QH13, ngày 24 tháng 11 năm 2015;</p>
+                                        <p>- Căn cứ Luật Thương mại số: 36/2005/QH11, ngày 14 tháng 6 năm 2005;</p>
+                                        <p>- Căn cứ Quyết định số: 13/QĐ-HĐQT, ngày 10 tháng 5 năm 2022 của Hội đồng quản trị Liên hiệp Hợp tác xã Việt Nam về việc kết nạp Công ty Cổ phần Tập đoàn Chợ Toàn Cầu làm thành viên liên kết của Liên hiệp Hợp tác xã Việt Nam;</p>
+                                        <p><b>BÊN A: CÔNG TY CỔ PHẦN TẬP ĐOÀN CHỢ TOÀN CẦU (GMG)</b></p>
+                                        <p>ĐKKD/MST: 2802772702</p>
+                                        <p>Ngày cấp lần đầu: 29/08/2019</p>
+                                        <p>Nơi cấp : Phòng ĐKKD - Sở Kế hoạch và Đầu tư Thành phố Hà Nội</p>
+                                        <p>Đại diện theo Pháp luật: Lê Thị Hiền</p>
+                                        <p>Chức vụ: Chủ tịch HĐQT</p>
+                                        <p>Địa chỉ trụ sở chính: Số 233, Tổ 40, phường Hoàng Văn Thụ, quận Hoàng Mai, TP.Hà Nội</p>
+                                        <p>Số điện thoại liên hệ: 0247.302.6898</p>
+                                        <p>Email: lienhiep@lhhtx.vn</p>
+                                        <p>Số tài khoản: 16010009896868</p>
+                                        <p>Ngân hàng: Ngân hàng BIDV – Chi nhánh Sở Giao dịch 3</p>
+                                        <p style="text-transform: uppercase;"><b>BÊN B: ÔNG/BÀ <%= hop_dong.khach_hang.ho_va_ten %></b></p>
+                                        <p>Ngày sinh: <%= hop_dong.khach_hang.nam_sinh.getDate() %>/<%= hop_dong.khach_hang.nam_sinh.getMonth() +1 %>/<%= hop_dong.khach_hang.nam_sinh.getFullYear() %></p>
+                                        <p>Dân tộc: <%= hop_dong.khach_hang.dan_toc %></p>
+                                        <p>CMND/CCCD Số: <%= hop_dong.khach_hang.cccd_cmnd %></p>
+                                        <p>Ngày cấp: <%= hop_dong.khach_hang.ngay_cap.getDate() %>/<%= hop_dong.khach_hang.ngay_cap.getMonth() +1 %>/<%= hop_dong.khach_hang.ngay_cap.getFullYear() %></p>
+                                        <p>Nơi cấp: <%= hop_dong.khach_hang.noi_cap %></p>
+                                        <p>Địa chỉ thường trú: <%= hop_dong.khach_hang.dia_chi %></p>
+                                        <p>Địa chỉ liên hệ/nhận thông báo: <%= hop_dong.khach_hang.dia_chi_hien_tai %></p>
+                                        <p>Số điện thoại liên hệ: <%= hop_dong.khach_hang.so_dien_thoai %></p>
+                                        <p>Email: <%= hop_dong.khach_hang.email %></p>
+                                        <p>Số tài khoản: <%= hop_dong.khach_hang.so_tai_khoan %></p>
+                                        <p><i>Đồng ý ký kết Hợp đồng Hợp tác đầu tư (Sau đây gọi tắt là “Hợp đồng”) với các điều khoản sau đây:</i></p>
+                                        <p style="text-transform: uppercase;"><b>XÉT RẰNG:</b></p>
+                                        <p>- A.Bên A là Tổ chức được thành lập và hoạt động hợp pháp theo pháp luật Việt Nam, 
+                                            có chức năng hoạt động trong các lĩnh vực như : Liên kết, hợp tác đầu tư, hợp tác kinh doanh; 
+                                            đầu tư; tư vấn đầu tư, tư vấn thiết kế, tư vấn quản lý dự án; đầu tư các dự án chợ, 
+                                            trung tâm thương mại, dân cư, nghỉ dưỡng và các dự án bất động sản khác trên phạm vi cả nước. 
+                                            Tư vấn sử dụng sản phẩm OCOP, tư vấn phát triển sản phẩm OCOP, sản phẩm Nông nghiệp, phát triển vùng nguyên liệu, 
+                                            phát triển sản xuất, tiêu thụ sản phẩm Nông nghiệp trên địa bàn cả nước và tư vấn xuất khẩu.</p>
+                                        <p>- B.Bên B là một cá nhân có đầy đủ năng lực pháp luật dân sự và năng lực hành vi dân sự để ký kết Hợp Đồng này.
+                                            Các Bên mong muốn hợp tác đầu tư kinh doanh vào các lĩnh vực thuộc hoạt động của Bên A như các điều khoản tại Hợp Đồng này. 
+                                            DO ĐÓ, sau khi bàn bạc, thỏa thuận, trên tinh thần hoàn toàn tự nguyện, hai bên đã đọc, hiểu rõ và đồng ý ký kết Hợp Đồng này với các điều kiện và điều khoản như sau:</p>
+                                        <p><b>- 1.Nội dung hợp tác đầu tư</b></p>
+                                        <p>1. Nội Dung Hợp Tác: Bên B đồng ý góp vốn và Bên A đồng ý nhận số tiền Vốn Đầu Tư như định nghĩa tại khoản 3.1 Điều 3 
+                                            Hợp Đồng này để đầu tư vào các dự án mà Bên A hoặc thành viên hoặc thành viên liên kết của bên A đang và sẽ là chủ 
+                                            đầu tư hoặc liên doanh, liên kết đầu tư với đối tác hợp tác khác. </p>
+                                        <p>2. Mục Đích Hợp Tác: Thông qua việc ký kết Hợp Đồng này, Bên A sẽ sử dụng Vốn Đầu Tư của Bên B một cách tích cực để tìm kiếm, 
+                                            lựa chọn, triển khai các hoạt động đầu tư, liên kết đầu tư, hợp tác đầu tư, hợp tác kinh doanh nhằm phát sinh lợi nhuận như đã cam kết cho Bên B, 
+                                            đồng thời nâng cao năng lực cạnh tranh, quảng bá thương hiệu của Bên A trên thị trường, từ đó xây dựng và phát triển Bên A 
+                                            thành một đơn vị kinh doanh thương mại, dịch vụ, đầu tư bất động sản chuyên nghiệp trên phạm vi cả trong và ngoài nước.</p>
+                                        <p>3. Phạm Vi Và Phương Thức Hợp Tác: Hai Bên thống nhất sẽ không thành lập tổ chức kinh tế mới để thực hiện Hợp Đồng này. 
+                                            Hợp Đồng này không tạo ra bất kỳ liên doanh, liên kết, quan hệ đại lý, hay bất kỳ hình thức tương tự nào khác giữa hai bên. 
+                                            Bên B đồng ý rằng, toàn bộ Vốn Đầu Tư sẽ được Bên A toàn quyền điều phối, sử dụng cho Mục Đích Hợp Tác như đã nêu tại khoản 1.2 Điều này, 
+                                            Bên B không tham gia vào bất kỳ hoạt động quản lý điều hành nào của Bên A.</p>
+                                        <p><b>- 2.Thời hạn hợp đồng</b></p>
+                                        <p>- 3.Hợp Đồng này có thời hạn 24 (Hai mươi bốn) tháng kể từ ngày Bên A nhận được đầy đủ vốn đầu tư của Bên B như quy định tại khoản 3.1 Điều 3 của Hợp Đồng (“Thời Hạn Hợp Đồng”). </p>
+                                        <p>- 4.Sau khi hết Thời Hạn Hợp Đồng, các Bên có thể tiếp tục hợp tác kinh doanh bằng việc đàm phán và ký kết một hợp đồng mới hoặc Phụ lục Hợp đồng với các điều khoản và điều kiện theo thỏa thuận của Các Bên vào thời điểm đó. </p>
+                                        <p><b>- 5.Vốn đầu tư, hoàn vốn và lợi nhuận cam kết</b></p>
+                                        <p>- 6.Giá trị vốn đầu tư theo Hợp Đồng này là: <b><%= hop_dong.so_tien_dau_tu.toLocaleString() %>. VNĐ</b></p>
+                                        <p>Tiến độ góp vốn: Ngay sau khi hai Bên ký kết Hợp đồng này.</p>
+                                        <p>Hình thức hợp tác đầu tư và phân chia lợi nhuận: Theo Phụ lục 01 kèm theo Hợp đồng này. </p>
+                                        <p>1.Hoàn Vốn và Lợi Nhuận Cam Kết: </p>
+                                        <p>+ 1.Vốn Đầu Tư được Bên A hoàn trả cho Bên B một lần sau khi chấm dứt Hợp đồng này. Bên B có thể lựa chọn hình thức nhận lại Vốn Đầu tư bằng tiền mặt hoặc tài sản là Bất động sản hoặc tài sản khác có giá trị tương đương với giá trị Vốn Đầu Tư.</p>
+                                        <p>+ 2.Lợi nhuận đàu tư: </p>
+                                        <p>(a) Lợi Nhuận đầu tư sẽ được Bên A trả cho Bên B vào ngày 10 (mười) -15 (mười lăm) hàng tháng. Tháng đầu tiên nhận Lợi Nhuận được tính theo ngày Bên B góp đủ Vốn Đầu Tư. 
+                                            Mức Lợi Nhuận Bên B được nhận hàng tháng là 2,5%/tháng (Hai phẩy năm phần trăm trên tháng) được tính dựa trên giá trị Vốn Đầu tư.</p>
+                                        <p>(b) Ngoài khoản Lợi Nhuận đầu tư theo điểm (a) khoản này, Bên B còn được hưởng các chính sách ưu đãi khác của Bên A bằng hình thức tặng thẻ mua hàng OCOPSHOP hàng tháng; 
+                                            Chiết khấu trực tiếp trên giá trị hàng hóa khi Bên B mua hàng tại hệ thống Trung tâm giới thiệu và bán sản phẩm 
+                                            OCOP là thành viên liên kết của Bên A theo chính sách tại của Bên A tại từng thời điểm.</p>
+                                        <p>(c) Phương thức nhận Lợi Nhuận đầu tư: Tiền mặt hoặc chuyển khoản. </p>
+                                        <p>+ 3.Khoản Hoàn Vốn (Trong trường hợp nhận bằng tiền) và Lợi Nhuận được chi trả qua tài khoản của Bên B được nêu tại phần đầu của Hợp Đồng, 
+                                            trường hợp Bên B thay đổi thông tin tài khoản ngân hàng, Bên B phải thông báo bằng văn bản về thông tin tài khoản thụ hưởng mới cho Bên A. </p>
+                                        <p><b>2.Điều hành hoạt động đầu tư kinh doanh của Bên A</b></p>
+                                        <p>+ 4.1.Các Bên hiểu, thống nhất và cam kết rằng trong suốt Thời Hạn Hợp Đồng, việc sử dụng Vốn Đầu Tư sẽ do Bên A toàn quyền quyết định và chịu trách nhiệm quản lý. 
+                                            Bên B sẽ không can thiệp và/hoặc tham gia vào bất kỳ hoạt động quản lý, điều hành, giám sát công việc kinh doanh nào của Bên A. </p>
+                                        <p>+ 4.2.Bên A sẽ chủ động, nỗ lực và toàn quyền quyết định mọi vấn đề liên quan đến việc sử dụng Vốn Đầu Tư trong suốt Thời Hạn Hợp Đồng. 
+                                            Trong trường hợp Bên A gặp khó khăn trong hoạt động kinh doanh, các Bên sẽ cùng nỗ lực để khắc phục các khó khăn nói trên bằng cách thống nhất tìm giải pháp khắc phục; 
+                                            theo đó Bên A sẽ cân đối, điều chỉnh các vấn đề liên quan, bao gồm nhưng không giới hạn ở Vốn Đầu Tư, Lợi Nhuận, phương thức và hình thức thanh toán Lợi Nhuận, 
+                                            Thời Hạn Hợp Đồng trên tinh thần và nguyên tắc hợp tác thiện chí, các Bên cùng có lợi. </p>
+                                        <p><b>1.Chuyển nhượng hợp đồng</b></p>
+                                        <p>2.Trong Thời Hạn Hợp Đồng, Bên B được quyền chuyển nhượng toàn bộ quyền và nghĩa vụ của mình theo Hợp Đồng này cho một bên thứ ba khác là cá nhân có đủ năng lực 
+                                            pháp luật dân sự và năng lực hành vi dân sự theo quy định của pháp luật (“Bên Thứ Ba Nhận Chuyển Nhượng”). Việc chuyển nhượng này chỉ có hiệu lực khi đáp ứng 
+                                            đầy - đủ các điều kiện sau: (a) phải được lập thành văn bản; ( b) phải thông báo trước và nhận được sự đồng ý bằng văn bản của Bên A; và (c) Bên Thứ Ba Nhận Chuyển Nhượng phải 
+                                            chấp thuận và cam kết thực hiện các nghĩa vụ theo các cam kết ban đầu giữa Bên A và Bên B theo Hợp đồng này (Hợp Đồng Chuyển Nhượng”).</p>
+                                        <p>3.Trước thời điểm Bên B và Bên Thứ Ba Nhận Chuyển Nhượng dự kiến ký kết Hợp Đồng Chuyển Nhượng ít nhất 15 (mười lăm) Ngày Làm Việc, 
+                                            Bên B có trách nhiệm thông báo bằng văn bản cho Bên A về việc chuyển nhượng và cung cấp bản dự thảo của Hợp Đồng Chuyển Nhượng để Bên A rà soát, kiểm tra, xác nhận và phê duyệt. </p>
+                                        <p>Hợp Đồng Chuyển Nhượng chỉ được ký kết sau khi bản dự thảo hợp đồng này được sự đồng ý bằng văn bản của Bên A. Sau khi Bên B và Bên Thứ Ba Nhận Chuyển Nhượng ký kết Hợp Đồng Chuyển Nhượng, 
+                                            Bên B hoặc Bên Thứ Ba Nhận Chuyển Nhượng có trách nhiệm cung cấp 01 (một) bản gốc Hợp Đồng Chuyển Nhượng cùng các phụ lục, giấy tờ, tài liệu liên quan đến Hợp Đồng Chuyển Nhượng cho Bên A. </p>
+                                        <p>1.Bên B phải thanh toán cho Bên A một khoản tiền tương đương với 01 % (một phần trăm) giá trị vốn Đầu Tư <b>(“Chi Phí Chuyển Nhượng")</b> ngay khi Hợp Đồng Chuyển Nhượng được ký kết và được Bên A đồng ý, 
+                                            phê duyệt và Bên A nhận được bản gốc cùng các tài liệu được quy định tại khoản 6.2 Điều này. Sau khi Bên A nhận được Chi Phí Chuyển Đổi, mọi quyền và nghĩa vụ của 
+                                            Bên B đối với Bên A theo Hợp Đồng này được chuyển nhượng hoàn toàn cho Bên Thứ Ba.</p>
+                                        <p>2.Bên B và/hoặc Bên Thứ Ba chịu trách nhiệm với: (a) mọi chi phí phát sinh liên quan đến cho việc đàm phán, ký kết và thực hiện Hợp Đồng Chuyển Nhượng; (b) tất cả các khoản thuế, phí, lệ phí, nghĩa vụ tài chính phát 
+                                            sinh đối với Phí Chuyển Đổi và việc chuyển nhượng Hợp Đồng; và (c) bồi thường thiệt hại do việc ký kết và thực hiện Hợp Đồng Chuyển Nhượng gây ra cho Bên A (nếu có).</p>
+                                        <p><b>3.Rút Vốn Đầu Tư trước thời hạn Hợp đồng</b></p>
+                                        <p>4.Bên B có quyền rút lại toàn bộ Vốn Đầu Tư vào bất kỳ thời điểm nào trong thời gian thực hiện Hợp đồng (“Yêu Cầu Rút Vốn Đầu Tư Trước Thời Hạn”). 
+                                            Trong trường hợp này, Bên B phải chịu khoản chiết khấu 30% giá trị Vốn Đầu Tư (“Phí Rút Vốn Đầu Tư Trước Thời Hạn"); 
+                                            đồng thời, Bên B phải hoàn trả lại Bên A Lợi Nhuận đầu tư, giá trị ưu đãi và các lợi ích khác đã được hưởng từ thời điểm bắt đầu góp vốn.</p>
+                                        <p>5.Yêu Cầu Rút Vốn Trước Hạn phải được thể hiện bằng văn bản và gửi trực tiếp hoặc thông qua chuyển phát nhanh có bảo đảm của bưu điện. 
+                                            Trong vòng 30 (ba mươi) Ngày Làm Việc kể từ ngày nhận được Yêu Cầu Rút Vốn Trước Hạn hợp lệ, Bên A sẽ giải quyết 
+                                            Yêu Cầu Rút Vốn Trước Hạn và thông báo đồng ý Yêu Cầu Rút Vốn Trước Hạn bằng văn bản cho Bên B <b>(“Thông Báo Đồng Ý")</b>.</p>
+                                        <p>6.Trong vòng 15 (mười lăm) Ngày Làm Việc kể từ ngày Bên A ban hành Thông Báo Đồng Ý, 
+                                            Các Bên tiến hành các thủ tục cần thiết để thanh toán các nghĩa vụ tài chính tồn đọng giữa các bên.</p>
+                                        <p><b>7.Quyền Và Nghĩa Vụ Của Bên A</b></p>
+                                        <p>8.Toàn quyền quản lý, điều hành, quyết định công việc kinh doanh và sử dụng Vốn Đầu Tư 
+                                            theo quyền quyết định riêng của Bên A theo đúng Mục Đích Hợp Tác của Hợp Đồng này trong Thời Hạn Hợp Đồng.</p>
+                                        <p>9.Được nhận đầy đủ Chi Phí Chuyển Nhượng, Chi Phí Rút Vốn (nếu có) theo quy định tại Hợp Đồng này.</p>
+                                        <p>10.Chịu trách nhiệm tìm kiếm đối tác, dự án kinh doanh, dự án bất động sản tiềm năng và các cơ hội kinh doanh khác để đầu tư, kinh doanh hiệu quả.</p>
+                                        <p>11.Thanh toán Lợi Nhuận và hoàn trả Vốn Đầu Tư đúng theo cam kết của Hợp Đồng.</p>
+                                        <p>12.Trong quá trình thực hiện Hợp đồng Bên A không được thanh toán lợi nhuận chậm quá 03 lần, mỗi lần không quá 03 tháng. 
+                                            Nếu Bên A vi phạm thì Bên B có quyền đơn phương chấm dứt Hợp đồng mà không phải chịu Chi Phí Rút Vốn theo quy định tại Điều 6 Hợp đồng này.</p>
+                                        <p>13.Bên A có nghĩa vụ hoàn trả Vốn Đầu tư cho Bên B theo Hợp đồng này. Hai Bên có thể thỏa thuận để Bên B có thể lựa chọn hình thức nhận 
+                                            Vốn Đầu Tư bằng tiền mặt hoặc bằng các hình thức như: Nhận tài sản/quyền tài sản hình thành trong tương lai của 
+                                            Bên A (Hoặc thành viên liên kết của Bên A), bao gồm nhưng không hạn chế ở quyền sử dụng đất, quyền sở hữu nhà ở hoặc quyền sử dụng đất 
+                                            và quyền sở hữu ki ốt chợ/ki ốt thương mại phù hợp, quyền và hưởng lợi nhuận tương ứng đối với các dự án trồng và tiêu thụ sản phẩm Nông nghiệp, 
+                                            dược liệu đúng với quy định của pháp luật áp dụng. Các Bên theo đây cam kết và đồng ý về hình thức hoàn trả Vốn Đầu tư này nhằm mục đích cân đối 
+                                            giữa mục tiêu kinh doanh của Bên A và khả năng đảm bảo giá trị gốc Vốn Đầu Tư cho Bên B trên tinh thần thiện chí, hợp tác, đảm bảo và cân đối 
+                                            quyền và lợi ích của cả hai Bên. </p>
+                                        <p>14.Các quyền và nghĩa vụ khác được quy định trong Hợp Đồng này và theo các quy định của pháp luật.</p>
+                                        <p><b>15. Quyền và nghĩa vụ của bên B</b></p>
+                                        <p>16.Được nhận Lợi Nhuận và được hoàn trả Vốn Đầu Tư theo đúng nội dung của Hợp Đồng, được Bên A bồi thường thiệt hại do lỗi của Bên A gây ra (nếu có). </p>
+                                        <p>17.Chuyển Vốn Đầu Tư cho Bên A đầy đủ và đúng hạn.</p>
+                                        <p>18.Được quyền chuyển nhượng Hợp Đồng, Yêu Cầu Rút Vốn Trước Hạn theo quy định tại Hợp Đồng này.</p>
+                                        <p>19.Được quyền chuyển nhượng Hợp Đồng sang tài sản bất động sản sau khi kết thúc Hợp Đồng và được nhận ưu đãi 5% theo chính sách của Bên A.</p>
+                                        <p>20.Được quyền chuyển hình thức hợp tác trong thời hạn Hợp đồng còn hiệu lực từ hình thức hưởng lợi nhuận và hoàn trả gốc hàng tháng sang hình thức hợp đồng góp vốn, cổ phần dự án hoặc vào bất kỳ sản phẩm Bất động sản nào khác mà Bên A hoặc/và thành viên liên kết của Bên A làm Chủ đầu tư. </p>
+                                        <p>21.Thanh toán đầy đủ Chi Phí Chuyển Nhượng, Chi Phí Rút Vốn và các nghĩa vụ tài chính khác (nếu có) cho Bên A theo Hợp Đồng.</p>
+                                        <p>22.Cung cấp đầy đủ, chính xác cho Bên A các thông tin, tài liệu để ký kết Hợp Đồng và chịu trách nhiệm về tính trung thực, chính xác của các thông tin, tài liệu này.</p>
+                                        <p>23.Chịu trách nhiệm về tính hợp pháp của nguồn gốc Vốn Đầu Tư, cam kết Vốn Đầu Tư không thuộc sở hữu, không bị chi phối hay không là đối tượng của bất kỳ biện pháp bảo đảm bởi bất kỳ tổ chức, cá nhân nào. Bên B chịu trách nhiệm giải quyết mọi tranh chấp liên quan đến Vốn Đầu Tư giữa Bên B và Bên thứ ba khác, đảm bảo không làm ảnh hưởng đến quyền lợi, uy tín và danh tiếng của Bên A.</p>
+                                        <p>24.Bên B chịu trách nhiệm nộp các khoản thuế, phí, lệ phí và nghĩa vụ tài chính khác phát sinh từ Hợp đồng này, bao gồm nhưng không giới hạn ở thuế thu nhập cá nhân (nếu có). Khi Bên A có yêu cầu, Bên B phải cung cấp chứng từ nộp thuế cho Bên A. Bên A không chịu trách nhiệm về những nghĩa vụ nộp thuế, phí, lệ phí và các nghĩa vụ tài chính khác của Bên B trong trường hợp Bên B bị Cơ quan Nhà nước có thẩm quyền truy thu thuế hoặc/và bị xử phạt vi phạm hành chính hoặc/và bị truy cứu các trách nhiệm khác. </p>
+                                        <p>25.Các quyền và nghĩa vụ khác được quy định trong Hợp Đồng này và theo các quy định của pháp luật. </p>
+                                        <p>26.<b>Chấm dứt Hợp đồng </b></p>
+                                        <p>27.Hợp Đồng này sẽ chấm dứt nếu thuộc một trong các trường hợp sau đây:</p>
+                                        <p>28.Hết Thời Hạn Hợp Đồng quy định tại khoản 2.1 Điều 2 Hợp đồng này.</p>
+                                        <p>29.Bên A và Bên B thỏa thuận về việc chấm dứt Hợp đồng.</p>
+                                        <p>30.Bên B chuyển hợp đồng theo hình thức hợp tác tại Khoản 9.4 Điều 9 Hợp Đồng này.</p>
+                                        <p>31.Bên B Yêu Cầu Rút Vốn Trước Hạn theo quy định tại Điều 7 Hợp Đồng này.</p>
+                                        <p>32.Bên A được quyền đơn phương chấm dứt Hợp Đồng và không phải hoàn trả số Vốn Đầu Tư lại cho Bên B nếu thuộc một trong các trường hợp sau: </p>
+                                        <p>(a) Bên B có hành vi cản trở, phá hoại, bôi nhọ các hoạt động kinh doanh của Bên A theo bất kỳ hình thức nào. </p>
+                                        <p>1.Trong vòng 15 (mười lăm) Ngày Làm Việc kể từ ngày chấm dứt Hợp Đồng, tất cả các khoản thanh toán còn tồn đọng và các nghĩa vụ khác giữa Các Bên phải được hoàn tất theo các quy định của Hợp Đồng này và quy định của pháp luật Việt Nam.</p>
+                                        <p>2.Nghĩa vụ bảo mật thông tin Hợp Đồng và trách nhiệm bồi thường thiệt hại vẫn có hiệu lực sau khi chấm dứt Hợp Đồng .</p>
+                                        <p>3.Sau khi chấm dứt Hợp Đồng, nếu Bên B có nhu cầu hợp tác lại, hai bên sẽ thương lượng ký kết hợp đồng hợp tác mới với các điều khoản và điều kiện tương tự Hợp Đồng này, tùy thuộc vào thỏa thuận của Các Bên tại thời điểm đó. </p>
+                                        <p>4.Sự kiện bất khả kháng</p>
+                                        <p>5.Các Bên nhất trí thỏa thuận rằng các sự kiện xảy ra một cách khách quan không thể lường trước được và không thể khắc phục được mặc dù đã áp dụng mọi biện pháp cần thiết và khả năng cho phép sẽ được coi là Sự Kiện Bất Khả Kháng ví dụ như: chiến tranh, bạo loạn, bệnh dịch, hỏa hoạn, lũ lụt, động đất, bão tố, các thảm họa tự nhiên khác, tình trạng khẩn cấp quốc gia; thay đổi chính sách pháp luật của Nhà nước hoặc do phải thực hiện quy tắc, quy định, quyết định, lệnh hay chỉ thị của cơ quan chính quyền hay cơ quan chức năng hoặc lệnh của bất kỳ tòa án có thẩm quyền nào không do lỗi của Các Bên hoặc các trường hợp khác do pháp luật quy định.</p>
+                                        <p>6.Khi xuất hiện Sự Kiện Bất Khả Kháng thì Bên bị tác động bởi Sự Kiện Bất Khả Kháng phải thông báo bằng văn bản cho Bên còn lại biết trong thời gian sớm nhất có thể. Việc thực hiện nghĩa vụ theo Hợp Đồng của Bên bị ảnh hưởng bởi Sự  Kiện Bất Khả Kháng sẽ được kéo dài thêm một khoảng thời gian hợp lý để khắc phục hậu quả của Sự Kiện Bất Khả Kháng.</p>
+                                        <p>7.Bồi thường thiệt hại</p>
+                                        <p>Mỗi Bên (“Bên Bồi Thường Thiệt Hại”) sẽ bồi thường và đảm bảo cho Bên còn lại (“Bên Được Bồi Thường Thiệt Hại”) khỏi và đối với các tổn thất mà Bên Được Bồi Thường Thiệt Hại phải chịu hoặc gánh chịu như là kết quả của phát sinh từ hoặc liên quan đến, bất kỳ hành vi vi phạm nào đối với các nghĩa vụ theo quy định của Hợp Đồng này bởi Bên Bồi Thường Thiệt Hại, hoặc bất kỳ việc không thực hiện hoặc từ chối của Bên Bồi Thường Thiệt Hại trong việc tuân thủ hoặc thực hiện bất kỳ các cam kết hoặc nghĩa vụ nào của Bên Bồi Thường Thiệt Hại theo Hợp Đồng này. </p>
+                                        <p>1.Thông báo</p>
+                                        <p>1.Địa chỉ nhận thông báo của mỗi Bên được hiểu như sau:</p>
+                                        <p>a.Đối với Bên B: Địa chỉ nhận thông báo như quy định tại phần đầu của Hợp Đồng và hình thức gửi thông báo như quy định tại Điều 12.2. Nếu Bên B có thay đổi về địa chỉ, hình thức và/hoặc tên người nhận thông báo mà không thông báo lại cho Bên A biết thì Bên A không chịu trách nhiệm về việc Bên B không nhận được các văn bản thông báo.</p>
+                                        <p>b.Đối với Bên A: Địa chỉ nhận thông báo là địa chỉ trụ sở chính của Bên A tại thời điểm Bên B gửi thông báo. </p>
+                                        <p>- 1.Hình thức thông báo giữa Các Bên: Gửi trực tiếp hoặc hoặc gửi qua đường bưu điện hoặc gửi bằng thư điện tử, trừ trường hợp các Bên có thỏa thuận khác hoặc Bên A có yêu cầu khác. </p>
+                                        <p> + 1.Bất kỳ thông báo, yêu cầu, thông tin, khiếu nại phát sinh liên quan đến Hợp Đồng phải được lập thành văn bản và gửi theo địa chỉ nêu tại khoản 12.1, Điều 12 Hợp đồng này và trong thời gian như sau (nếu ngày là ngày nghỉ theo quy định của pháp luật thì được tính là ngày liền kề sau đó):</p>
+                                        <p>2.Vào ngày thứ ba kể từ ngày đóng dấu bưu điện trong trường hợp gửi thông báo bằng thư chuyển phát nhanh (không phụ thuộc vào thông tin người ký nhận tại phần ký nhận của Bên Mua (người nhận) trên giấy báo phát.</p>
+                                        <p><b>1.Luật áp dụng và giải quyết tranh chấp</b></p>
+                                        <p>2.Biên bản thỏa thuận này được điều chỉnh và giải thích theo pháp luật Việt Nam.</p>
+                                        <p>3.Mỗi Bên có nghĩa vụ thông báo và đề xuất những biện pháp giải quyết cho Bên kia khi gặp khó khăn trong quá trình thực hiện Hợp đồng này.</p>
+                                        <p>4.Mọi tranh chấp phát sinh trong quá trình thực hiện Hợp đồng, hai Bên sẽ giải quyết bằng hình thức thương lượng, hòa giải trên cơ sở hợp tác, đảm bảo quyền và lợi ích của cả hai Bên.</p>
+                                        <p>5.Trong thời hạn 60 ngày kể từ ngày hai Bên xảy ra tranh chấp, nếu hai Bên không thương lượng, hòa giải được theo khoản 2 Điều này; một trong hai Bên có quyền lựa chọn hình thức giải quyết tranh chấp bằng Trọng tài Thương mại (Trung tâm trọng tài Quốc tế Việt Nam tại Hà Nội – gọi tắt là VIAC) hoặc giải quyết tranh chấp tại Tòa án có thẩm quyền theo quy định của Pháp luật.</p>
+                                        <p><b>6.Điều khoản chung</b></p>
+                                        <p>7.Trường hợp có sai sót trong việc nhập thông tin, số liệu hoặc sai sót do tính toán trong quá trình làm Hợp Đồng, mà Bên A hoặc Bên B chứng minh được thông tin, số liệu đó là sai theo các điều khoản điều kiện của Hợp Đồng, các phụ lục và/hoặc các văn bản, thỏa thuận liên quan mà các bên đã ký kết, thống nhất trên thực tế thì Bên kia phải chấp nhận các số liệu, thông tin điều chỉnh.</p>
+                                        <p>8.Trong trường hợp xảy ra tranh chấp mà hai Bên không thể thỏa thuận được dẫn đến việc Bên B yêu cầu hoàn lại phần Vốn Góp, nếu việc hoàn lại Vốn Góp có nguy cơ mất an toàn cho hoạt động kinh doanh của Bên A hoặc có nguy cơ thiệt hại gián tiếp cho Bên thứ ba thì Bên A chỉ phải hoàn lại Vốn Góp cho Bên B vào thời điểm không còn tồn tại các nguy cơ này.</p>
+                                        <p>9.Việc ký kết Hợp Đồng này là hoàn toàn tự nguyện, không bị ép buộc, lừa dối.</p>
+                                        <p>10.Mọi sửa đổi, bổ sung các điều khoản trong Hợp đồng này đều phải được sự đồng ý và được sửa đổi bằng văn bản, có chữ ký của hai bên và là phần không tách rời của hợp đồng này.</p>
+                                        <p><b>11.Hiệu lực của Hợp đồng</b></p>
+                                        <p>12.Hợp đồng này gồm 09 (Chín) trang, được lập thành 02 (hai) bản bằng Tiếng Việt, có giá trị pháp lý như nhau, mỗi bên giữ 01 (một) bản để thực hiện.</p>
+                                        <p>13.Hai bên đã tự đọc lại Hợp đồng và cam kết đã hiểu nội dung của Hợp đồng, đồng ý tất cả các điều khoản được nêu trong Hợp đồng này, cùng thống nhất ký tên dưới đây để làm cơ sở thực hiện. Hợp đồng này có hiệu lực kể từ ngày ký./.</p>
+                                        <h5>- TÍNH LÃI SUẤT ĐẦU TƯ -</h5>
+                                        <p><b>Gói đầu tư : <%= hop_dong.so_tien_dau_tu.toLocaleString() %></b></p>
+                                        <p>Lợi nhuận / Năm : 30% </p>
+                                        <p>Lợi nhuận / Tháng: 2,5% </p>
+                                        <p>Lợi nhuận nhận tiền mặt hàng tháng: <%= ((hop_dong.so_tien_dau_tu * 0.3)/12 ).toLocaleString() %></p>
+                                        <p>Tặng thẻ mua hàng hàng tháng (10% LN): <%= (((hop_dong.so_tien_dau_tu * 0.3)/12)*0.1 ).toLocaleString() %></p>
+                                        <p>Gốc + Lợi nhuận/ 24 tháng: <%= (hop_dong.so_tien_dau_tu + (((hop_dong.so_tien_dau_tu * 0.3)/12)* hop_dong.thoi_han_dau_tu)).toLocaleString()  %></p>
+                                        <p><b></b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <!-- Page ends-->
+
+                <!-- Footer -->
+                <%- include ../layouts/tab.ejs %>
+                    <!-- Footer ends-->
+
+
+                    <!-- Required jquery and libraries -->
+                    <%- include ../layouts/footer.ejs %>

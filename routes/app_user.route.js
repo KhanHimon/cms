@@ -40,6 +40,7 @@ router.get('/news/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.
 router.get('/profile/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_PROFILE);
 router.get('/history/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_HISTORY);
 router.get('/contract/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CONTRACT);
+router.get('/detail=:id/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CONTRACT_DETAILS);
 router.get('/support/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_SUPPORT);
 
 router.get('/',APP_USER_CONTROLLER.chekc_token, APP_USER_CONTROLLER.GET_LOGIN );

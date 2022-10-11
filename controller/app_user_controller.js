@@ -76,6 +76,16 @@ class APP_USER_CONTROLLER {
     })
   }
 
+  GET_CONTRACT_DETAILS(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.findById(req.params.id, function (err, hop_dong) {
+        if (err) console.log(err);
+        res.render('app/pages/contract_detail', { user, hop_dong });
+        console.log(hop_dong)
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
   GET_SUPPORT(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
