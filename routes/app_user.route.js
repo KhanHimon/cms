@@ -38,6 +38,8 @@ router.get('/login',APP_USER_CONTROLLER.GET_LOGIN )
 router.get('/home/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_HOME);
 router.get('/news/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_NEWS);
 router.get('/profile/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_PROFILE);
+router.get('/profile-detail/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_PROFILE_DETAIL);
+router.get('/profile-edit/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_EDIT_PROFILE);
 router.get('/history/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_HISTORY);
 router.get('/contract/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CONTRACT);
 router.get('/detail=:id/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CONTRACT_DETAILS);

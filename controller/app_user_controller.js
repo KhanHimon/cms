@@ -95,6 +95,24 @@ class APP_USER_CONTROLLER {
     })
   }
 
+  GET_PROFILE_DETAIL(req,res){
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/profile_detail', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  GET_EDIT_PROFILE(req,res){
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/edit_profile', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
   check_app_user(req, res) {
     User_Schema.findOne({
       username: req.body.username,

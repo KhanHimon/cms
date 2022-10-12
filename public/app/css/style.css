@@ -10498,7 +10498,7 @@ fieldset:disabled .btn {
   /* radial gradient colors */
   --finwallapp-theme-color-grad-1: #57bdff;
   --finwallapp-theme-color-grad-2: #4f77fb;
-  --finwallapp-theme-color-grad-3: #6528cf;
+  --finwallapp-theme-color-grad-3: #1a7cd2;
   /* color schemes */
   --finwallapp-theme-color: #6500d8;
   --finwallapp-theme-text: #ffffff;
@@ -12315,14 +12315,14 @@ linearGradient stop:last-child {
   width: 100%;
   top: 0;
   left: 0;
-  background: var(--finwallapp-theme-color);
+  background: #57bdff;
   opacity: 0;
 }
 
 .sidebar-wrap.sidebar-overlay .sidebar {
   width: 280px;
   left: -280px;
-  background-color: var(--finwallapp-theme-color);
+  background-color: #57bdff;
   z-index: 1;
 }
 

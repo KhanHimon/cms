@@ -1,8 +1,49 @@
 <div class="container-fluid loader-wrap">
     <div class="row h-100">
         <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto text-center align-self-center">
-            <img src="/images/gmg.png" style="width: 50%;" alt="" />
+            <div class="d" style="padding-left: 20%;">
+                <div class="card_i">
+                    <div class="face front"><img src="https://chotoancau.vn/uploads/2_2.png" alt=""></div>
+                    <div class="face back"><img src="https://chotoancau.vn/uploads/2_2.png" alt=""></div>
+                </div>
+            </div>
             <p class="mt-4"><span class="text-secondary">Thành công đến từ sự cố gắng và </span><br><strong>Kiên trì...</strong></p>
         </div>
     </div>
 </div>
+<style>
+    .d{
+        perspective: 600px;
+    }
+
+    .card_i {
+        width: 200px;
+        height: 100px;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: flip 1s linear infinite;
+        transition: transform 1s;
+    }
+
+    .face {
+        position: absolute;
+        backface-visibility: hidden;
+        width: 200px;
+        height: 100px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .front {
+    }
+
+    .back {
+        transform: rotateY(180deg);
+    }
+    @keyframes flip {
+
+        100% {
+            transform: rotateY(360deg)
+        }
+    }
+</style>
