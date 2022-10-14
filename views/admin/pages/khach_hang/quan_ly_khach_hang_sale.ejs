@@ -174,6 +174,7 @@
                                                     <table  id="danh_sach_khach_hang" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                         <thead class="text-muted table-light">
                                                             <tr>
+                                                                <th scope="col">STT</th>
                                                                 <th scope="col">Họ và tên</th>
                                                                 <th scope="col">Ngày sinh</th>
                                                                 <th scope="col">Số điện thoại</th>
@@ -181,7 +182,6 @@
                                                                 <th scope="col">CMND/CCCD</th>
                                                                 <th scope="col">Số tài khoản</th>
                                                                 <th scope="col">Ngân hàng</th>
-                                                                <th scope="col">Chi nhánh</th>
                                                                 <th scope="col">Địa chỉ</th>
                                                                 <th scope="col">Mã giới thiệu</th>
                                                                 <th scope="col"></th>
@@ -212,9 +212,6 @@
                                                                         </td>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ngan_hang %></span></a>
-                                                                        </td>
-                                                                        <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.chi_nhanh %></span></a>
                                                                         </td>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5></a>
@@ -251,9 +248,6 @@
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ngan_hang %></span></a>
                                                                         </td>
                                                                         <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.chi_nhanh %></span></a>
-                                                                        </td>
-                                                                        <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5></a>
                                                                         </td>
                                                                         <td>
@@ -263,8 +257,10 @@
                                                                 <% }); %>
                                                             <% } %>
                                                             <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == '6341138773407c222e681c01' ) { %>
-                                                                <% khach_hang.forEach(function(khach_hang){ %>
+                                                                <% var index = 0 %>
+                                                                <% khach_hang.forEach(function(khach_hang){ index++ %>
                                                                     <tr>
+                                                                        <td><%= index %></td>
                                                                         <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ho_va_ten %></span></a>
                                                                         </td>
@@ -288,9 +284,6 @@
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.ngan_hang %></span></a>
                                                                         </td>
                                                                         <td>
-                                                                            <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><span class=""><%= khach_hang.chi_nhanh %></span></a>
-                                                                        </td>
-                                                                        <td>
                                                                             <a href="/admin/thong-tin-khach-hang=<%= khach_hang._id %>/<%= sale._id %>" class="fw-medium link-primary"><h5 class="fs-14 fw-medium mb-0"><span class="text-muted fs-11 ms-1"><%= khach_hang.dia_chi %></span></h5></a>
                                                                         </td>
                                                                         <td>
@@ -300,6 +293,7 @@
                                                                 <% }); %>
                                                             <% } %>
                                                                 <% khach_hang.forEach(function(khach_hang){ %>
+                                                                    <% if (sale.chuc_vu._id != "62f60037939e9682e0c6973c") { %>
                                                                     <% if (khach_hang.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
                                                                         <tr>
                                                                             <td>
@@ -335,8 +329,8 @@
                                                                             </td>
                                                                         </tr>
                                                                     <% } %>
+                                                                    <% } %>
                                                                 <% }); %>
-                                                            
                                                             <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog modal-xl">
                                                                     <form action="/admin/them-khach-hang" method="post"  onsubmit='disableButton()'>

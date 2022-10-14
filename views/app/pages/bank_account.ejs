@@ -1,0 +1,105 @@
+<%- include ../layouts/header.ejs %>
+
+<body class="body-scroll" data-page="profile">
+
+    <!-- loader section -->
+    <%- include ../layouts/loading.ejs %>
+    <!-- loader section ends -->
+
+    <!-- Sidebar main menu -->
+    <%- include ../layouts/sidebar.ejs %>
+    <!-- Sidebar main menu ends -->
+
+    <!-- Begin page -->
+    <main class="h-100">
+
+        <!-- Header -->
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
+                        <i class="bi bi-backspace"></i>
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="../../images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header ends -->
+
+        <!-- main page content -->
+        <div class="main-container container">
+            <!-- buttons -->
+            <!-- <div class="row mb-4">
+                <div class="col">
+                    <a href="/app/profile-edit/<%= user.id %>" class="btn btn-light btn-lg shadow-sm w-100">Chỉnh sửa</a>
+                </div>
+            </div> -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card theme-bg overflow-hidden">
+                        <div class="card-body py-4">
+                            <div class="row">
+                                <div class="col-12 align-self-center">
+                                    <h5 class="mb-3"><span class="fw-light">Họ và tên : </span> <%= user.ho_va_ten %></h5>
+                                    <p>Cám ơn khách hàng đã tin tưởng và đồng hành cùng chúng tôi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card theme-bg shadow-sm shadow-purple mb-3">
+                        <img src="../../app/img/card-bg.png" alt="" class="cardimg" />
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-auto align-self-center">
+                                    <img src="../../app/img/maestro.png" alt=""> TÀI KHOẢN NGÂN HÀNG
+                                </div>
+                                <div class="col align-self-center text-end">
+                                    <p class="small">
+                                        <span class="text-muted size-10">Ngân hàng</span><br>
+                                        <span class=""><%= user.ngan_hang %></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <h6 class="fw-normal mb-3">
+                                <p>SỐ TÀI KHOẢN : <%= user.so_tai_khoan %></p>
+                            </h6>
+                            <div class="row">
+                            <div class="col-auto">
+                                    <p class="mb-0 text-muted size-10">Chủ tài khoản</p>
+                                    <p style="text-transform: uppercase;"><%= user.ho_va_ten %></p>
+                                </div>
+                                <div class="col text-end">
+                                    <p class="mb-0 text-muted size-10">Chi nhánh</p>
+                                    <p><%= user.chi_nhanh %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Page ends-->
+
+    <!-- Footer -->
+    <%- include ../layouts/tab.ejs %>
+    <!-- Footer ends-->
+
+
+    <!-- Required jquery and libraries -->
+    <%- include ../layouts/footer.ejs %>

@@ -89,22 +89,24 @@
             </div>
             <div class="row mb-4">
                 <div class="col">
-                    <a href="#" class="btn btn-light btn-lg shadow-sm w-100">Hướng dẫn sử dụng</a>
+                    <a href="/app/tutorial/<%= user.id %>" class="btn btn-light btn-lg shadow-sm w-100">Hướng dẫn sử dụng</a>
                 </div>
             </div>
             <div class="row mb-4">
                 <div class="col">
-                    <a href="#" class="btn btn-light btn-lg shadow-sm w-100">Tài khoản nhân hàng</a>
+                    <a href="/app/bank-account/<%= user.id %>" class="btn btn-light btn-lg shadow-sm w-100">Tài khoản nhân hàng</a>
                 </div>
             </div>
             <div class="row mb-4">
                 <div class="col">
-                    <a href="#" class="btn btn-light btn-lg shadow-sm w-100">Đổi mật khẩu</a>
+                    <a href="/app/change-password/<%= user.id %>" class="btn btn-light btn-lg shadow-sm w-100">Đổi mật khẩu</a>
                 </div>
             </div>
             <div class="row mb-4">
                 <div class="col">
-                    <a href="#" class="btn btn-light btn-lg shadow-sm w-100">Đăng xuất</a>
+                    <form action="/app/logout" method="post">
+                    <button type="submit" class="btn btn-light btn-lg shadow-sm w-100">Đăng xuất</button>
+                    </form>
                 </div>
             </div>
 

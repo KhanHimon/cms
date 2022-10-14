@@ -21,7 +21,7 @@ const { token } = require('morgan');
 class APP_USER_CONTROLLER {
 
   GET_LOGIN(req, res) {
-    res.render('app/app_login_users',{message: req.flash('message') });
+    res.render('app/app_login_users', { message: req.flash('message') });
   }
 
   GET_HOME(req, res) {
@@ -95,7 +95,7 @@ class APP_USER_CONTROLLER {
     })
   }
 
-  GET_PROFILE_DETAIL(req,res){
+  GET_PROFILE_DETAIL(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
         if (err) console.log(err);
@@ -104,7 +104,7 @@ class APP_USER_CONTROLLER {
     })
   }
 
-  GET_EDIT_PROFILE(req,res){
+  GET_EDIT_PROFILE(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
         if (err) console.log(err);
@@ -112,6 +112,105 @@ class APP_USER_CONTROLLER {
       }).populate('khach_hang').populate('trang_thai')
     })
   }
+
+  GET_BANK_ACCOUNT(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/bank_account', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  GET_TUTORIAL(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/tutorial', { user, hop_dongs });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  GET_CHANGE_PASSWORD(req, res) {
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/change_password', { user, hop_dongs, message: req.flash('message') });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
+  // POST
+
+  POST_EDIT_PROFILE(req, res) {
+    var edit_profile = {};
+    if (req.body.ho_va_ten) {
+      edit_profile.ho_va_ten = req.body.ho_va_ten;
+    }
+    if (req.body.dan_toc) {
+      edit_profile.dan_toc = req.body.dan_toc;
+    }
+    if (req.body.nam_sinh) {
+      edit_profile.nam_sinh = req.body.nam_sinh;
+    }
+    if (req.body.so_dien_thoai) {
+      edit_profile.so_dien_thoai = req.body.so_dien_thoai;
+    }
+    if (req.body.cccd_cmnd) {
+      edit_profile.cccd_cmnd = req.body.cccd_cmnd;
+    }
+    if (req.body.ngay_cap) {
+      edit_profile.ngay_cap = req.body.ngay_cap;
+    }
+    if (req.body.noi_cap) {
+      edit_profile.noi_cap = req.body.noi_cap;
+    }
+    if (req.body.dia_chi) {
+      edit_profile.dia_chi = req.body.dia_chi;
+    }
+    if (req.body.email) {
+      edit_profile.email = req.body.email;
+    }
+
+    const options = {
+      new: true,
+    }
+    User_Schema.findByIdAndUpdate(req.params._id, { $set: edit_profile }, options, (err, update_profile) => {
+      console.log(update_profile);
+      req.flash('message', 'Chỉnh sửa thành công');
+      res.redirect(req.get('referer'));
+    });
+  }
+
+  CHANGE_PASSWORD(req, res) {
+    User_Schema.findOne({
+      password: req.body.password,
+    }, function (err, user) {
+      if (err) throw err;
+      if (!user) {
+        req.flash('message', "Mật khẩu hiện tại không chính xác");
+        res.redirect(req.get('referer'));
+      } else {
+        var change_password = {};
+        if (req.body.password_new) {
+          change_password.password = req.body.password_new;
+        }
+
+        const options = {
+          new: true,
+        }
+        User_Schema.findByIdAndUpdate(req.params._id, { $set: change_password }, options, (err, update_password) => {
+          if (err) throw err;
+          console.log(update_password);
+          req.flash('message', 'Đổi mật khẩu thành công');
+          res.redirect(req.get('referer'));
+        });
+      }
+    });
+  }
+
+
+  // LOGIN
 
   check_app_user(req, res) {
     User_Schema.findOne({
@@ -133,9 +232,9 @@ class APP_USER_CONTROLLER {
       }
     });
   }
-  chekc_token(req,res){
+  chekc_token(req, res) {
     var token = req.cookies.token
-    User_Schema.findOne({}, function(err,user){
+    User_Schema.findOne({}, function (err, user) {
       if (token) {
         res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
         res.redirect('/app/home/' + user._id);

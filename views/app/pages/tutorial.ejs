@@ -41,31 +41,22 @@
         <div class="main-container container">
             <div class="row mb-3">
                 <div class="col">
-                    <center><h6 class="title">Tin tức mới nhất</h6></center>
+                    <center><h6 class="title">Hướng dẫn sử dụng</h6></center>
                 </div>
             </div>
             <div class="row">
-                <% hop_dongs.forEach(hop_dong=> { %>
-                    <% if ( hop_dong.khach_hang.id===user.id) { %>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <a href="/app/detail=<%= hop_dong.id %>/<%= user.id %>" class="card mb-3">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col align-self-center ps-0">
-                                            <p class="mb-1" style="font-size: 14px;">Mã HĐ : <%= hop_dong.ma_hop_dong %></p>
-                                            <p class="text-muted size-18">Đầu tư : <%= hop_dong.so_tien_dau_tu.toLocaleString() %> đ</p>
-                                        </div>
-                                    </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="" class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col align-self-center ps-3" >
+                                    <p class="mb-1">Chính sách bảo mật</p>
+                                    <p class="text-muted size-12">Chính sách bảo mật dánh cho khách hàng sử dụng sản phẩm...</p>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    <% } %>
-                <% }); %>
+                    </a>
+                </div>
             </div>
         </div>
     </main>

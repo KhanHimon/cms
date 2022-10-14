@@ -44,6 +44,13 @@ router.get('/history/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLL
 router.get('/contract/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CONTRACT);
 router.get('/detail=:id/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CONTRACT_DETAILS);
 router.get('/support/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_SUPPORT);
+router.get('/bank-account/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_BANK_ACCOUNT);
+router.get('/tutorial/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_TUTORIAL);
+router.get('/change-password/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CHANGE_PASSWORD);
+
+// POST 
+router.post('/update/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.POST_EDIT_PROFILE);
+router.post('/change-password/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.CHANGE_PASSWORD);
 
 router.get('/',APP_USER_CONTROLLER.chekc_token, APP_USER_CONTROLLER.GET_LOGIN );
 router.get('/*', APP_USER_CONTROLLER.GET_LOGIN ); 
