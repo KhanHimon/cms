@@ -31,6 +31,7 @@ const hoa_hong_controller = require('../controller/hoa_hong.controller');
 const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controller');
 const khach_hang_Controller = require('../controller/khach_hang.controller');
 const lich_su_tra_thuong_controller = require('../controller/lich_su.controller');
+const support_Controller = require('../controller/support_controller');
 
  
  
@@ -58,6 +59,8 @@ router.get('/dashboard/:_id', login_admin_controller.loginRequired, admin_contro
 router.get('/gioi-thieu/:_id', login_admin_controller.loginRequired, admin_controller.GET_GIOI_THIEU);
 router.get('/cap-duoi/:_id', login_admin_controller.loginRequired, admin_controller.GET_CAP_DUOI);
 router.post('/gioi-thieu/:_id', login_admin_controller.loginRequired, admin_controller.POST_GIOI_THIEU);
+// GET HỖ TRỢ
+router.get('/danh-sach-ho-tro/:_id', login_admin_controller.loginRequired, support_Controller.GET_HO_TRO);
 
 router.get('/login', function (req, res, next) {
   res.render('admin/login_admin',{ message: req.flash('message') });

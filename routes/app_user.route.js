@@ -46,6 +46,7 @@ router.get('/detail=:id/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTR
 router.get('/support/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_SUPPORT);
 router.get('/bank-account/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_BANK_ACCOUNT);
 router.get('/tutorial/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_TUTORIAL);
+router.get('/update/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_UPDATE);
 router.get('/change-password/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CHANGE_PASSWORD);
 
 // POST 

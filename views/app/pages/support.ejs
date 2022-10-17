@@ -1,0 +1,81 @@
+<%- include ../layouts/header.ejs %>
+
+<body class="body-scroll" data-page="profile">
+
+    <!-- loader section -->
+    <%- include ../layouts/loading.ejs %>
+    <!-- loader section ends -->
+
+    <!-- Sidebar main menu -->
+    <%- include ../layouts/sidebar.ejs %>
+    <!-- Sidebar main menu ends -->
+
+    <!-- Begin page -->
+    <main class="h-100">
+
+        <!-- Header -->
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
+                        <i class="bi bi-backspace"></i>
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="../../images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header ends -->
+
+        <!-- main page content -->
+        <div class="main-container container">
+            <div class="row my-4">
+                <div class="col-12 col-md-6 mx-auto">
+                    <h1 class="mb-3"><br/>Hỗ trợ 24/7</h1>
+                    <p class="text-secondary mb-4">Cám ơn! Bạn đã gửi yêu cầu hỗ trợ chúng tôi</p>
+                    <div class="form-floating  is-invalid mb-3">
+                        <textarea class="form-control h-auto" placeholder="Bạn cần chúng tôi hỗ trợ về..." id="query"></textarea>
+                        <label for="query">Nội dung hỗ trợ</label>
+                    </div>
+                    <a href="#" target="_self" class="btn btn-default btn-lg w-100 shadow-sm">Gửi yêu cầu</a>
+                </div>
+            </div>
+            <!-- Address -->
+            <div class="row mb-2">
+                <div class="col">
+                    <h6 class="my-1">Địa chỉ công ty: </h6>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1658.8077423453226!2d105.88006794283778!3d21.03679210525354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9fe10fd1c05%3A0x634aa6aac64e58b5!2zQ8O0bmcgdHkgQ1AgVOG6rXAgxJFvw6BuIENo4bujIFRvw6BuIEPhuqd1IC0gR01H!5e0!3m2!1sen!2s!4v1666003194397!5m2!1sen!2s" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                            <h6 class="text-primary mb-2">Công ty cổ phần tập đoàn chợ toàn cầu.</h6>
+                            <p class="text-secondary">LK 31&32, ngõ 1 Phố Lâm Hạ,<br>P. Bồ Đề, Q. Long Biên,<br>TP Hà Nội.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Page ends-->
+
+    <!-- Footer -->
+    <%- include ../layouts/tab.ejs %>
+    <!-- Footer ends-->
+
+
+    <!-- Required jquery and libraries -->
+    <%- include ../layouts/footer.ejs %>

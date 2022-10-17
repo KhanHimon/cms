@@ -140,6 +140,15 @@ class APP_USER_CONTROLLER {
     })
   }
 
+  GET_UPDATE(req,res){
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/update', { user, hop_dongs, message: req.flash('message') });
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
   // POST
 
   POST_EDIT_PROFILE(req, res) {
