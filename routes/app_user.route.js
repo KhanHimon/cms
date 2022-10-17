@@ -52,6 +52,7 @@ router.get('/change-password/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_
 // POST 
 router.post('/update/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.POST_EDIT_PROFILE);
 router.post('/change-password/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.CHANGE_PASSWORD);
+router.post('/submit-support', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.POST_SUPPORT);
 
 router.get('/',APP_USER_CONTROLLER.chekc_token, APP_USER_CONTROLLER.GET_LOGIN );
 router.get('/*', APP_USER_CONTROLLER.GET_LOGIN ); 

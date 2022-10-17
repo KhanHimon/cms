@@ -13,6 +13,7 @@ const Hoa_hong_thuong_Schema = require('../models/hoa_hong_thuong.model');
 const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
+const ho_tro_Schema = require('../models/ho_tro.model');
 
 var mongoose = require('mongoose'),
   jwt = require('jsonwebtoken');
@@ -150,6 +151,19 @@ class APP_USER_CONTROLLER {
   }
 
   // POST
+
+  // POST SUPPORT 
+  POST_SUPPORT(req,res){
+    const new_support = new ho_tro_Schema({
+      khach_hang: req.body.khach_hang,
+      trang_thai: req.body.trang_thai,
+      noi_dung: req.body.noi_dung,
+      tra_loi: "",
+      ngay_tao: Date.now()
+    });
+    new_support.save();
+    console.log(new_support)
+  }
 
   POST_EDIT_PROFILE(req, res) {
     var edit_profile = {};

@@ -40,15 +40,19 @@
         <!-- main page content -->
         <div class="main-container container">
             <div class="row my-4">
-                <div class="col-12 col-md-6 mx-auto">
-                    <h1 class="mb-3"><br/>Hỗ trợ 24/7</h1>
-                    <p class="text-secondary mb-4">Cám ơn! Bạn đã gửi yêu cầu hỗ trợ chúng tôi</p>
-                    <div class="form-floating  is-invalid mb-3">
-                        <textarea class="form-control h-auto" placeholder="Bạn cần chúng tôi hỗ trợ về..." id="query"></textarea>
-                        <label for="query">Nội dung hỗ trợ</label>
+                <form action="/app/submit-support" method="post">
+                    <div class="col-12 col-md-6 mx-auto">
+                        <h1 class="mb-3"><br/>Hỗ trợ 24/7</h1>
+                        <p class="text-secondary mb-4">Cám ơn! Bạn đã gửi yêu cầu hỗ trợ chúng tôi</p>
+                        <div class="form-floating  is-invalid mb-3">
+                            <input type="hidden" value="<%= user._id %>" name="khach_hang" id="khach_hang">
+                            <input type="hidden" value="Chưa trả lời" name="trang_thai" id="trang_thai">
+                            <textarea class="form-control h-auto" placeholder="Bạn cần chúng tôi hỗ trợ về..." id="noi_dung" name="noi_dung"></textarea>
+                            <label for="noi_dung">Nội dung hỗ trợ</label>
+                        </div>
+                        <button type="submit" class="btn btn-default btn-lg w-100 shadow-sm">Gửi yêu cầu</button>
                     </div>
-                    <a href="#" target="_self" class="btn btn-default btn-lg w-100 shadow-sm">Gửi yêu cầu</a>
-                </div>
+                </form>
             </div>
             <!-- Address -->
             <div class="row mb-2">
