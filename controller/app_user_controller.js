@@ -150,6 +150,15 @@ class APP_USER_CONTROLLER {
     })
   }
 
+  GET_SUCCESS(req,res){
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app/pages/success', { user, hop_dongs});
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
   // POST
 
   // POST SUPPORT 
@@ -163,6 +172,12 @@ class APP_USER_CONTROLLER {
     });
     new_support.save();
     console.log(new_support)
+    User_Schema.findById(req.params._id, function (err, user) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.redirect('/app/success/'+ req.params._id);
+      }).populate('khach_hang').populate('trang_thai')
+    })
   }
 
   POST_EDIT_PROFILE(req, res) {

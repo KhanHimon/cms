@@ -17,7 +17,7 @@
         <header class="header position-fixed">
             <div class="row">
                 <div class="col-auto">
-                    <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
+                    <a href="/app/home/<%= user.id %>" class="btn btn-light btn-44" style="line-height: 38px;">
                         <i class="bi bi-backspace"></i>
                     </a>
                 </div>
@@ -40,7 +40,7 @@
         <!-- main page content -->
         <div class="main-container container">
             <div class="row my-4">
-                <form action="/app/submit-support" method="post">
+                <form action="/app/submit-support/<%= user.id %>" method="post">
                     <div class="col-12 col-md-6 mx-auto">
                         <h1 class="mb-3"><br/>Hỗ trợ 24/7</h1>
                         <p class="text-secondary mb-4">Cám ơn! Bạn đã gửi yêu cầu hỗ trợ chúng tôi</p>
