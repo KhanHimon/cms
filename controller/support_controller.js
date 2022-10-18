@@ -11,7 +11,7 @@ class support_Controller {
                         if (err) console.log(err);
                         res.render('admin/pages/ho_tro.ejs', { user, ho_tro, thong_bao, sale });
                     });
-                });
+                }).populate("khach_hang");
             })
         }).populate("chuc_vu")
     }
