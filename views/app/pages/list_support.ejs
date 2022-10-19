@@ -1,0 +1,75 @@
+<%- include ../layouts/header.ejs %>
+
+<body class="body-scroll" data-page="profile">
+
+    <!-- loader section -->
+    <%- include ../layouts/loading.ejs %>
+    <!-- loader section ends -->
+
+    <!-- Sidebar main menu -->
+    <%- include ../layouts/sidebar.ejs %>
+    <!-- Sidebar main menu ends -->
+
+    <!-- Begin page -->
+    <main class="h-100">
+
+        <!-- Header -->
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i> 
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="../../images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <!-- Header ends -->
+
+        <!-- main page content -->
+        <div class="main-container container">
+            <div class="row mb-4 position-relative py-5 bg-theme">
+                <div class="col-10 col-md-6 col-lg-4 mx-auto align-self-center">
+                    <h5 class="text-center mb-2">Danh sách yêu cầu hỗ trợ</h5>
+                    <p class="text-center text-muted">Hỗ trợ và trả lời yêu cầu trong vòng 24h!.</p>
+                </div>
+            </div>
+            <!-- Question list -->
+            <div class="accordion accordion-flush shadow-sm mb-4" id="accordionFlushExample">
+                <% supports.forEach(function(supports){ %>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                            Yêu cầu : <%= supports.noi_dung %> ( ngày <%= supports.ngay_tao.getDate() %>/<%= supports.ngay_tao.getMonth() + 1 %>/<%= supports.ngay_tao.getFullYear() %>)
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body text-secondary">Trả lời : <%= supports.tra_loi %> </div>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </main>
+    <!-- Page ends-->
+
+    <!-- Footer -->
+    <%- include ../layouts/tab.ejs %>
+    <!-- Footer ends-->
+
+
+    <!-- Required jquery and libraries -->
+    <%- include ../layouts/footer.ejs %>

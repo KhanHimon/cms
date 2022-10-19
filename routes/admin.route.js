@@ -61,6 +61,7 @@ router.get('/cap-duoi/:_id', login_admin_controller.loginRequired, admin_control
 router.post('/gioi-thieu/:_id', login_admin_controller.loginRequired, admin_controller.POST_GIOI_THIEU);
 // GET HỖ TRỢ
 router.get('/danh-sach-ho-tro/:_id', login_admin_controller.loginRequired, support_Controller.GET_HO_TRO);
+router.post('/answer/:_id', login_admin_controller.loginRequired, support_Controller.ANSWER_HO_TRO);
 
 router.get('/login', function (req, res, next) {
   res.render('admin/login_admin',{ message: req.flash('message') });

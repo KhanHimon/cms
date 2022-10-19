@@ -49,6 +49,7 @@ router.get('/tutorial/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROL
 router.get('/update/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_UPDATE);
 router.get('/success/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_SUCCESS);
 router.get('/change-password/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_CHANGE_PASSWORD);
+router.get('/list-support/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_LIST_SUPPORT);
 
 // POST 
 router.post('/update/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.POST_EDIT_PROFILE);

@@ -1,7 +1,7 @@
-<div class="sidebar-wrap sidebar-pushcontent">
+<div class="sidebar-wrap sidebar-pushcontent" style="background-color: #0087d8;">
     <!-- Add pushcontent or fullmenu instead overlay -->
     <div class="closemenu text-muted">Đóng</div>
-    <div class="sidebar ">
+    <div class="sidebar " style="background-color: #0087d8;">
         <!-- user information -->
         <div class="row my-3">
             <div class="col-12 profile-sidebar">
@@ -65,6 +65,13 @@
                         <a class="nav-link" href="/app/news/<%= user.id %>" tabindex="-1">
                             <div class="avatar avatar-40 icon"><i class="bi bi-newspaper"></i></div>
                             <div class="col">Tin tức</div>
+                            <div class="arrow"><i class="bi bi-chevron-right"></i></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/app/list-support/<%= user.id %>" tabindex="-1">
+                            <div class="avatar avatar-40 icon"><i class="bi bi-newspaper"></i></div>
+                            <div class="col">Hỗ trợ</div>
                             <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                         </a>
                     </li>

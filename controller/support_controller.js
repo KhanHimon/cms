@@ -15,6 +15,26 @@ class support_Controller {
             })
         }).populate("chuc_vu")
     }
+
+    // Chức năng trả lời câu hỏi
+
+    ANSWER_HO_TRO(req,res){
+        var answer = {};
+        if (req.body.tra_loi) {
+            answer.tra_loi = req.body.tra_loi;
+        }
+        if (req.body.trang_thai) {
+            answer.trang_thai = req.body.trang_thai;
+        }
+        const options = {
+            new: true,
+        }
+        ho_tro_Schema.findByIdAndUpdate(req.params._id, { $set: answer }, options, (err, update_ho_tro) => {
+            console.log(update_ho_tro);
+            req.flash('message', 'Chỉnh sửa thành công');
+            res.redirect(req.get('referer'));
+        });
+    }
 }
 
 module.exports = new support_Controller

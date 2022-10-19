@@ -159,6 +159,15 @@ class APP_USER_CONTROLLER {
     })
   }
 
+  GET_LIST_SUPPORT(req,res){
+    User_Schema.findById(req.params._id, function (err, user) {
+      ho_tro_Schema.find(function (err, supports) {
+        if (err) console.log(err);
+        res.render('app/pages/list_support', { user, supports});
+      }).populate('khach_hang')
+    })
+  }
+
   // POST
 
   // POST SUPPORT 
