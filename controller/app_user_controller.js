@@ -14,6 +14,7 @@ const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 const ho_tro_Schema = require('../models/ho_tro.model');
+const tin_tuc_Schema = require('../models/tin_tuc.model');
 
 var mongoose = require('mongoose'),
   jwt = require('jsonwebtoken');
@@ -28,8 +29,10 @@ class APP_USER_CONTROLLER {
   GET_HOME(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
-        if (err) console.log(err);
-        res.render('app/app_users', { user, hop_dongs });
+        tin_tuc_Schema.find(function(err, tin_tucs){
+          if (err) console.log(err);
+          res.render('app/app_users', { user, hop_dongs, tin_tucs });
+        })
       }).populate('khach_hang').populate('trang_thai')
     })
   }

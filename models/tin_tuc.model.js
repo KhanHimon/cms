@@ -6,6 +6,7 @@ const tin_tuc_Schema = new Schema({
     anh_dai_dien: { type: String},
     mo_ta: { type: String},
     noi_dung: { type: String},
+    url: {type: String},
     create_date: { type: Date}
 })
 

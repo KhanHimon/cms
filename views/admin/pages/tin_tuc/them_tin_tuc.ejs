@@ -1,0 +1,142 @@
+<%- include ../../layouts/header.ejs %>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="layout-width">
+                <%- include ../../layouts/nav_header.ejs %>
+            </div>
+        </header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../../layouts/left_menu.ejs %>
+            <!-- Left Sidebar End -->
+            <!-- Vertical Overlay-->
+            <div class="vertical-overlay"></div>
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Thêm mới tin tức <b></b> </h4>
+                                        <% if (message) { %>
+                                            <b id="mess" style="color: green;">
+                                                <%= message %>
+                                            </b>
+                                        <% } %>
+                                        <script>
+                                            setTimeout(() => {
+                                                const box = document.getElementById('mess');
+                                                box.style.display = 'none';
+                                                }, 5000);
+                                        </script>
+                                    </div><!-- end card header -->
+                                    <div class="card-body">
+                                        <form action="/admin/them-tin-tuc" method="post">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="mb-12">
+                                                        <label for="mo_ta" class="form-label">URL ẢNH</label>
+                                                        <input type="text" class="form-control" placeholder="Nhập link ảnh" id="anh_dai_dien" name="anh_dai_dien">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="mb-12"><br>
+                                                        <label for="tieu_de" class="form-label">Tiêu đề Bài viết</label>
+                                                        <input type="text" class="form-control" placeholder="Nhập tiêu đề" id="tieu_de" name="tieu_de">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="mb-12"><br>
+                                                        <label for="mo_ta" class="form-label">Mô tả bài viết</label>
+                                                        <textarea type="text" class="form-control" placeholder="Nhập mô tả bài viết" id="mo_ta" name="mo_ta"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="mb-12"><br>
+                                                        <label for="mo_ta" class="form-label">Nội dung</label>
+                                                        <textarea type="text" class="form-control" id="noi_dung" name="noi_dung"></textarea>
+                                                        <script>
+                                                            ClassicEditor
+                                                                .create( document.querySelector( '#noi_dung' ) )
+                                                                .catch( error => {
+                                                                    console.error( error );
+                                                                } );
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="mb-12"><br>
+                                                        <button type="submit" class="btn btn-primary ">Thêm mới</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive table-card">
+                                            <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                <thead class="text-muted table-light">
+                                                    <tr>
+                                                        <th>STT</th>
+                                                        <th scope="col">Tiêu đề</th>
+                                                        <th scope="col">Mô tả</th>
+                                                        <th scope="col">Ngày đăng</th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% var id = 0 %>
+                                                    <% tin_tucs.forEach(function(tin_tucs){ id++ %>
+                                                    <tr>
+                                                        <td><%= id %></td>
+                                                        <td><%= tin_tucs.tieu_de %></td>
+                                                        <td><%= tin_tucs.mo_ta %></td>
+                                                        <td><%= tin_tucs.create_date.getDate() %>/<%= tin_tucs.create_date.getMonth() +1 %>/<%= tin_tucs.create_date.getFullYear() %></td>
+                                                        <td>
+                                                            <form action="/admin/xoa-tin-tuc/<%= tin_tucs._id %>" method="post"><button type="submit" class="btn btn-primary ">Xóa</button></form>
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+            </div>
+            <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"
+            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <%- include ../../layouts/footer.ejs %>

@@ -32,7 +32,7 @@ const hop_dong_tra_thuong_controller = require('../controller/hop_dong.controlle
 const khach_hang_Controller = require('../controller/khach_hang.controller');
 const lich_su_tra_thuong_controller = require('../controller/lich_su.controller');
 const support_Controller = require('../controller/support_controller');
-
+const tin_tuc_controller = require('../controller/tin_tuc.controller');
  
  
 /* ROUTER VÙNG */
@@ -62,6 +62,10 @@ router.post('/gioi-thieu/:_id', login_admin_controller.loginRequired, admin_cont
 // GET HỖ TRỢ
 router.get('/danh-sach-ho-tro/:_id', login_admin_controller.loginRequired, support_Controller.GET_HO_TRO);
 router.post('/answer/:_id', login_admin_controller.loginRequired, support_Controller.ANSWER_HO_TRO);
+// ROUTER TIN TỨC
+router.get('/them-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.hien_thi_tin_tuc );
+router.post('/them-tin-tuc',login_admin_controller.loginRequired, tin_tuc_controller.POST_TIN_TUC )
+router.post('/xoa-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.DELETE_TIN_TUC )
 
 router.get('/login', function (req, res, next) {
   res.render('admin/login_admin',{ message: req.flash('message') });
