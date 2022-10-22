@@ -39,10 +39,19 @@ class APP_USER_CONTROLLER {
 
   GET_NEWS(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
-      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+      tin_tuc_Schema.find(function (err, tin_tucs) {
         if (err) console.log(err);
-        res.render('app/pages/news', { user, hop_dongs });
-      }).populate('khach_hang').populate('trang_thai')
+        res.render('app/pages/news', { user, tin_tucs });
+      })
+    })
+  }
+
+  GET_NEWS_DETAIL(req,res){
+    User_Schema.findById(req.params._id, function (err, user) {
+      tin_tuc_Schema.findById( req.params.id ,function (err, news_detail) {
+        if (err) console.log(err);
+        res.render('app/pages/news_detail', { user, news_detail });
+      })
     })
   }
 

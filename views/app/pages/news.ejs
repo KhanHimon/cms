@@ -45,57 +45,25 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <a href="https://chotoancau.vn/tin-hoat-dong/le-dong-tho-du-an-khu-tmdv-tong-hop-phuong-tan-thanh-48.html" class="card mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                        <img src="https://chotoancau.vn/uploads/news/2022_09/z3728460266456_d751def7c60fa16ac2011b014171e903.jpg" alt="">
+                <% tin_tucs.forEach(function(tin_tuc){ %>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <a href="/app/news-detail=<%= tin_tuc.id %>/<%= user._id %>" class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
+                                            <img src="<%= tin_tuc.anh_dai_dien %>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col align-self-center ps-0">
+                                        <p class="mb-1" style="font-size: 14px;"><%= tin_tuc.tieu_de %></p>
+                                        <p class="text-muted size-12">Liên hiệp Hợp tác xã Việt Nam cùng Công ty CP Tập đoàn Chợ toàn cầu GMG tổ chức Lễ Động thổ dự án Khu TMDV Tổng hợp phường Tân Thành</p>
                                     </div>
                                 </div>
-                                <div class="col align-self-center ps-0">
-                                    <p class="mb-1">Lễ động thổ dự án Khu TMDV Tổng hợp Phường Tân Thành</p>
-                                    <p class="text-muted size-12">Liên hiệp Hợp tác xã Việt Nam cùng Công ty CP Tập đoàn Chợ toàn cầu GMG tổ chức Lễ Động thổ dự án Khu TMDV Tổng hợp phường Tân Thành</p>
-                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <a href="https://chotoancau.vn/tin-hoat-dong/lanh-dao-xa-tran-yen-tinh-lang-son-hop-ban-phuong-an-xay-dung-cho-moi-69.html" class="card mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                        <img src="https://chotoancau.vn/uploads/news/2022_10/img_e4512.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col align-self-center ps-0">
-                                    <p class="mb-1">Lãnh đạo xã Trấn Yên, tỉnh Lạng Sơn họp bàn phương án xây dựng chợ mới</p>
-                                    <p class="text-muted size-12">Sáng ngày 30/9/2022, tại thôn Tác Nàng, xã Trấn Yên, huyện Bắc Sơn, tỉnh Lạng Sơn đã diễn ra cuộc họp về phương án bố trí sắp xếp ngành hàng và phương án xây dựng mới Chợ Trấn Yên.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <a href="https://chotoancau.vn/thong-tin-kinh-te-xa-hoi/day-manh-phu-song-cho-4-0-70.html" class="card mb-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                        <img src="https://chotoancau.vn/uploads/news/2022_10/1.1_5.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col align-self-center ps-0">
-                                    <p class="mb-1">Đẩy mạnh "phủ sóng" chợ 4.0</p>
-                                    <p class="text-muted size-12">Từ khi chợ Cồn (Q.Hải Châu, TP Đà Nẵng) triển khai mô hình chợ công nghệ 4.0 (gọi tắt là chợ 4.0) vào tháng 4-2022 đến nay</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                <% }); %>
             </div>
         </div>
     </main>

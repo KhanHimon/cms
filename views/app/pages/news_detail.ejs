@@ -1,0 +1,87 @@
+<%- include ../layouts/header.ejs %>
+
+    <body class="body-scroll" data-page="profile">
+
+        <!-- loader section -->
+        <%- include ../layouts/loading.ejs %>
+            <!-- loader section ends -->
+
+            <!-- Sidebar main menu -->
+            <%- include ../layouts/sidebar.ejs %>
+                <!-- Sidebar main menu ends -->
+
+                <!-- Begin page -->
+                <main class="h-100">
+
+                    <!-- Header -->
+                    <header class="header position-fixed">
+                        <div class="row">
+                            <div class="col-auto">
+                                <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
+                                    <i class="bi bi-backspace"></i>
+                                </a>
+                            </div>
+                            <div class="col text-center">
+                                <div class="logo-small">
+                                    <img src="../../images/gmg.png" alt="" />
+                                    <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <a href="/app/profile/<%= user.id %>" target="_self" class="btn btn-light btn-44">
+                                    <i class="bi bi-person-circle"></i>
+                                    <span class="count-indicator"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </header>
+                    <!-- Header ends -->
+
+                    <!-- main page content -->
+                    <div class="main-container container">
+                        <div class="row">
+                            <div class="col-12 px-0">
+                                <div class="card mb-4 overflow-hidden shadow-sm card-theme text-white rounded-0">
+                                    <div class="overlay"></div>
+                                    <div class="coverimg h-100 w-100 position-absolute opacity-3">
+                                        <img src="<%= news_detail.anh_dai_dien %>" alt="">
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-5">
+                                            <div class="col">
+                                                <span class="tag bg-theme">Trending</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button
+                                                    class="btn btn-info text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
+                                                        class="bi bi-share"></i></button>
+                                                <button
+                                                    class="btn btn-success text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
+                                                        class="bi bi-bookmark"></i></button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <a href="blogdetails.html" class="h4 mb-1 text-normal d-block text-white"><%= news_detail.tieu_de %></a>
+                                        <p class="mb-3">Ngày đăng: <%= news_detail.create_date.getDate() %>/<%= news_detail.create_date.getMonth() +1 %>/<%= news_detail.create_date.getFullYear() %></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                                    <div id="snippet-classic-editor">
+                                        <%= news_detail.noi_dung %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <!-- Page ends-->
+
+                <!-- Footer -->
+                <%- include ../layouts/tab.ejs %>
+                    <!-- Footer ends-->
+
+
+                    <!-- Required jquery and libraries -->
+                    <%- include ../layouts/footer.ejs %>
