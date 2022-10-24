@@ -11,7 +11,7 @@ class tin_tuc_controller {
                     if (err) console.log(err);
                     res.render('admin/pages/tin_tuc/them_tin_tuc', { sale, tin_tucs, thong_bao, message: req.flash('message') });
                 })
-            })
+            }).sort({ create_date: -1 })
         })
     }
 

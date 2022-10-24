@@ -15,6 +15,7 @@ const Hoa_hong_voucher_Schema = require('../models/hoa_hong_voucher.model');
 const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model');
 const gioi_thieu_sale_Schema = require('../models/gioi_thieu_sale.model');
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
+const tin_tuc_Schema = require('../models/tin_tuc.model');
 
 class admin_Controller {
 
@@ -22,20 +23,20 @@ class admin_Controller {
     Sale_Schema.findById(req.params._id, function (err, sale) {
       Lich_su_Schema.find(function (err, lich_su) {
         User_Schema.find(function (err, khach_hang) {
-          thong_bao_Schema.find(function (err, thong_bao) {
+          tin_tuc_Schema.find(function (err, tin_tucs) {
             trang_thai_Schema.find(function (err, trang_thai) {
               Hop_dong_dau_tu_Schema.find(function (err, hop_dong) {
                 Sale_Schema.find(function (err, sales) {
                   Vung_Schema.find(function (err, vungs) {
                     Tinh_Schema.find(function (err, tinhs) {
                       if (err) throw err;
-                      res.render('admin/admin.ejs', { lich_su, sale, khach_hang, thong_bao, trang_thai, hop_dong, sales, vungs, tinhs, message: req.flash('message') });
+                      res.render('admin/admin.ejs', { lich_su, sale, khach_hang, tin_tucs, trang_thai, hop_dong, sales, vungs, tinhs, message: req.flash('message') });
                     })
                   })
                 }).populate('nhom_kinh_doanh').populate('chuc_vu')
               }).populate('khach_hang')
             })
-          }).sort({ ngay_thong_bao: -1 })
+          }).sort({ create_date: -1 })
         })
       }).populate('nguoi_gui').populate('trang_thai')
     }).populate('chuc_vu').populate('nhom_kinh_doanh')
@@ -43,32 +44,32 @@ class admin_Controller {
 
   GET_GIOI_THIEU(req, res) {
     Sale_Schema.findById(req.params._id, function (err, sale) {
-      thong_bao_Schema.find(function (err, thong_bao) {
+      tin_tuc_Schema.find(function (err, tin_tucs) {
         Chuc_vu_Schema.find(function (err, chuc_vus) {
           Vung_Schema.find(function (err, vungs) {
             Tinh_Schema.find(function (err, tinhs) {
               gioi_thieu_sale_Schema.find(function (err, gioi_thieu_sale) {
                 if (err) throw err;
-                res.render('admin/pages/sales/gioi_thieu', { sale, vungs, tinhs, thong_bao, chuc_vus, gioi_thieu_sale, message: req.flash('message') });
+                res.render('admin/pages/sales/gioi_thieu', { sale, vungs, tinhs, tin_tucs, chuc_vus, gioi_thieu_sale, message: req.flash('message') });
               }).populate('chuc_vu').populate('nhom_kinh_doanh')
             })
           })
         })
-      }).sort({ ngay_thong_bao: -1 })
+      }).sort({ create_date: -1 })
     }).populate('chuc_vu').populate('nhom_kinh_doanh')
   }
 
 
   GET_CAP_DUOI(req, res) {
     Sale_Schema.findById(req.params._id, function (err, sale) {
-      thong_bao_Schema.find(function (err, thong_bao) {
+      tin_tuc_Schema.find(function (err, tin_tucs) {
         Chuc_vu_Schema.find(function (err, chuc_vus) {
           Sale_Schema.find(function (err, sales) {
             if (err) throw err;
-            res.render('admin/pages/sales/cap_duoi', { sale, thong_bao, chuc_vus, sales, message: req.flash('message') });
+            res.render('admin/pages/sales/cap_duoi', { sale, tin_tucs, chuc_vus, sales, message: req.flash('message') });
           }).populate('chuc_vu').populate('nhom_kinh_doanh')
         })
-      }).sort({ ngay_thong_bao: -1 })
+      }).sort({ create_date: -1 })
     }).populate('chuc_vu').populate('nhom_kinh_doanh')
   }
 
@@ -116,9 +117,9 @@ class admin_Controller {
         Chuc_vu_Schema.find(function (err, chuc_vu) {
           Sale_Schema.find(function (err, sales) {
             User_Schema.find(function (err, khach_hang) {
-              thong_bao_Schema.find(function (err, thong_bao) {
+              tin_tuc_Schema.find(function (err, tin_tucs) {
                 if (err) throw err;
-                res.render('admin/pages/thong_tin_ca_nhan', { sale, chuc_vu, nhom_sale, sales, thong_bao, khach_hang });
+                res.render('admin/pages/thong_tin_ca_nhan', { sale, chuc_vu, nhom_sale, sales, tin_tucs, khach_hang });
               })
             })
           }).populate('nhom_kinh_doanh').populate('chuc_vu')

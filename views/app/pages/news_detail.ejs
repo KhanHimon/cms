@@ -61,16 +61,21 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <a href="blogdetails.html" class="h4 mb-1 text-normal d-block text-white"><%= news_detail.tieu_de %></a>
+                                        <a href="/app/news-detail=<%= news_detail.id %>/<%= user._id %>" class="h4 mb-1 text-normal d-block text-white"><%= news_detail.tieu_de %></a>
                                         <p class="mb-3">Ngày đăng: <%= news_detail.create_date.getDate() %>/<%= news_detail.create_date.getMonth() +1 %>/<%= news_detail.create_date.getFullYear() %></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" id="ro" style="padding-left: 20px; padding-right: 0;">
                                 <div class="col-12 col-md-10 col-lg-8 mx-auto">
                                     <div id="snippet-classic-editor">
-                                        <%= news_detail.noi_dung %>
+                                        <%- news_detail.noi_dung %>
                                     </div>
+                                    <style>
+                                        #snippet-classic-editor img{
+                                            width: 100%;
+                                        }
+                                    </style>
                                 </div>
                             </div>
                         </div>
