@@ -1,0 +1,88 @@
+<%- include ../../layouts/header.ejs %>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="layout-width">
+                <%- include ../../layouts/nav_header.ejs %>
+            </div>
+        </header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../../layouts/left_menu.ejs %>
+            <!-- Left Sidebar End -->
+            <!-- Vertical Overlay-->
+            <div class="vertical-overlay"></div>
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <form action="/admin/them-tin-tuc/<%= sale._id %>" method="get"><button type="submit" class="btn btn-primary ">Thêm bài viết</button></form><br>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive table-card">
+                                            <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                <thead class="text-muted table-light">
+                                                    <tr>
+                                                        <th>STT</th>
+                                                        <th scope="col">Tiêu đề</th>
+                                                        <th scope="col">Mô tả</th>
+                                                        <th scope="col">Ngày đăng</th>
+                                                        <th scope="col">Người đăng</th>
+                                                        <th scope="col"></th>
+                                                        <th scope="col"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% var id = 0 %>
+                                                    <% tin_tucs.forEach(function(tin_tucs){ id++ %>
+                                                    <tr>
+                                                        <td><%= id %></td>
+                                                        <td><%= tin_tucs.tieu_de %></td>
+                                                        <td><%= tin_tucs.mo_ta %></td>
+                                                        <td style="width: 150px;"><%= tin_tucs.create_date.getDate() %>/<%= tin_tucs.create_date.getMonth() +1 %>/<%= tin_tucs.create_date.getFullYear() %> (<%= tin_tucs.create_date.getHours() %>:<%= tin_tucs.create_date.getMinutes() %>)</td>
+                                                        <td style="width: 150px;"><%= tin_tucs.nguoi_dang_bai.ho_va_ten %></td>
+                                                        <td style="width: 100px;">
+                                                            <form action="/admin/tin-tuc=<%= tin_tucs.id %>/<%= sale._id %>" method="get"><button type="submit" class="btn btn-primary ">Chi tiết</button></form>
+                                                        </td>
+                                                        <td>
+                                                            <form action="/admin/xoa-tin-tuc/<%= tin_tucs._id %>" method="post"><button type="submit" class="btn btn-primary ">Xóa</button></form>
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+            </div>
+            <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"
+            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <%- include ../../layouts/footer.ejs %>

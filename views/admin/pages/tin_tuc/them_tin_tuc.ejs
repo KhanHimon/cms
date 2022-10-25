@@ -40,6 +40,7 @@
                                     <div class="card-body">
                                         <form action="/admin/them-tin-tuc" method="post">
                                             <div class="row">
+                                                <input type="hidden" class="form-control" id="nguoi_dang_bai" name="nguoi_dang_bai" value="<%= sale._id %>">
                                                 <div class="col-md-12">
                                                     <div class="mb-12">
                                                         <label for="mo_ta" class="form-label">URL ẢNH</label>
@@ -93,6 +94,7 @@
                                                         <th scope="col">Mô tả</th>
                                                         <th scope="col">Ngày đăng</th>
                                                         <th scope="col"></th>
+                                                        <th scope="col"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -100,9 +102,12 @@
                                                     <% tin_tucs.forEach(function(tin_tucs){ id++ %>
                                                     <tr>
                                                         <td><%= id %></td>
-                                                        <td><%= tin_tucs.tieu_de %></td>
+                                                        <td><a href="/admin/tin-tuc=<%= tin_tucs.id %>/<%= sale._id %>"><%= tin_tucs.tieu_de %></a></td>
                                                         <td><%= tin_tucs.mo_ta %></td>
                                                         <td><%= tin_tucs.create_date.getDate() %>/<%= tin_tucs.create_date.getMonth() +1 %>/<%= tin_tucs.create_date.getFullYear() %></td>
+                                                        <td style="width: 100px;">
+                                                            <form action="/admin/tin-tuc=<%= tin_tucs.id %>/<%= sale._id %>" method="get"><button type="submit" class="btn btn-primary ">Chi tiết</button></form>
+                                                        </td>
                                                         <td>
                                                             <form action="/admin/xoa-tin-tuc/<%= tin_tucs._id %>" method="post"><button type="submit" class="btn btn-primary ">Xóa</button></form>
                                                         </td>

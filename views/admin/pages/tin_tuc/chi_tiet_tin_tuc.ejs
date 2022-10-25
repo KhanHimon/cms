@@ -1,0 +1,86 @@
+<%- include ../../layouts/header.ejs %>
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="layout-width">
+                <%- include ../../layouts/nav_header.ejs %>
+            </div>
+        </header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../../layouts/left_menu.ejs %>
+            <!-- Left Sidebar End -->
+            <!-- Vertical Overlay-->
+            <div class="vertical-overlay"></div>
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-9">
+                                
+                                <h2><%= tin_tuc_detail.tieu_de %></h2>
+                                <div class="content-news">
+                                    <p>Ngày đăng: <%= tin_tuc_detail.create_date.getDate() %>/<%= tin_tuc_detail.create_date.getMonth() +1 %>/<%= tin_tuc_detail.create_date.getFullYear() %> (<%= tin_tuc_detail.create_date.getHours() %>:<%= tin_tuc_detail.create_date.getMinutes() %>)</p>
+                                    <%- tin_tuc_detail.noi_dung %>
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6 class="card-title mb-0">Tin tức nổi bật</h6>
+                                    </div>
+                                </div>
+                                <% list_tin_tuc.forEach(function(list_tin_tuc){ %>
+                                    <% if (list_tin_tuc._id != tin_tuc_detail.id ) { %>
+                                        <div class="card">
+                                            <img class="card-img-top img-fluid" src="<%= list_tin_tuc.anh_dai_dien %>" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h4 class="card-title mb-2"><%= list_tin_tuc.tieu_de %></h4>
+                                                <p class="card-text mb-0"><%= list_tin_tuc.mo_ta %></p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <a href="/admin/tin-tuc=<%= list_tin_tuc.id %>/<%= sale._id %>" class="card-link link-secondary">Đọc thêm <i class="ri-arrow-right-s-line ms-1 align-middle lh-1"></i></a>
+                                                <!-- <a href="javascript:void(0);" class="card-link link-success">Bookmark <i class="ri-bookmark-line align-middle ms-1 lh-1"></i></a> -->
+                                            </div>
+                                        </div>
+                                    <% } %>
+                                <% }); %>
+                            </div>
+                        </div>
+                        <style>
+                            .content-news img {
+                                width: 100%;
+                                padding-bottom: 10px;
+                            }
+                            .content-news{
+                                font-size: 16px;
+                            }
+                        </style>
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+            </div>
+            <!-- end main content-->
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"
+            data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <%- include ../../layouts/footer.ejs %>

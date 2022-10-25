@@ -64,8 +64,11 @@ router.get('/danh-sach-ho-tro/:_id', login_admin_controller.loginRequired, suppo
 router.post('/answer/:_id', login_admin_controller.loginRequired, support_Controller.ANSWER_HO_TRO);
 // ROUTER TIN TỨC
 router.get('/them-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.hien_thi_tin_tuc );
-router.post('/them-tin-tuc',login_admin_controller.loginRequired, tin_tuc_controller.POST_TIN_TUC )
-router.post('/xoa-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.DELETE_TIN_TUC )
+router.get('/tin-tuc=:id/:_id',login_admin_controller.loginRequired, tin_tuc_controller.GET_DETAIL_TIN_TUC );
+router.get('/danh-sach-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.GET_DANH_SACH_TIN_TUC );
+router.post('/them-tin-tuc',login_admin_controller.loginRequired, tin_tuc_controller.POST_TIN_TUC );
+router.post('/xoa-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.DELETE_TIN_TUC );
+
 
 router.get('/login', function (req, res, next) {
   res.render('admin/login_admin',{ message: req.flash('message') });
