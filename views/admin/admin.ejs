@@ -407,7 +407,6 @@
                                                     <thead class="text-muted border-dashed border border-start-0 border-end-0 bg-soft-light">
                                                         <tr>
                                                             <th>Thông báo</th>
-                                                            <th style="width: 70%">Mô tả</th>
                                                             <th>Ngày</th>
                                                             <th></th>
                                                         </tr>
@@ -415,8 +414,7 @@
                                                     <tbody class="border-0">
                                                         <% thong_bao.forEach(function(thong_bao){ %>
                                                         <tr>
-                                                            <td> <b>[<%= thong_bao.tieu_de_thong_bao %>]</b> </td>
-                                                            <td><a href="<%= thong_bao.noi_dung_thong_bao %>"  target="_blank" rel="noopener noreferrer"> <%= thong_bao.mo_ta_thong_bao %></a></td>
+                                                            <td> <b><%= thong_bao.tieu_de_thong_bao %></b> </td>
                                                             <td><a href="<%= thong_bao.noi_dung_thong_bao %>"  target="_blank" rel="noopener noreferrer"><%= thong_bao.ngay_thong_bao.getDate() %>/<%= thong_bao.ngay_thong_bao.getMonth() + 1 %>/<%= thong_bao.ngay_thong_bao.getFullYear() %></a></td>
                                                         </tr>
                                                         <% }); %>

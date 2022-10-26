@@ -144,11 +144,12 @@ router.get('/quan-ly-chuc-vu/:_id', login_admin_controller.loginRequired, functi
 // router thông báo
 router.post('/them-thong-bao', login_admin_controller.loginRequired, thong_bao_controller.them_thong_bao);
 router.post('/xoa-thong-bao/:_id', login_admin_controller.loginRequired, thong_bao_controller.xoa_thong_bao);
+router.get('/danh-sach-thong-bao/:_id', login_admin_controller.loginRequired, thong_bao_controller.GET_DANH_SACH_THONG_BAO);
 router.get('/quan-ly-thong-bao/:_id', login_admin_controller.loginRequired, function (req, res, next) {
   Sale_Schema.findById(req.params._id, function (err, sale) {
     thong_bao_Schema.find(function (err, thong_bao) {
       if (err) throw err;
-      res.render('admin/pages/quan_ly_thong_bao', { thong_bao, sale });
+      res.render('admin/pages/thong_bao/quan_ly_thong_bao', { thong_bao, sale, message: req.flash('message') });
     }).sort({ ngay_thong_bao: -1 })
   }).populate('chuc_vu')
 });

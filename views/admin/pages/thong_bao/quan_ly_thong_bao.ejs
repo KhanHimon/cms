@@ -1,14 +1,14 @@
-<%- include ../layouts/header.ejs %>
+<%- include ../../layouts/header.ejs %>
 
     <!-- Begin page -->
     <div id="layout-wrapper">
         <header id="page-topbar">
     <div class="layout-width">
-        <%- include ../layouts/nav_header.ejs %>
+        <%- include ../../layouts/nav_header.ejs %>
     </div>
 </header>
         <!-- ========== App Menu ========== -->
-        <%- include ../layouts/left_menu.ejs %>
+        <%- include ../../layouts/left_menu.ejs %>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -35,73 +35,63 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> 
                     </div>
                     <!-- end page title -->
 
                     <div class="row">
                         <div class="col">
-
                             <div class="h-100">
-                                <div class="row mb-3 pb-1">
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                            <div class="flex-grow-1">
-                                                <h4 class="fs-16 mb-1">Chào mừng, <%= sale.ho_va_ten %>!</h4>
-                                                <p class="text-muted mb-0">Chúc <%= sale.ho_va_ten %> một ngày làm việc hiệu quả</p>
-                                            </div>
-                                        </div><!-- end card header -->
-                                    </div>
-                                    <!--end col-->
-                                </div>
-                                <!--end row-->
-
                                 <div class="row">
-                                    <div class="col-xl-5">
+                                    <div class="col-5">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
-                                                <h4 class="card-title mb-0 flex-grow-1">Thêm mới thông báo</h4>
+                                                <h4 class="card-title mb-0 flex-grow-1">Thêm mới thông báo <b></b> </h4>
+                                                <% if (message) { %>
+                                                    <b id="mess" style="color: green;">
+                                                        <%= message %>
+                                                    </b>
+                                                <% } %>
+                                                <script>
+                                                    setTimeout(() => {
+                                                        const box = document.getElementById('mess');
+                                                        box.style.display = 'none';
+                                                        }, 5000);
+                                                </script>
                                             </div><!-- end card header -->
-
                                             <div class="card-body">
                                                 <form action="/admin/them-thong-bao" method="post">
                                                     <div class="row">
-                                                        <div class="col">
-                                                            <div class="col-lg-12">
-                                                                </label>
-                                                                <div class="input-group">
-                                                                    <label class="input-group-text" for="tieu_de_thong_bao">Tiêu đều</label>
-                                                                    <select class="form-select" id="tieu_de_thong_bao" name="tieu_de_thong_bao">
-                                                                        <option selected>Chọn...</option>
-                                                                        <option value="Thông báo">Thông báo</option>
-                                                                        <option value="Sự kiện">Sự kiện</option>
-                                                                    </select>
-                                                                </div>
+                                                        <input type="hidden" class="form-control" id="nguoi_thong_bao" name="nguoi_thong_bao" value="<%= sale._id %>">
+                                                        <div class="col-md-12">
+                                                            <div class="mb-12"><br>
+                                                                <label for="tieu_de_thong_bao" class="form-label">Tiêu đề thông báo</label>
+                                                                <input type="text" class="form-control" placeholder="Nhập tiêu đề" id="tieu_de_thong_bao" name="tieu_de_thong_bao">
                                                             </div>
-                                                            <div class="col-lg-12">
-                                                                <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="mo_ta_thong_bao">Mô tả
-                                                                    <span class="text-danger">*</span>
-                                                                </label>
-                                                                <input type="text" class="form-control" id="mo_ta_thong_bao"
-                                                                    name="mo_ta_thong_bao" >
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="mb-12"><br>
+                                                                <label for="mo_ta" class="form-label">Nội dung</label>
+                                                                <textarea type="text" class="form-control" id="noi_dung_thong_bao" name="noi_dung_thong_bao"></textarea>
+                                                                <script>
+                                                                    ClassicEditor
+                                                                        .create( document.querySelector( '#noi_dung_thong_bao' ) )
+                                                                        .catch( error => {
+                                                                            console.error( error );
+                                                                        } );
+                                                                </script>
                                                             </div>
-                                                            <div class="col-lg-12">
-                                                                <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="noi_dung_thong_bao">Nội dung
-                                                                    <span class="text-danger">*</span>
-                                                                </label>
-                                                                <input type="text" class="form-control" id="noi_dung_thong_bao"
-                                                                    name="noi_dung_thong_bao" >
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="mb-12"><br>
+                                                                <button type="submit" id="sendNotification" class="btn btn-primary ">Thêm mới</button>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
-                                                        <button type="submit" class="btn btn-primary ">Thêm mới</button>
-                                                    </div>
                                                 </form>
                                             </div>
-                                        </div> <!-- .card-->
-                                    </div> <!-- .col-->
+                                        </div>
+                                    </div>
                                     <div class="col-xl-7">
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
@@ -168,22 +158,6 @@
                 </div>
                 <!-- container-fluid -->
             </div>
-            <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Lê Tuấn Khang
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
         <!-- end main content-->
 
@@ -203,4 +177,4 @@
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
-    <%- include ../layouts/footer.ejs %>
+    <%- include ../../layouts/footer.ejs %>
