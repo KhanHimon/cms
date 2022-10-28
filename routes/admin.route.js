@@ -169,8 +169,10 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
             Hoa_hong_voucher_Schema.find(function (err, hoa_hong_voucher) {
               User_Schema.find(function (err, khach_hang) {
                 hop_dong_tra_thuong_Schema.find(function (err, hop_dongs) {
-                  if (err) throw err;
-                  res.render('admin/pages/quan_ly_tra_thuong', { thong_bao, sale, hoa_hong_linh_dong, hoa_hong_thuong, hoa_hong_voucher, sales, khach_hang, hop_dongs });
+                  Hop_dong_dau_tu_Schema.find(function(err, ds_hop_dong){
+                    if (err) throw err;
+                    res.render('admin/pages/ke_toan/quan_ly_tra_thuong', {ds_hop_dong, thong_bao, sale, hoa_hong_linh_dong, hoa_hong_thuong, hoa_hong_voucher, sales, khach_hang, hop_dongs });
+                  }).populate('khach_hang')
                 }).populate('khach_hang').populate('sale').populate('hoa_hong_thuong').populate('hoa_hong_gian_tiep').populate('hoa_hong_voucher').populate({
                   path: 'sale',
                   populate: { path: 'chuc_vu' }
@@ -185,7 +187,12 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
             })
           })
         })
-      }).populate('chuc_vu')
+      }).populate({
+        path: 'chuc_vu',
+        populate: {
+          path: 'hoa_hong_chuc_vu'
+        }
+      })
     }).sort({ ngay_thong_bao: -1 })
   }).populate('chuc_vu')
 });

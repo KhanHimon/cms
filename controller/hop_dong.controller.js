@@ -111,6 +111,7 @@ class hop_dong_tra_thuong_controller {
             trang_thai: req.body.trang_thai,
             so_tien_dau_tu: req.body.so_tien_dau_tu,
             khach_hang: req.body.khach_hang,
+            ma_gioi_thieu: req.body.ma_gioi_thieu,
             ngay_ky_hop_dong: req.body.ngay_ky_hop_dong,
             thoi_han_dau_tu: req.body.thoi_han_dau_tu,
             tien_ocopshop: (req.body.so_tien_dau_tu * 0.025) * (10 / 100),

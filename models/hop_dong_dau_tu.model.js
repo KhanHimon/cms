@@ -14,6 +14,7 @@ const Hop_dong_dau_tu_Schema = new Schema({
         type: Date ,
         default: Date.now
     },
+    ma_gioi_thieu: { type: String },
     thoi_han_dau_tu: { type: Number },
     tien_ocopshop: { type: Number },
     loi_nhuan: {
