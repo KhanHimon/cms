@@ -35,109 +35,57 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> 
                     </div>
                     <!-- end page title -->
 
                     <div class="row">
-                        <div class="col">
-                            <div class="h-100">
-                                <div class="row mb-3 pb-1">
-                                    <div class="col-12">
-                                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                            <div class="flex-grow-1">
-                                                <h4 class="fs-16 mb-1">Chào mừng, <%= sale.ho_va_ten %>!</h4>
-                                                <p class="text-muted mb-0">Chúc <%= sale.ho_va_ten %> một ngày làm việc hiệu quả</p>
-                                            </div>
-                                        </div><!-- end card header -->
-                                    </div>
-                                    <!--end col-->
+                        <div class="col-5">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Trả thưởng sale <b></b> </h4>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="/admin/them-hop-dong" method="post">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="col-lg-12">
-                                                    <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="so_hop_dong">Số hợp đồng
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <input type="text" class="form-control" value="" id="so_hop_dong" name="so_hop_dong" >
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="sale">Nhân viên kinh doanh
-                                                                        <span class="text-danger">*</span>
-                                                                    </label>
-                                                                    <input type="text" value="" class="form-control" id="so_hop_dong" name="so_hop_dong" >
-                                                                </div>
-                                                                <div class="col-lg-6">
-                                                                    <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="sale">Chức vụ
-                                                                        <span class="text-danger">*</span>
-                                                                    </label>
-                                                                    <input type="text" value="" class="form-control" id="so_hop_dong" name="so_hop_dong" >
-                                                                </div>
-                                                        <div class="col-lg-6">
-                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="khach_hang">Khách hàng
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="text" class="form-control" value="" id="so_hop_dong" name="so_hop_dong" >
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="gia_tri_hop_dong">Giá trị hợp đồng
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="number" class="form-control" value="" id="gia_tri_hop_dong" name="gia_tri_hop_dong">
-                                                        </div>
-                                                        <div class="col-lg-12" style="padding-top: 10px;">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox" id="van_phong_ve_tinh" name="van_phong_ve_tinh" value="1" >
-                                                                <label class="form-check-label" for="van_phong_ve_tinh">Văn phòng vệ tinh</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox" id="van_phong_tinh" name="van_phong_tinh" value="1" >
-                                                                <label class="form-check-label" for="van_phong_tinh">Văn phòng tỉnh</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="checkbox" id="van_phong_vung" name="van_phong_vung" value="1" >
-                                                                <label class="form-check-label" for="van_phong_vung">Văn phòng vùng</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <div class="row">
-                                                        <div class="col-lg-4">
-                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong_thuong">Thưởng trực tiếp %
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="number" class="form-control" id="gia_tri_hop_dong" name="gia_tri_hop_dong">
-                                                        </div>
-                                                        <div class="col-lg-4">
-                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong_gian_tiep">Thưởng Sự kiện %
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="number" class="form-control" id="gia_tri_hop_dong" name="gia_tri_hop_dong">
-                                                        </div>
-                                                        <div class="col-lg-4">
-                                                            <label style="padding-bottom: 0px;" class="col-lg-12 col-form-label" for="hoa_hong_voucher">Thưởng Khác
-                                                                <span class="text-danger">*</span>
-                                                            </label>
-                                                            <input type="number" class="form-control" id="gia_tri_hop_dong" name="gia_tri_hop_dong">
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-6">
+                                                <label for="mo_ta" class="form-label">Mã hợp đồng</label>
+                                                <input type="text" class="form-control" placeholder="Mã hợp đồng" id="anh_dai_dien" name="anh_dai_dien">
                                             </div>
-                                        </div><br>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Hủy</button>
-                                            <button type="submit" class="btn btn-primary ">Thêm mới</button>
                                         </div>
-                                    </form>
+                                        <div class="col-md-6">
+                                            <div class="mb-6">
+                                                <label for="mo_ta" class="form-label">Giá trị hợp đồng</label>
+                                                <input type="text" class="form-control" placeholder="Giá trị hợp đồng" id="anh_dai_dien" name="anh_dai_dien">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-6">
+                                                <label for="mo_ta" class="form-label">Tên khách hàng</label>
+                                                <input type="text" class="form-control" placeholder="Tên khách hàng" id="anh_dai_dien" name="anh_dai_dien">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-6">
+                                                <label for="mo_ta" class="form-label">CMND/CCCD</label>
+                                                <input type="number" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-6">
+                                                <label for="mo_ta" class="form-label">Người hỗ trợ</label>
+                                                <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-6">
+                                                <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                            </div> <!-- end .h-100-->
-
+                            </div>
                         </div> <!-- end col -->
                     </div>
 
@@ -145,21 +93,6 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Lê Tuấn Khang
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
         <!-- end main content-->
 
