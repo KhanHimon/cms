@@ -45,314 +45,328 @@
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Trả thưởng sale <b></b> </h4>
                                 </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="mb-6">
-                                                <label for="mo_ta" class="form-label">Mã hợp đồng</label>
-                                                <input type="text" class="form-control" placeholder="Mã hợp đồng" id="anh_dai_dien" name="anh_dai_dien">
+                                <form action="/admin/them-tra-lai" method="post">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-6">
+                                                    <label for="mo_ta" class="form-label">Mã hợp đồng</label>
+                                                    <input type="text" class="form-control" placeholder="Mã hợp đồng" id="ma_hop_dong" name="ma_hop_dong">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-6">
-                                                <label for="mo_ta" class="form-label">Giá trị hợp đồng</label>
-                                                <input type="text" class="form-control" placeholder="Giá trị hợp đồng" id="anh_dai_dien" name="anh_dai_dien">
+                                            <div class="col-md-6">
+                                                <div class="mb-6">
+                                                    <label for="mo_ta" class="form-label">Giá trị hợp đồng</label>
+                                                    <input type="text" class="form-control" placeholder="Giá trị hợp đồng" id="so_tien_dau_tu" name="so_tien_dau_tu">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6" style="margin-top: 10px;">
-                                            <div class="mb-6">
-                                                <label for="mo_ta" class="form-label">Tên khách hàng</label>
-                                                <input type="text" class="form-control" placeholder="Tên khách hàng" id="anh_dai_dien" name="anh_dai_dien">
+                                            <div class="col-md-6" style="margin-top: 10px;">
+                                                <div class="mb-6">
+                                                    <label for="mo_ta" class="form-label">Tên khách hàng</label>
+                                                    <input type="text" class="form-control" placeholder="Tên khách hàng" id="khach_hang" name="khach_hang">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6" style="margin-top: 10px;">
-                                            <div class="mb-6">
-                                                <label for="mo_ta" class="form-label">CMND/CCCD</label>
-                                                <input type="number" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                                            <div class="col-md-6" style="margin-top: 10px;">
+                                                <div class="mb-6">
+                                                    <label for="mo_ta" class="form-label">CMND/CCCD</label>
+                                                    <input type="number" class="form-control" id="cmnd_cccd" name="cmnd_cccd">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6" style="margin-top: 10px;">
-                                            <div class="mb-6">
-                                                <label for="mo_ta" class="form-label">Sale trực tiếp</label>
-                                                <input type="text" class="form-control" id="sale_truc_tiep.ho_va_ten" name="sale_truc_tiep.ho_va_ten">
+                                            <div class="col-md-6" style="margin-top: 10px;">
+                                                <div class="mb-6">
+                                                    <label for="mo_ta" class="form-label">Sale trực tiếp</label>
+                                                    <input type="text" class="form-control" id="ho_va_ten" name="ho_va_ten">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6" style="margin-top: 10px;">
-                                            <div class="mb-6">
-                                                <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                <input type="text" class="form-control" id="sale_truc_tiep.chuc_vu" name="sale_truc_tiep.chuc_vu">
+                                            <div class="col-md-6" style="margin-top: 10px;">
+                                                <div class="mb-6">
+                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                    <input type="text" class="form-control" id="chuc_vu" name="chuc_vu">
+                                                    <input type="hidden" value="5" id="hoa_hong" name="hoa_hong">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12" style="margin-top: 15px;">
-                                            <div class="mb-12">
-                                                <label for="mo_ta" class="form-label">* Người đồng hưởng</label>
+                                            <div class="col-md-12" style="margin-top: 15px;">
+                                                <div class="mb-12">
+                                                    <label for="mo_ta" class="form-label">* Người đồng hưởng</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c1" onclick="showMe('div1')">
-                                                <label for="mo_ta" class="form-label">Người giới thiệu</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c2" onclick="showMe2('div2')">
-                                                <label for="mo_ta" class="form-label">Nhân viên kinh doanh</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c3" onclick="showMe3('div3')">
-                                                <label for="mo_ta" class="form-label">TN kinh doanh</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c4" onclick="showMe4('div4')">
-                                                <label for="mo_ta" class="form-label">TP kinh doanh</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c5" onclick="showMe5('div5')">
-                                                <label for="mo_ta" class="form-label">PGĐ kinh doanh</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c6" onclick="showMe6('div6')">
-                                                <label for="mo_ta" class="form-label">GĐ kinh doanh</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c7" onclick="showMe7('div7')">
-                                                <label for="mo_ta" class="form-label">GĐ Tỉnhh</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c8" onclick="showMe8('div8')">
-                                                <label for="mo_ta" class="form-label">GĐ Vùng</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="mb-3">
-                                                <input type="checkbox" name="c9" onclick="showMe9('div9')">
-                                                <label for="mo_ta" class="form-label">GĐ Chiến lược</label>
-                                            </div>
-                                        </div>
-                                        <div id="div1" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c1" onclick="showMe('div1')">
                                                     <label for="mo_ta" class="form-label">Người giới thiệu</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div id="div2" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c2" onclick="showMe2('div2')">
                                                     <label for="mo_ta" class="form-label">Nhân viên kinh doanh</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
                                                 </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" value="Nhân viên kinh doanh" id="anh_dai_dien" name="anh_dai_dien" disabled>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c3" onclick="showMe3('div3')">
+                                                    <label for="mo_ta" class="form-label">TN kinh doanh</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c4" onclick="showMe4('div4')">
+                                                    <label for="mo_ta" class="form-label">TP kinh doanh</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c5" onclick="showMe5('div5')">
+                                                    <label for="mo_ta" class="form-label">PGĐ kinh doanh</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c6" onclick="showMe6('div6')">
+                                                    <label for="mo_ta" class="form-label">GĐ kinh doanh</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c7" onclick="showMe7('div7')">
+                                                    <label for="mo_ta" class="form-label">GĐ Tỉnhh</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c8" onclick="showMe8('div8')">
+                                                    <label for="mo_ta" class="form-label">GĐ Vùng</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="mb-3">
+                                                    <input type="checkbox" name="c9" onclick="showMe9('div9')">
+                                                    <label for="mo_ta" class="form-label">GĐ Chiến lược</label>
+                                                </div>
+                                            </div>
+                                            <div id="div1" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Người giới thiệu</label>
+                                                        <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="div2" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Nhân viên kinh doanh</label>
+                                                        <input type="text" class="form-control" id="nhan_vien_kinh_doanh" name="nhan_vien_kinh_doanh">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="hidden" value="5" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
+                                                        <input type="text" class="form-control" value="Nhân viên kinh doanh" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="div3" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Trưởng nhóm kinh doanh</label>
+                                                        <input type="text" class="form-control" id="truong_nhom_kinh_doanh" name="truong_nhom_kinh_doanhh">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="hidden" value="5" id="hoa_hong_truong_nhom" name="hoa_hong_truong_nhom">
+                                                        <input type="text" class="form-control" value="Trưởng nhóm kinh doanh" id="chuc_vu_truong_nhom" name="chuc_vu_truong_nhom">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="div4" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Trưởng phòng kinh doanh</label>
+                                                        <input type="text" class="form-control" id="truong_phong_kinh_doanh" name="truong_phong_kinh_doanh">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="hidden" value="6" id="hoa_hong_truong_phong" name="hoa_hong_truong_phong">
+                                                        <input type="text" class="form-control" value="Trưởng phòng kinh doanh" id="truong_phong_kinh_doanh" name="truong_phong_kinh_doanh">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="div5" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Phó GĐ Kinh doanh</label>
+                                                        <input type="text" class="form-control" id="pho_giam_doc_kinh_doanh" name="pho_giam_doc_kinh_doanh">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="hidden" value="7" id="hoa_hong_pho_giam_doc" name="hoa_hong_pho_giam_doc">
+                                                        <input type="text" class="form-control" value="Phó giám đốc kinh doanh" id="pho_giam_doc_kinh_doanh" name="pho_giam_doc_kinh_doanh">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="div6" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">GĐ Kinh doanh</label>
+                                                        <input type="text" class="form-control" id="giam_doc_kinh_doanh" name="giam_doc_kinh_doanh">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="hidden" value="8" id="hoa_hong_giam_doc" name="hoa_hong_giam_doc">
+                                                        <input type="text" class="form-control" value="Giám đốc kinh doanh" id="giam_doc_kinh_doanh" name="giam_doc_kinh_doanh">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="div7" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Giám đốc Tỉnh</label>
+                                                        <input type="text" class="form-control" id="thuong_gian_tiep.nhan_vien_kinh_doanh" name="thuong_gian_tiep.nhan_vien_kinh_doanh">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="hidden" value="9" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
+                                                        <input type="text" class="form-control" value="Giám đốc tỉnh" id="thuong_gian_tiep.chuc_vu" name="thuong_gian_tiep.chuc_vu">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="div8" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Giám đốc Vùng</label>
+                                                        <input type="text" class="form-control" id="thuong_gian_tiep.nhan_vien_kinh_doanh" name="thuong_gian_tiep.nhan_vien_kinh_doanh">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="hidden" value="10" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
+                                                        <input type="text" class="form-control" id="thuong_gian_tiep.chuc_vu" name="thuong_gian_tiep.chuc_vu">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="div9" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Giám đốc chiến lược</label>
+                                                        <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                        <input type="hidden" value="15" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
+                                                        <input type="text" class="form-control" id="thuong_gian_tiep.chuc_vu" name="thuong_gian_tiep.chuc_vu">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="div3" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Trưởng nhóm kinh doanh</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" value="Trưởng nhóm kinh doanh" id="anh_dai_dien" name="anh_dai_dien" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="div4" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Trưởng phòng kinh doanh</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" value="Trưởng phòng kinh doanh" id="anh_dai_dien" name="anh_dai_dien" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="div5" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Phó GĐ Kinh doanh</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" value="Phó giám đốc kinh doanh" id="anh_dai_dien" name="anh_dai_dien" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="div6" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">GĐ Kinh doanh</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" value="Giám đốc kinh doanh" id="anh_dai_dien" name="anh_dai_dien" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="div7" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Giám đốc Tỉnh</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" value="Giám đốc tỉnh" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="div8" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Giám đốc Vùng</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="div9" style="display:none">
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Giám đốc chiến lược</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                                <div class="col-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
-                                                </div>
-                                            </div>
+                                        <script>
+                                            function showMe (box) {
+                                                var chboxs = document.getElementsByName("c1");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                            function showMe2 (box) {
+                                                var chboxs = document.getElementsByName("c2");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                            function showMe3 (box) {
+                                                var chboxs = document.getElementsByName("c3");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                            function showMe4 (box) {
+                                                var chboxs = document.getElementsByName("c4");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                            function showMe5 (box) {
+                                                var chboxs = document.getElementsByName("c5");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                            function showMe6 (box) {
+                                                var chboxs = document.getElementsByName("c6");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                            function showMe7 (box) {
+                                                var chboxs = document.getElementsByName("c7");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                            function showMe8 (box) {
+                                                var chboxs = document.getElementsByName("c8");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                            function showMe9 (box) {
+                                                var chboxs = document.getElementsByName("c9");
+                                                var vis = "none";
+                                                for(var i=0;i<chboxs.length;i++) { 
+                                                    if(chboxs[i].checked){
+                                                    vis = "block";
+                                                        break;
+                                                    }
+                                                }
+                                                document.getElementById(box).style.display = vis;
+                                            }
+                                        </script>
+                                        <div class="col-6">
+                                            <button id="check" type="submit" class="btn btn-soft-info btn-sm card-title mb-0 flex-grow-9"> Thêm mới </button>
                                         </div>
                                     </div>
-                                    <script>
-                                        function showMe (box) {
-                                            var chboxs = document.getElementsByName("c1");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                        function showMe2 (box) {
-                                            var chboxs = document.getElementsByName("c2");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                        function showMe3 (box) {
-                                            var chboxs = document.getElementsByName("c3");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                        function showMe4 (box) {
-                                            var chboxs = document.getElementsByName("c4");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                        function showMe5 (box) {
-                                            var chboxs = document.getElementsByName("c5");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                        function showMe6 (box) {
-                                            var chboxs = document.getElementsByName("c6");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                        function showMe7 (box) {
-                                            var chboxs = document.getElementsByName("c7");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                        function showMe8 (box) {
-                                            var chboxs = document.getElementsByName("c8");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                        function showMe9 (box) {
-                                            var chboxs = document.getElementsByName("c9");
-                                            var vis = "none";
-                                            for(var i=0;i<chboxs.length;i++) { 
-                                                if(chboxs[i].checked){
-                                                vis = "block";
-                                                    break;
-                                                }
-                                            }
-                                            document.getElementById(box).style.display = vis;
-                                        }
-                                    </script>
-                                </div>
+                                </form>
                             </div>
                         </div> <!-- end col -->
                     </div>

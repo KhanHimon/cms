@@ -33,6 +33,7 @@ const khach_hang_Controller = require('../controller/khach_hang.controller');
 const lich_su_tra_thuong_controller = require('../controller/lich_su.controller');
 const support_Controller = require('../controller/support_controller');
 const tin_tuc_controller = require('../controller/tin_tuc.controller');
+const tra_lai_controller = require('../controller/tra_lai.controller');
  
  
 /* ROUTER VÙNG */
@@ -196,6 +197,8 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
     }).sort({ ngay_thong_bao: -1 })
   }).populate('chuc_vu')
 });
+
+router.post('/them-tra-lai', login_admin_controller.loginRequired, tra_lai_controller.POST_TRA_LAI)
 
 router.post('/them-hop-dong-dau-tu', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_dau_tu);
 router.post('/xoa-hop-dong/:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.xoa_hop_dong_dau_tu);
