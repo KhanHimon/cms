@@ -40,7 +40,7 @@
                     <!-- end page title -->
 
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Trả thưởng sale <b></b> </h4>
@@ -48,107 +48,65 @@
                                 <form action="/admin/them-tra-lai" method="post">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="mb-6">
-                                                    <label for="mo_ta" class="form-label">Mã hợp đồng</label>
-                                                    <input type="text" class="form-control" placeholder="Mã hợp đồng" id="ma_hop_dong" name="ma_hop_dong">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-6">
-                                                    <label for="mo_ta" class="form-label">Giá trị hợp đồng</label>
-                                                    <input type="text" class="form-control" placeholder="Giá trị hợp đồng" id="so_tien_dau_tu" name="so_tien_dau_tu">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6" style="margin-top: 10px;">
-                                                <div class="mb-6">
-                                                    <label for="mo_ta" class="form-label">Tên khách hàng</label>
-                                                    <input type="text" class="form-control" placeholder="Tên khách hàng" id="khach_hang" name="khach_hang">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6" style="margin-top: 10px;">
-                                                <div class="mb-6">
-                                                    <label for="mo_ta" class="form-label">CMND/CCCD</label>
-                                                    <input type="number" class="form-control" id="cmnd_cccd" name="cmnd_cccd">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5" style="margin-top: 10px;">
-                                                <div class="mb-6">
-                                                    <label for="mo_ta" class="form-label">Sale trực tiếp</label>
-                                                    <input type="text" class="form-control" id="ho_va_ten" name="ho_va_ten">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-5" style="margin-top: 10px;">
-                                                <div class="mb-6">
-                                                    <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                    <input type="text" class="form-control" id="chuc_vu" name="chuc_vu">
-                                                </div>
-                                            </div>
-                                            <div class="col-2" style="margin-top: 10px;">
-                                                <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                <input type="number" class="form-control" id="hoa_hong" name="hoa_hong">
-                                            </div>
-                                            <!-- <div class="col-md-12" style="margin-top: 15px;">
-                                                <div class="mb-12">
-                                                    <label for="mo_ta" class="form-label">* Người đồng hưởng</label>
-                                                </div>
-                                            </div> -->
-                                            <!-- <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c1" onclick="showMe('div1')">
-                                                    <label for="mo_ta" class="form-label">Người giới thiệu</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c2" onclick="showMe2('div2')">
-                                                    <label for="mo_ta" class="form-label">Nhân viên kinh doanh</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c3" onclick="showMe3('div3')">
-                                                    <label for="mo_ta" class="form-label">TN kinh doanh</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c4" onclick="showMe4('div4')">
-                                                    <label for="mo_ta" class="form-label">TP kinh doanh</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c5" onclick="showMe5('div5')">
-                                                    <label for="mo_ta" class="form-label">PGĐ kinh doanh</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c6" onclick="showMe6('div6')">
-                                                    <label for="mo_ta" class="form-label">GĐ kinh doanh</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c7" onclick="showMe7('div7')">
-                                                    <label for="mo_ta" class="form-label">GĐ Tỉnhh</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c8" onclick="showMe8('div8')">
-                                                    <label for="mo_ta" class="form-label">GĐ Vùng</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="mb-3">
-                                                    <input type="checkbox" name="c9" onclick="showMe9('div9')">
-                                                    <label for="mo_ta" class="form-label">GĐ Chiến lược</label>
-                                                </div>
-                                            </div> -->
-                                            <div id="div1">
+                                            <div class="col-6">
                                                 <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="mb-6">
+                                                            <label for="mo_ta" class="form-label">Mã hợp đồng</label>
+                                                            <input type="text" class="form-control" placeholder="Mã hợp đồng" id="ma_hop_dong" name="ma_hop_dong">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-6">
+                                                            <label for="mo_ta" class="form-label">Giá trị hợp đồng</label>
+                                                            <input type="text" class="form-control" placeholder="Giá trị hợp đồng" id="so_tien_dau_tu" name="so_tien_dau_tu">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 10px;">
+                                                        <div class="mb-6">
+                                                            <label for="mo_ta" class="form-label">Tên khách hàng</label>
+                                                            <input type="text" class="form-control" placeholder="Tên khách hàng" id="khach_hang" name="khach_hang">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6" style="margin-top: 10px;">
+                                                        <div class="mb-6">
+                                                            <label for="mo_ta" class="form-label">CMND/CCCD</label>
+                                                            <input type="number" class="form-control" id="cmnd_cccd" name="cmnd_cccd">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4" style="margin-top: 10px;">
+                                                        <div class="mb-6">
+                                                            <label for="mo_ta" class="form-label">Sale trực tiếp</label>
+                                                            <input type="text" class="form-control" id="ho_va_ten" name="ho_va_ten">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3" style="margin-top: 10px;">
+                                                        <div class="mb-6">
+                                                            <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                            <div class="input-group">
+                                                                <select class="form-select" id="inputGroupSelect01">
+                                                                    <option value="0">Chọn...</option>
+                                                                    <option value="1">Cộng tác viên</option>
+                                                                    <option value="2">Nhân viên kinh doanh</option>
+                                                                    <option value="3">Trưởng nhóm kinh doanh</option>
+                                                                    <option value="3">Trưởng phòng kinh doanh</option>
+                                                                    <option value="3">Phó giám đốc kinh doanh</option>
+                                                                    <option value="3">Giám đốc kinh doanh</option>
+                                                                    <option value="3">Giám đốc kinh doanh</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3" style="margin-top: 10px;">
+                                                        <div class="mb-6">
+                                                            <label for="mo_ta" class="form-label">CMND/CCCD</label>
+                                                            <input type="text" class="form-control" id="chuc_vu" name="chuc_vu">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-2" style="margin-top: 10px;">
+                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
+                                                        <input type="number" class="form-control" id="hoa_hong" name="hoa_hong">
+                                                    </div>
                                                     <div class="col-6" style="margin-top: 10px;">
                                                         <label for="mo_ta" class="form-label">Người giới thiệu</label>
                                                         <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
@@ -159,236 +117,137 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="div2">
-                                                <div class="row">
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Nhân viên kinh doanh</label>
-                                                        <input type="text" value=" " class="form-control" id="nhan_vien_kinh_doanh" name="nhan_vien_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                        <input type="text" class="form-control" value="Nhân viên kinh doanh" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien">
-                                                    </div>
-                                                    <div class="col-2" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                        <input type="number" value="0" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="div3">
-                                                <div class="row">
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Trưởng nhóm kinh doanh</label>
-                                                        <input type="text" class="form-control" id="truong_nhom_kinh_doanh" name="truong_nhom_kinh_doanhh">
-                                                    </div>
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                        <input type="text" class="form-control" value="Trưởng nhóm kinh doanh" id="chuc_vu_truong_nhom" name="chuc_vu_truong_nhom">
-                                                    </div>
-                                                    <div class="col-2" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                        <input type="number" value="0" class="form-control" id="hoa_hong_truong_nhom" name="hoa_hong_truong_nhom">
+                                            <div class="col-6">
+                                                <div id="div2">
+                                                    <div class="row">
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="nhan_vien_kinh_doanh" class="form-label">Nhân viên kinh doanh</label>
+                                                            <input type="text" class="form-control" id="nhan_vien_kinh_doanh" name="nhan_vien_kinh_doanh">
+                                                        </div>
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
+                                                            <input type="text" class="form-control" value="Nhân viên kinh doanh" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" disabled>
+                                                        </div>
+                                                        <div class="col-2" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Hoa hồng %</label>
+                                                            <input type="number" value="0" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div id="div4">
-                                                <div class="row">
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Trưởng phòng kinh doanh</label>
-                                                        <input type="text" class="form-control" id="truong_phong_kinh_doanh" name="truong_phong_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                        <input type="text" class="form-control" value="Trưởng phòng kinh doanh" id="truong_phong_kinh_doanh" name="truong_phong_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-2" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                        <input type="number" value="0" class="form-control" id="hoa_hong_truong_phong" name="hoa_hong_truong_phong">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="div5">
-                                                <div class="row">
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Phó GĐ Kinh doanh</label>
-                                                        <input type="text" class="form-control" id="pho_giam_doc_kinh_doanh" name="pho_giam_doc_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                        <input type="text" class="form-control" value="Phó giám đốc kinh doanh" id="pho_giam_doc_kinh_doanh" name="pho_giam_doc_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-2" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                        <input type="number" value="0" class="form-control" id="hoa_hong_pho_giam_doc" name="hoa_hong_pho_giam_doc">
+                                                <div id="div3">
+                                                    <div class="row">
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Trưởng nhóm kinh doanh</label>
+                                                            <input type="text" class="form-control" id="truong_nhom_kinh_doanh" name="truong_nhom_kinh_doanhh">
+                                                        </div>
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                            <input type="text" class="form-control" value="Trưởng nhóm kinh doanh" id="chuc_vu_truong_nhom" name="chuc_vu_truong_nhom" disabled>
+                                                        </div>
+                                                        <div class="col-2" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Hoa hồng %</label>
+                                                            <input type="number" value="0" class="form-control" id="hoa_hong_truong_nhom" name="hoa_hong_truong_nhom">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div id="div6">
-                                                <div class="row">
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">GĐ Kinh doanh</label>
-                                                        <input type="text" class="form-control" id="giam_doc_kinh_doanh" name="giam_doc_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                        <input type="text" class="form-control" value="Giám đốc kinh doanh" id="giam_doc_kinh_doanh" name="giam_doc_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-2" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                        <input type="number" value="0" class="form-control" id="hoa_hong_giam_doc" name="hoa_hong_giam_doc">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="div7">
-                                                <div class="row">
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Giám đốc Tỉnh</label>
-                                                        <input type="text" class="form-control" id="thuong_gian_tiep.nhan_vien_kinh_doanh" name="thuong_gian_tiep.nhan_vien_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                        <input type="text" class="form-control" value="Giám đốc tỉnh" id="thuong_gian_tiep.chuc_vu" name="thuong_gian_tiep.chuc_vu">
-                                                    </div>
-                                                    <div class="col-2" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                        <input type="number" value="0" class="form-control" id="hoa_hong_giam_doc_tinh" name="hoa_hong_giam_doc_tinh">
+                                                <div id="div4">
+                                                    <div class="row">
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Trưởng phòng kinh doanh</label>
+                                                            <input type="text" class="form-control" id="truong_phong_kinh_doanh" name="truong_phong_kinh_doanh">
+                                                        </div>
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                            <input type="text" class="form-control" value="Trưởng phòng kinh doanh" id="chuc_vu_truong_phong" name="chuc_vu_truong_phong" disabled>
+                                                        </div>
+                                                        <div class="col-2" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Hoa hồng %</label>
+                                                            <input type="number" value="0" class="form-control" id="hoa_hong_truong_phong" name="hoa_hong_truong_phong">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div id="div8">
-                                                <div class="row">
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Giám đốc Vùng</label>
-                                                        <input type="text" class="form-control" id="thuong_gian_tiep.nhan_vien_kinh_doanh" name="thuong_gian_tiep.nhan_vien_kinh_doanh">
-                                                    </div>
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                        <input type="text" class="form-control" value="Giám đốc vùng" id="thuong_gian_tiep.chuc_vu" name="thuong_gian_tiep.chuc_vu">
-                                                    </div>
-                                                    <div class="col-2" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                        <input type="number" value="0" class="form-control" id="hoa_hong_giam_doc_vung" name="hoa_hong_giam_doc_vung">
+                                                <div id="div5">
+                                                    <div class="row">
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Phó GĐ Kinh doanh</label>
+                                                            <input type="text" class="form-control" id="pho_giam_doc_kinh_doanh" name="pho_giam_doc_kinh_doanh">
+                                                        </div>
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                            <input type="text" class="form-control" value="Phó giám đốc kinh doanh" id="chuc_vu_pho_giam_doc" name="chuc_vu_pho_giam_doc" disabled>
+                                                        </div>
+                                                        <div class="col-2" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Hoa hồng %</label>
+                                                            <input type="number" value="0" class="form-control" id="hoa_hong_pho_giam_doc" name="hoa_hong_pho_giam_doc">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div id="div9">
-                                                <div class="row">
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Giám đốc chiến lược</label>
-                                                        <input type="text" class="form-control" id="anh_dai_dien" name="anh_dai_dien">
+                                                <div id="div6">
+                                                    <div class="row">
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">GĐ Kinh doanh</label>
+                                                            <input type="text" class="form-control" id="giam_doc_kinh_doanh" name="giam_doc_kinh_doanh">
+                                                        </div>
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                            <input type="text" class="form-control" value="Giám đốc kinh doanh" id="chuc_vu_giam_doc" name="chuc_vu_giam_doc" disabled>
+                                                        </div>
+                                                        <div class="col-2" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Hoa hồng %</label>
+                                                            <input type="number" value="0" class="form-control" id="hoa_hong_giam_doc" name="hoa_hong_giam_doc">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-5" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Chức vụ</label>
-                                                        <input type="text" class="form-control" value="Giám đốc chiến lược" id="thuong_gian_tiep.chuc_vu" name="thuong_gian_tiep.chuc_vu">
+                                                </div>
+                                                <div id="div7">
+                                                    <div class="row">
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Giám đốc Tỉnh</label>
+                                                            <input type="text" class="form-control" id="giam_doc_tinh" name="giam_doc_tinh">
+                                                        </div>
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                            <input type="text" class="form-control" value="Giám đốc tỉnh" id="chuc_vu_giam_doc_tinh" name="chuc_vu_giam_doc_tinh" disabled>
+                                                        </div>
+                                                        <div class="col-2" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Hoa hồng %</label>
+                                                            <input type="number" value="0" class="form-control" id="hoa_hong_giam_doc_tinh" name="hoa_hong_giam_doc_tinh">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-2" style="margin-top: 10px;">
-                                                        <label for="mo_ta" class="form-label">Hoa hồng %</label>
-                                                        <input type="number" value="0" class="form-control" id="hoa_hong_giam_doc_chien_luoc" name="hoa_hong_giam_doc_chien_luoc">
+                                                </div>
+                                                <div id="div8">
+                                                    <div class="row">
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="giam_doc_vung" class="form-label">Giám đốc Vùng</label>
+                                                            <input type="text" class="form-control" id="giam_doc_vung" name="giam_doc_vung">
+                                                        </div>
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="chuc_vu_giam_doc_vung" class="form-label">Chức vụ</label>
+                                                            <input type="text" class="form-control" value="Giám đốc vùng" id="chuc_vu_giam_doc_vung" name="chuc_vu_giam_doc_vung" disabled>
+                                                        </div>
+                                                        <div class="col-2" style="margin-top: 10px;">
+                                                            <label for="hoa_hong_giam_doc_vung" class="form-label">Hoa hồng %</label>
+                                                            <input type="number" value="0" class="form-control" id="hoa_hong_giam_doc_vung" name="hoa_hong_giam_doc_vung">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="div9">
+                                                    <div class="row">
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Giám đốc chiến lược</label>
+                                                            <input type="text" class="form-control" id="giam_doc_chien_luoc" name="giam_doc_chien_luoc">
+                                                        </div>
+                                                        <div class="col-5" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Chức vụ</label>
+                                                            <input type="text" class="form-control" value="Giám đốc chiến lược" id="chuc_vu_giam_doc_chien_luoc" name="chuc_vu_giam_doc_chien_luoc" disabled>
+                                                        </div>
+                                                        <div class="col-2" style="margin-top: 10px;">
+                                                            <label for="mo_ta" class="form-label">Hoa hồng %</label>
+                                                            <input type="number" value="0" class="form-control" id="hoa_hong_giam_doc_chien_luoc" name="hoa_hong_giam_doc_chien_luoc">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <script>
-                                            function showMe (box) {
-                                                var chboxs = document.getElementsByName("c1");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                            function showMe2 (box) {
-                                                var chboxs = document.getElementsByName("c2");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                            function showMe3 (box) {
-                                                var chboxs = document.getElementsByName("c3");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                            function showMe4 (box) {
-                                                var chboxs = document.getElementsByName("c4");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                            function showMe5 (box) {
-                                                var chboxs = document.getElementsByName("c5");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                            function showMe6 (box) {
-                                                var chboxs = document.getElementsByName("c6");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                            function showMe7 (box) {
-                                                var chboxs = document.getElementsByName("c7");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                            function showMe8 (box) {
-                                                var chboxs = document.getElementsByName("c8");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                            function showMe9 (box) {
-                                                var chboxs = document.getElementsByName("c9");
-                                                var vis = "none";
-                                                for(var i=0;i<chboxs.length;i++) { 
-                                                    if(chboxs[i].checked){
-                                                    vis = "block";
-                                                        break;
-                                                    }
-                                                }
-                                                document.getElementById(box).style.display = vis;
-                                            }
-                                        </script>
                                         <div class="col-6"><br>
                                             <button id="check" type="submit" class="btn btn-soft-info btn-sm card-title mb-0 flex-grow-9"> Thêm mới </button>
                                         </div>
