@@ -309,6 +309,7 @@
                                                                                         <th scope="col">STT</th>
                                                                                             <th scope="col">CODE</th>
                                                                                             <th scope="col">Họ và tên</th>
+                                                                                            <th scope="col">Năm sinh</th>
                                                                                             <th scope="col">Nhóm kinh doanh</th>
                                                                                             <th scope="col">Chức vụ</th>
                                                                                             <th scope="col">CCCD/CMND</th>
@@ -332,6 +333,9 @@
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ho_va_ten %></a>
                                                                                                 </td>
                                                                                                 <td>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.nam_sinh %></a>
+                                                                                                </td>
+                                                                                                <td>
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary">#<%= sales.nhom_kinh_doanh.ten_nhom %></a>
                                                                                                 </td>
                                                                                                 <td>
@@ -341,7 +345,7 @@
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.cmnd_cccd %></a>
                                                                                                 </td>
                                                                                                 <td>
-                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() %>-<%= sales.ngay_cap.getFullYear() %></a>
+                                                                                                    <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.ngay_cap.getDate() %>-<%= sales.ngay_cap.getMonth() + 1 %>-<%= sales.ngay_cap.getFullYear() %></a>
                                                                                                 </td>
                                                                                                 <td>
                                                                                                     <a href="/admin/chi-tiet-nhan-vien=<%= sales._id %>/<%= sale._id %>" class="fw-medium link-primary"><%= sales.noi_cap %></a>
@@ -580,12 +584,13 @@
                                                                                 });
                                                                             });
                                                                         </script>
+                                                                        <button style="margin-left: 20px;" name="button-b" id="button-b" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                     </div>
-                        
+                                                                    
                                                                     <div class="card-body">
                                                                         
                                                                         <div class="table-responsive table-card">
-                                                                            <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                                            <table class="table table-borderless table-centered align-middle table-nowrap mb-0" id="GD_KD">
                                                                                 <thead class="text-muted table-light">
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
@@ -603,7 +608,7 @@
                                                                                             <th scope="col">Ngân hàng</th>
                                                                                     </tr>
                                                                                 </thead>
-                                                                                <tbody id="GD_KD">
+                                                                                <tbody>
                                                                                     <% var index = 0 %>
                                                                                     <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
                                                                                         <% sales.forEach(function(sales){ index_1++ %>
@@ -694,7 +699,20 @@
                                                                                 </tbody><!-- end tbody -->
                                                                             </table><!-- end table -->
                                                                         </div>
-                                                                        
+                                                                        <script>
+                                                                            var wb = XLSX.utils.table_to_book(document.getElementById('GD_KD'), {sheet:"Sheet JS"});
+                                                                            var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                            function s2ab(s) {
+                        
+                                                                                            var buf = new ArrayBuffer(s.length);
+                                                                                            var view = new Uint8Array(buf);
+                                                                                            for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                            return buf;
+                                                                            }
+                                                                            $("#button-b").click(function(){
+                                                                            saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_GDKD.xlsx');
+                                                                            });
+                                                                        </script>
                                                                     </div>
                                                                 </div> <!-- .card-->
                                                             </div>
