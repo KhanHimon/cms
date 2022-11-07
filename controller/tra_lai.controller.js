@@ -9,13 +9,13 @@ class Tra_lai_controller {
             ma_hop_dong: req.body.ma_hop_dong,
             so_tien_dau_tu: req.body.so_tien_dau_tu,
             khach_hang: req.body.khach_hang,
-            cmnd_cccd: req.body.cmnd_cccd,
+            cmnd_cccd_khach_hang: req.body.cmnd_cccd_khach_hang,
             sale_truc_tiep: {
                 ho_va_ten: req.body.ho_va_ten,
                 hoa_hong: req.body.hoa_hong,
                 chuc_vu: req.body.chuc_vu,
                 tien_thuong: (req.body.so_tien_dau_tu * (req.body.hoa_hong / 100)),
-                cmnd_cccd: req.body.cmnd_cccd
+                cmnd_cccd_sale: req.body.cmnd_cccd_sale
             },
             nhan_vien_kinh_doanh: req.body.nhan_vien_kinh_doanh,
             hoa_hong_nhan_vien: req.body.hoa_hong_nhan_vien,
