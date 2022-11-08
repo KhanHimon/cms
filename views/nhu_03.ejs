@@ -37,7 +37,17 @@
 </HEAD>
 
 <BODY style="background: black;">
-    <p style=" font-family: sans-serif; color: rgb(251, 251, 251); margin-left: 45%; margin-top: 21%; position: absolute; font-size: 80px;">Bống</p>
+    <style>
+        .em{
+            font-family: sans-serif;
+            color: rgb(251, 251, 251);
+            margin-left: 45%;
+            margin-top: 21%;
+            position: absolute;
+            font-size: 80px;
+        }
+    </style>
+    <p class="em">Bống</p>
     <canvas id="pinkboard"></canvas>
     <div class="container" style=" background: #000;">
             <script>
@@ -55,7 +65,23 @@
                 };
         
         
-                (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) { window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
+    (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; 
+        for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) { 
+            window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; 
+            window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } 
+            if (!window.requestAnimationFrame) { 
+                 window.requestAnimationFrame = function (h, e) { 
+                var d = new Date().getTime(); 
+                var f = Math.max(0, 16 - (d - b)); 
+                var g = window.setTimeout(function () { 
+                                h(d + f) }, f); b = d + f; return g 
+            } }
+            if (!window.cancelAnimationFrame) { 
+                window.cancelAnimationFrame = function (d) { 
+                    clearTimeout(d) 
+                } 
+            } 
+        }());
         
                 /*
                  * Point class
@@ -86,6 +112,7 @@
                 })();
         
                 /*
+
                  * Particle class
                  */
                 var Particle = (function () {

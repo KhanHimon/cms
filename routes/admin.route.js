@@ -34,25 +34,25 @@ const lich_su_tra_thuong_controller = require('../controller/lich_su.controller'
 const support_Controller = require('../controller/support_controller');
 const tin_tuc_controller = require('../controller/tin_tuc.controller');
 const tra_lai_controller = require('../controller/tra_lai.controller');
- 
- 
+
+
 /* ROUTER VÙNG */
-router.get('/quan-ly-khu-vuc/:_id',login_admin_controller.loginRequired, vung_Controller.hien_thi);
-router.post('/them-vung/',login_admin_controller.loginRequired, vung_Controller.them_vung);
+router.get('/quan-ly-khu-vuc/:_id', login_admin_controller.loginRequired, vung_Controller.hien_thi);
+router.post('/them-vung/', login_admin_controller.loginRequired, vung_Controller.them_vung);
 /* ROUTER TỈNH */
-router.post('/them-tinh/',login_admin_controller.loginRequired, vung_Controller.them_tinh);
+router.post('/them-tinh/', login_admin_controller.loginRequired, vung_Controller.them_tinh);
 /* ROUTER NHOM */
-router.get('/danh-sach-nhom/:_id',login_admin_controller.loginRequired, nhom_Controller.hien_thi);
-router.get('/chi-tiet-nhom=:id/:_id',login_admin_controller.loginRequired, nhom_Controller.chi_tiet_doi_nhom);
+router.get('/danh-sach-nhom/:_id', login_admin_controller.loginRequired, nhom_Controller.hien_thi);
+router.get('/chi-tiet-nhom=:id/:_id', login_admin_controller.loginRequired, nhom_Controller.chi_tiet_doi_nhom);
 /* ROUTER SALE */
-router.get('/danh-sach-sale/:_id',login_admin_controller.loginRequired, sale_Controller.hien_thi);
-router.post('/them-nhan-vien',login_admin_controller.loginRequired, sale_Controller.them_moi_sale);
-router.post('/sua-nhan-vien/:_id',login_admin_controller.loginRequired, sale_Controller.thay_doi_thong_tin_sale);
-router.post('/doi-mat-khau/:_id',login_admin_controller.loginRequired, sale_Controller.doi_mat_khau_sale);
-router.post('/doi-tai-khoan/:_id',login_admin_controller.loginRequired, sale_Controller.doi_username_sale);
-router.get('/chi-tiet-nhan-vien=:id/:_id',login_admin_controller.loginRequired, sale_Controller.chi_tiet_sale);
+router.get('/danh-sach-sale/:_id', login_admin_controller.loginRequired, sale_Controller.hien_thi);
+router.post('/them-nhan-vien', login_admin_controller.loginRequired, sale_Controller.them_moi_sale);
+router.post('/sua-nhan-vien/:_id', login_admin_controller.loginRequired, sale_Controller.thay_doi_thong_tin_sale);
+router.post('/doi-mat-khau/:_id', login_admin_controller.loginRequired, sale_Controller.doi_mat_khau_sale);
+router.post('/doi-tai-khoan/:_id', login_admin_controller.loginRequired, sale_Controller.doi_username_sale);
+router.get('/chi-tiet-nhan-vien=:id/:_id', login_admin_controller.loginRequired, sale_Controller.chi_tiet_sale);
 /* ROUTER LỊCH SỬ */
-router.get('/lich-su-tra-lai/:_id',login_admin_controller.loginRequired, lich_su_tra_thuong_controller.hien_thi_lich_su);
+router.get('/lich-su-tra-lai/:_id', login_admin_controller.loginRequired, lich_su_tra_thuong_controller.hien_thi_lich_su);
 router.post('/check-trang-thai/:_id', hop_dong_tra_thuong_controller.check_date);
 router.post('/check-trang-thai', hop_dong_tra_thuong_controller.reset_lich_su);
 /* GET DASHBOARD */
@@ -64,15 +64,15 @@ router.post('/gioi-thieu/:_id', login_admin_controller.loginRequired, admin_cont
 router.get('/danh-sach-ho-tro/:_id', login_admin_controller.loginRequired, support_Controller.GET_HO_TRO);
 router.post('/answer/:_id', login_admin_controller.loginRequired, support_Controller.ANSWER_HO_TRO);
 // ROUTER TIN TỨC
-router.get('/them-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.hien_thi_tin_tuc );
-router.get('/tin-tuc=:id/:_id',login_admin_controller.loginRequired, tin_tuc_controller.GET_DETAIL_TIN_TUC );
-router.get('/danh-sach-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.GET_DANH_SACH_TIN_TUC );
-router.post('/them-tin-tuc',login_admin_controller.loginRequired, tin_tuc_controller.POST_TIN_TUC );
-router.post('/xoa-tin-tuc/:_id',login_admin_controller.loginRequired, tin_tuc_controller.DELETE_TIN_TUC );
+router.get('/them-tin-tuc/:_id', login_admin_controller.loginRequired, tin_tuc_controller.hien_thi_tin_tuc);
+router.get('/tin-tuc=:id/:_id', login_admin_controller.loginRequired, tin_tuc_controller.GET_DETAIL_TIN_TUC);
+router.get('/danh-sach-tin-tuc/:_id', login_admin_controller.loginRequired, tin_tuc_controller.GET_DANH_SACH_TIN_TUC);
+router.post('/them-tin-tuc', login_admin_controller.loginRequired, tin_tuc_controller.POST_TIN_TUC);
+router.post('/xoa-tin-tuc/:_id', login_admin_controller.loginRequired, tin_tuc_controller.DELETE_TIN_TUC);
 
 
 router.get('/login', function (req, res, next) {
-  res.render('admin/login_admin',{ message: req.flash('message') });
+  res.render('admin/login_admin', { message: req.flash('message') });
 })
 
 
@@ -83,7 +83,7 @@ router.get('/cai-dat-chung/:_id', login_admin_controller.loginRequired, function
       Chuc_vu_Schema.find(function (err, chuc_vu) {
         thong_bao_Schema.find(function (err, thong_bao) {
           if (err) throw err;
-          res.render('admin/pages/cai_dat_chung', { sale, chuc_vu, nhom_sale, thong_bao,message: req.flash('message') });
+          res.render('admin/pages/cai_dat_chung', { sale, chuc_vu, nhom_sale, thong_bao, message: req.flash('message') });
         })
       })
     })
@@ -165,35 +165,39 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
   Sale_Schema.findById(req.params._id, function (err, sale) {
     thong_bao_Schema.find(function (err, thong_bao) {
       Sale_Schema.find(function (err, sales) {
-        Hoa_hong_linh_dong_Schema.find(function (err, hoa_hong_linh_dong) {
-          Hoa_hong_thuong_Schema.find(function (err, hoa_hong_thuong) {
-            Hoa_hong_voucher_Schema.find(function (err, hoa_hong_voucher) {
-              User_Schema.find(function (err, khach_hang) {
-                hop_dong_tra_thuong_Schema.find(function (err, hop_dongs) {
-                  Hop_dong_dau_tu_Schema.find(function(err, ds_hop_dong){
-                    if (err) throw err;
-                    res.render('admin/pages/ke_toan/quan_ly_tra_thuong', {ds_hop_dong, thong_bao, sale, hoa_hong_linh_dong, hoa_hong_thuong, hoa_hong_voucher, sales, khach_hang, hop_dongs });
-                  }).populate('khach_hang')
-                }).populate('khach_hang').populate('sale').populate('hoa_hong_thuong').populate('hoa_hong_gian_tiep').populate('hoa_hong_voucher').populate({
-                  path: 'sale',
-                  populate: { path: 'chuc_vu' }
-                }).populate({
-                  path: 'sale',
-                  populate: {
-                    path: 'chuc_vu',
-                    populate: { path: 'hoa_hong_chuc_vu' }
-                  }
-                })
-              })
-            })
-          })
-        })
-      }).populate({
-        path: 'chuc_vu',
-        populate: {
-          path: 'hoa_hong_chuc_vu'
-        }
-      })
+        Sale_Schema.find(function (err, sales_nhan_vien) {
+          Sale_Schema.find(function (err, sales_truong_nhom) {
+            Sale_Schema.find(function (err, sales_truong_phong) {
+              Sale_Schema.find(function (err, sales_pho_giam_doc) {
+                Sale_Schema.find(function (err, sales_giam_doc) {
+                  Sale_Schema.find(function (err, sales_giam_doc_tinh) {
+                    Sale_Schema.find(function (err, sales_giam_doc_vung) {
+                      Sale_Schema.find(function (err, sales_giam_doc_chien_luoc) {
+                        Hop_dong_dau_tu_Schema.find(function (err, ds_hop_dong) {
+                          if (err) throw err;
+                          res.render('admin/pages/ke_toan/quan_ly_tra_thuong', { 
+                            ds_hop_dong, 
+                            thong_bao, 
+                            sale, 
+                            sales_nhan_vien, 
+                            sales_truong_nhom, 
+                            sales_truong_phong,
+                            sales_pho_giam_doc, 
+                            sales_giam_doc, 
+                            sales_giam_doc_tinh, 
+                            sales_giam_doc_vung, 
+                            sales_giam_doc_chien_luoc, 
+                            sales });
+                        }).populate('khach_hang')
+                      }).populate({ path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
+                    }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
+                  }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
+                }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
+              }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
+            }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
+          }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
+        }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
+      }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
     }).sort({ ngay_thong_bao: -1 })
   }).populate('chuc_vu')
 });
