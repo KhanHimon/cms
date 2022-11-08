@@ -26,6 +26,16 @@ router.get('/lich-su/:_id', login_controller.loginRequired, index_controller.lic
 router.get('/api-hop-dong', index_controller.API_hop_dong_dau_tu);
 router.post('/sua-thong-tin/:id', login_controller.loginRequired, user_controller.thay_doi_thong_tin);
 
+router.get('/gui-em', function(req,res){
+  res.render('nhu_01');
+})
+router.get('/gui-em-02', function(req,res){
+  res.render('nhu_02');
+})
+router.get('/gui-em-03', function(req,res){
+  res.render('nhu_03');
+})
+
 
 
 router.post('/logout-client', login_controller.logout); 
