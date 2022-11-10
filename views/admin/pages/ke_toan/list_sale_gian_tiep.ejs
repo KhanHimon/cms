@@ -19,9 +19,10 @@
                                 <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
                                 <input type="text" value="<%= sales_nhan_vien.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" value="Nhân viên kinh doanh">
                             </div>
+                            <% const hoa_hong_nhan_vien = sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
                             <div class="col-1">
                                 <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
+                                <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_nhan_vien %>">
                             </div>
                         </div>
                         <!-- check trưởng nhóm -->
@@ -41,10 +42,21 @@
                                         <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
                                         <input type="text" value="<%= sales_truong_nhom.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" value="Nhân viên kinh doanh">
                                     </div>
+                                    <% const hoa_hong = sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                    <% const hoa_hong_truong_nhom = sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+
+                                    <% if (sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
                                     <div class="col-1">
                                         <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
+                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong %>">
                                     </div>
+                                    <% } %>
+                                    <% if (sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong != '0' ) { %>
+                                        <div class="col-1">
+                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_truong_nhom %>">
+                                        </div>
+                                    <% } %>
                                 </div>
                                 <!-- check trưởng phòng -->
                                 <% sales_truong_phong.forEach(function(sales_truong_phong){ %>
@@ -63,10 +75,22 @@
                                                 <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
                                                 <input type="text" value="<%= sales_truong_phong.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" value="Nhân viên kinh doanh">
                                             </div>
-                                            <div class="col-1">
-                                                <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                                <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
-                                            </div>
+                                            <% const hoa_hong_02 = sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                            <% const hoa_hong_truong_phong = sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+
+                                            <% if (sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                <div class="col-1">
+                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_02 %>">
+                                                </div>
+                                            <% } %>
+                                            
+                                            <% if (sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong != '0' ) { %>
+                                                <div class="col-1">
+                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_truong_phong %>">
+                                                </div>
+                                            <% } %>
                                         </div>
                                         <!-- check phó giám đốc -->
                                         <% sales_pho_giam_doc.forEach(function(sales_pho_giam_doc){ %>
@@ -85,10 +109,30 @@
                                                         <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
                                                         <input type="text" value="<%= sales_pho_giam_doc.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" value="Nhân viên kinh doanh">
                                                     </div>
-                                                    <div class="col-1">
-                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
-                                                    </div>
+                                                    <% const hoa_hong_03 = sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                    <% const hoa_hong_04 = sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                    <% const hoa_hong_pho_giam_doc = sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+
+                                                    <% if (sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                        <div class="col-1">
+                                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_03 %>">
+                                                        </div>
+                                                    <% } %>
+
+                                                    <% if (sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                        <div class="col-1">
+                                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_04 %>">
+                                                        </div>
+                                                    <% } %>
+
+                                                    <% if (sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong != '0' ) { %>
+                                                        <div class="col-1">
+                                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_pho_giam_doc %>">
+                                                        </div>
+                                                    <% } %>
                                                 </div>
                                                 <!-- check giám đốc -->
                                                 <% sales_giam_doc.forEach(function(sales_giam_doc){ %>
@@ -107,10 +151,35 @@
                                                                 <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
                                                                 <input type="text" value="<%= sales_giam_doc.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" value="Nhân viên kinh doanh">
                                                             </div>
-                                                            <div class="col-1">
-                                                                <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                                                <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
-                                                            </div>
+                                                            <% const hoa_hong_05 = sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                            <% const hoa_hong_06 = sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                            <% const hoa_hong_07 = sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                            <% const hoa_hong_giam_doc = sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+
+                                                            <% if (sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong != '0' ) { %>
+                                                                <div class="col-1">
+                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_giam_doc %>">
+                                                                </div>
+                                                            <% } %>
+                                                            <% if (sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                <div class="col-1">
+                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_05 %>">
+                                                                </div>
+                                                            <% } %>
+                                                            <% if (sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                <div class="col-1">
+                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_06 %>">
+                                                                </div>
+                                                            <% } %>
+                                                            <% if (sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                <div class="col-1">
+                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_07 %>">
+                                                                </div>
+                                                            <% } %>
                                                         </div>
                                                         <!-- check giám đốc tỉnh -->
                                                         <% sales_giam_doc_tinh.forEach(function(sales_giam_doc_tinh){ %>
@@ -129,10 +198,42 @@
                                                                         <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
                                                                         <input type="text" value="<%= sales_giam_doc_tinh.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" value="Nhân viên kinh doanh">
                                                                     </div>
-                                                                    <div class="col-1">
-                                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
-                                                                    </div>
+                                                                    <% const hoa_hong_08 = sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                    <% const hoa_hong_09 = sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                    <% const hoa_hong_10 = sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                    <% const hoa_hong_11 = sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                    <% const hoa_hong_giam_doc_tinh = sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+
+                                                                    <% if (sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong != '0' ) { %>
+                                                                        <div class="col-1">
+                                                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_giam_doc_tinh %>">
+                                                                        </div>
+                                                                    <% } %>
+                                                                    <% if (sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                        <div class="col-1">
+                                                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_08 %>">
+                                                                        </div>
+                                                                    <% } %>
+                                                                    <% if (sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                        <div class="col-1">
+                                                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_09 %>">
+                                                                        </div>
+                                                                    <% } %>
+                                                                    <% if (sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                        <div class="col-1">
+                                                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_10 %>">
+                                                                        </div>
+                                                                    <% } %>
+                                                                    <% if (sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                        <div class="col-1">
+                                                                            <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                            <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_11 %>">
+                                                                        </div>
+                                                                    <% } %>
                                                                 </div>
                                                                 <!-- check giám đốc vùng -->
                                                                 <% sales_giam_doc_vung.forEach(function(sales_giam_doc_vung){ %>
@@ -151,10 +252,49 @@
                                                                                 <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
                                                                                 <input type="text" value="<%= sales_giam_doc_vung.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" value="Nhân viên kinh doanh">
                                                                             </div>
-                                                                            <div class="col-1">
-                                                                                <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                                                                <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
-                                                                            </div>
+                                                                            <% const hoa_hong_12 = sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                            <% const hoa_hong_13 = sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                            <% const hoa_hong_14 = sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                            <% const hoa_hong_15 = sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                            <% const hoa_hong_16 = sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                            <% const hoa_hong_giam_doc_vung = sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+
+                                                                            <% if (sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong != '0' ) { %>
+                                                                                <div class="col-1">
+                                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_giam_doc_vung %>">
+                                                                                </div>
+                                                                            <% } %>
+                                                                            <% if (sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                <div class="col-1">
+                                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_16 %>">
+                                                                                </div>
+                                                                            <% } %>
+                                                                            <% if (sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                <div class="col-1">
+                                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_12 %>">
+                                                                                </div>
+                                                                            <% } %>
+                                                                            <% if (sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                <div class="col-1">
+                                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_13 %>">
+                                                                                </div>
+                                                                            <% } %>
+                                                                            <% if (sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                <div class="col-1">
+                                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_14 %>">
+                                                                                </div>
+                                                                            <% } %>
+                                                                            <% if (sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                <div class="col-1">
+                                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_15 %>">
+                                                                                </div>
+                                                                            <% } %>
                                                                         </div>
                                                                         <!-- check giám đốc chiến lược -->
                                                                         <% sales_giam_doc_chien_luoc.forEach(function(sales_giam_doc_chien_luoc){ %>
@@ -173,10 +313,56 @@
                                                                                     <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
                                                                                     <input type="text" value="<%= sales_giam_doc_chien_luoc.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien" value="Nhân viên kinh doanh">
                                                                                 </div>
-                                                                                <div class="col-1">
-                                                                                    <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                                                                    <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
-                                                                                </div>
+                                                                                <% const hoa_hong_17 = sales_giam_doc_chien_luoc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                                <% const hoa_hong_18 = sales_giam_doc_chien_luoc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                                <% const hoa_hong_19 = sales_giam_doc_chien_luoc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                                <% const hoa_hong_20 = sales_giam_doc_chien_luoc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_nhan_vien.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                                <% const hoa_hong_21 = sales_giam_doc_chien_luoc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                                <% const hoa_hong_22 = sales_giam_doc_chien_luoc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+                                                                                <% const hoa_hong_giam_doc_chien_luoc = sales_giam_doc_chien_luoc.chuc_vu.hoa_hong_chuc_vu.hoa_hong - sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>
+
+                                                                                <% if (sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong != '0' ) { %>
+                                                                                    <div class="col-1">
+                                                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_giam_doc_chien_luoc %>">
+                                                                                    </div>
+                                                                                <% } %>
+                                                                                <% if (sales_giam_doc_vung.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                    <div class="col-1">
+                                                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_22 %>">
+                                                                                    </div>
+                                                                                <% } %>
+                                                                                <% if (sales_giam_doc_tinh.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                    <div class="col-1">
+                                                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_21 %>">
+                                                                                    </div>
+                                                                                <% } %>
+                                                                                <% if (sales_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                    <div class="col-1">
+                                                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_17 %>">
+                                                                                    </div>
+                                                                                <% } %>
+                                                                                <% if (sales_pho_giam_doc.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                    <div class="col-1">
+                                                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_18 %>">
+                                                                                    </div>
+                                                                                <% } %>
+                                                                                <% if (sales_truong_phong.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                    <div class="col-1">
+                                                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_19 %>">
+                                                                                    </div>
+                                                                                <% } %>
+                                                                                <% if (sales_truong_nhom.chuc_vu.hoa_hong_chuc_vu.hoa_hong == '0' ) { %>
+                                                                                    <div class="col-1">
+                                                                                        <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
+                                                                                        <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien" value="<%= hoa_hong_20 %>">
+                                                                                    </div>
+                                                                                <% } %>
                                                                             </div>
                                                                             <% } %>
                                                                         <% }); %>
