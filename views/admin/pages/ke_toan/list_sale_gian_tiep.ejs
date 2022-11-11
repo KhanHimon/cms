@@ -7,21 +7,21 @@
                     <% if ( sales.ma_code == sales_nhan_vien.ma_gioi_thieu ) { %>
                         <div class="row g-3">
                             <div class="col-4">
-                                <label for="nhan_vien_kinh_doanh" class="form-label">Họ và tên</label>
-                                <input type="text" value="<%= sales_nhan_vien.ho_va_ten %>" class="form-control" id="nhan_vien_kinh_doanh" name="nhan_vien_kinh_doanh" placeholder="Họ và tên">
+                                <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                <input type="text" value="<%= sales_nhan_vien.ho_va_ten %>" class="form-control" id="cap_tren.ho_va_ten_cap_tren" name="cap_tren.ho_va_ten_cap_tren" placeholder="Họ và tên">
                             </div>
 
                             <div class="col-3">
                                 <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
-                                <input type="text" value="<%= sales_nhan_vien.cmnd_cccd %>" class="form-control" id="cmnd_cccd_nhan_vien" name="cmnd_cccd_nhan_vien">
+                                <input type="text" value="<%= sales_nhan_vien.cmnd_cccd %>" class="form-control" id="cap_tren.cmnd_cap_tren" name="cap_tren.cmnd_cap_tren">
                             </div>
                             <div class="col-4">
-                                <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
-                                <input type="text" value="<%= sales_nhan_vien.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien">
+                                <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                <input type="text" value="<%= sales_nhan_vien.chuc_vu.ten_chuc_vu %>" class="form-control" id="cap_tren.chuc_vu_cap_tren" name="cap_tren.chuc_vu_cap_tren">
                             </div>
                             <div class="col-1">
-                                <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
+                                <label for="hoa_hong_cap_tren" class="form-label">% HH</label>
+                                <input type="number" class="form-control" id="cap_tren.hoa_hong_cap_tren" name="cap_tren.hoa_hong_cap_tren">
                             </div>
                         </div>
                         <!-- check trưởng nhóm -->
@@ -29,21 +29,21 @@
                             <% if (sales_nhan_vien.ma_code == sales_truong_nhom.ma_gioi_thieu ) { %>
                                 <div class="row g-3">
                                     <div class="col-4">
-                                        <label for="truong_nhom_kinh_doanh" class="form-label">Họ và tên</label>
-                                        <input type="text" value="<%= sales_truong_nhom.ho_va_ten %>" class="form-control" id="truong_nhom_kinh_doanh" name="truong_nhom_kinh_doanh" placeholder="Họ và tên">
+                                        <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                        <input type="text" value="<%= sales_truong_nhom.ho_va_ten %>" class="form-control" id="cap_tren.ho_va_ten_cap_tren" name="cap_tren.ho_va_ten_cap_tren" placeholder="Họ và tên">
                                     </div>
         
                                     <div class="col-3">
-                                        <label for="cmnd_cccd_truong_nhom" class="form-label">CMND/CCCD</label>
-                                        <input type="text" value="<%= sales_truong_nhom.cmnd_cccd %>" class="form-control" id="cmnd_cccd_truong_nhom" name="cmnd_cccd_truong_nhom">
+                                        <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
+                                        <input type="text" value="<%= sales_truong_nhom.cmnd_cccd %>" class="form-control" id="cap_tren.cmnd_cap_tren" name="cap_tren.cmnd_cap_tren">
                                     </div>
                                     <div class="col-4">
-                                        <label for="chuc_vu_truong_nhom" class="form-label">Chức vụ</label>
-                                        <input type="text" value="<%= sales_truong_nhom.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_truong_nhom" name="chuc_vu_truong_nhom">
+                                        <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                        <input type="text" value="<%= sales_truong_nhom.chuc_vu.ten_chuc_vu %>" class="form-control" id="cap_tren.chuc_vu_cap_tren" name="cap_tren.chuc_vu_cap_tren">
                                     </div>
                                     <div class="col-1">
-                                        <label for="hoa_hong_truong_nhom" class="form-label">% HH</label>
-                                        <input type="number" class="form-control" id="hoa_hong_truong_nhom" name="hoa_hong_truong_nhom">
+                                        <label for="hoa_hong_cap_tren" class="form-label">% HH</label>
+                                        <input type="number" class="form-control" id="cap_tren.hoa_hong_cap_tren" name="cap_tren.hoa_hong_cap_tren">
                                     </div>
                                 </div>
                                 <!-- check trưởng phòng -->
@@ -51,21 +51,21 @@
                                     <% if (sales_truong_nhom.ma_code == sales_truong_phong.ma_gioi_thieu ) { %>
                                         <div class="row g-3">
                                             <div class="col-4">
-                                                <label for="truong_phong_kinh_doanh" class="form-label">Họ và tên</label>
-                                                <input type="text" value="<%= sales_truong_phong.ho_va_ten %>" class="form-control" id="truong_phong_kinh_doanh" name="truong_phong_kinh_doanh" placeholder="Họ và tên">
+                                                <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                <input type="text" value="<%= sales_truong_nhom.ho_va_ten %>" class="form-control" id="cap_tren.ho_va_ten_cap_tren" name="cap_tren.ho_va_ten_cap_tren" placeholder="Họ và tên">
                                             </div>
                 
                                             <div class="col-3">
-                                                <label for="cmnd_cccd_truong_phong" class="form-label">CMND/CCCD</label>
-                                                <input type="text" value="<%= sales_truong_phong.cmnd_cccd %>" class="form-control" id="cmnd_cccd_truong_phong" name="cmnd_cccd_truong_phong">
+                                                <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
+                                                <input type="text" value="<%= sales_truong_nhom.cmnd_cccd %>" class="form-control" id="cap_tren.cmnd_cap_tren" name="cap_tren.cmnd_cap_tren">
                                             </div>
                                             <div class="col-4">
-                                                <label for="chuc_vu_truong_phong" class="form-label">Chức vụ</label>
-                                                <input type="text" value="<%= sales_truong_phong.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_truong_phong" name="chuc_vu_truong_phong">
+                                                <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                <input type="text" value="<%= sales_truong_nhom.chuc_vu.ten_chuc_vu %>" class="form-control" id="cap_tren.chuc_vu_cap_tren" name="cap_tren.chuc_vu_cap_tren">
                                             </div>
                                             <div class="col-1">
-                                                <label for="hoa_hong_truong_phong" class="form-label">% HH</label>
-                                                <input type="number" class="form-control" id="hoa_hong_truong_phong" name="hoa_hong_truong_phong">
+                                                <label for="hoa_hong_cap_tren" class="form-label">% HH</label>
+                                                <input type="number" class="form-control" id="cap_tren.hoa_hong_cap_tren" name="cap_tren.hoa_hong_cap_tren">
                                             </div>
                                         </div>
                                         <!-- check phó giám đốc -->
@@ -73,21 +73,21 @@
                                             <% if (sales_truong_phong.ma_code == sales_pho_giam_doc.ma_gioi_thieu ) { %>
                                                 <div class="row g-3">
                                                     <div class="col-4">
-                                                        <label for="pho_giam_doc_kinh_doanh" class="form-label">Họ và tên</label>
-                                                        <input type="text" value="<%= sales_pho_giam_doc.ho_va_ten %>" class="form-control" id="pho_giam_doc_kinh_doanh" name="pho_giam_doc_kinh_doanh" placeholder="Họ và tên">
+                                                        <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                        <input type="text" value="<%= sales_pho_giam_doc.ho_va_ten %>" class="form-control" id="cap_tren.ho_va_ten_cap_tren" name="cap_tren.ho_va_ten_cap_tren" placeholder="Họ và tên">
                                                     </div>
                         
                                                     <div class="col-3">
-                                                        <label for="cmnd_cccd_pho_giam_doc" class="form-label">CMND/CCCD</label>
-                                                        <input type="text" value="<%= sales_pho_giam_doc.cmnd_cccd %>" class="form-control" id="cmnd_cccd_pho_giam_doc" name="cmnd_cccd_pho_giam_doc">
+                                                        <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
+                                                        <input type="text" value="<%= sales_pho_giam_doc.cmnd_cccd %>" class="form-control" id="cap_tren.cmnd_cap_tren" name="cap_tren.cmnd_cap_tren">
                                                     </div>
                                                     <div class="col-4">
-                                                        <label for="chuc_vu_pho_giam_doc" class="form-label">Chức vụ</label>
-                                                        <input type="text" value="<%= sales_pho_giam_doc.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_pho_giam_doc" name="chuc_vu_pho_giam_doc">
+                                                        <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                        <input type="text" value="<%= sales_pho_giam_doc.chuc_vu.ten_chuc_vu %>" class="form-control" id="cap_tren.chuc_vu_cap_tren" name="cap_tren.chuc_vu_cap_tren">
                                                     </div>
                                                     <div class="col-1">
-                                                        <label for="hoa_hong_pho_giam_doc" class="form-label">% HH</label>
-                                                        <input type="number" class="form-control" id="hoa_hong_pho_giam_doc" name="hoa_hong_pho_giam_doc">
+                                                        <label for="hoa_hong_cap_tren" class="form-label">% HH</label>
+                                                        <input type="number" class="form-control" id="cap_tren.hoa_hong_cap_tren" name="cap_tren.hoa_hong_cap_tren">
                                                     </div>
                                                 </div>
                                                 <!-- check giám đốc -->
@@ -95,43 +95,43 @@
                                                     <% if (sales_pho_giam_doc.ma_code == sales_giam_doc.ma_gioi_thieu ) { %>
                                                         <div class="row g-3">
                                                             <div class="col-4">
-                                                                <label for="giam_doc_kinh_doanh" class="form-label">Họ và tên</label>
-                                                                <input type="text" value="<%= sales_giam_doc.ho_va_ten %>" class="form-control" id="giam_doc_kinh_doanh" name="giam_doc_kinh_doanh" placeholder="Họ và tên">
+                                                                <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                <input type="text" value="<%= sales_giam_doc.ho_va_ten %>" class="form-control" id="cap_tren.ho_va_ten_cap_tren" name="cap_tren.ho_va_ten_cap_tren" placeholder="Họ và tên">
                                                             </div>
                                 
                                                             <div class="col-3">
-                                                                <label for="cmnd_cccd_giam_doc" class="form-label">CMND/CCCD</label>
-                                                                <input type="text" value="<%= sales_giam_doc.cmnd_cccd %>" class="form-control" id="cmnd_cccd_giam_doc" name="cmnd_cccd_giam_doc">
+                                                                <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
+                                                                <input type="text" value="<%= sales_giam_doc.cmnd_cccd %>" class="form-control" id="cap_tren.cmnd_cap_tren" name="cap_tren.cmnd_cap_tren">
                                                             </div>
                                                             <div class="col-4">
-                                                                <label for="chuc_vu_giam_doc" class="form-label">Chức vụ</label>
-                                                                <input type="text" value="<%= sales_giam_doc.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_giam_doc" name="chuc_vu_giam_doc">
+                                                                <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                                <input type="text" value="<%= sales_giam_doc.chuc_vu.ten_chuc_vu %>" class="form-control" id="cap_tren.chuc_vu_cap_tren" name="cap_tren.chuc_vu_cap_tren">
                                                             </div>
-                                                                <div class="col-1">
-                                                                    <label for="hoa_hong_giam_doc" class="form-label">% HH</label>
-                                                                    <input type="number" class="form-control" id="hoa_hong_giam_doc" name="hoa_hong_giam_doc">
-                                                                </div>
+                                                            <div class="col-1">
+                                                                <label for="hoa_hong_cap_tren" class="form-label">% HH</label>
+                                                                <input type="number" class="form-control" id="cap_tren.hoa_hong_cap_tren" name="cap_tren.hoa_hong_cap_tren">
+                                                            </div>
                                                         </div>
                                                         <!-- check giám đốc tỉnh -->
                                                         <% sales_giam_doc_tinh.forEach(function(sales_giam_doc_tinh){ %>
                                                             <% if (sales_giam_doc.ma_code == sales_giam_doc_tinh.ma_gioi_thieu ) { %>
                                                                 <div class="row g-3">
                                                                     <div class="col-4">
-                                                                        <label for="giam_doc_tinh" class="form-label">Họ và tên</label>
-                                                                        <input type="text" value="<%= sales_giam_doc_tinh.ho_va_ten %>" class="form-control" id="giam_doc_tinh" name="giam_doc_tinh" placeholder="Họ và tên">
+                                                                        <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                        <input type="text" value="<%= sales_giam_doc_tinh.ho_va_ten %>" class="form-control" id="cap_tren.ho_va_ten_cap_tren" name="cap_tren.ho_va_ten_cap_tren" placeholder="Họ và tên">
                                                                     </div>
                                         
                                                                     <div class="col-3">
-                                                                        <label for="cmnd_cccd_giam_doc_tinh" class="form-label">CMND/CCCD</label>
-                                                                        <input type="text" value="<%= sales_giam_doc_tinh.cmnd_cccd %>" class="form-control" id="cmnd_cccd_giam_doc_tinh" name="cmnd_cccd_giam_doc_tinh">
+                                                                        <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
+                                                                        <input type="text" value="<%= sales_giam_doc_tinh.cmnd_cccd %>" class="form-control" id="cap_tren.cmnd_cap_tren" name="cap_tren.cmnd_cap_tren">
                                                                     </div>
                                                                     <div class="col-4">
-                                                                        <label for="chuc_vu_giam_doc_tinh" class="form-label">Chức vụ</label>
-                                                                        <input type="text" value="<%= sales_giam_doc_tinh.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_giam_doc_tinh" name="chuc_vu_giam_doc_tinh">
+                                                                        <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                                        <input type="text" value="<%= sales_giam_doc_tinh.chuc_vu.ten_chuc_vu %>" class="form-control" id="cap_tren.chuc_vu_cap_tren" name="cap_tren.chuc_vu_cap_tren">
                                                                     </div>
                                                                     <div class="col-1">
-                                                                        <label for="hoa_hong_giam_doc_tinh" class="form-label">% HH</label>
-                                                                        <input type="number" class="form-control" id="hoa_hong_giam_doc_tinh" name="hoa_hong_giam_doc_tinh">
+                                                                        <label for="hoa_hong_cap_tren" class="form-label">% HH</label>
+                                                                        <input type="number" class="form-control" id="cap_tren.hoa_hong_cap_tren" name="cap_tren.hoa_hong_cap_tren">
                                                                     </div>
                                                                 </div>
                                                                 <!-- check giám đốc vùng -->
@@ -139,21 +139,21 @@
                                                                     <% if (sales_giam_doc_tinh.ma_code == sales_giam_doc_vung.ma_gioi_thieu ) { %>
                                                                         <div class="row g-3">
                                                                             <div class="col-4">
-                                                                                <label for="giam_doc_vung" class="form-label">Họ và tên</label>
-                                                                                <input type="text" value="<%= sales_giam_doc_vung.ho_va_ten %>" class="form-control" id="giam_doc_vung" name="giam_doc_vung" placeholder="Họ và tên">
+                                                                                <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                                <input type="text" value="<%= sales_giam_doc_vung.ho_va_ten %>" class="form-control" id="cap_tren.ho_va_ten_cap_tren" name="cap_tren.ho_va_ten_cap_tren" placeholder="Họ và tên">
                                                                             </div>
                                                 
                                                                             <div class="col-3">
-                                                                                <label for="cmnd_cccd_giam_doc_vung" class="form-label">CMND/CCCD</label>
-                                                                                <input type="text" value="<%= sales_giam_doc_vung.cmnd_cccd %>" class="form-control" id="cmnd_cccd_giam_doc_vung" name="cmnd_cccd_giam_doc_vung">
+                                                                                <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
+                                                                                <input type="text" value="<%= sales_giam_doc_vung.cmnd_cccd %>" class="form-control" id="cap_tren.cmnd_cap_tren" name="cap_tren.cmnd_cap_tren">
                                                                             </div>
                                                                             <div class="col-4">
-                                                                                <label for="chuc_vu_giam_doc_vung" class="form-label">Chức vụ</label>
-                                                                                <input type="text" value="<%= sales_giam_doc_vung.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_giam_doc_vung" name="chuc_vu_giam_doc_vung">
+                                                                                <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                                                <input type="text" value="<%= sales_giam_doc_vung.chuc_vu.ten_chuc_vu %>" class="form-control" id="cap_tren.chuc_vu_cap_tren" name="cap_tren.chuc_vu_cap_tren">
                                                                             </div>
                                                                             <div class="col-1">
-                                                                                <label for="hoa_hong_giam_doc_vung" class="form-label">% HH</label>
-                                                                                <input type="number" class="form-control" id="hoa_hong_giam_doc_vung" name="hoa_hong_giam_doc_vung">
+                                                                                <label for="hoa_hong_cap_tren" class="form-label">% HH</label>
+                                                                                <input type="number" class="form-control" id="cap_tren.hoa_hong_cap_tren" name="cap_tren.hoa_hong_cap_tren">
                                                                             </div>
                                                                         </div>
                                                                         <!-- check giám đốc chiến lược -->
@@ -161,21 +161,21 @@
                                                                             <% if (sales_giam_doc_vung.ma_code == sales_giam_doc_chien_luoc.ma_gioi_thieu ) { %>
                                                                                 <div class="row g-3">
                                                                                     <div class="col-4">
-                                                                                        <label for="giam_doc_chien_luoc" class="form-label">Họ và tên</label>
-                                                                                        <input type="text" value="<%= sales_giam_doc_chien_luoc.ho_va_ten %>" class="form-control" id="giam_doc_chien_luoc" name="giam_doc_chien_luoc" placeholder="Họ và tên">
+                                                                                        <label for="ho_va_ten" class="form-label">Họ và tên</label>
+                                                                                        <input type="text" value="<%= sales_giam_doc_chien_luoc.ho_va_ten %>" class="form-control" id="cap_tren.ho_va_ten_cap_tren" name="cap_tren.ho_va_ten_cap_tren" placeholder="Họ và tên">
                                                                                     </div>
-
+                                                        
                                                                                     <div class="col-3">
-                                                                                        <label for="cmnd_cccd_giam_doc_chien_luoc" class="form-label">CMND/CCCD</label>
-                                                                                        <input type="text" value="<%= sales_giam_doc_chien_luoc.cmnd_cccd %>" class="form-control" id="cmnd_cccd_giam_doc_chien_luoc" name="cmnd_cccd_giam_doc_chien_luoc">
+                                                                                        <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
+                                                                                        <input type="text" value="<%= sales_giam_doc_chien_luoc.cmnd_cccd %>" class="form-control" id="cap_tren.cmnd_cap_tren" name="cap_tren.cmnd_cap_tren">
                                                                                     </div>
                                                                                     <div class="col-4">
-                                                                                        <label for="chuc_vu_giam_doc_chien_luoc" class="form-label">Chức vụ</label>
-                                                                                        <input type="text" value="<%= sales_giam_doc_chien_luoc.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_giam_doc_chien_luoc" name="chuc_vu_giam_doc_chien_luoc">
+                                                                                        <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                                                        <input type="text" value="<%= sales_giam_doc_chien_luoc.chuc_vu.ten_chuc_vu %>" class="form-control" id="cap_tren.chuc_vu_cap_tren" name="cap_tren.chuc_vu_cap_tren">
                                                                                     </div>
                                                                                     <div class="col-1">
-                                                                                        <label for="hoa_hong_giam_doc_chien_luoc" class="form-label">% HH</label>
-                                                                                        <input type="number" class="form-control" id="hoa_hong_giam_doc_chien_luoc" name="hoa_hong_giam_doc_chien_luoc">
+                                                                                        <label for="hoa_hong_cap_tren" class="form-label">% HH</label>
+                                                                                        <input type="number" class="form-control" id="cap_tren.hoa_hong_cap_tren" name="cap_tren.hoa_hong_cap_tren">
                                                                                     </div>
                                                                                 </div>
                                                                             <% } %>
