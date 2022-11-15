@@ -30,6 +30,7 @@ const Hop_dong_dau_tu_Schema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Trang_thai'
     },
+    trang_thai_sale:{ type: String },
     create_date: { type: Date }
 });
 

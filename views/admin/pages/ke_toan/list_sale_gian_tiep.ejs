@@ -1,35 +1,4 @@
 <div>
-
-    <% sales.forEach(function(sales){ %>
-        <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
-            <% sales_giam_doc.forEach(function(sales_giam_doc){ %>
-                <% if (sales_giam_doc.chuc_vu._id == '62fb5c65f1b55b0b9c8745db' ) { %>
-                    <% if ( sales.ma_code == sales_giam_doc.ma_gioi_thieu || sales_pho_giam_doc.ma_code == sales_giam_doc.ma_gioi_thieu ) { %>
-                        <div class="row g-3">
-                            <div class="col-4">
-                                <label for="giam_doc_kinh_doanh" class="form-label">Họ và tên</label>
-                                <input type="text" value="<%= sales_giam_doc.ho_va_ten %>" class="form-control" id="giam_doc_kinh_doanh" name="giam_doc_kinh_doanh" placeholder="Họ và tên">
-                            </div>
-                            <div class="col-3">
-                                <label for="cmnd_cccd_nhan_vien" class="form-label">CMND/CCCD</label>
-                                <input type="text" value="<%= sales_giam_doc.cmnd_cccd %>" class="form-control" id="cmnd_cccd_nhan_vien" name="cmnd_cccd_nhan_vien">
-                            </div>
-                            <div class="col-4">
-                                <label for="chuc_vu_nhan_vien" class="form-label">Chức vụ</label>
-                                <input type="text" value="<%= sales_giam_doc.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu_nhan_vien" name="chuc_vu_nhan_vien">
-                            </div>
-                            <div class="col-1">
-                                <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
-                                <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
-                            </div>
-                        </div>
-                    <% } %>
-                <% } %>
-            <% }); %>
-        <% } %>
-    <% }); %>
-
-
     <% sales.forEach(function(sales){ %>
         <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
                 <!-- check nhân viên -->
@@ -225,6 +194,7 @@
                 <% }); %>
         <% } %>
     <% }); %>
+    <input type="hidden" value="Đã thanh toán" class="form-control" id="trang_thai_sale" name="trang_thai_sale">
     <div class="d-flex align-items-start gap-3 mt-4">
         <button type="button" class="btn btn-light btn-label previestab" data-previous="v-pills-bill-address-tab_<%= ds_hop_dong._id %>"><i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i> Quay lại</button>
         <button type="submit" class="btn btn-success btn-label right ms-auto"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Hoàn thành</button>

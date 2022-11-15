@@ -52,7 +52,7 @@
                                                     <th scope="col">Đầu tư</th>
                                                     <th scope="col">Sale trực tiếp</th>
                                                     <th scope="col"></th>
-                                                    <th></th>
+                                                    <th scope="col"></th>
                                                 </tr>
                                             </thead>
                                             <tbody id="myTable">
@@ -66,165 +66,170 @@
                                                             <td><%= sales.ho_va_ten %></td>
                                                             <% } %>
                                                         <% }); %>
+                                                        <% if (ds_hop_dong.trang_thai_sale != 'Đã thanh toán' ) { %>
                                                         <td>
                                                             <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#myModal-<%= ds_hop_dong._id %>"><i class="ri-file-user-line label-icon align-middle rounded-pill fs-16 me-2"></i> Trả lãi</button>
                                                             <div id="myModal-<%= ds_hop_dong._id %>" class="modal fade" tabindex="1" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
-                                                                <div class="modal-dialog modal-xl">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-body">
-                                                                            <div class="row">
-                                                                                <div class="col-xl-12">
-                                                                                    <div class="card">
-                                                                                        <div class="card-header">
-                                                                                            <h4 class="card-title mb-0">Trả thưởng cho hợp đồng cho sale</h4>
-                                                                                        </div><!-- end card header -->
-                                                                                        <div class="card-body form-steps">
-                                                                                            <form class="vertical-navs-step"  action="/admin/them-tra-lai" method="post">
-                                                                                                <div class="row gy-5">
-                                                                                                    <div class="col-lg-3">
-                                                                                                        <div class="nav flex-column custom-nav nav-pills" role="tablist" aria-orientation="vertical">
-                                                                                                            <button class="nav-link active" id="v-pills-bill-info-tab_<%= ds_hop_dong._id %>" data-bs-toggle="pill" data-bs-target="#v-pills-bill-info_<%= ds_hop_dong._id %>" type="button" role="tab" aria-controls="v-pills-bill-info_<%= ds_hop_dong._id %>">
-                                                                                                                <span class="step-title me-2">
-                                                                                                                    <i class="ri-close-circle-fill step-icon me-2"></i> Bước 1
-                                                                                                                </span>
-                                                                                                                Thông tin hợp đồng
-                                                                                                            </button>
-                                                                                                            <button class="nav-link" id="v-pills-bill-address-tab_<%= ds_hop_dong._id %>" data-bs-toggle="pill" data-bs-target="#v-pills-bill-address_<%= ds_hop_dong._id %>" type="button" role="tab" aria-controls="v-pills-bill-address_<%= ds_hop_dong._id %>">
-                                                                                                                <span class="step-title me-2">
-                                                                                                                    <i class="ri-close-circle-fill step-icon me-2"></i> Bước 2
-                                                                                                                </span>
-                                                                                                                Người giới thiệu
-                                                                                                            </button>
-                                                                                                            <button class="nav-link" id="v-pills-payment-tab_<%= ds_hop_dong._id %>" data-bs-toggle="pill" data-bs-target="#v-pills-payment_<%= ds_hop_dong._id %>" type="button" role="tab" aria-controls="v-pills-payment_<%= ds_hop_dong._id %>">
-                                                                                                                <span class="step-title me-2">
-                                                                                                                    <i class="ri-close-circle-fill step-icon me-2"></i> Bước 3
-                                                                                                                </span>
-                                                                                                                Thưởng gián tiếp
-                                                                                                            </button>
-                                                                                                        </div>
-                                                                                                        <!-- end nav -->
-                                                                                                    </div> <!-- end col-->
-                                                                                                    <div class="col-lg-9">
-                                                                                                        <div class="px-lg-4">
-                                                                                                            <div class="tab-content">
-                                                                                                                <div class="tab-pane fade show active" id="v-pills-bill-info_<%= ds_hop_dong._id %>" role="tabpanel" aria-labelledby="v-pills-bill-info-tab_<%= ds_hop_dong._id %>">
-                                                                                                                    <div>
-                                                                                                                        <h5>Thông tin hợp đồng</h5>
-                                                                                                                    </div>
-                                                        
-                                                                                                                    <div>
-                                                                                                                        <div class="row g-3">
-                                                                                                                            <div class="col-sm-6">
-                                                                                                                                <label for="ma_hop_dong" class="form-label">Mã hợp đồng</label>
-                                                                                                                                <input type="text" class="form-control" id="ma_hop_dong" name="ma_hop_dong" value="<%= ds_hop_dong.ma_hop_dong %>">
-                                                                                                                            </div>
-                                                        
-                                                                                                                            <div class="col-sm-6">
-                                                                                                                                <label for="khach_hang" class="form-label">Khách hàng</label>
-                                                                                                                                <input type="text" class="form-control" id="khach_hang" name="khach_hang" value="<%= ds_hop_dong.khach_hang.ho_va_ten %>">
-                                                                                                                            </div>
+                                                                    <div class="modal-dialog modal-xl">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-xl-12">
+                                                                                        <div class="card">
+                                                                                            <div class="card-header">
+                                                                                                <h4 class="card-title mb-0">Trả thưởng cho hợp đồng cho sale</h4>
+                                                                                            </div><!-- end card header -->
+                                                                                            <div class="card-body form-steps">
+                                                                                                <form class="vertical-navs-step"  action="/admin/them-tra-lai/<%= ds_hop_dong._id %>" method="post">
+                                                                                                    <div class="row gy-5">
+                                                                                                        <div class="col-lg-3">
+                                                                                                            <div class="nav flex-column custom-nav nav-pills" role="tablist" aria-orientation="vertical">
+                                                                                                                <button class="nav-link active" id="v-pills-bill-info-tab_<%= ds_hop_dong._id %>" data-bs-toggle="pill" data-bs-target="#v-pills-bill-info_<%= ds_hop_dong._id %>" type="button" role="tab" aria-controls="v-pills-bill-info_<%= ds_hop_dong._id %>">
+                                                                                                                    <span class="step-title me-2">
+                                                                                                                        <i class="ri-close-circle-fill step-icon me-2"></i> Bước 1
+                                                                                                                    </span>
+                                                                                                                    Thông tin hợp đồng
+                                                                                                                </button>
+                                                                                                                <button class="nav-link" id="v-pills-bill-address-tab_<%= ds_hop_dong._id %>" data-bs-toggle="pill" data-bs-target="#v-pills-bill-address_<%= ds_hop_dong._id %>" type="button" role="tab" aria-controls="v-pills-bill-address_<%= ds_hop_dong._id %>">
+                                                                                                                    <span class="step-title me-2">
+                                                                                                                        <i class="ri-close-circle-fill step-icon me-2"></i> Bước 2
+                                                                                                                    </span>
+                                                                                                                    Người giới thiệu
+                                                                                                                </button>
+                                                                                                                <button class="nav-link" id="v-pills-payment-tab_<%= ds_hop_dong._id %>" data-bs-toggle="pill" data-bs-target="#v-pills-payment_<%= ds_hop_dong._id %>" type="button" role="tab" aria-controls="v-pills-payment_<%= ds_hop_dong._id %>">
+                                                                                                                    <span class="step-title me-2">
+                                                                                                                        <i class="ri-close-circle-fill step-icon me-2"></i> Bước 3
+                                                                                                                    </span>
+                                                                                                                    Thưởng gián tiếp
+                                                                                                                </button>
+                                                                                                            </div>
+                                                                                                            <!-- end nav -->
+                                                                                                        </div> <!-- end col-->
+                                                                                                        <div class="col-lg-9">
+                                                                                                            <div class="px-lg-4">
+                                                                                                                <div class="tab-content">
+                                                                                                                    <div class="tab-pane fade show active" id="v-pills-bill-info_<%= ds_hop_dong._id %>" role="tabpanel" aria-labelledby="v-pills-bill-info-tab_<%= ds_hop_dong._id %>">
+                                                                                                                        <div>
+                                                                                                                            <h5>Thông tin hợp đồng</h5>
+                                                                                                                        </div>
+                                                            
+                                                                                                                        <div>
+                                                                                                                            <div class="row g-3">
+                                                                                                                                <div class="col-sm-6">
+                                                                                                                                    <label for="ma_hop_dong" class="form-label">Mã hợp đồng</label>
+                                                                                                                                    <input type="text" class="form-control" id="ma_hop_dong" name="ma_hop_dong" value="<%= ds_hop_dong.ma_hop_dong %>">
+                                                                                                                                </div>
+                                                            
+                                                                                                                                <div class="col-sm-6">
+                                                                                                                                    <label for="khach_hang" class="form-label">Khách hàng</label>
+                                                                                                                                    <input type="text" class="form-control" id="khach_hang" name="khach_hang" value="<%= ds_hop_dong.khach_hang.ho_va_ten %>">
+                                                                                                                                </div>
 
-                                                                                                                            <div class="col-sm-6">
-                                                                                                                                <label for="cmnd_cccd_khach_hang" class="form-label">CMND/CCCD Khách hàng</label>
-                                                                                                                                <input type="text" class="form-control" id="cmnd_cccd_khach_hang" name="cmnd_cccd_khach_hang" value="<%= ds_hop_dong.khach_hang.cccd_cmnd %>">
-                                                                                                                            </div>
-                                                        
-                                                                                                                            <div class="col-6">
-                                                                                                                                <label for="so_tien_dau_tu" class="form-label">Số tiền đầu tư</label>
-                                                                                                                                <div class="input-group">
-                                                                                                                                    <input type="number" class="form-control" id="so_tien_dau_tu" name="so_tien_dau_tu" value="<%= ds_hop_dong.so_tien_dau_tu %>">
-                                                                                                                                    <span class="input-group-text">vnđ</span>
+                                                                                                                                <div class="col-sm-6">
+                                                                                                                                    <label for="cmnd_cccd_khach_hang" class="form-label">CMND/CCCD Khách hàng</label>
+                                                                                                                                    <input type="text" class="form-control" id="cmnd_cccd_khach_hang" name="cmnd_cccd_khach_hang" value="<%= ds_hop_dong.khach_hang.cccd_cmnd %>">
+                                                                                                                                </div>
+                                                            
+                                                                                                                                <div class="col-6">
+                                                                                                                                    <label for="so_tien_dau_tu" class="form-label">Số tiền đầu tư</label>
+                                                                                                                                    <div class="input-group">
+                                                                                                                                        <input type="number" class="form-control" id="so_tien_dau_tu" name="so_tien_dau_tu" value="<%= ds_hop_dong.so_tien_dau_tu %>">
+                                                                                                                                        <span class="input-group-text">vnđ</span>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                            
+                                                                                                                                <div class="col-4">
+                                                                                                                                    <label for="ho_va_ten" class="form-label">Sale trực tiếp</label>
+                                                                                                                                    <% sales.forEach(function(sales){ %>
+                                                                                                                                        <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
+                                                                                                                                        <input type="text" value="<%= sales.ho_va_ten %>" class="form-control" id="ho_va_ten" name="ho_va_ten">
+                                                                                                                                        <% } %>
+                                                                                                                                    <% }); %>
+                                                                                                                                </div>
+                                                                                                                                <div class="col-sm-4">
+                                                                                                                                    <label for="chuc_vu" class="form-label">Chức vụ</label>
+                                                                                                                                    <% sales.forEach(function(sales){ %>
+                                                                                                                                        <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
+                                                                                                                                        <input type="text" value="<%= sales.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu" name="chuc_vu">
+                                                                                                                                        <% } %>
+                                                                                                                                    <% }); %>
+                                                                                                                                </div>
+
+                                                                                                                                <div class="col-sm-3">
+                                                                                                                                    <label for="cmnd_cccd_sale" class="form-label">CMND/CCCD Sale</label>
+                                                                                                                                    <input type="text" class="form-control" id="cmnd_cccd_sale" name="cmnd_cccd_sale" placeholder="Enter Last Name" value="<%= ds_hop_dong.khach_hang.cccd_cmnd %>">
+                                                                                                                                </div>
+                                                                                                                                <div class="col-sm-1">
+                                                                                                                                    <label for="hoa_hong" class="form-label">% HH</label>
+                                                                                                                                    <% sales.forEach(function(sales){ %>
+                                                                                                                                        <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
+                                                                                                                                        <input type="number" value="<%= sales.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>" class="form-control" id="hoa_hong" name="hoa_hong">
+                                                                                                                                        <% } %>
+                                                                                                                                    <% }); %>
                                                                                                                                 </div>
                                                                                                                             </div>
-                                                        
-                                                                                                                            <div class="col-4">
-                                                                                                                                <label for="ho_va_ten" class="form-label">Sale trực tiếp</label>
-                                                                                                                                <% sales.forEach(function(sales){ %>
-                                                                                                                                    <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
-                                                                                                                                    <input type="text" value="<%= sales.ho_va_ten %>" class="form-control" id="ho_va_ten" name="ho_va_ten">
-                                                                                                                                    <% } %>
-                                                                                                                                <% }); %>
-                                                                                                                            </div>
-                                                                                                                            <div class="col-sm-4">
-                                                                                                                                <label for="chuc_vu" class="form-label">Chức vụ</label>
-                                                                                                                                <% sales.forEach(function(sales){ %>
-                                                                                                                                    <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
-                                                                                                                                    <input type="text" value="<%= sales.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu" name="chuc_vu">
-                                                                                                                                    <% } %>
-                                                                                                                                <% }); %>
-                                                                                                                            </div>
-
-                                                                                                                            <div class="col-sm-3">
-                                                                                                                                <label for="cmnd_cccd_sale" class="form-label">CMND/CCCD Sale</label>
-                                                                                                                                <input type="text" class="form-control" id="cmnd_cccd_sale" name="cmnd_cccd_sale" placeholder="Enter Last Name" value="<%= ds_hop_dong.khach_hang.cccd_cmnd %>">
-                                                                                                                            </div>
-                                                                                                                            <div class="col-sm-1">
-                                                                                                                                <label for="hoa_hong" class="form-label">% HH</label>
-                                                                                                                                <% sales.forEach(function(sales){ %>
-                                                                                                                                    <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
-                                                                                                                                    <input type="number" value="<%= sales.chuc_vu.hoa_hong_chuc_vu.hoa_hong %>" class="form-control" id="hoa_hong" name="hoa_hong">
-                                                                                                                                    <% } %>
-                                                                                                                                <% }); %>
-                                                                                                                            </div>
+                                                                                                                        </div>
+                                                            
+                                                                                                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                                                                                                            <button type="button" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="v-pills-bill-address-tab_<%= ds_hop_dong._id %>"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Tiếp theo</button>
                                                                                                                         </div>
                                                                                                                     </div>
-                                                        
-                                                                                                                    <div class="d-flex align-items-start gap-3 mt-4">
-                                                                                                                        <button type="button" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="v-pills-bill-address-tab_<%= ds_hop_dong._id %>"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Tiếp theo</button>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                                <!-- end tab pane -->
-                                                                                                                <div class="tab-pane fade" id="v-pills-bill-address_<%= ds_hop_dong._id %>" role="tabpanel" aria-labelledby="v-pills-bill-address-tab_<%= ds_hop_dong._id %>">
-                                                                                                                    <div>
-                                                                                                                        <h5>Người giới thiệu</h5>
-                                                                                                                    </div>
-                                                        
-                                                                                                                    <div>
-                                                                                                                        <div class="row g-3">
-                                                                                                                            <div class="col-6">
-                                                                                                                                <label for="address" class="form-label">Họ và tên</label>
-                                                                                                                                <input type="text" class="form-control" id="address" placeholder="Họ và tên">
-                                                                                                                            </div>
-                                                        
-                                                                                                                            <div class="col-6">
-                                                                                                                                <label for="lastName" class="form-label">CMND/CCCD</label>
-                                                                                                                                <input type="text" class="form-control" id="lastName" placeholder="Nhập cccd hoặc cmnd">
+                                                                                                                    <!-- end tab pane -->
+                                                                                                                    <div class="tab-pane fade" id="v-pills-bill-address_<%= ds_hop_dong._id %>" role="tabpanel" aria-labelledby="v-pills-bill-address-tab_<%= ds_hop_dong._id %>">
+                                                                                                                        <div>
+                                                                                                                            <h5>Người giới thiệu</h5>
+                                                                                                                        </div>
+                                                            
+                                                                                                                        <div>
+                                                                                                                            <div class="row g-3">
+                                                                                                                                <div class="col-6">
+                                                                                                                                    <label for="address" class="form-label">Họ và tên</label>
+                                                                                                                                    <input type="text" class="form-control" id="address" placeholder="Họ và tên">
+                                                                                                                                </div>
+                                                            
+                                                                                                                                <div class="col-6">
+                                                                                                                                    <label for="lastName" class="form-label">CMND/CCCD</label>
+                                                                                                                                    <input type="text" class="form-control" id="lastName" placeholder="Nhập cccd hoặc cmnd">
+                                                                                                                                </div>
                                                                                                                             </div>
                                                                                                                         </div>
+                                                                                                                        <div class="d-flex align-items-start gap-3 mt-4">
+                                                                                                                            <button type="button" class="btn btn-light btn-label previestab" data-previous="v-pills-bill-info-tab_<%= ds_hop_dong._id %>"><i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>Quay lại</button>
+                                                                                                                            <button type="button" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="v-pills-payment-tab_<%= ds_hop_dong._id %>"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Tiếp theo</button>
+                                                                                                                        </div>
                                                                                                                     </div>
-                                                                                                                    <div class="d-flex align-items-start gap-3 mt-4">
-                                                                                                                        <button type="button" class="btn btn-light btn-label previestab" data-previous="v-pills-bill-info-tab_<%= ds_hop_dong._id %>"><i class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>Quay lại</button>
-                                                                                                                        <button type="button" class="btn btn-success btn-label right ms-auto nexttab nexttab" data-nexttab="v-pills-payment-tab_<%= ds_hop_dong._id %>"><i class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>Tiếp theo</button>
+                                                                                                                    <!-- end tab pane -->
+                                                                                                                    <div class="tab-pane fade" id="v-pills-payment_<%= ds_hop_dong._id %>" role="tabpanel" aria-labelledby="v-pills-payment-tab_<%= ds_hop_dong._id %>">
+                                                                                                                        <div>
+                                                                                                                            <h5>Thưởng gián tiếp</h5>
+                                                                                                                        </div>
+                                                                                                                        <%- include list_sale_gian_tiep.ejs %>
                                                                                                                     </div>
+                                                                                                                    <!-- end tab pane -->
                                                                                                                 </div>
-                                                                                                                <!-- end tab pane -->
-                                                                                                                <div class="tab-pane fade" id="v-pills-payment_<%= ds_hop_dong._id %>" role="tabpanel" aria-labelledby="v-pills-payment-tab_<%= ds_hop_dong._id %>">
-                                                                                                                    <div>
-                                                                                                                        <h5>Thưởng gián tiếp</h5>
-                                                                                                                    </div>
-                                                                                                                    <%- include list_sale_gian_tiep.ejs %>
-                                                                                                                </div>
-                                                                                                                <!-- end tab pane -->
+                                                                                                                <!-- end tab content -->
                                                                                                             </div>
-                                                                                                            <!-- end tab content -->
                                                                                                         </div>
+                                                                                                        <!-- end col -->
                                                                                                     </div>
-                                                                                                    <!-- end col -->
-                                                                                                </div>
-                                                                                                <!-- end row -->
-                                                                                            </form>
+                                                                                                    <!-- end row -->
+                                                                                                </form>
+                                                                                            </div>
                                                                                         </div>
+                                                                                        <!-- end -->
                                                                                     </div>
-                                                                                    <!-- end -->
+                                                                                    <!-- end col -->
                                                                                 </div>
-                                                                                <!-- end col -->
                                                                             </div>
-                                                                        </div>
-                
-                                                                    </div><!-- /.modal-content -->
-                                                                </div>
+                    
+                                                                        </div><!-- /.modal-content -->
+                                                                    </div>
                                                             </div>
                                                         </td>
+                                                        <% } %>
+                                                        <% if (ds_hop_dong.trang_thai_sale == 'Đã thanh toán' ) { %>
+                                                        <td><%= ds_hop_dong.trang_thai_sale %></td>
+                                                        <% } %>
                                                     </tr>
                                                 <% }); %>
                                             </tbody>
