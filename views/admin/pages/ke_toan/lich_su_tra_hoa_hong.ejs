@@ -1,0 +1,314 @@
+<%- include ../../layouts/header.ejs %>
+<% if (sale) { %>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+    <div class="layout-width">
+        <%- include ../../layouts/nav_header.ejs %>
+    </div>
+</header>
+        <!-- ========== App Menu ========== -->
+        <%- include ../../layouts/left_menu.ejs %>
+        <!-- Left Sidebar End -->
+        <!-- Vertical Overlay-->
+        <div class="vertical-overlay"></div>
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                <h4 class="mb-sm-0">Lịch sử trả lãi</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Lịch sử trả lãi</a></li>
+                                        <li class="breadcrumb-item active">Lịch sử</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col">
+
+                            <div class="h-100">
+
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <input id="myInput" class="form-control" type="text" placeholder="Tìm kiếm.." style="width: 300px;"><br>
+                                        <script>
+                                            $(document).ready(function(){
+                                                $("#myInput").on("keyup", function() {
+                                                    var value = $(this).val().toLowerCase();
+                                                    $("#myTable tr").filter(function() {
+                                                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                    });
+                                                });
+                                            });
+                                        </script>
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Lịch sử trả lãi</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th>STT</th>
+                                                                <th scope="col">Mã HĐ</th>
+                                                                <th scope="col">Khách hàng</th>
+                                                                <th scope="col">Đầu tư</th>
+                                                                <th scope="col">Sale trực tiếp</th>
+                                                                <th scope="col">Cấp trên 1</th>
+                                                                <th scope="col">Cấp trên 2</th>
+                                                                <th scope="col">Cấp trên 3</th>
+                                                                <th scope="col">Cấp trên 4</th>
+                                                                <th scope="col">Cấp trên 5</th>
+                                                                <th scope="col">Cấp trên 6</th>
+                                                                <th scope="col">Cấp trên 7</th>
+                                                                <th scope="col">Cấp trên 8</th>
+                                                                <th scope="col"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="myTable">
+                                                            <% var index = 0 %>
+                                                            <% ds_tra_hoa_hong.forEach(function(ds_tra_hoa_hong){ index++ %>
+                                                                <tr>
+                                                                    <td><%= index %></td>
+                                                                    <td><%= ds_tra_hoa_hong.ma_hop_dong %></td>
+                                                                    <td><%= ds_tra_hoa_hong.khach_hang %></td>
+                                                                    <td><%= ds_tra_hoa_hong.so_tien_dau_tu.toLocaleString() %></td>
+                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.ho_va_ten %></td>
+                                                                    <td><%= ds_tra_hoa_hong.nhan_vien_kinh_doanh %></td>
+                                                                    <td><%= ds_tra_hoa_hong.truong_nhom_kinh_doanh %></td>
+                                                                    <td><%= ds_tra_hoa_hong.truong_phong_kinh_doanh %></td>
+                                                                    <td><%= ds_tra_hoa_hong.pho_giam_doc_kinh_doanh %></td>
+                                                                    <td><%= ds_tra_hoa_hong.giam_doc_kinh_doanh %></td>
+                                                                    <td><%= ds_tra_hoa_hong.giam_doc_tinh %></td>
+                                                                    <td><%= ds_tra_hoa_hong.giam_doc_vung %></td>
+                                                                    <td><%= ds_tra_hoa_hong.giam_doc_chien_luoc %></td>
+                                                                    <td>
+                                                                        <button type="button" class="btn btn-success btn-label waves-effect waves-light rounded-pill" data-bs-toggle="modal" data-bs-target="#myModal-<%= ds_tra_hoa_hong._id %>"><i class="ri-file-user-line label-icon align-middle rounded-pill fs-16 me-2"></i> Chi tiết</button>
+                                                                        <div id="myModal-<%= ds_tra_hoa_hong._id %>" class="modal fade" tabindex="1" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;">
+                                                                            <div class="modal-dialog modal-xl">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-body">
+                                                                                        <div class="row">
+                                                                                            <div class="col-xl-12">
+                                                                                                <div class="card">
+                                                                                                    <div class="card-header">
+                                                                                                        <h4 class="card-title mb-0"><%= ds_tra_hoa_hong.ma_hop_dong %></h4>
+                                                                                                    <div class="card-body">
+                                                                                                        <table class="table table-bordered table-nowrap">
+                                                                                                            <thead>
+                                                                                                                <tr>
+                                                                                                                    <th scope="col">Họ và tên</th>
+                                                                                                                    <th scope="col">Chức vụ</th>
+                                                                                                                    <th scope="col">Trực tiếp</th>
+                                                                                                                    <th scope="col">Gián tiếp</th>
+                                                                                                                    <th scope="col">Thưởng</th>
+                                                                                                                    <th scope="col">Voucher</th>
+                                                                                                                    <th scope="col">Tổng</th>
+                                                                                                                    <th scope="col">Thành tiền</th>
+                                                                                                                    <th scope="col">Voucher ocs</th>
+                                                                                                                    <th scope="col">Khấu trừ thuế</th>
+                                                                                                                    <th scope="col">Thực nhận</th>
+                                                                                                                    <th scope="col">Số tài khoản</th>
+                                                                                                                    <th scope="col">Ngân hàng</th>
+                                                                                                                </tr>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.ho_va_ten %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.chuc_vu %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.hoa_hong %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.hoa_hong %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.tien_thuong %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.tien_thuong %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.nhan_vien_kinh_doanh %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.chuc_vu_nhan_vien %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_nhan_vien %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_nhan_vien %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_nhan_vien %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_nhan_vien %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.truong_nhom_kinh_doanh %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.chuc_vu_truong_nhom %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_truong_nhom %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_truong_nhom %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_truong_nhom %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_truong_nhom %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.truong_phong_kinh_doanh %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.chuc_vu_truong_phong %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_truong_phong %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_truong_phong %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_truong_phong %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_truong_phong %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.pho_giam_doc_kinh_doanh %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.chuc_vu_pho_giam_doc %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_pho_giam_doc %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_pho_giam_doc %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_pho_giam_doc %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_pho_giam_doc %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.giam_doc_kinh_doanh %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.chuc_vu_giam_doc %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.giam_doc_tinh %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.chuc_vu_giam_doc_tinh %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_tinh %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_tinh %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_tinh %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_tinh %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.giam_doc_vung %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.chuc_vu_giam_doc_vung %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_vung %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_vung %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_vung %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_vung %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td><%= ds_tra_hoa_hong.giam_doc_chien_luoc %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.chuc_vu_giam_doc_chien_luoc %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_chien_luoc %>%</td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_chien_luoc %>%</td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_chien_luoc %></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_chien_luoc %></td>
+                                                                                                                </tr>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            <% }); %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end row-->
+
+                            </div> <!-- end .h-100-->
+
+                        </div> <!-- end col -->
+                    </div>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script>© Bản quyền thuộc về công ty cổ phần tập đoàn chợ toàn cầu.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Lê Tuấn Khang
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
+        </div>
+    </div>
+    <% } %>
+<%- include ../../layouts/footer.ejs %>

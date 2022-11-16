@@ -6,8 +6,6 @@ const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 
 class Tra_lai_controller {
     POST_TRA_LAI(req, res) {
-
-        
         var edit_trang_thai = {};
         if (req.body.trang_thai_sale) {
             edit_trang_thai.trang_thai_sale = req.body.trang_thai_sale;
@@ -83,7 +81,17 @@ class Tra_lai_controller {
             console.log(update_hop_dong);
             res.redirect(req.get('referer'));
         });
-        
+    }
+
+    GET_TRA_HOA_HONG(req,res){
+        Sale_Schema.findById(req.params._id, function (err, sale) {
+            Tra_lai_sale_Schema.find(function (err, ds_tra_hoa_hong) {
+                thong_bao_Schema.find(function (err, thong_bao) {
+                    if (err) throw err;
+                    res.render('admin/pages/ke_toan/lich_su_tra_hoa_hong', { thong_bao, sale, ds_tra_hoa_hong });
+                })
+            }).sort({create_date: -1})
+        })
     }
 }
 

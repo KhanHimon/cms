@@ -188,7 +188,7 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
                             sales_giam_doc_vung, 
                             sales_giam_doc_chien_luoc, 
                             sales });
-                        }).populate('khach_hang').populate('trang_thai')
+                        }).sort({ create_date: -1 }).populate('khach_hang').populate('trang_thai')
                       }).populate({ path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
                     }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
                   }).populate({path: 'chuc_vu',populate: {path: 'hoa_hong_chuc_vu'}})
@@ -203,6 +203,8 @@ router.get('/quan-ly-tra-thuong/:_id', login_admin_controller.loginRequired, fun
 });
 
 router.post('/them-tra-lai/:_id', login_admin_controller.loginRequired, tra_lai_controller.POST_TRA_LAI)
+
+router.get('/lich-su-tra-hoa-hong/:_id', login_admin_controller.loginRequired, tra_lai_controller.GET_TRA_HOA_HONG);
 
 router.post('/them-hop-dong-dau-tu', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.them_hop_dong_dau_tu);
 router.post('/xoa-hop-dong/:_id', login_admin_controller.loginRequired, hop_dong_tra_thuong_controller.xoa_hop_dong_dau_tu);
