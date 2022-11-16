@@ -21,6 +21,9 @@
                                 <label for="hoa_hong_nhan_vien" class="form-label">% HH</label>
                                 <input type="number" class="form-control" id="hoa_hong_nhan_vien" name="hoa_hong_nhan_vien">
                             </div>
+                            <input type="hidden" value="<%= sales_nhan_vien.so_tai_khoan %>" class="form-control" id="so_tai_khoan_nhan_vien" name="so_tai_khoan_nhan_vien">
+                            <input type="hidden" value="<%= sales_nhan_vien.ngan_hang %>" class="form-control" id="ngan_hang_nhan_vien" name="ngan_hang_nhan_vien">
+                            <input type="hidden" value="<%= sales_nhan_vien.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu_nhan_vien" name="ma_gioi_thieu_nhan_vien">
                         </div>
                         <!-- check trưởng nhóm -->
                         <% sales_truong_nhom.forEach(function(sales_truong_nhom){ %>
@@ -44,6 +47,9 @@
                                         <input type="number" class="form-control" id="hoa_hong_truong_nhom" name="hoa_hong_truong_nhom">
                                     </div>
                                 </div>
+                                <input type="hidden" value="<%= sales_truong_nhom.so_tai_khoan %>" class="form-control" id="so_tai_khoan_truong_nhom" name="so_tai_khoan_truong_nhom">
+                                <input type="hidden" value="<%= sales_truong_nhom.ngan_hang %>" class="form-control" id="ngan_hang_truong_nhom" name="ngan_hang_truong_nhom">
+                                <input type="hidden" value="<%= sales_truong_nhom.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu_truong_nhom" name="ma_gioi_thieu_truong_nhom">
                                 <!-- check trưởng phòng -->
                                 <% sales_truong_phong.forEach(function(sales_truong_phong){ %>
                                     <% if (sales_truong_nhom.ma_code == sales_truong_phong.ma_gioi_thieu  ) { %>
@@ -66,6 +72,9 @@
                                                 <input type="number" class="form-control" id="hoa_hong_truong_phong" name="hoa_hong_truong_phong">
                                             </div>
                                         </div>
+                                        <input type="hidden" value="<%= sales_truong_phong.so_tai_khoan %>" class="form-control" id="so_tai_khoan_truong_phong" name="so_tai_khoan_truong_phong">
+                                        <input type="hidden" value="<%= sales_truong_phong.ngan_hang %>" class="form-control" id="ngan_hang_truong_phong" name="ngan_hang_truong_phong">
+                                        <input type="hidden" value="<%= sales_truong_phong.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu_truong_phong" name="ma_gioi_thieu_truong_phong">
                                         <!-- check phó giám đốc -->
                                         <% sales_pho_giam_doc.forEach(function(sales_pho_giam_doc){ %>
                                             <% if (sales_truong_phong.ma_code == sales_pho_giam_doc.ma_gioi_thieu ) { %>
@@ -88,6 +97,9 @@
                                                         <input type="number" class="form-control" id="hoa_hong_pho_giam_doc" name="hoa_hong_pho_giam_doc">
                                                     </div>
                                                 </div>
+                                                <input type="hidden" value="<%= sales_pho_giam_doc.so_tai_khoan %>" class="form-control" id="so_tai_khoan_pho_giam_doc" name="so_tai_khoan_pho_giam_doc">
+                                                <input type="hidden" value="<%= sales_pho_giam_doc.ngan_hang %>" class="form-control" id="ngan_hang_pho_giam_doc" name="ngan_hang_pho_giam_doc">
+                                                <input type="hidden" value="<%= sales_pho_giam_doc.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu_pho_giam_doc" name="ma_gioi_thieu_pho_giam_doc">
                                                 <!-- check giám đốc -->
                                                 <% sales_giam_doc.forEach(function(sales_giam_doc){ %>
                                                     <% if (sales_pho_giam_doc.ma_code == sales_giam_doc.ma_gioi_thieu ) { %>
@@ -110,6 +122,9 @@
                                                                     <input type="number" class="form-control" id="hoa_hong_giam_doc" name="hoa_hong_giam_doc">
                                                                 </div>
                                                         </div>
+                                                        <input type="hidden" value="<%= sales_giam_doc.so_tai_khoan %>" class="form-control" id="so_tai_khoan_giam_doc" name="so_tai_khoan_giam_doc">
+                                                        <input type="hidden" value="<%= sales_giam_doc.ngan_hang %>" class="form-control" id="ngan_hang_giam_doc" name="ngan_hang_giam_doc">
+                                                        <input type="hidden" value="<%= sales_giam_doc.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu_giam_doc" name="ma_gioi_thieu_giam_doc">
                                                         <!-- check giám đốc tỉnh -->
                                                         <% sales_giam_doc_tinh.forEach(function(sales_giam_doc_tinh){ %>
                                                             <% if (sales_giam_doc.ma_code == sales_giam_doc_tinh.ma_gioi_thieu ) { %>
@@ -132,6 +147,9 @@
                                                                         <input type="number" class="form-control" id="hoa_hong_giam_doc_tinh" name="hoa_hong_giam_doc_tinh">
                                                                     </div>
                                                                 </div>
+                                                                <input type="hidden" value="<%= sales_giam_doc_tinh.so_tai_khoan %>" class="form-control" id="so_tai_khoan_giam_doc_tinh" name="so_tai_khoan_giam_doc_tinh">
+                                                                <input type="hidden" value="<%= sales_giam_doc_tinh.ngan_hang %>" class="form-control" id="ngan_hang_giam_doc_tinh" name="ngan_hang_giam_doc_tinh">
+                                                                <input type="hidden" value="<%= sales_giam_doc_tinh.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu_giam_doc_tinh" name="ma_gioi_thieu_giam_doc_tinh">
                                                                 <!-- check giám đốc vùng -->
                                                                 <% sales_giam_doc_vung.forEach(function(sales_giam_doc_vung){ %>
                                                                     <% if (sales_giam_doc_tinh.ma_code == sales_giam_doc_vung.ma_gioi_thieu ) { %>
@@ -154,6 +172,9 @@
                                                                                 <input type="number" class="form-control" id="hoa_hong_giam_doc_vung" name="hoa_hong_giam_doc_vung">
                                                                             </div>
                                                                         </div>
+                                                                        <input type="hidden" value="<%= sales_giam_doc_vung.so_tai_khoan %>" class="form-control" id="so_tai_khoan_giam_doc_vung" name="so_tai_khoan_giam_doc_vung">
+                                                                        <input type="hidden" value="<%= sales_giam_doc_vung.ngan_hang %>" class="form-control" id="ngan_hang_giam_doc_vung" name="ngan_hang_giam_doc_vung">
+                                                                        <input type="hidden" value="<%= sales_giam_doc_vung.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu_giam_doc_vung" name="ma_gioi_thieu_giam_doc_vung">
                                                                         <!-- check giám đốc chiến lược -->
                                                                         <% sales_giam_doc_chien_luoc.forEach(function(sales_giam_doc_chien_luoc){ %>
                                                                             <% if (sales_giam_doc_vung.ma_code == sales_giam_doc_chien_luoc.ma_gioi_thieu ) { %>
@@ -176,6 +197,9 @@
                                                                                         <input type="number" class="form-control" id="hoa_hong_giam_doc_chien_luoc" name="hoa_hong_giam_doc_chien_luoc">
                                                                                     </div>
                                                                                 </div>
+                                                                                <input type="hidden" value="<%= sales_giam_doc_chien_luoc.so_tai_khoan %>" class="form-control" id="so_tai_khoan_giam_doc_chien_luoc" name="so_tai_khoan_giam_doc_chien_luoc">
+                                                                                <input type="hidden" value="<%= sales_giam_doc_chien_luoc.ngan_hang %>" class="form-control" id="ngan_hang_giam_doc_chien_luoc" name="ngan_hang_giam_doc_chien_luoc">
+                                                                                <input type="hidden" value="<%= sales_giam_doc_chien_luoc.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu_giam_doc_chien_luoc" name="ma_gioi_thieu_giam_doc_chien_luoc">
                                                                             <% } %>
                                                                         <% }); %>
                                                                     <% } %>

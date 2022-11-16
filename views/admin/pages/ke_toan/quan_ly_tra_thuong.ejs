@@ -151,6 +151,9 @@
                                                                                                                                     <% sales.forEach(function(sales){ %>
                                                                                                                                         <% if (sales.ma_gioi_thieu == ds_hop_dong.khach_hang.ma_gioi_thieu ) { %>
                                                                                                                                         <input type="text" value="<%= sales.chuc_vu.ten_chuc_vu %>" class="form-control" id="chuc_vu" name="chuc_vu">
+                                                                                                                                        <input type="hidden" value="<%= sales.so_tai_khoan %>" class="form-control" id="so_tai_khoan" name="so_tai_khoan">
+                                                                                                                                        <input type="hidden" value="<%= sales.ngan_hang %>" class="form-control" id="ngan_hang" name="ngan_hang">
+                                                                                                                                        <input type="hidden" value="<%= sales.ma_gioi_thieu %>" class="form-control" id="ma_gioi_thieu" name="ma_gioi_thieu">
                                                                                                                                         <% } %>
                                                                                                                                     <% }); %>
                                                                                                                                 </div>
