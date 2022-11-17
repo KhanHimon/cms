@@ -449,6 +449,7 @@
                                                                                 });
                                                                             });
                                                                         </script>
+                                                                        <button style="margin-left: 20px;" name="button-c" id="button-c" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Xuất Excel</button>
                                                                     </div>
                         
                                                                     <div class="card-body">
@@ -564,6 +565,20 @@
                                                                         </div>
                                                                         
                                                                     </div>
+                                                                    <script>
+                                                                        var wb = XLSX.utils.table_to_book(document.getElementById('tat_ca'), {sheet:"Sheet JS"});
+                                                                        var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
+                                                                        function s2ab(s) {
+                    
+                                                                                        var buf = new ArrayBuffer(s.length);
+                                                                                        var view = new Uint8Array(buf);
+                                                                                        for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                                                                                        return buf;
+                                                                        }
+                                                                        $("#button-c").click(function(){
+                                                                        saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_SALE.xlsx');
+                                                                        });
+                                                                    </script>
                                                                 </div> <!-- .card-->
                                                             </div>
                                                         </div>
@@ -590,7 +605,7 @@
                                                                     <div class="card-body">
                                                                         
                                                                         <div class="table-responsive table-card">
-                                                                            <table class="table table-borderless table-centered align-middle table-nowrap mb-0" id="GD_KD">
+                                                                            <table id="gd_kinh_doanh" class="table table-borderless table-centered align-middle table-nowrap mb-0">
                                                                                 <thead class="text-muted table-light">
                                                                                     <tr>
                                                                                         <th scope="col">STT</th>
@@ -700,7 +715,7 @@
                                                                             </table><!-- end table -->
                                                                         </div>
                                                                         <script>
-                                                                            var wb = XLSX.utils.table_to_book(document.getElementById('GD_KD'), {sheet:"Sheet JS"});
+                                                                            var wb = XLSX.utils.table_to_book(document.getElementById('gd_kinh_doanh'), {sheet:"Sheet JS"});
                                                                             var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
                                                                             function s2ab(s) {
                         

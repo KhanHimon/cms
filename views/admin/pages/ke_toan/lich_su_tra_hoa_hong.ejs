@@ -137,10 +137,10 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.sale_truc_tiep.hoa_hong %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.tien_thuong %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.sale_truc_tiep.tien_thuong).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.sale_truc_tiep.tien_thuong %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.sale_truc_tiep.tien_thuong).toLocaleString()  %></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.sale_truc_tiep.so_tai_khoan %></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.sale_truc_tiep.ngan_hang %></td>
                                                                                                                 </tr>
@@ -152,10 +152,10 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.hoa_hong_nhan_vien %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_nhan_vien %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_nhan_vien).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_nhan_vien %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_nhan_vien).toLocaleString() %></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.so_tai_khoan_nhan_vien %></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.ngan_hang_nhan_vien %></td>
                                                                                                                 </tr>
@@ -167,10 +167,10 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.hoa_hong_truong_nhom %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_truong_nhom %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_truong_nhom).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_truong_nhom %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_truong_nhom).toLocaleString() %></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.so_tai_khoan_truong_nhom %></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.ngan_hang_truong_nhom %></td>
                                                                                                                 </tr>
@@ -182,10 +182,12 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.hoa_hong_truong_phong %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_truong_phong %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_truong_phong).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_truong_phong %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_truong_phong).toLocaleString() %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.so_tai_khoan_truong_phong %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.ngan_hang_truong_phong %></td>
                                                                                                                 </tr>
                                                                                                                 <tr>
                                                                                                                     <td><%= ds_tra_hoa_hong.pho_giam_doc_kinh_doanh %></td>
@@ -195,10 +197,12 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.hoa_hong_pho_giam_doc %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_pho_giam_doc %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_pho_giam_doc).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_pho_giam_doc %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_pho_giam_doc).toLocaleString() %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.so_tai_khoan_pho_giam_doc %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.ngan_hang_pho_giam_doc %></td>
                                                                                                                 </tr>
                                                                                                                 <tr>
                                                                                                                     <td><%= ds_tra_hoa_hong.giam_doc_kinh_doanh %></td>
@@ -208,10 +212,12 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc).toLocaleString() %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.so_tai_khoan_giam_doc %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.ngan_hang_giam_doc %></td>
                                                                                                                 </tr>
                                                                                                                 <tr>
                                                                                                                     <td><%= ds_tra_hoa_hong.giam_doc_tinh %></td>
@@ -221,10 +227,12 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_tinh %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_tinh %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_tinh).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_tinh %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_tinh).toLocaleString() %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.so_tai_khoan_giam_doc_tinh %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.ngan_hang_giam_doc_tinh %></td>
                                                                                                                 </tr>
                                                                                                                 <tr>
                                                                                                                     <td><%= ds_tra_hoa_hong.giam_doc_vung %></td>
@@ -234,10 +242,12 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_vung %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_vung %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_vung).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_vung %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_vung).toLocaleString() %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.so_tai_khoan_giam_doc_vung %></td>
+                                                                                                                    <td><%= ds_tra_hoa_hong.ngan_hang_giam_doc_vung %></td>
                                                                                                                 </tr>
                                                                                                                 <tr>
                                                                                                                     <td><%= ds_tra_hoa_hong.giam_doc_chien_luoc %></td>
@@ -247,10 +257,14 @@
                                                                                                                     <td></td>
                                                                                                                     <td></td>
                                                                                                                     <td><%= ds_tra_hoa_hong.hoa_hong_giam_doc_chien_luoc %>%</td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_chien_luoc %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_chien_luoc).toLocaleString() %></td>
                                                                                                                     <td></td>
                                                                                                                     <td></td>
-                                                                                                                    <td><%= ds_tra_hoa_hong.tien_thuong_giam_doc_chien_luoc %></td>
+                                                                                                                    <td><%= parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_chien_luoc).toLocaleString() %></td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                        <td>Tổng chi trả: <%= parseInt(ds_tra_hoa_hong.sale_truc_tiep.tien_thuong) + parseInt(ds_tra_hoa_hong.tien_thuong_truong_nhom) + parseInt(ds_tra_hoa_hong.tien_thuong_truong_phong) + parseInt(ds_tra_hoa_hong.tien_thuong_pho_giam_doc) + parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc) + parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_tinh) + parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_vung) + parseInt(ds_tra_hoa_hong.tien_thuong_giam_doc_chien_luoc)  %></td>
+                                                                                                                    
                                                                                                                 </tr>
                                                                                                             </tbody>
                                                                                                         </table>
