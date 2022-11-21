@@ -46,7 +46,7 @@ class APP_SALE_CONTROLLER {
         Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
           if (err) console.log(err);
           res.render('app_sale/pages/khach_hang', { hop_dongs, users, sale });
-        })
+        }).populate('khach_hang').populate('trang_thai')
       })
     })
   }

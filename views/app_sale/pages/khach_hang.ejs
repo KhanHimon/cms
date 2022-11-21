@@ -49,11 +49,11 @@
                                             <div class="col-auto text-end">
                                                 <% let sl_hd = 0; %>
                                                 <% hop_dongs.forEach(function(hop_dong){ %>
-                                                    <% if (users.id == hop_dong.khach_hang.id) { %>
+                                                    <% if (users.id === hop_dong.khach_hang.id) { %>
                                                         <% sl_hd++ %>
                                                     <% } %>
                                                 <% }); %>
-                                                <p>Số lượng HĐ<br><small class="text-secondary"><%= sl_hd %></small></p>
+                                                <p>Số lượng HĐ<br><small class="text-secondary"><%= sl_hd %> Hợp đồng</small></p>
                                             </div>
                                         </div>
                                     </li>
