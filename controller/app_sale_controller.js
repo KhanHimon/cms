@@ -15,6 +15,7 @@ const hop_dong_tra_thuong_Schema = require('../models/hop_dong_tra_thuong.model'
 const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 const Vung_Schema = require('../models/vung.model');
 const Tinh_Schema = require('../models/tinh.model');
+const tin_tuc_Schema = require('../models/tin_tuc.model');
 
 var mongoose = require('mongoose'),
   jwt = require('jsonwebtoken');
@@ -23,31 +24,48 @@ const { token_sale } = require('morgan');
 class APP_SALE_CONTROLLER {
 
   GET_LOGIN_SALE(req, res) {
-    res.render('app_sale/app_login_sale', {message: req.flash('message') });
+    res.render('app_sale/app_login_sale', { message: req.flash('message') });
   }
 
   GET_HOME_SALE(req, res) {
     Sale_Schema.findById(req.params._id, function (err, sale) {
-      thong_bao_Schema.find(function (err, thong_bao) {
-        Sale_Schema.find(function (err, sales) {
-          Vung_Schema.find(function (err, vungs) {
-            Tinh_Schema.find(function (err, tinhs) {
-              Nhom_sale_Schema.find(function (err, nhoms) {
-                Chuc_vu_Schema.find(function (err, chuc_vus) { 
-                  Hop_dong_dau_tu_Schema.find(function (err, hop_dong) {
-                    User_Schema.find(function (err, khach_hang) {
-                      if (err) throw err;
-                      res.render('app_sale/app_sale', { sale, thong_bao, sales, vungs, tinhs, nhoms, chuc_vus, hop_dong, khach_hang, message: req.flash('message') });
-                    })
-                  }).populate('khach_hang')
-                })
-              })
-            })
+      User_Schema.find(function (err, users) {
+        Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+          tin_tuc_Schema.find(function (err, tin_tucs) {
+            if (err) console.log(err);
+            res.render('app_sale/app_sale', { users, hop_dongs, tin_tucs, sale });
           })
-        }).populate('chuc_vu').populate('nhom_kinh_doanh').sort({ 'create_date': -1 })
+        }).populate('khach_hang').populate('trang_thai')
       })
-    }).populate('chuc_vu').populate('nhom_kinh_doanh')
+    })
   }
+
+  GET_KHACH_HANG_SALE(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      User_Schema.find(function (err, users) {
+        Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+          if (err) console.log(err);
+          res.render('app_sale/pages/khach_hang', { hop_dongs, users, sale });
+        })
+      })
+    })
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   check_app_sale(req, res) {
     Sale_Schema.findOne({

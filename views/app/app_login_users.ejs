@@ -39,14 +39,16 @@
                     <div class="form-group form-floating is-valid mb-3">
                         <input class="form-control " type="password" name="password" id="password">
                         <label class="form-control-label" for="password">Mật khẩu</label>
+                        <a href="/sale/login">Đăng nhập cho sale</a>
                     </div>
                 </div>
+                
                 <% if (message) { %>
                     <p id="mess"
                         style="font-size: 16px; color: rgb(248, 49, 49); text-align: center;">
                         <%= message %>
                     </p>
-                    <% } %>
+                <% } %>
                 <div class="col-11 col-sm-11 mt-auto mx-auto py-4">
                     <div class="row ">
                         <div class="col-12 d-grid">
