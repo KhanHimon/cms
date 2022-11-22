@@ -1,0 +1,110 @@
+
+<%- include ../layouts/header_sale.ejs %>
+<body class="body-scroll" data-page="index">
+    <%- include ../layouts/loading_sale.ejs %>
+    <%- include ../layouts/sidebar_sale.ejs %>
+    <main class="h-100">
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="/images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/app/profile/<%= sale.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="main-container container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card shadow-sm mb-4 ">
+                        <ul class="list-group list-group-flush bg-none">
+                            <% hoa_hongs.forEach(function(hoa_hongs){ %>
+                                <% if (hoa_hongs.sale_truc_tiep.ma_gioi_thieu == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng trực tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.sale_truc_tiep.tien_thuong).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                                <!-- HOA HỒNG NHÂN VIÊN -->
+                                <% if (hoa_hongs.ma_gioi_thieu_nhan_vien == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_nhan_vien).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                                <!-- HOA HỒNG TRƯỞNG NHÓM -->
+                                <% if (hoa_hongs.ma_gioi_thieu_truong_nhom == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_truong_nhom).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                            <% }); %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include ../layouts/tab_sale.ejs %>
+<%- include ../layouts/footer_sale.ejs %>

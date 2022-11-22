@@ -16,6 +16,7 @@ const Hop_dong_dau_tu_Schema = require('../models/hop_dong_dau_tu.model');
 const Vung_Schema = require('../models/vung.model');
 const Tinh_Schema = require('../models/tinh.model');
 const tin_tuc_Schema = require('../models/tin_tuc.model');
+const Tra_lai_sale_Schema = require('../models/tra_lai_sale.model');
 
 var mongoose = require('mongoose'),
   jwt = require('jsonwebtoken');
@@ -46,6 +47,19 @@ class APP_SALE_CONTROLLER {
         Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
           if (err) console.log(err);
           res.render('app_sale/pages/khach_hang', { hop_dongs, users, sale });
+        }).populate('khach_hang').populate('trang_thai')
+      })
+    })
+  }
+
+  GET_HOA_HONG(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      User_Schema.find(function (err, users) {
+        Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+          Tra_lai_sale_Schema.find(function (err, hoa_hongs){
+            if (err) console.log(err);
+            res.render('app_sale/pages/tra_lai', { hop_dongs, users, sale, hoa_hongs });
+          });
         }).populate('khach_hang').populate('trang_thai')
       })
     })
