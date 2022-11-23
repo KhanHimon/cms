@@ -41,6 +41,15 @@ class APP_SALE_CONTROLLER {
     })
   }
 
+  GET_PROFILE_SALE(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+        Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+          if (err) console.log(err);
+          res.render('app_sale/pages/profile_sale', { hop_dongs, sale });
+        }).populate('khach_hang').populate('trang_thai')
+    })
+  }
+
   GET_KHACH_HANG_SALE(req, res) {
     Sale_Schema.findById(req.params._id, function (err, sale) {
       User_Schema.find(function (err, users) {
@@ -49,6 +58,26 @@ class APP_SALE_CONTROLLER {
           res.render('app_sale/pages/khach_hang', { hop_dongs, users, sale });
         }).populate('khach_hang').populate('trang_thai')
       })
+    })
+  }
+
+  GET_PROFILE_KHACH_HANG_SALE(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      User_Schema.findById(req.params.id, function (err, user) {
+        Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+          if (err) console.log(err);
+          res.render('app_sale/pages/profile_khach_hang', { hop_dongs, user, sale });
+        }).populate('khach_hang').populate('trang_thai')
+      })
+    })
+  }
+
+  GET_DETAIL_HOP_DONG(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+        Hop_dong_dau_tu_Schema.findById(req.params.id, function (err, hop_dong) {
+          if (err) console.log(err);
+          res.render('app_sale/pages/detail_hop_dong', { hop_dong, sale });
+        }).populate('khach_hang').populate('trang_thai')
     })
   }
 

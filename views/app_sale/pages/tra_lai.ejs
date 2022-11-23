@@ -93,8 +93,139 @@
                                                 <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
                                             </div>
                                             <div class="col-auto text-end">
-                                                
                                                 <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_truong_nhom).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                                <!-- HOA HỒNG TRƯỞNG PHÒNG -->
+                                <% if (hoa_hongs.ma_gioi_thieu_truong_phong == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_truong_phong).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                                <!-- HOA HỒNG PHÓ GIÁM ĐỐC -->
+                                <% if (hoa_hongs.ma_gioi_thieu_pho_giam_doc == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_pho_giam_doc).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                                <!-- HOA HỒNG GIÁM ĐỐC -->
+                                <% if (hoa_hongs.ma_gioi_thieu_giam_doc == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_giam_doc).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                                <!-- HOA HỒNG GIÁM ĐỐC TỈNH -->
+                                <% if (hoa_hongs.ma_gioi_thieu_giam_doc_tinh == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_giam_doc_tinh).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                                <!-- HOA HỒNG GIÁM ĐỐC VÙNG -->
+                                <% if (hoa_hongs.ma_gioi_thieu_giam_doc_vung == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_giam_doc_vung).toLocaleString() %></small></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                                <!-- HOA HỒNG GIÁM ĐỐC CHIẾN LƯỢC -->
+                                <% if (hoa_hongs.ma_gioi_thieu_giam_doc_chien_luoc == sale.ma_gioi_thieu) { %>
+                                    <li class="list-group-item border-0">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <div class="card">
+                                                    <div class="card-body p-1">
+                                                        <figure class="avatar avatar-44 rounded-15">
+                                                            <img src="/images/gmg.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p><%= hoa_hongs.ma_hop_dong %><br><small class="text-secondary">Hoa hồng gián tiếp</small></p>
+                                            </div>
+                                            <div class="col-auto text-end">
+                                                <p>Đã thanh toán<br><small style="color: green;">+ <%= parseInt(hoa_hongs.tien_thuong_giam_doc_chien_luoc).toLocaleString() %></small></p>
                                             </div>
                                         </div>
                                     </li>
