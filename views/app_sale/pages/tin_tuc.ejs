@@ -1,0 +1,60 @@
+
+<%- include ../layouts/header_sale.ejs %>
+<body class="body-scroll" data-page="index">
+    <%- include ../layouts/loading_sale.ejs %>
+    <%- include ../layouts/sidebar_sale.ejs %>
+    <main class="h-100">
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i>
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="/images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/sale/thong-tin-ca-nhan/<%= sale.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="main-container container">
+            <div class="row">
+                <div class="row mb-3">
+                    <div class="col">
+                        <h6 class="title">Tin tức mới nhất</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <% tin_tucs.forEach(function(tin_tucs){ %>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <a href="/sale/tin-tuc-chi-tiet=<%= tin_tucs.id %>/<%= sale._id %>" class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
+                                            <img src="<%= tin_tucs.anh_dai_dien %>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col align-self-center ps-0">
+                                        <p class="mb-1" style="font-size: 14px;"><%= tin_tucs.tieu_de %></p>
+                                        <p class="text-muted size-12">Liên hiệp Hợp tác xã Việt Nam cùng Công ty CP Tập đoàn Chợ toàn cầu GMG tổ chức Lễ Động thổ dự án Khu TMDV Tổng hợp phường Tân Thành</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include ../layouts/tab_sale.ejs %>
+<%- include ../layouts/footer_sale.ejs %>

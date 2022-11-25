@@ -43,10 +43,10 @@ class APP_SALE_CONTROLLER {
 
   GET_PROFILE_SALE(req, res) {
     Sale_Schema.findById(req.params._id, function (err, sale) {
-        Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
-          if (err) console.log(err);
-          res.render('app_sale/pages/profile_sale', { hop_dongs, sale });
-        }).populate('khach_hang').populate('trang_thai')
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        if (err) console.log(err);
+        res.render('app_sale/pages/profile_sale', { hop_dongs, sale });
+      }).populate('khach_hang').populate('trang_thai')
     })
   }
 
@@ -74,10 +74,10 @@ class APP_SALE_CONTROLLER {
 
   GET_DETAIL_HOP_DONG(req, res) {
     Sale_Schema.findById(req.params._id, function (err, sale) {
-        Hop_dong_dau_tu_Schema.findById(req.params.id, function (err, hop_dong) {
-          if (err) console.log(err);
-          res.render('app_sale/pages/detail_hop_dong', { hop_dong, sale });
-        }).populate('khach_hang').populate('trang_thai')
+      Hop_dong_dau_tu_Schema.findById(req.params.id, function (err, hop_dong) {
+        if (err) console.log(err);
+        res.render('app_sale/pages/detail_hop_dong', { hop_dong, sale });
+      }).populate('khach_hang').populate('trang_thai')
     })
   }
 
@@ -85,7 +85,7 @@ class APP_SALE_CONTROLLER {
     Sale_Schema.findById(req.params._id, function (err, sale) {
       User_Schema.find(function (err, users) {
         Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
-          Tra_lai_sale_Schema.find(function (err, hoa_hongs){
+          Tra_lai_sale_Schema.find(function (err, hoa_hongs) {
             if (err) console.log(err);
             res.render('app_sale/pages/tra_lai', { hop_dongs, users, sale, hoa_hongs });
           });
@@ -95,12 +95,60 @@ class APP_SALE_CONTROLLER {
   }
 
 
+  GET_DOI_MAT_KHAU(req, res) {
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      User_Schema.find(function (err, users) {
+        Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+          Tra_lai_sale_Schema.find(function (err, hoa_hongs) {
+            if (err) console.log(err);
+            res.render('app_sale/pages/doi_mat_khau', { hop_dongs, users, sale, hoa_hongs, message: req.flash('message') });
+          });
+        }).populate('khach_hang').populate('trang_thai')
+      })
+    })
+  }
+
+  POST_MAT_KHAU_MOI(req, res) {
+    const pass_sale = {};
+    if (req.body.password_sale) {
+      pass_sale.password_sale = req.body.password_sale;
+    }
+    const options = {
+      new: true,
+    }
+    Sale_Schema.findByIdAndUpdate(req.params._id, { $set: pass_sale }, options, (err, pass_update_sale) => {
+      console.log(pass_update_sale);
+      req.flash('message', 'Đổi mật khẩu thành công');
+      res.redirect(req.get('referer'));
+    });
+  }
 
 
+  GET_HOP_DONG(req,res){
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
+        res.render('app_sale/pages/hop_dong', { hop_dongs, sale});
+      }).populate('khach_hang').populate('trang_thai')
+    })
+  }
 
+  GET_TIN_TUC(req,res){
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      tin_tuc_Schema.find(function (err, tin_tucs) {
+        if (err) console.log(err);
+        res.render('app_sale/pages/tin_tuc', { sale, tin_tucs });
+      })
+    })
+  }
 
-
-
+  GET_CHI_TIET_TIN_TUC(req,res){
+    Sale_Schema.findById(req.params._id, function (err, sale) {
+      tin_tuc_Schema.findById(req.params.id, function (err, tin_tuc_detail) {
+        if (err) console.log(err);
+        res.render('app_sale/pages/chi_tiet_tin_tuc', { sale, tin_tuc_detail });
+      })
+    })
+  }
 
 
 

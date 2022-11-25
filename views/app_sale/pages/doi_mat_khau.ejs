@@ -1,0 +1,61 @@
+
+<%- include ../layouts/header_sale.ejs %>
+<body class="body-scroll" data-page="index">
+    <%- include ../layouts/loading_sale.ejs %>
+    <%- include ../layouts/sidebar_sale.ejs %>
+    <main class="h-100">
+        <header class="header position-fixed">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
+                        <i class="bi bi-backspace"></i>
+                    </a>
+                </div>
+                <div class="col text-center">
+                    <div class="logo-small">
+                        <img src="/images/gmg.png" alt="" />
+                        <h5><span class="text-secondary fw-light">GMG</span><br />Invest</h5>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <a href="/sale/thong-tin-ca-nhan/<%= sale.id %>" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="count-indicator"></span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="main-container container">
+            <form action="/sale/doi-mat-khau/<%= sale.id %>" method="post">
+                <div class="row h-100">
+                    <div class="col-11 col-sm-11 col-md-6 col-lg-5 col-xl-3 mx-auto align-self-center py-4">
+                        <h1 class="mb-3"><span class="text-secondary fw-light">Thay đổi</span><br/>mật khẩu</h1>
+                        <% if (message) { %>
+                            <p id="mess" style="padding: 10px; font-size: 20px; margin-bottom: 20px; color: green;">
+                                <%= message %>
+                            </p>
+                        <% } %>
+                        <script>
+                            setTimeout(() => {
+                                const box = document.getElementById('mess');
+                                box.style.display = 'none';
+                                }, 5000);
+                        </script>
+                        <div class="form-group form-floating mb-3 is-valid">
+                            <input type="password" class="form-control" id="password_sale" name="password_sale" placeholder="Mật khẩu mới">
+                            <label class="form-control-label" for="password_sale">Mật khẩu mới</label>
+                        </div>
+                    </div>
+                    <div class="col-11 col-sm-11 mt-auto mx-auto py-4">
+                        <div class="row ">
+                            <div class="col-12 d-grid">
+                                <button type="submit" class="btn btn-default btn-lg shadow-sm">thay đổi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <%- include ../layouts/tab_sale.ejs %>
+<%- include ../layouts/footer_sale.ejs %>

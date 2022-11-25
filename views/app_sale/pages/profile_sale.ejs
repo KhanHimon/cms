@@ -64,7 +64,7 @@
             <!-- buttons -->
             <div class="row mb-4">
                 <div class="col">
-                    <a href="#" class="btn btn-light btn-lg shadow-sm w-100">Đổi mật khẩu</a>
+                    <a href="/sale/doi-mat-khau/<%= sale.id %>" class="btn btn-light btn-lg shadow-sm w-100">Đổi mật khẩu</a>
                 </div>
                 <div class="col">
                     <a href="message.html" class="btn btn-default btn-lg shadow-sm w-100">Hỗ trợ</a>
@@ -76,11 +76,32 @@
                     <div class="card shadow-sm">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-6">
                                     <p class="mb-1">Họ và tên : <%= sale.ho_va_ten %></p>
                                 </div>
-                                <div class="col">
+                                <div class="col-6">
                                     <p class="mb-1">Năm sinh : <%= sale.nam_sinh %></p>
+                                </div>
+                                <div class="col-8">
+                                    <p class="mb-1">CMND/CCCD : <%= sale.cmnd_cccd %></p>
+                                </div>
+                                <div class="col-4">
+                                    <p class="mb-1">Dân tộc : <%= sale.dan_toc %></p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="mb-1">Ngày cấp : <%= sale.ngay_cap.getDate() %>/<%= sale.ngay_cap.getMonth() %>/<%= sale.ngay_cap.getFullYear() %></p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="mb-1">Email : <%= sale.email %></p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="mb-1">Điện thoại : 0<%= sale.dien_thoai %></p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="mb-1">Địa chỉ : <%= sale.dia_chi %></p>
+                                </div>
+                                <div class="col-12">
+                                    <p class="mb-1">Mã giới thiệu : <%= sale.ma_gioi_thieu %></p>
                                 </div>
                             </div>
 
@@ -92,192 +113,42 @@
             <!-- My Frequent Payments -->
             <div class="row mb-3">
                 <div class="col">
-                    <h6 class="title">My Frequent Payments</h6>
+                    <h6 class="title">Tải khoản ngân hàng</h6>
                 </div>
             </div>
-            <div class="row mb-1">
-                <div class="col-12 col-md-6">
-                    <div class="card overflow-hidden mb-3">
-                        <figure class="m-0 p-0 position-absolute top-0 end-0 w-50 h-100 coverimg">
-                            <img src="assets/img/image2.jpg" alt="">
-                        </figure>
-                        <div class="card-body p-0">
-                            <div class="row mx-0">
-                                <div class="col-8 py-3 aftercircle">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <a href="profile.html" class="card text-center">
-                                                <div class="card-body p-1">
-                                                    <div
-                                                        class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                                    </div>
-                                                    <figure class="avatar avatar-70 shadow-sm rounded-18">
-                                                        <img src="assets/img/user4.jpg" alt="" />
-                                                    </figure>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col align-self-center px-0">
-                                            <p class="text-secondary size-10 mb-0">Send Money</p>
-                                            <p class="mb-2">John Winsels</p>
-                                            <p>150.00
-                                                <small class="text-success">18.2
-                                                    <i class="bi bi-arrow-up"></i>
-                                                </small>
-                                            </p>
-                                        </div>
-                                    </div>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card theme-bg shadow-sm shadow-purple mb-3">
+                        <img src="../../app/img/card-bg.png" alt="" class="cardimg" />
+                        <div class="card-body">
+                            <div class="row mb-4">
+                                <div class="col-auto align-self-center">
+                                    <img src="../../app/img/maestro.png" alt=""> Ngân hàng <%= sale.ngan_hang %>
+                                </div>
+                                <div class="col align-self-center text-end">
+                                    <p class="small">
+                                        <span class="text-muted size-10">Ngân hàng</span><br>
+                                        <span class=""><%= sale.ngan_hang %></span>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div class="card overflow-hidden mb-3">
-                        <figure class="m-0 p-0 position-absolute top-0 end-0 w-50 h-100 coverimg">
-                            <img src="assets/img/image3.jpg" alt="" />
-                        </figure>
-                        <div class="card-body p-0">
-                            <div class="row mx-0">
-                                <div class="col-8 py-3 aftercircle">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <div class="card text-center">
-                                                <div class="card-body p-1">
-                                                    <div
-                                                        class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                                    </div>
-                                                    <figure class="avatar avatar-70 shadow-sm rounded-18">
-                                                        <img src="assets/img/company5.png" alt="">
-                                                    </figure>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col align-self-center px-0">
-                                            <p class="text-secondary size-10 mb-0">Transportation</p>
-                                            <p class="mb-2">ID0582Max</p>
-                                            <p>320.00
-                                                <small class="text-success">1.65
-                                                    <i class="bi bi-arrow-up"></i>
-                                                </small>
-                                            </p>
-                                        </div>
-                                    </div>
+                            <h6 class="fw-normal mb-3">
+                                <p>SỐ TÀI KHOẢN : <%= sale.so_tai_khoan %></p>
+                            </h6>
+                            <div class="row">
+                            <div class="col-auto">
+                                    <p class="mb-0 text-muted size-10">Chủ tài khoản</p>
+                                    <p style="text-transform: uppercase;"><%= sale.ho_va_ten %></p>
+                                </div>
+                                <div class="col text-end">
+                                    <p class="mb-0 text-muted size-10">Chi nhánh</p>
+                                    <p><%= sale.chi_nhanh %></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- People -->
-            <div class="row mb-2">
-                <div class="col">
-                    <h6 class="title">People</h6>
-                </div>
-                <div class="col-auto">
-                    <a href="userlist.html" class="small">View More</a>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12 px-0">
-                    <!-- swiper users connections -->
-                    <div class="swiper-container connectionwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <a href="profile.html" class="card text-center">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-80 shadow-sm rounded-18">
-                                            <img src="assets/img/user4.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a href="profile.html" class="card text-center">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-danger z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-80 shadow-sm rounded-20">
-                                            <img src="assets/img/user2.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a href="profile.html" class="card text-center">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-warning z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-80 shadow-sm rounded-20">
-                                            <img src="assets/img/user3.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a href="profile.html" class="card text-center">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-80 shadow-sm rounded-20">
-                                            <img src="assets/img/user1.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="swiper-slide">
-                                <a href="profile.html" class="card text-center">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-80 shadow-sm rounded-20">
-                                            <img src="assets/img/user4.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a href="profile.html" class="card text-center">
-                                    <div class="card-body p-1">
-                                        <figure class="avatar avatar-80 shadow-sm rounded-20">
-                                            <img src="assets/img/user2.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a href="profile.html" class="card text-center">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-80 shadow-sm rounded-20">
-                                            <img src="assets/img/user3.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="swiper-slide">
-                                <a href="profile.html" class="card text-center">
-                                    <div class="card-body p-1">
-                                        <figure class="avatar avatar-80 shadow-sm rounded-20">
-                                            <img src="assets/img/user1.jpg" alt="">
-                                        </figure>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </main>
     <%- include ../layouts/tab_sale.ejs %>
