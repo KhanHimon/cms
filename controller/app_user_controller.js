@@ -22,6 +22,23 @@ const { token } = require('morgan');
 
 class APP_USER_CONTROLLER {
 
+  GET_HOME_NEWS(req, res) {
+    tin_tuc_Schema.find(function (err, tin_tucs) {
+      tin_tuc_Schema.find(function (err, tin_tucs_1) {
+        if (err) console.log(err);
+        res.render('app/pages/home_new', { tin_tucs, tin_tucs_1 });
+      })
+    }).limit(2)
+  }
+  GET_HOME_NEWS_DETAIL(req, res) {
+    tin_tuc_Schema.findById(req.params._id, function (err, tin_tucs_detail) {
+      tin_tuc_Schema.find(function (err, tin_tucs_1) {
+        if (err) console.log(err);
+        res.render('app/pages/home_new_detail', { tin_tucs_detail, tin_tucs_1 });
+      }).limit(2)
+    })
+  }
+
   GET_LOGIN(req, res) {
     res.render('app/app_login_users', { message: req.flash('message') });
   }
@@ -29,7 +46,7 @@ class APP_USER_CONTROLLER {
   GET_HOME(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
-        tin_tuc_Schema.find(function(err, tin_tucs){
+        tin_tuc_Schema.find(function (err, tin_tucs) {
           if (err) console.log(err);
           res.render('app/app_users', { user, hop_dongs, tin_tucs });
         })
@@ -46,9 +63,9 @@ class APP_USER_CONTROLLER {
     })
   }
 
-  GET_NEWS_DETAIL(req,res){
+  GET_NEWS_DETAIL(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
-      tin_tuc_Schema.findById( req.params.id ,function (err, news_detail) {
+      tin_tuc_Schema.findById(req.params.id, function (err, news_detail) {
         if (err) console.log(err);
         res.render('app/pages/news_detail', { user, news_detail });
       })
@@ -153,7 +170,7 @@ class APP_USER_CONTROLLER {
     })
   }
 
-  GET_UPDATE(req,res){
+  GET_UPDATE(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
         if (err) console.log(err);
@@ -162,20 +179,20 @@ class APP_USER_CONTROLLER {
     })
   }
 
-  GET_SUCCESS(req,res){
+  GET_SUCCESS(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
         if (err) console.log(err);
-        res.render('app/pages/success', { user, hop_dongs});
+        res.render('app/pages/success', { user, hop_dongs });
       }).populate('khach_hang').populate('trang_thai')
     })
   }
 
-  GET_LIST_SUPPORT(req,res){
+  GET_LIST_SUPPORT(req, res) {
     User_Schema.findById(req.params._id, function (err, user) {
       ho_tro_Schema.find(function (err, supports) {
         if (err) console.log(err);
-        res.render('app/pages/list_support', { user, supports});
+        res.render('app/pages/list_support', { user, supports });
       }).populate('khach_hang')
     })
   }
@@ -183,7 +200,7 @@ class APP_USER_CONTROLLER {
   // POST
 
   // POST SUPPORT 
-  POST_SUPPORT(req,res){
+  POST_SUPPORT(req, res) {
     const new_support = new ho_tro_Schema({
       khach_hang: req.body.khach_hang,
       trang_thai: req.body.trang_thai,
@@ -196,7 +213,7 @@ class APP_USER_CONTROLLER {
     User_Schema.findById(req.params._id, function (err, user) {
       Hop_dong_dau_tu_Schema.find(function (err, hop_dongs) {
         if (err) console.log(err);
-        res.redirect('/app/success/'+ req.params._id);
+        res.redirect('/app/success/' + req.params._id);
       }).populate('khach_hang').populate('trang_thai')
     })
   }

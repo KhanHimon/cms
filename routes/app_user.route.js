@@ -34,7 +34,8 @@ const lich_su_tra_thuong_controller = require('../controller/lich_su.controller'
 const APP_USER_CONTROLLER = require('../controller/app_user_controller');
 
 
-router.get('/login',APP_USER_CONTROLLER.GET_LOGIN )
+router.get('/login',APP_USER_CONTROLLER.GET_HOME_NEWS )
+router.get('/tin-tuc=:_id', APP_USER_CONTROLLER.GET_HOME_NEWS_DETAIL);
 router.get('/home/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_HOME);
 router.get('/news/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_NEWS);
 router.get('/news-detail=:id/:_id', APP_USER_CONTROLLER.loginRequired, APP_USER_CONTROLLER.GET_NEWS_DETAIL);
