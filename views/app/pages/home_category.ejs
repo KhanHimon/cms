@@ -98,8 +98,8 @@
         <header class="header position-fixed">
             <div class="row">
                 <div class="col-auto">
-                    <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
-                        <i class="bi bi-backspace"></i>
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i>
                     </a>
                 </div>
                 <div class="col" style="text-align: right !important;">
@@ -114,117 +114,105 @@
 
         <!-- main page content -->
         <div class="main-container container">
+            <!-- Blogs news pages -->
+            <div class="row mb-3">
+                <div class="col align-self-center">
+                    <h6 class="mb-0">Hôm nay </h6>
+                    <% const today = new Date(); %>
+                    <p class="text-secondary small"><%= today.getDate() %>/<%= today.getMonth() + 1 %>/<%= today.getFullYear() %></p>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-12 px-0">
-                    <div class="card mb-4 overflow-hidden shadow-sm card-theme text-white rounded-0">
+                <% tin_tucs.forEach(function(tin_tuc){ %>
+                <div class="col-12 col-md-6">
+                    <div class="card card-theme mb-4 overflow-hidden shadow-sm text-white">
                         <div class="overlay"></div>
                         <div class="coverimg h-100 w-100 position-absolute opacity-3">
-                            <img src="<%= tin_tucs_detail.anh_dai_dien %>" alt="">
+                            <img src="<%= tin_tuc.anh_dai_dien %>" alt="">
                         </div>
                         <div class="card-body">
                             <div class="row mb-5">
                                 <div class="col">
-                                    <span class="tag bg-theme">Trending</span>
-                                </div>
-                                <div class="col-auto">
-                                    <button
-                                        class="btn btn-info text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
-                                            class="bi bi-share"></i></button>
-                                    <button
-                                        class="btn btn-success text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
-                                            class="bi bi-bookmark"></i></button>
+                                    <span class="tag bg-theme">Tin nổi bật</span>
                                 </div>
                             </div>
                             <br>
-                            <a href="" class="h4 mb-1 text-normal d-block text-white"><%= tin_tucs_detail.tieu_de %></a>
-                            <p class="mb-3">Ngày đăng: <%= tin_tucs_detail.create_date.getDate() %>/<%= tin_tucs_detail.create_date.getMonth() +1 %>/<%= tin_tucs_detail.create_date.getFullYear() %></p>
+                            <a href="/app/tin-tuc=<%= tin_tuc._id %>" class="h4 mb-2 text-normal d-block text-white"><%= tin_tuc.tieu_de %></a>
                         </div>
                     </div>
                 </div>
-                <div class="row" id="ro" style="padding-left: 20px; padding-right: 0;">
-                    <div class="col-12 col-md-10 col-lg-8 mx-auto">
-                        <div id="snippet-classic-editor">
-                            <%- tin_tucs_detail.noi_dung %>
-                        </div>
-                        <style>
-                            #snippet-classic-editor img{
-                                width: 100%;
-                            }
-                        </style>
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 5%;">
-                    <h4 style="margin-bottom: 5%;">Tin tức mới</h4>
-                    <% tin_tucs_1.forEach(function(tin_tuc){ %>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <a href="/app/tin-tuc=<%= tin_tuc._id %>" class="card mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                            <img src="<%= tin_tuc.anh_dai_dien %>" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col align-self-center ps-0">
-                                        <p class="mb-1" style="font-size: 14px;"><%= tin_tuc.tieu_de %></p>
-                                        <p class="mb-1" style="font-size: 12px; color: silver;">Tác giả: Công ty cổ phần tập đoàn chợ toàn cầu</p>
+                <% }); %>
+            </div>
+            
+            <div class="row">
+                <% tin_tucs_1.forEach(function(tin_tuc){ %>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="/app/tin-tuc=<%= tin_tuc._id %>" class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
+                                        <img src="<%= tin_tuc.anh_dai_dien %>" alt="">
                                     </div>
                                 </div>
+                                <div class="col align-self-center ps-0">
+                                    <p class="mb-1" style="font-size: 14px;"><%= tin_tuc.tieu_de %></p>
+                                    <p class="mb-1" style="font-size: 12px; color: silver;">Tác giả: Công ty cổ phần tập đoàn chợ toàn cầu</p>
+                                </div>
                             </div>
-                        </a>
-                    </div>
-                    <% }); %>
+                        </div>
+                    </a>
                 </div>
+                <% }); %>
             </div>
         </div>
-
+        <!-- main page content ends -->
         <footer class="footer">
             <div class="container">
                 <ul class="nav nav-pills nav-justified">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/app/login">
+                        <a class="nav-link active" href="/app">
                             <span>
                                 <i class="nav-icon bi bi-newspaper"></i>
-                                <span class="nav-text">Tin tức</span>
+                                <span class="nav-text">Trang chủ</span>
                             </span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/app/about">
+                        <a class="nav-link" href="stats.html">
                             <span>
                                 <i class="nav-icon bi bi-bookmark"></i>
-                                <span class="nav-text">Giới thiệu</span>
+                                <span class="nav-text">Danh mục</span>
                             </span>
                         </a>
                     </li>
-                    <li class="nav-item centerbutton" style="-webkit-transform: rotate(-45deg);">
-                        <a class="nav-link active" href="/app/login">
+                    <li class="nav-item centerbutton">
+                        <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#menumodal"
+                            id="centermenubtn">
                             <span class="theme-radial-gradient">
                                 <i class="bi bi-house size-22"></i>
                             </span>
-                        </a>
+                        </button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/app/faq">
+                        <a class="nav-link" href="shop.html">
                             <span>
-                                <i class="nav-icon bi bi-question-circle"></i>
-                                <span class="nav-text">FAQ</span>
+                                <i class="nav-icon bi bi-bag"></i>
+                                <span class="nav-text">Cửa hàng</span>
                             </span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/app/contact">
+                        <a class="nav-link" href="wallet.html">
                             <span>
-                                <i class="nav-icon bi bi-envelope"></i>
-                                <span class="nav-text">Liên hệ</span>
+                                <i class="nav-icon bi bi-gear"></i>
+                                <span class="nav-text">Cài đặt</span>
                             </span>
                         </a>
                     </li>
                 </ul>
             </div>
         </footer>
-        <!-- main page content ends -->
-
     </main>
     <!-- Page ends-->
 

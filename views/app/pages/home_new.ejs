@@ -97,12 +97,12 @@
         <!-- Header -->
         <header class="header position-fixed">
             <div class="row">
-                <div class="col-auto">
+                <!-- <div class="col-auto">
                     <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
                         <i class="bi bi-list"></i>
                     </a>
-                </div>
-                <div class="col" style="text-align: right !important;">
+                </div> -->
+                <div class="col" style="text-align: left !important;">
                     <div class="logo-small">
                         <img src="/images/gmg.png" alt="" />
                         <h5><span class="text-secondary fw-light">GMG</span><br />Tin tức</h5>
@@ -120,6 +120,9 @@
                     <h6 class="mb-0">Hôm nay </h6>
                     <% const today = new Date(); %>
                     <p class="text-secondary small"><%= today.getDate() %>/<%= today.getMonth() + 1 %>/<%= today.getFullYear() %></p>
+                </div>
+                <div class="col-auto align-self-center">
+                    <a href="#" class="medium">Xem tất cả</a>
                 </div>
             </div>
             <div class="row">
@@ -145,6 +148,11 @@
             </div>
             
             <div class="row">
+                <div class="row mb-3">
+                    <div class="col align-self-center">
+                        <h6 class="mb-0">Tin tức tổng hợp </h6>
+                    </div>
+                </div>
                 <% tin_tucs_1.forEach(function(tin_tuc){ %>
                 <div class="col-12 col-md-6 col-lg-4">
                     <a href="/app/tin-tuc=<%= tin_tuc._id %>" class="card mb-3">
@@ -165,9 +173,77 @@
                 </div>
                 <% }); %>
             </div>
+
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="row mb-3">
+                        <div class="col align-self-center">
+                            <h6 class="mb-0">Chương trình khuyến mãi </h6>
+                        </div>
+                    </div>
+                    <div class="card theme-bg overflow-hidden">
+                        <figure class="m-0 p-0 position-absolute top-0 start-0 w-100 h-100 coverimg right-center-img">
+                            <img src="assets/img/offerbg.png" alt="">
+                        </figure>
+                        <div class="card-body py-4">
+                            <div class="row">
+                                <div class="col-12 align-self-center">
+                                    <h1 class="mb-3"><span class="fw-light">Tặng 10%</span><br />Giá trị hợp đồng</h1>
+                                    <p>Tri ân khách hàng đã đồng hành cùng công ty.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <!-- main page content ends -->
-
+        <footer class="footer">
+            <div class="container">
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/app/login">
+                            <span>
+                                <i class="nav-icon bi bi-newspaper"></i>
+                                <span class="nav-text">Tin tức</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/app/about">
+                            <span>
+                                <i class="nav-icon bi bi-bookmark"></i>
+                                <span class="nav-text">Giới thiệu</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item centerbutton" style="-webkit-transform: rotate(-45deg);">
+                        <a class="nav-link active" href="/app/login">
+                            <span class="theme-radial-gradient">
+                                <i class="bi bi-house size-22"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/app/faq">
+                            <span>
+                                <i class="nav-icon bi bi-question-circle"></i>
+                                <span class="nav-text">FAQ</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/app/contact">
+                            <span>
+                                <i class="nav-icon bi bi-envelope"></i>
+                                <span class="nav-text">Liên hệ</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
     </main>
     <!-- Page ends-->
 

@@ -97,12 +97,12 @@
         <!-- Header -->
         <header class="header position-fixed">
             <div class="row">
-                <div class="col-auto">
-                    <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
-                        <i class="bi bi-backspace"></i>
+                <!-- <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i>
                     </a>
-                </div>
-                <div class="col" style="text-align: right !important;">
+                </div> -->
+                <div class="col" style="text-align: left !important;">
                     <div class="logo-small">
                         <img src="/images/gmg.png" alt="" />
                         <h5><span class="text-secondary fw-light">GMG</span><br />Tin tức</h5>
@@ -114,70 +114,42 @@
 
         <!-- main page content -->
         <div class="main-container container">
-            <div class="row">
-                <div class="col-12 px-0">
-                    <div class="card mb-4 overflow-hidden shadow-sm card-theme text-white rounded-0">
-                        <div class="overlay"></div>
-                        <div class="coverimg h-100 w-100 position-absolute opacity-3">
-                            <img src="<%= tin_tucs_detail.anh_dai_dien %>" alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="row mb-5">
-                                <div class="col">
-                                    <span class="tag bg-theme">Trending</span>
-                                </div>
-                                <div class="col-auto">
-                                    <button
-                                        class="btn btn-info text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
-                                            class="bi bi-share"></i></button>
-                                    <button
-                                        class="btn btn-success text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
-                                            class="bi bi-bookmark"></i></button>
-                                </div>
-                            </div>
-                            <br>
-                            <a href="" class="h4 mb-1 text-normal d-block text-white"><%= tin_tucs_detail.tieu_de %></a>
-                            <p class="mb-3">Ngày đăng: <%= tin_tucs_detail.create_date.getDate() %>/<%= tin_tucs_detail.create_date.getMonth() +1 %>/<%= tin_tucs_detail.create_date.getFullYear() %></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" id="ro" style="padding-left: 20px; padding-right: 0;">
-                    <div class="col-12 col-md-10 col-lg-8 mx-auto">
-                        <div id="snippet-classic-editor">
-                            <%- tin_tucs_detail.noi_dung %>
-                        </div>
-                        <style>
-                            #snippet-classic-editor img{
-                                width: 100%;
-                            }
-                        </style>
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 5%;">
-                    <h4 style="margin-bottom: 5%;">Tin tức mới</h4>
-                    <% tin_tucs_1.forEach(function(tin_tuc){ %>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <a href="/app/tin-tuc=<%= tin_tuc._id %>" class="card mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                            <img src="<%= tin_tuc.anh_dai_dien %>" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col align-self-center ps-0">
-                                        <p class="mb-1" style="font-size: 14px;"><%= tin_tuc.tieu_de %></p>
-                                        <p class="mb-1" style="font-size: 12px; color: silver;">Tác giả: Công ty cổ phần tập đoàn chợ toàn cầu</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <% }); %>
-                </div>
-            </div>
+            <!-- Content text -->
+            <h5>Công Ty Cổ Phần Tập Đoàn Chợ Toàn Cầu</h5>
+            <p>Website của chúng tôi: https://chotoancau.vn/</p>
+            <br>
+            <h6>Tên gọi đầy đủ: CÔNG TY CỔ PHẦN TẬP ĐOÀN CHỢ TOÀN CẦU</h6>
+            <h6>Tên tiếng Anh: GLOBAL MARKET GROUP JOINT STOCK COMPANY</h6>
+            <h6>Tên công ty viết tắt:  GMG.JSC</h6>
+            <p>Địa chỉ trụ sở chính: LK 31& LK 32, ngõ 1 Phố Lâm Hạ, P. Bồ Đề, Q. Long Biên, TP Hà Nội.</p>
+            <p>Giấy chứng nhận đăng ký kinh doanh của Công ty Cổ phần Tập đoàn Chợ Toàn Cầu
+                Số: 2802772702 đăng ký thay đổi lần 3, ngày cấp: 06/07/2022 do Sở Kế hoạch Đầu tư thành phố Hà Nội cấp.</p>
+            <h6>Điện thoại: 0243.8622.555</h6>
+            <p>Email: info@chotoancau.vn</p>
+            <h6>Các dịch vụ cung cấp:</h6>
+            <p>1. Tư vấn đầu tư, khảo sát, thiết kế, đấu thầu, giám sát, thi công các công trình xây dựng dân dụng, công nghiệp, giao thông, thuỷ lợi, hạ tầng kỹ thuật. 
+                Các công trình triển khai xây dựng đã khẳng định uy tín, thương hiệu, hiệu quả kinh doanh của Công ty Cổ phần Tập đoàn Chợ Toàn Cầu.</p>
+            <p>2. Trực tiếp đầu tư các dự án và một số hoạt động kinh doanh khác, tuân thủ theo quy định của pháp luật, đầu tư xây dựng, quản lý và kinh doanh các dự án.</p>
+            <p>3. Cung cấp và kết nối các tiểu thương, các doanh nghiệp, các Hợp tác xã trong nước và quốc tế thúc đẩy giao thương hàng hóa.</p>
+            <h6>Sứ mệnh</h6>
+            <p>- Khôi phục, phát triển và nâng cao hiệu quả hoạt động chợ truyền thống.</p>
+            <p>- Kiến tạo các mô hình chợ kiểu mới an toàn, hiện đại, văn minh, đậm đà bản sắc dân tộc.</p>
+            <p>- Phát huy lợi ích, kết nối tiểu thương và người tiêu dùng trên phạm vi toàn quốc.</p>
+            <h6>Tầm nhìn</h6>
+            <p>- Công ty Cổ phần Tập đoàn Chợ Toàn Cầu hoạt động đa ngành, đa nghề ở trong nước và ngoài nước, phát triển bền vững lâu dài, 
+                duy trì và phát triển thương hiệu có sức cạnh tranh trong nước và quốc tế. Đến năm 2025 là đơn vị hàng đầu trong việc xây dựng, 
+                phát triển và nâng cao hiệu quả hoạt động chợ truyền thống trên cả nước, kết nối đầu tư, xây dựng chợ ra ngoài nước.</p>
+            <p>- Luôn đổi mới, sáng tạo, kiến tạo hệ sinh thái, làm nền tảng cho sự phát triển của tiểu thương, người tiêu dùng Việt Nam, hướng tới sự thịnh vượng của các địa phương và đất nước.</p>
+            <h5>Triết lý kinh doanh</h5>
+            <p>Tạo giá trị - Gửi niềm tin</p>
+            <h5>Giá trị cốt lõi</h5>
+            <p>- Tư duy: Đổi mới - Sáng tạo - Hiệu quả</p>
+            <p>- Tinh thần: Đoàn kết - Hợp tác - Chia sẻ</p>
+            <p>- Hành động: Trách nhiệm - Tôn trọng đối tác - Cùng có lợi</p>
+            <p>- Kết quả: Phát triển - Bền vững - Thành công</p>
+            <br>
         </div>
-
+        <!-- main page content ends -->
         <footer class="footer">
             <div class="container">
                 <ul class="nav nav-pills nav-justified">
@@ -223,8 +195,6 @@
                 </ul>
             </div>
         </footer>
-        <!-- main page content ends -->
-
     </main>
     <!-- Page ends-->
 

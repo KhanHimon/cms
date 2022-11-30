@@ -97,12 +97,12 @@
         <!-- Header -->
         <header class="header position-fixed">
             <div class="row">
-                <div class="col-auto">
-                    <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
-                        <i class="bi bi-backspace"></i>
+                <!-- <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i>
                     </a>
-                </div>
-                <div class="col" style="text-align: right !important;">
+                </div> -->
+                <div class="col" style="text-align: left !important;">
                     <div class="logo-small">
                         <img src="/images/gmg.png" alt="" />
                         <h5><span class="text-secondary fw-light">GMG</span><br />Tin tức</h5>
@@ -114,70 +114,50 @@
 
         <!-- main page content -->
         <div class="main-container container">
-            <div class="row">
-                <div class="col-12 px-0">
-                    <div class="card mb-4 overflow-hidden shadow-sm card-theme text-white rounded-0">
-                        <div class="overlay"></div>
-                        <div class="coverimg h-100 w-100 position-absolute opacity-3">
-                            <img src="<%= tin_tucs_detail.anh_dai_dien %>" alt="">
+            <!-- Contact us form -->
+            <div class="row my-4">
+                <form action="/app/submit-support" method="post">
+                    <div class="col-12 col-md-6 mx-auto">
+                        <h1 class="mb-3"><br/>Hỗ trợ 24/7</h1>
+                        <p class="text-secondary mb-4">Cám ơn! Bạn đã gửi yêu cầu hỗ trợ chúng tôi</p>
+                        <div class="form-floating  is-invalid mb-3">
+                            <input type="hidden" value="" name="khach_hang" id="khach_hang">
+                            <input type="hidden" value="Chưa trả lời" name="trang_thai" id="trang_thai">
+                            <textarea class="form-control h-auto" placeholder="Bạn cần chúng tôi hỗ trợ về..." id="noi_dung" name="noi_dung"></textarea>
+                            <label for="noi_dung">Nội dung hỗ trợ</label>
                         </div>
+                        <button type="submit" class="btn btn-default btn-lg w-100 shadow-sm">Gửi yêu cầu</button>
+                    </div>
+                </form>
+            </div>
+            <!-- Contact us blocks -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-4 col-lg-6 mb-4">
+                    <h6 class="mb-2">Địa chỉ email hỗ trợ</h6>
+                    <p class="text-secondary">Hỗ trợ các vấn đề liên quan đến trải nghiệm phần mềm, các vấn đề pháp lý hợp đồng <span class="text-primary">info@chotoancau.vn</span></p>
+                </div>
+            </div>
+            <!-- Address -->
+            <div class="row mb-2">
+                <div class="col">
+                    <h6 class="my-1">Trụ sở chính: </h6>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card shadow-sm">
                         <div class="card-body">
-                            <div class="row mb-5">
-                                <div class="col">
-                                    <span class="tag bg-theme">Trending</span>
-                                </div>
-                                <div class="col-auto">
-                                    <button
-                                        class="btn btn-info text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
-                                            class="bi bi-share"></i></button>
-                                    <button
-                                        class="btn btn-success text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
-                                            class="bi bi-bookmark"></i></button>
-                                </div>
-                            </div>
-                            <br>
-                            <a href="" class="h4 mb-1 text-normal d-block text-white"><%= tin_tucs_detail.tieu_de %></a>
-                            <p class="mb-3">Ngày đăng: <%= tin_tucs_detail.create_date.getDate() %>/<%= tin_tucs_detail.create_date.getMonth() +1 %>/<%= tin_tucs_detail.create_date.getFullYear() %></p>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8944130536747!2d105.87814281540248!3d21.03691039287482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135a9fe10fd1c05%3A0x634aa6aac64e58b5!2zQ8O0bmcgdHkgQ1AgVOG6rXAgxJFvw6BuIENo4bujIFRvw6BuIEPhuqd1IC0gR01H!5e0!3m2!1svi!2s!4v1669802756642!5m2!1svi!2s"
+                                class="h-190 w-100 rounded mb-3" allowfullscreen="" loading="lazy"></iframe>
+
+                            <h6 class="text-primary mb-2">Công ty cổ phần tập đoàn chợ toàn cầu</h6>
+                            <p class="text-secondary">LK 31& LK 32,<br>ngõ 1 Phố Lâm Hạ, P. Bồ Đề,<br>Q. Long Biên, TP Hà Nội.</p>
                         </div>
                     </div>
-                </div>
-                <div class="row" id="ro" style="padding-left: 20px; padding-right: 0;">
-                    <div class="col-12 col-md-10 col-lg-8 mx-auto">
-                        <div id="snippet-classic-editor">
-                            <%- tin_tucs_detail.noi_dung %>
-                        </div>
-                        <style>
-                            #snippet-classic-editor img{
-                                width: 100%;
-                            }
-                        </style>
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 5%;">
-                    <h4 style="margin-bottom: 5%;">Tin tức mới</h4>
-                    <% tin_tucs_1.forEach(function(tin_tuc){ %>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <a href="/app/tin-tuc=<%= tin_tuc._id %>" class="card mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                            <img src="<%= tin_tuc.anh_dai_dien %>" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col align-self-center ps-0">
-                                        <p class="mb-1" style="font-size: 14px;"><%= tin_tuc.tieu_de %></p>
-                                        <p class="mb-1" style="font-size: 12px; color: silver;">Tác giả: Công ty cổ phần tập đoàn chợ toàn cầu</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <% }); %>
                 </div>
             </div>
         </div>
-
+        <!-- main page content ends -->
         <footer class="footer">
             <div class="container">
                 <ul class="nav nav-pills nav-justified">
@@ -223,8 +203,6 @@
                 </ul>
             </div>
         </footer>
-        <!-- main page content ends -->
-
     </main>
     <!-- Page ends-->
 

@@ -97,12 +97,12 @@
         <!-- Header -->
         <header class="header position-fixed">
             <div class="row">
-                <div class="col-auto">
-                    <a href="javascript:history.back()" class="btn btn-light btn-44" style="line-height: 38px;">
-                        <i class="bi bi-backspace"></i>
+                <!-- <div class="col-auto">
+                    <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                        <i class="bi bi-list"></i>
                     </a>
-                </div>
-                <div class="col" style="text-align: right !important;">
+                </div> -->
+                <div class="col" style="text-align: left !important;">
                     <div class="logo-small">
                         <img src="/images/gmg.png" alt="" />
                         <h5><span class="text-secondary fw-light">GMG</span><br />Tin tức</h5>
@@ -114,70 +114,67 @@
 
         <!-- main page content -->
         <div class="main-container container">
-            <div class="row">
-                <div class="col-12 px-0">
-                    <div class="card mb-4 overflow-hidden shadow-sm card-theme text-white rounded-0">
-                        <div class="overlay"></div>
-                        <div class="coverimg h-100 w-100 position-absolute opacity-3">
-                            <img src="<%= tin_tucs_detail.anh_dai_dien %>" alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="row mb-5">
-                                <div class="col">
-                                    <span class="tag bg-theme">Trending</span>
-                                </div>
-                                <div class="col-auto">
-                                    <button
-                                        class="btn btn-info text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
-                                            class="bi bi-share"></i></button>
-                                    <button
-                                        class="btn btn-success text-white avatar avatar-40 p-0 rounded-circle shadow-sm"><i
-                                            class="bi bi-bookmark"></i></button>
-                                </div>
-                            </div>
-                            <br>
-                            <a href="" class="h4 mb-1 text-normal d-block text-white"><%= tin_tucs_detail.tieu_de %></a>
-                            <p class="mb-3">Ngày đăng: <%= tin_tucs_detail.create_date.getDate() %>/<%= tin_tucs_detail.create_date.getMonth() +1 %>/<%= tin_tucs_detail.create_date.getFullYear() %></p>
+            <!-- Banner FAQs -->
+            <div class="row mb-4 position-relative py-5 bg-theme">
+                <div class="col-10 col-md-6 col-lg-4 mx-auto align-self-center">
+                    <h5 class="text-center mb-2">Các câu hỏi thường gặp</h5>
+                    <p class="text-center text-muted">Tìm kiếm danh mục lựa chọn và câu hỏi mong muốn của bạn.</p>
+                </div>
+            </div>
+            <!-- Question list -->
+            <div class="row mb-3">
+                <div class="col">
+                    <h6 class="mb-0">Danh sách câu hỏi</h6>
+                </div>
+            </div>
+            <div class="accordion accordion-flush shadow-sm mb-4" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                            Làm thế nào để đầu tư
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body text-secondary">
+                            Để đầu tư vào các dự án của công ty bạn có thể thông qua sale tư vấn làm hợp đồng hợp tác đầu tư hoặc đến địa chỉ 
+                            trụ sở chính của công ty là LK 31& LK 32, ngõ 1 Phố Lâm Hạ, P. Bồ Đề, Q. Long Biên, TP Hà Nội để trực tiếp được tư vấn 
+                            và ký hợp đồng hợp tác đầu tư.
                         </div>
                     </div>
                 </div>
-                <div class="row" id="ro" style="padding-left: 20px; padding-right: 0;">
-                    <div class="col-12 col-md-10 col-lg-8 mx-auto">
-                        <div id="snippet-classic-editor">
-                            <%- tin_tucs_detail.noi_dung %>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Mức đầu tư tối thiểu là bao nhiêu?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body text-secondary">Mức đầu tư tối thiểu để đầu tư là 10.000.000 đồng.
+                            Với mức lợi nhuận hấp dẫn và các chính sách ưu đãi thì đầu tư bất động sản chợ là một nơi đầu tư đầy lợi nhuận.
                         </div>
-                        <style>
-                            #snippet-classic-editor img{
-                                width: 100%;
-                            }
-                        </style>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 5%;">
-                    <h4 style="margin-bottom: 5%;">Tin tức mới</h4>
-                    <% tin_tucs_1.forEach(function(tin_tuc){ %>
-                    <div class="col-12 col-md-6 col-lg-4">
-                        <a href="/app/tin-tuc=<%= tin_tuc._id %>" class="card mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                            <img src="<%= tin_tuc.anh_dai_dien %>" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col align-self-center ps-0">
-                                        <p class="mb-1" style="font-size: 14px;"><%= tin_tuc.tieu_de %></p>
-                                        <p class="mb-1" style="font-size: 12px; color: silver;">Tác giả: Công ty cổ phần tập đoàn chợ toàn cầu</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            Lợi nhuận được chi trả như thế nào?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body text-secondary">Lợi nhuận sau khi ký kết hợp đồng hợp tác đầu tư sẽ được chi trả vào ngày 15 hàng tháng với mức lợi nhuận đã 
+                            cam kết trong hợp đồng hợp tác đầu tư. 
+                        </div>
                     </div>
-                    <% }); %>
                 </div>
             </div>
         </div>
-
+        <!-- main page content ends -->
         <footer class="footer">
             <div class="container">
                 <ul class="nav nav-pills nav-justified">
@@ -223,8 +220,6 @@
                 </ul>
             </div>
         </footer>
-        <!-- main page content ends -->
-
     </main>
     <!-- Page ends-->
 
