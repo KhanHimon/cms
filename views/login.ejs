@@ -21,7 +21,7 @@
         <div class="container h-100">
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="col-md-12">
-                    <div class="authincation-content">
+                    <div class="authincation-content" style="box-shadow: none">
                         <div class="row no-gutters">
                             <div class="col-xl-6 d-none d-xl-block d-lg-none">
                                 <center>
@@ -47,31 +47,38 @@
                                             box.style.display = 'none';
                                         }, 5000);
                                     </script>
-                                    <form action="/login" method="post">
-                                        <div class="form-group">
-                                            <label class="mb-1"><strong>Tài khoản</strong></label>
-                                            <input type="username" style="text-transform: uppercase" name="username" id="username"  class="form-control" value="">
+                                    
+                                    <form id="login-form" action="/login" method="post">
+                                        <div class="form-group form-floating mb-3 is-valid">
+                                            <input type="text" class="form-control" type="username" name="username"
+                                            onkeypress="this.value = this.value + event.key.toUpperCase(); return false;"
+                                            style="text-transform: uppercase" id="username">
+                                            <label class="form-control-label" for="email">Tài khoản</label>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="mb-1"><strong>Mật khẩu</strong></label>
-                                            <input type="password" name="password" id="password"  class="form-control" value="">
+                    
+                                        <div class="form-group form-floating is-valid mb-3">
+                                            <input class="form-control " type="password" name="password" id="password">
+                                            <label class="form-control-label" for="password">Mật khẩu</label>
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">
-                                                <div class="custom-control custom-checkbox ml-1">
-                                                    <input type="checkbox" class="custom-control-input"
-                                                        id="basic_checkbox_1">
-                                                    <label class="custom-control-label" for="basic_checkbox_1">Nhớ tài khoản</label>
-                                                </div>
+                                                <a href="/sale/login">Đăng nhập sale?</a>
                                             </div>
                                             <div class="form-group">
-                                                <a href="page-forgot-password.html">Quên mật khẩu?</a>
+                                                <a href="">Quên mật khẩu?</a>
                                             </div>
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
                                         </div>
                                     </form>
+                                    <script>
+                                        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+                                            document.getElementById("login-form").action = "/app/login_app"
+                                        }else{
+                                            document.getElementById("login-form").action = "/login"
+                                        }
+                                    </script>
                                 </div>
                             </div>
                         </div>

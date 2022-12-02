@@ -308,11 +308,11 @@ class APP_USER_CONTROLLER {
       if (err) throw err;
       if (!user) {
         req.flash('message', "Sai tài khoản hoặc mật khẩu");
-        res.render('./app/app_login_users', { message: req.flash('message') });
+        res.redirect('/login');
       } else if (user) {
         if (!user.password) {
           req.flash('message', "Sai tài khoản hoặc mật khẩu");
-          res.render('./app/app_login_users', { message: req.flash('message') });
+          res.redirect('/login');
         } else {
           res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
           return res.redirect('/app/home/' + user._id);
@@ -327,7 +327,7 @@ class APP_USER_CONTROLLER {
         res.cookie('token', jwt.sign({ username: user.username, _id: user._id }, 'RESTFULAPIs'));
         res.redirect('/app/home/' + user._id);
       } else {
-        res.redirect('/app/login');
+        res.redirect('/login');
       }
     })
   }
@@ -338,12 +338,12 @@ class APP_USER_CONTROLLER {
     if (token) {
       next()
     } else {
-      res.redirect('/app/login');
+      res.redirect('/login');
     }
   };
   logout(req, res, next) {
     res.clearCookie('token');
-    return res.redirect('/app/login');
+    return res.redirect('/login');
   }
 
 }
