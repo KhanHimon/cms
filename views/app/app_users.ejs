@@ -210,6 +210,55 @@
                 </div>
             </div>
 
+            <div class="row mb-3">
+                <div class="col">
+                    <h6 class="title">Hợp đồng đàu tư</h6>
+                </div>
+                <div class="col-auto align-self-center">
+                    <a href="/app/contract/<%= user.id %>" class="small">Xem thêm</a>
+                </div>
+            </div>
+            <div class="row">
+                <% const thang=new Date(); %>
+                <% const month=thang.getMonth() + 1; %>
+                <% thang.setMonth(month, 0); %>
+                <% hop_dongs.forEach(hop_dong=> { %>
+                    <% if ( hop_dong.khach_hang.id===user.id) { %>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <a href="/app/detail=<%= hop_dong.id %>/<%= user.id %>" class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center ps-0">
+                                            <p class="mb-1" style="font-size: 14px;">Mã HĐ : <%= hop_dong.ma_hop_dong %></p>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="text-muted size-14">Đầu tư : <%= hop_dong.so_tien_dau_tu.toLocaleString() %> đ</p>
+                                                </div>
+                                                <div class="col">
+                                                    <% if ((hop_dong.ngay_ky_hop_dong.getMonth() + 1)==month) { %>
+                                                        <p style="color: blue; font-size: 13px;">Lãi tháng <%= month %>: <%= hop_dong.loi_nhuan.thang_dau.toFixed(0) %> đ</p>
+                                                    <% } %>
+                                                    <% if((hop_dong.ngay_ky_hop_dong.getMonth() + 1) !=month) { %>
+                                                        <p style="color: blue; font-size: 13px;">Lãi tháng <%= month %>: <%= hop_dong.loi_nhuan.thang.toLocaleString() %> đ</p>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>
+                <% }); %>
+            </div>
+
             <!-- offers banner -->
             <div class="row mb-4">
                 <div class="col-12">
@@ -256,7 +305,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div> 
                 <% }); %>
             </div>
 

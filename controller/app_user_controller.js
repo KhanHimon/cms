@@ -22,35 +22,6 @@ const { token } = require('morgan');
 
 class APP_USER_CONTROLLER {
 
-  GET_HOME_NEWS(req, res) {
-    tin_tuc_Schema.find(function (err, tin_tucs) {
-      tin_tuc_Schema.find(function (err, tin_tucs_1) {
-        if (err) console.log(err);
-        res.render('app/pages/home_new', { tin_tucs, tin_tucs_1 });
-      }).limit(5)
-    }).limit(1)
-  }
-  GET_HOME_NEWS_DETAIL(req, res) {
-    tin_tuc_Schema.findById(req.params._id, function (err, tin_tucs_detail) {
-      tin_tuc_Schema.find(function (err, tin_tucs_1) {
-        if (err) console.log(err);
-        res.render('app/pages/home_new_detail', { tin_tucs_detail, tin_tucs_1 });
-      }).limit(2)
-    })
-  }
-
-  GET_HOME_ABOUT(req,res){
-    res.render('app/pages/home_about');
-  }
-
-  GET_HOME_FAQ(req,res){
-    res.render('app/pages/home_faq');
-  }
-
-  GET_HOME_CONTACT(req,res){
-    res.render('app/pages/home_contact');
-  }
-
   GET_LOGIN(req, res) {
     res.render('app/app_login_users', { message: req.flash('message') });
   }
@@ -61,7 +32,7 @@ class APP_USER_CONTROLLER {
         tin_tuc_Schema.find(function (err, tin_tucs) {
           if (err) console.log(err);
           res.render('app/app_users', { user, hop_dongs, tin_tucs });
-        })
+        }).sort({create_date : -1}).limit(5)
       }).populate('khach_hang').populate('trang_thai')
     })
   }
@@ -71,7 +42,7 @@ class APP_USER_CONTROLLER {
       tin_tuc_Schema.find(function (err, tin_tucs) {
         if (err) console.log(err);
         res.render('app/pages/news', { user, tin_tucs });
-      })
+      }).sort({create_date : -1})
     })
   }
 

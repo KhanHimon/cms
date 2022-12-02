@@ -337,47 +337,28 @@
                                                                                             { %>
                                                                                             <tr>
                                                                                                 <td>
-                                                                                                    <%= hop_dong.ma_hop_dong
-                                                                                                        %>
+                                                                                                    <%= hop_dong.ma_hop_dong %>
                                                                                                 </td>
                                                                                                 <td>
-                                                                                                    <%= hop_dong.khach_hang.ho_va_ten
-                                                                                                        %>
+                                                                                                    <%= hop_dong.khach_hang.ho_va_ten %>
                                                                                                 </td>
                                                                                                 <td>
-                                                                                                    <%= hop_dong.so_tien_dau_tu.toLocaleString();
-                                                                                                        %> đ
+                                                                                                    <%= hop_dong.so_tien_dau_tu.toLocaleString(); %> đ
                                                                                                 </td>
                                                                                                 <td>
-                                                                                                    <%= hop_dong.thoi_han_dau_tu
-                                                                                                        %> tháng
+                                                                                                    <%= hop_dong.thoi_han_dau_tu %> tháng
                                                                                                 </td>
 
                                                                                                 <td>
-                                                                                                    <%= hop_dong.ngay_ky_hop_dong.getDate()
-                                                                                                        %>/<%=
-                                                                                                            hop_dong.ngay_ky_hop_dong.getMonth()
-                                                                                                            + 1 %>/<%=
-                                                                                                                hop_dong.ngay_ky_hop_dong.getFullYear()
-                                                                                                                %>
+                                                                                                    <%= hop_dong.ngay_ky_hop_dong.getDate()%>/<%= hop_dong.ngay_ky_hop_dong.getMonth() + 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() %>
                                                                                                 </td>
                                                                                                 <td>
-                                                                                                    <%= hop_dong.tien_ocopshop.toLocaleString();
-                                                                                                        %> đ
+                                                                                                    <%= hop_dong.tien_ocopshop.toLocaleString(); %> đ
                                                                                                 </td>
                                                                                                 <td>
-                                                                                                    <%= hop_dong.ngay_ky_hop_dong.getDate()
-                                                                                                        - 1 %>/<%=
-                                                                                                            hop_dong.ngay_ky_hop_dong.getMonth()
-                                                                                                            + 1 %>/<%=
-                                                                                                                hop_dong.ngay_ky_hop_dong.getFullYear()
-                                                                                                                +
-                                                                                                                (hop_dong.thoi_han_dau_tu/12)
-                                                                                                                %>
+                                                                                                    <%= hop_dong.ngay_ky_hop_dong.getDate() - 1 %>/<%= hop_dong.ngay_ky_hop_dong.getMonth()+ 1 %>/<%= hop_dong.ngay_ky_hop_dong.getFullYear() + (hop_dong.thoi_han_dau_tu/12) %>
                                                                                                 </td>
-                                                                                                <% if
-                                                                                                    ((hop_dong.ngay_ky_hop_dong.getMonth()
-                                                                                                    + 1)==month) { %>
+                                                                                                <% if ((hop_dong.ngay_ky_hop_dong.getMonth() + 1)==month) { %>
                                                                                                     <td
                                                                                                         style="color: rgb(57, 78, 239); font-weight: 600;">
                                                                                                         <span
@@ -386,22 +367,14 @@
                                                                                                         đ
                                                                                                     </td>
                                                                                                     <% } %>
-                                                                                                        <% if
-                                                                                                            ((hop_dong.ngay_ky_hop_dong.getMonth()
-                                                                                                            + 1)
-                                                                                                            !=month) {
-                                                                                                            %>
-                                                                                                            <td
-                                                                                                                style="color: rgb(57, 78, 239); font-weight: 600;">
-                                                                                                                <%= hop_dong.loi_nhuan.thang.toLocaleString()
-                                                                                                                    %> đ
+                                                                                                        <% if((hop_dong.ngay_ky_hop_dong.getMonth() + 1) !=month) { %>
+                                                                                                            <td style="color: rgb(57, 78, 239); font-weight: 600;">
+                                                                                                                <%= hop_dong.loi_nhuan.thang.toLocaleString() %> đ
                                                                                                             </td>
-                                                                                                            <% } %>
-                                                                                                                <td
-                                                                                                                    style="color: green; font-weight: 600;">
-                                                                                                                    <%= hop_dong.trang_thai.ten_trang_thai
-                                                                                                                        %>
-                                                                                                                </td>
+                                                                                                        <% } %>
+                                                                                                            <td style="color: green; font-weight: 600;">
+                                                                                                                <%= hop_dong.trang_thai.ten_trang_thai%>
+                                                                                                            </td>
                                                                                                                 <!-- <td>
                                                                   <button type="submit" class="btn btn-soft-success" ><i class="ri-add-circle-line align-middle me-1"></i> Xem hợp đồng</button>
                                                                 </td> -->
