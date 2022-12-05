@@ -17,7 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.6",
     "morgan": "~1.9.1",
-    "reload": "^3.2.0",
+    "reload": "^3.2.0"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",
