@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "alert-node": "^5.0.3",
@@ -18,6 +18,8 @@
     "mongoose": "^6.3.6",
     "morgan": "~1.9.1",
     "reload": "^3.2.0",
+    "socket.io": "^4.5.2",
+    "socket.io-client": "^4.5.3",
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
