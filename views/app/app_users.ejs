@@ -241,10 +241,10 @@
                                                 </div>
                                                 <div class="col">
                                                     <% if ((hop_dong.ngay_ky_hop_dong.getMonth() + 1)==month) { %>
-                                                        <p style="color: blue; font-size: 13px;">Lãi tháng <%= month %>: <%= hop_dong.loi_nhuan.thang_dau.toFixed(0) %> đ</p>
+                                                        <p style="color: blue; font-size: 13px;">Lợi nhuận tháng <%= month %>: <%= hop_dong.loi_nhuan.thang_dau.toFixed(0) %> đ</p>
                                                     <% } %>
                                                     <% if((hop_dong.ngay_ky_hop_dong.getMonth() + 1) !=month) { %>
-                                                        <p style="color: blue; font-size: 13px;">Lãi tháng <%= month %>: <%= hop_dong.loi_nhuan.thang.toLocaleString() %> đ</p>
+                                                        <p style="color: blue; font-size: 13px;">Lợi nhuận tháng <%= month %>: <%= hop_dong.loi_nhuan.thang.toLocaleString() %> đ</p>
                                                     <% } %>
                                                 </div>
                                             </div>
