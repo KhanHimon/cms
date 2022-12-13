@@ -99,7 +99,7 @@
       <!--offcanvas menu start-->
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
         <div class="offcanvas-header d-flex align-items-center mt-4">
-          <a href="index.html" class="d-flex align-items-center mb-md-0 text-decoration-none">
+          <a href="/" class="d-flex align-items-center mb-md-0 text-decoration-none">
             <img src="./images/gmg.png" width="50px" alt="logo" class="img-fluid ps-2" />
           </a>
           <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
@@ -107,7 +107,7 @@
           </button>
         </div>
         <div class="offcanvas-body">
-          <ul class="nav col-12 col-md-auto justify-content-center main-menu">
+          <ul class="nav col-12 col-md-auto justify-content-center main-menu"> 
             <li><a href="/" class="nav-link">Trang chủ</a></li>
             <li><a href="" class="nav-link">Giới thiệu</a></li>
             <li><a href="" class="nav-link">Chính sách</a></li>
@@ -116,7 +116,14 @@
           </ul>
           <div class="action-btns mt-4 ps-3">
             <a href="login.html" class="btn btn-outline-primary me-2">Đăng ký</a>
-            <a href="/login" class="btn btn-primary">Đăng nhập</a>
+            <a id="login" href="/login" class="btn btn-primary">Đăng nhập</a>
+            <script>
+              if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+                  document.getElementById("login").href = "/app/login_app"
+              }else{
+                  document.getElementById("login").href = "/app/login_app"
+              }
+          </script>
           </div>
         </div>
       </div>
