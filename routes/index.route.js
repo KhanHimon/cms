@@ -26,6 +26,10 @@ router.get('/lich-su/:_id', login_controller.loginRequired, index_controller.lic
 router.get('/api-hop-dong', index_controller.API_hop_dong_dau_tu);
 router.post('/sua-thong-tin/:id', login_controller.loginRequired, user_controller.thay_doi_thong_tin);
 
+router.get('/chuc-em-giang-sinh-an-lanh', function (req,res){
+  res.render('noel')
+});
+
 
 
 router.post('/logout-client', login_controller.logout); 

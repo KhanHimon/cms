@@ -17,6 +17,7 @@ const app_router = require('./routes/app_user.route');
 const app_sale = require('./routes/app_sale.route');
 
 
+
 // thêm thư viện mongoose để kết nối vớ mongodb
 const mongoose = require('mongoose');
 // kết nối mongodb
