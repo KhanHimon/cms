@@ -5,6 +5,11 @@ const Lich_su_Schema = require('../models/lich_su.model');
 const thong_bao_Schema = require('../models/thong_bao.model');
 
 class index_controller {
+
+    get_noel(req,res){
+        res.render('noel');
+    }
+
     hien_thi_thong_tin_ca_nhan(req,res){
         UserSchema.findById(req.params._id, function (err, user) {
             Hop_dong_dau_tu_Schema.find(function(err, hop_dongs){

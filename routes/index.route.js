@@ -12,6 +12,7 @@ const user_controller = require('../controller/user.controller');
 router.get('/', function (req, res, next) {
   res.render('index');
 });
+router.get('/noel', index_controller.get_noel);
 router.get('/phieu-khach-hang', function (req, res, next) {
   res.render('phieu_khach_hang');
 });
@@ -26,9 +27,7 @@ router.get('/lich-su/:_id', login_controller.loginRequired, index_controller.lic
 router.get('/api-hop-dong', index_controller.API_hop_dong_dau_tu);
 router.post('/sua-thong-tin/:id', login_controller.loginRequired, user_controller.thay_doi_thong_tin);
 
-router.get('/noel', function (req,res,next){
-  res.render('noel')
-});
+
 
 
 
