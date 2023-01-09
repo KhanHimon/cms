@@ -317,7 +317,7 @@
                                                                                             <th scope="col">Ngân hàng</th>
                                                                                     </tr> 
                                                                                 </thead>
-                                                                                <tbody id="myTable">
+                                                                                <tbody id="tat_ca">
                                                                                     <% var index_1 = 0 %>
                                                                                         <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
                                                                                             <% sales.forEach(function(sales){ index_1++ %>
@@ -391,7 +391,7 @@
                                                                                                 return buf;
                                                                                 }
                                                                                 $("#button-a").click(function(){
-                                                                                saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_SALE.xlsx');
+                                                                                saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), 'DS_SALE_ALL.xlsx');
                                                                                 });
                                                                             </script>
                                                                         </div>
@@ -436,7 +436,7 @@
                                                                                             <th scope="col">Ngân hàng</th>
                                                                                     </tr> 
                                                                                 </thead>
-                                                                                <tbody id="myTable">
+                                                                                <tbody id="nhan_vien_kinh_doanh">
                                                                                     <% var index_1 = 0 %>
                                                                                     <% if (sale.chuc_vu._id == "62f60037939e9682e0c6973c" || sale.chuc_vu._id == "630ed1b47b0c8dd5727f39b6" || sale.chuc_vu._id == "6316e5768871a27fb5b0ae8f" || sale.chuc_vu._id == "630ed69b7b0c8dd5727f3b50" ) { %>
                                                                                         <% sales.forEach(function(sales){ index_1++ %>
@@ -506,7 +506,7 @@
                                                                         
                                                                     </div>
                                                                     <script>
-                                                                        var wb = XLSX.utils.table_to_book(document.getElementById('tat_ca'), {sheet:"Sheet JS"});
+                                                                        var wb = XLSX.utils.table_to_book(document.getElementById('nhan_vien_kinh_doanh'), {sheet:"Sheet JS"});
                                                                         var wbout = XLSX.write(wb, {bookType:'xlsx', bookSST:true, type: 'binary'});
                                                                         function s2ab(s) {
                     
